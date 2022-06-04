@@ -1,0 +1,36 @@
+V make stdin select()
+V make multi client chat
+V make echo server to chat
+V fix error client[0]
+  make nick& connect to test
+V remove cliaddt struct
++ Peer using
+V use dprintf for to client output
+  new connection print to all client
+V make object comm
+V fix two connections error(make diff port connection to chose cli or ser)
+  in server class fix confirmation of welcome
+V fix allsend error (send not all)
+v tcp scanner for server
+  creation socket
+  run in curcle
+  get two paremetr method
+  make peer return
+  RX TX class
+  pologit kak chast celogo
+  manuvr descriptorami (chastotami)
+V opis'
+  povesit matem ogidanie na priglashenie
+V unrem cli print socket
+V client/server chat  (in one programmm)
+V addres polymorph
+V	init (peer, type)
+V client error fix (ip)
+  client connect 2 ispravit` 
+V fix echo to write client
+  privat message enum commands, typedefs nicknames
+  nicknames
+
+
+  init to ctr
+
