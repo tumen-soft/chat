@@ -17,7 +17,7 @@
 //#include <map>
 //#include <cstring>
 //#include <iostream>
-#define PORT 3111 
+#define PORT 311 
 #define MAXLINE 1024
 
 enum PeerType{
@@ -132,8 +132,8 @@ ServerCtr(Server * const me){
 
 
 //typedef struct {Server server; Client client;}Self;
-void ConnectServer(){printf("connect server\n");}
-void ConnectClient(){printf("connect client\n");}
+void ConnectServer(){printf("starting server at ...(ip)\n");}
+void ConnectClient(){printf("starting client at ...(ip)\n");}
 
 
 void ConnectToChat(Peer const * const me) {
@@ -143,54 +143,11 @@ void ConnectToChat(Peer const * const me) {
 
 
 
-
-/*
-void create_socket(struct Self *self){
-	self->sock=socket(AF_INET, SOCK_STREAM, 0);
-}
-void close_socket(struct Self *self){
-	close(self->sock);
-}
-void connect_to_socket(struct Self * self){
-	connect(self->sock, (struct sockaddr*)&self->Client::addres, sizeof(self->Client::addres));
-}
-void bind_socket(struct Self* self){
-	bind(self->sock, (struct sockaddr*)&self->addres, sizeof(self->addres));
-}
-void listen_socket(struct Self * self){
-	listen(self->sock, 10);
-}
-void accept_connection(struct Self * self){
-	self->new_socket = accept(self->sock,NULL,NULL);
-}
-void select_connection(struct Self *self){
-	select(10, &self->read_fd, NULL, NULL, NULL);
-}
-
-
-void init(struct Self *self){
-
-	self->crt_sock=create_socket;
-	self->cls_sock=close_socket;
-	self->sel_conn=select_connection;
-	self->addres.sin_family = AF_INET;
-	self->addres.sin_port = htons(PORT);
-	self->lsn_sock=listen_socket;
-	self->bnd_sock=bind_socket;
-	self->acpt_conn=accept_connection;
-	self->cnt_to_sock=connect_to_socket;
-        self->sel_conn=select_connection;
-	self->Server::addres.sin_addr.s_addr = htonl(INADDR_ANY); 
-	//comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
-}
-*/
-
-
 int main(){
 
 
 
-       struct sockaddr_in addr;
+        struct sockaddr_in addr;
         int socke = socket(AF_INET, SOCK_STREAM, 0);
         addr.sin_family = AF_INET;
         addr.sin_port = htons(PORT);
@@ -215,8 +172,8 @@ ConnectToChat(&cli);
 cli.peer.addres.sin_addr.s_addr = inet_addr(a);
 connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
 	//cli.peer.sock=socke;
-	read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
-        printf("server: %s\n",cli.peer.buffer);
+	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
+        //printf("server: %s\n",cli.peer.buffer);
 	for(;;){
 	memset(cli.peer.buffer, 0, sizeof(cli.peer.buffer));
 	FD_ZERO(&cli.peer.read_fd);
@@ -238,7 +195,7 @@ ServerCtr(&ser);
 ConnectToChat(&ser);
 
 
-ser.max_clients=30;
+ser.max_clients=10;
 ser.sd=0;
 ser.sd2=0;
         bind(ser.peer.sock, (struct sockaddr *)&ser.peer.addres, sizeof(ser.peer.addres));
