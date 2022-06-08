@@ -17,7 +17,7 @@
 //#include <map>
 //#include <cstring>
 //#include <iostream>
-#define PORT 311 
+#define PORT 1311 
 #define MAXLINE 1024
 
 enum PeerType{
@@ -27,10 +27,10 @@ enum PeerType{
 void ConnectServer();
 void ConnectClient();
 typedef void (* Func)(struct Self *self);
-struct ShapeVtbl;
+struct Vtbl;
 
 typedef struct {
-	struct ShapeVtbl const *vptr; /* <== Shape's Virtual Pointer */
+	struct Vtbl const *vptr;
 
 
         int sock;
@@ -40,21 +40,21 @@ typedef struct {
 	fd_set read_fd;
 	Func crt_sock, cls_sock, sel_conn;
 } Peer;
-static void Shape_draw_(Peer const * const me);
-struct ShapeVtbl {
-   // uint32_t (*area)(Shape const * const me);
+static void _conn(Peer const * const me);
+struct Vtbl {
+
     void (*conn)(Peer const * const me);
 };
 
 
-static void Shape_draw_(Peer const * const me) {
+static void _conn(Peer const * const me) {
     assert(0); /* purely-virtual function should never be called */
 }
 
 
 void PeerCtr(Peer * const me) {
-    static struct ShapeVtbl const vtbl = { /* vtbl of the Shape class */
-        &Shape_draw_
+    static struct Vtbl const vtbl = { /* vtbl of the Shape class */
+        &_conn
      };
      me->vptr = &vtbl; /* "hook" the vptr to the vtbl */
 	
@@ -83,7 +83,7 @@ typedef struct{
 
 void ClientCtr(Client * const me){
 
-    static struct ShapeVtbl const vtbl = {&ConnectClient};
+    static struct Vtbl const vtbl = {&ConnectClient};
     PeerCtr(&me->peer);  
     me->peer.vptr = &vtbl;  
 	//me->peer.addres.sin_addr.s_addr = inet_addr("127.0.0.1");
@@ -106,7 +106,7 @@ typedef struct {
 
 ServerCtr(Server * const me){
 
-    static struct ShapeVtbl const vtbl = {&ConnectServer};
+    static struct Vtbl const vtbl = {&ConnectServer};
     PeerCtr(&me->peer);
     me->peer.vptr = &vtbl;
 	me->peer.addres.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -180,8 +180,12 @@ connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addre
         FD_SET(0, &cli.peer.read_fd);
         FD_SET(cli.peer.sock, &cli.peer.read_fd);
         select(10, &cli.peer.read_fd, NULL, NULL, NULL);
-	if(FD_ISSET(0, &cli.peer.read_fd)){read(0,cli.peer.buffer,sizeof(cli.peer.buffer));dprintf(cli.peer.sock,cli.peer.buffer);}  
-        if(FD_ISSET(cli.peer.sock, &cli.peer.read_fd)){read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));printf("server: %s\n", cli.peer.buffer);}
+	if(FD_ISSET(0, &cli.peer.read_fd)){
+	read(0,cli.peer.buffer,sizeof(cli.peer.buffer));
+	dprintf(cli.peer.sock,cli.peer.buffer);}  
+        if(FD_ISSET(cli.peer.sock, &cli.peer.read_fd)){
+	read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
+	printf("server: %s\n", cli.peer.buffer);}
 	}        
 	close(cli.peer.sock);
 
@@ -206,66 +210,49 @@ ser.sd2=0;
         FD_ZERO(&ser.peer.read_fd);      
         ser.max_sd = ser.peer.sock; 
 	ser.client_socket[0]=0;
-	for (int i = 0 ; i < ser.max_clients ; i++) 
-                { 
-                        //socket descriptor 
-                        ser.sd = ser.client_socket[i]; 
-                        //if valid socket descriptor then add to read list 
-                        if(ser.sd >= 0) 
-                                FD_SET( ser.sd , &ser.peer.read_fd); 
-                        //highest file descriptor number, need it for the select function 
-                        if(ser.sd > ser.max_sd) 
-                                ser.max_sd = ser.sd; 
-                }  
+	for (int i = 0 ; i < ser.max_clients ; i++){ 
+        ser.sd = ser.client_socket[i]; 
+        if(ser.sd >= 0)FD_SET( ser.sd , &ser.peer.read_fd); 
+        if(ser.sd > ser.max_sd)ser.max_sd = ser.sd;}  
         //FD_SET(0, &ser.peer.read_fd);
         FD_SET(ser.peer.sock, &ser.peer.read_fd);  
-        select(ser.max_clients, &ser.peer.read_fd, NULL, NULL, NULL);//man select
-
-if (FD_ISSET(ser.peer.sock, &ser.peer.read_fd)){ 
-while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}
-while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}	
-printf("New connection %d\n",ser.new_socket);	
-
-dprintf(ser.new_socket,"welcome %d\n",ser.new_socket);	
-				
-			puts("Welcome message sent."); 
-			//add new socket to array of sockets 
-			for (int j = 0; j < ser.max_clients; j++) 
-			{ 
-				//if position is empty 
-				if( ser.client_socket[j] == -1) 
-				{ 
-					ser.client_socket[j] = ser.new_socket; 
-					printf("Adding to list of sockets as %d\n" , j); 
-					break; 
-				} 
-			} 
-		} 
+        select(ser.max_clients, &ser.peer.read_fd, NULL, NULL, NULL);
+	if (FD_ISSET(ser.peer.sock, &ser.peer.read_fd)){ 
+	while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}
+	while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}	
+	printf("New connection %d\n",ser.new_socket);	
+	dprintf(ser.new_socket,"welcome %d\n",ser.new_socket);	
+	puts("Welcome message sent."); 
+	for (int j = 0; j < ser.max_clients; j++) 
+	{ 
+	if( ser.client_socket[j] == -1) 
+	{ 
+	ser.client_socket[j] = ser.new_socket; 
+	printf("Adding to list of sockets as %d\n" , j); 
+	break; 
+	} 
+	} 
+	} 
 
 		for (int k = 0; k < ser.max_clients; k++) 
 		{ 
 			//ser.sd = ser.client_socket[k]; 
 			if (FD_ISSET( ser.client_socket[k] , &ser.peer.read_fd )) 
 			{ 
-				//Check if it was for closing , and also read the 
-				//incoming message 
 				if ((ser.valread = read(ser.client_socket[k], &ser.peer.buffer, sizeof(ser.peer.buffer))) == 0)//man read 
 				{ 
-					//Somebody disconnected , get his details and print 
-					//getpeername(sd , (struct sockaddr*)&cliaddr , (socklen_t*)&addrlen); 
 				
 					printf("Host disconnected %d \n" , ser.client_socket[k]); 
 					close( ser.client_socket[k] ); 
 					ser.client_socket[k] = -1; 
 				} 
-				//Echo back the message that came in 
 			else
 				{ 
 			//ser.peer.buffer[ser.valread] = '\0';  
-         		for ( int l = 0 ; l < ser.max_clients ; l++){if(ser.client_socket[l]>=0)dprintf(ser.client_socket[l],"%s\n", ser.peer.buffer);//dprintf(ser.client_socket[l],"%i says: %s\n",ser.client_socket[k], ser.peer.buffer);
+         		for ( int l = 0 ; l < ser.max_clients ; l++){if(ser.client_socket[l]>=0)dprintf(ser.client_socket[l],"%i says: %s\n",ser.client_socket[k], ser.peer.buffer);
 
 			//printf("%i says: %s\n",ser.client_socket[k],ser.peer.buffer);}
-		        if (l==ser.max_clients-1)printf("%s\n",ser.peer.buffer);
+		        //if (l==ser.max_clients-1)printf("%s\n",ser.peer.buffer);
 }
 				}
 			} 
