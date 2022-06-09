@@ -191,7 +191,7 @@ AUTOMAKE = ${SHELL} '/root/forge/chat/missing' automake-1.16
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Wincompatible-pointer-types
+CFLAGS = -lpthread
 CPPFLAGS = 
 CXX = g++
 CXXDEPMODE = depmode=gcc3

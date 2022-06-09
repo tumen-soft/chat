@@ -13,17 +13,16 @@
 #include <unistd.h>  //close(), fread()
 #include <assert.h>
 #include <string.h>
-//#include <string>  //string type
-//#include <map>
-//#include <cstring>
-//#include <iostream>
+#include <pthread.h>
 #define PORT 1311 
 #define MAXLINE 1024
-
-enum PeerType{
+pthread_t tid[2];
+/*
+enum {
 	server,
 	client
-};
+}PeerType;
+*/
 void ConnectServer();
 void ConnectClient();
 typedef void (* Func)(struct Self *self);
@@ -97,7 +96,9 @@ typedef struct {
 	//int run(void){return 0;};
         int  sd, sd2, new_socket, client_socket[30], max_clients, activity, i, max_sd;
 	int valread;
-        //nmap nicknames;
+        pthread_t tid[2];
+ 
+	//nmap nicknames;
 	
 
 }Server;
@@ -140,18 +141,38 @@ void ConnectToChat(Peer const * const me) {
     (*me->vptr->conn)(me);
 }
 
+void* doSomeThing(void *arg)
+{
+    unsigned long i = 0;
+    pthread_t id = pthread_self();
+
+    if(pthread_equal(id,tid[0]))
+    {
+        printf("thread");
+    }
+    else
+    {
+        printf("\n Second thread processing\n");
+    }
 
 
+    return NULL;
+}
 
+enum PT{
+        server,
+        client
+};
 int main(){
 
-
+enum PT isServer;
 
         struct sockaddr_in addr;
         int socke = socket(AF_INET, SOCK_STREAM, 0);
         addr.sin_family = AF_INET;
         addr.sin_port = htons(PORT);
-        for(int i=202;i<204;i++){
+        pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
+	for(int i=202;i<204;i++){
         char a[256] = "192.168.1.";
         char b[10];
         //int c = i;
@@ -161,15 +182,19 @@ int main(){
         puts(a);
         addr.sin_addr.s_addr =  inet_addr(a);
         
-        if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){
+        if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0)isServer=client; else isServer=server;
 
+}
 
-
+switch(isServer)
+{
+    case client:
+{
 
 Client cli;
 ClientCtr(&cli);
 ConnectToChat(&cli);
-cli.peer.addres.sin_addr.s_addr = inet_addr(a);
+cli.peer.addres.sin_addr.s_addr = addr.sin_addr.s_addr;
 connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
 	//cli.peer.sock=socke;
 	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
@@ -192,7 +217,12 @@ connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addre
 
 return 0;
 }
-}
+
+
+
+case server:
+{
+
 
 Server ser;
 ServerCtr(&ser);
@@ -260,6 +290,10 @@ ser.sd2=0;
 	}
 	close(ser.sd2);
 	close(ser.peer.sock);
+
+}
+}
+
 return 0;	
 }
 
