@@ -141,50 +141,54 @@ void ConnectToChat(Peer const * const me) {
     (*me->vptr->conn)(me);
 }
 
+
+enum PeerType{
+ server,
+ client
+};
+enum PeerType isServer;
+struct arg{
+	int x;
+
+};
+
+typedef struct arg args;
+struct sockaddr_in addr;
 void* doSomeThing(void *arg)
 {
-    unsigned long i = 0;
-    pthread_t id = pthread_self();
 
-    if(pthread_equal(id,tid[0]))
-    {
-        printf("thread");
-    }
-    else
-    {
-        printf("\n Second thread processing\n");
-    }
+args* q=(args*)arg;
+// struct sockaddr_in addr;
+ int socke = socket(AF_INET, SOCK_STREAM, 0);
+ addr.sin_family = AF_INET;
+ addr.sin_port = htons(PORT);
+// pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
+ //for(int i=202;i<204;i++){
+ char a[256] = "192.168.1.";
+ char b[10];
+ //int c = i;
+ sprintf(b,"%d",q->x);
+ //a="192.168.1."
+ strcat(a,b);
+ puts(a);
+ addr.sin_addr.s_addr =  inet_addr(a);
+ 
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){isServer
+    =client;return 0;} else isServer=server;
+
+ //}
+ 
+
 
 
     return NULL;
 }
 
-enum PT{
-        server,
-        client
-};
 int main(){
-
-enum PT isServer;
-
-        struct sockaddr_in addr;
-        int socke = socket(AF_INET, SOCK_STREAM, 0);
-        addr.sin_family = AF_INET;
-        addr.sin_port = htons(PORT);
-        pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
-	for(int i=202;i<204;i++){
-        char a[256] = "192.168.1.";
-        char b[10];
-        //int c = i;
-        sprintf(b,"%d",i);
-        //a="192.168.1."
-        strcat(a,b);
-        puts(a);
-        addr.sin_addr.s_addr =  inet_addr(a);
-        
-        if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0)isServer=client; else isServer=server;
-
-}
+args ar;
+ar.x=203;
+  pthread_create(&(tid[0]), NULL, &doSomeThing, &ar);
+  pthread_join(tid[0],NULL);
 
 switch(isServer)
 {
