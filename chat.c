@@ -16,7 +16,7 @@
 #include <pthread.h>
 #define PORT 131 
 #define MAXLINE 1024
-pthread_t tid[10];
+pthread_t tid[100];
 void ConnectServer();
 void ConnectClient();
 struct Vtbl;
@@ -119,7 +119,7 @@ void* doSomeThing(void *arg)
 //ar.y="test";
 args* q=(args*)arg;
 
-sprintf(q->y,"%s","test");
+//sprintf(q->y,"%s","test");
 //q->y="test";
 // struct sockaddr_in addr;
  int socke = socket(AF_INET, SOCK_STREAM, 0);
@@ -143,7 +143,7 @@ sprintf(q->y,"%s","test");
 int main(){
 
 //enum PeerType isServer;
-args ar[100]={server};
+args ar[100]={NULL,"127.0.0.1",server};
 ///ar[0].isServer=server;
 //args ar;
 int j=0;
@@ -160,8 +160,12 @@ pthread_join(tid[s],NULL);
 //sleep(5);
 printf("%s\n",ar[0].y);
 //if (ar.y!="test")isServer=client;
+enum PeerType isserver=client;
+for(int u=0;u<100;u++){
+if(ar[u].isServer=server)isserver=server;
+}
 
-switch(ar[0].isServer)
+switch(isserver)
 {
     case client:
 {
