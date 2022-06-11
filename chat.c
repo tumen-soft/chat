@@ -148,7 +148,7 @@ args ar[256]={NULL,"127.0.0.1",server};
 //args ar;
 int j=0;
 
-for (int i=200;i<204;i++){
+for (int i=199;i<204;i++){
 ar[j].x=i;
   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
  j++;
@@ -162,7 +162,7 @@ sleep(5);
 //if (ar.y!="test")isServer=client;
 enum PeerType isserver=server;
 int u;
-for(u=0;u<4;u++){
+for(u=0;u<5;u++){
 if(ar[u].isServer==client){isserver=client;break;}
 }
 
@@ -213,7 +213,7 @@ ser.max_clients=10;
 ser.sd=0;
 ser.sd2=0;
         bind(ser.peer.sock, (struct sockaddr *)&ser.peer.addres, sizeof(ser.peer.addres));
-        listen(ser.peer.sock, 10);
+        listen(ser.peer.sock, 15);
         for (int i = 0; i < ser.max_clients; i++) ser.client_socket[i] = -1;  
 
         for(;;){
