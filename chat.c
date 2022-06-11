@@ -14,18 +14,11 @@
 #include <assert.h>
 #include <string.h>
 #include <pthread.h>
-#define PORT 1311 
+#define PORT 131 
 #define MAXLINE 1024
-pthread_t tid[2];
-/*
-enum {
-	server,
-	client
-}PeerType;
-*/
+pthread_t tid[10];
 void ConnectServer();
 void ConnectClient();
-typedef void (* Func)(struct Self *self);
 struct Vtbl;
 
 typedef struct {
@@ -37,7 +30,6 @@ typedef struct {
 	char* message;
         char buffer[MAXLINE];
 	fd_set read_fd;
-	Func crt_sock, cls_sock, sel_conn;
 } Peer;
 static void _conn(Peer const * const me);
 struct Vtbl {
@@ -69,67 +61,33 @@ printf("socket creation failed\n");}
 
 typedef struct{
 	Peer peer;
-
-
-
-
-
-
-	Func cnt_to_sock;
-	//int run(void){return 0;};
 }Client;
 
 
 void ClientCtr(Client * const me){
-
     static struct Vtbl const vtbl = {&ConnectClient};
     PeerCtr(&me->peer);  
     me->peer.vptr = &vtbl;  
-	//me->peer.addres.sin_addr.s_addr = inet_addr("127.0.0.1");
-
+    //me->peer.addres.sin_addr.s_addr = inet_addr("127.0.0.1");
 }
 
 
 typedef struct {
         Peer peer;
-	Func bnd_sock, lsn_sock, acpt_conn;
-	//int run(void){return 0;};
         int  sd, sd2, new_socket, client_socket[30], max_clients, activity, i, max_sd;
 	int valread;
         pthread_t tid[2];
- 
-	//nmap nicknames;
-	
-
 }Server;
 
 
 
 ServerCtr(Server * const me){
-
     static struct Vtbl const vtbl = {&ConnectServer};
     PeerCtr(&me->peer);
     me->peer.vptr = &vtbl;
-	me->peer.addres.sin_addr.s_addr = htonl(INADDR_ANY);
+    me->peer.addres.sin_addr.s_addr = htonl(INADDR_ANY);
 //me->max_clients=30;
-
-
-
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //typedef struct {Server server; Client client;}Self;
@@ -146,18 +104,23 @@ enum PeerType{
  server,
  client
 };
-enum PeerType isServer;
 struct arg{
 	int x;
-
+	char y[256];
+	enum PeerType isServer;
 };
-
+Client cli;
 typedef struct arg args;
 struct sockaddr_in addr;
+//args ar;
+
 void* doSomeThing(void *arg)
 {
-
+//ar.y="test";
 args* q=(args*)arg;
+
+sprintf(q->y,"%s","test");
+//q->y="test";
 // struct sockaddr_in addr;
  int socke = socket(AF_INET, SOCK_STREAM, 0);
  addr.sin_family = AF_INET;
@@ -170,35 +133,43 @@ args* q=(args*)arg;
  sprintf(b,"%d",q->x);
  //a="192.168.1."
  strcat(a,b);
- puts(a);
+ //puts(a);
  addr.sin_addr.s_addr =  inet_addr(a);
  
- if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){isServer
-    =client;return 0;} else isServer=server;
-
- //}
- 
-
-
-
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=client;return 0;}
     return NULL;
 }
 
 int main(){
-args ar;
-ar.x=203;
-  pthread_create(&(tid[0]), NULL, &doSomeThing, &ar);
-  pthread_join(tid[0],NULL);
 
-switch(isServer)
+//enum PeerType isServer;
+args ar[100]={server};
+///ar[0].isServer=server;
+//args ar;
+int j=0;
+
+for (int i=200;i<204;i++){
+ar[j].x=i;
+  pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
+ j++;
+}
+
+for(int s=0;s<4;s++)
+pthread_join(tid[s],NULL);
+//ar.y="test";
+//sleep(5);
+printf("%s\n",ar[0].y);
+//if (ar.y!="test")isServer=client;
+
+switch(ar[0].isServer)
 {
     case client:
 {
 
-Client cli;
+//Client cli;
 ClientCtr(&cli);
 ConnectToChat(&cli);
-cli.peer.addres.sin_addr.s_addr = addr.sin_addr.s_addr;
+cli.peer.addres.sin_addr.s_addr = inet_addr(ar[0].y);
 connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
 	//cli.peer.sock=socke;
 	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
