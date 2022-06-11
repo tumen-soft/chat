@@ -16,7 +16,7 @@
 #include <pthread.h>
 #define PORT 131 
 #define MAXLINE 1024
-pthread_t tid[100];
+pthread_t tid[256];
 void ConnectServer();
 void ConnectClient();
 struct Vtbl;
@@ -143,7 +143,7 @@ args* q=(args*)arg;
 int main(){
 
 //enum PeerType isServer;
-args ar[100]={NULL,"127.0.0.1",server};
+args ar[256]={NULL,"127.0.0.1",server};
 ///ar[0].isServer=server;
 //args ar;
 int j=0;
@@ -154,15 +154,16 @@ ar[j].x=i;
  j++;
 }
 
-for(int s=0;s<4;s++)
-pthread_join(tid[s],NULL);
+//for(int s=200;s<204;s++)
+//pthread_join(tid[s],NULL);
 //ar.y="test";
-//sleep(5);
-printf("%s\n",ar[0].y);
+sleep(5);
+//printf("%s\n",ar[0].y);
 //if (ar.y!="test")isServer=client;
-enum PeerType isserver=client;
-for(int u=0;u<100;u++){
-if(ar[u].isServer=server)isserver=server;
+enum PeerType isserver=server;
+int u;
+for(u=0;u<4;u++){
+if(ar[u].isServer==client){isserver=client;break;}
 }
 
 switch(isserver)
@@ -173,7 +174,7 @@ switch(isserver)
 //Client cli;
 ClientCtr(&cli);
 ConnectToChat(&cli);
-cli.peer.addres.sin_addr.s_addr = inet_addr(ar[0].y);
+cli.peer.addres.sin_addr.s_addr = inet_addr(ar[u].y);
 connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
 	//cli.peer.sock=socke;
 	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
