@@ -14,7 +14,7 @@
 #include <assert.h>
 #include <string.h>
 #include <pthread.h>
-#define PORT 131 
+#define PORT 1311 
 #define MAXLINE 1024
 pthread_t tid[256];
 void ConnectServer();
@@ -148,7 +148,7 @@ args ar[256]={NULL,"127.0.0.1",server};
 //args ar;
 int j=0;
 
-for (int i=199;i<204;i++){
+for (int i=0;i<256;i++){
 ar[j].x=i;
   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
  j++;
@@ -162,7 +162,7 @@ sleep(5);
 //if (ar.y!="test")isServer=client;
 enum PeerType isserver=server;
 int u;
-for(u=0;u<5;u++){
+for(u=0;u<256;u++){
 if(ar[u].isServer==client){isserver=client;break;}
 }
 
@@ -184,7 +184,7 @@ connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addre
 	FD_ZERO(&cli.peer.read_fd);
         FD_SET(0, &cli.peer.read_fd);
         FD_SET(cli.peer.sock, &cli.peer.read_fd);
-        select(10, &cli.peer.read_fd, NULL, NULL, NULL);
+        select(300, &cli.peer.read_fd, NULL, NULL, NULL);
 	if(FD_ISSET(0, &cli.peer.read_fd)){
 	read(0,cli.peer.buffer,sizeof(cli.peer.buffer));
 	dprintf(cli.peer.sock,cli.peer.buffer);}  
@@ -226,7 +226,7 @@ ser.sd2=0;
         if(ser.sd > ser.max_sd)ser.max_sd = ser.sd;}  
         //FD_SET(0, &ser.peer.read_fd);
         FD_SET(ser.peer.sock, &ser.peer.read_fd);  
-        select(ser.max_clients, &ser.peer.read_fd, NULL, NULL, NULL);
+        select(300, &ser.peer.read_fd, NULL, NULL, NULL);
 	if (FD_ISSET(ser.peer.sock, &ser.peer.read_fd)){ 
 	while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}
 	while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}	
