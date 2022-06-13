@@ -14,13 +14,16 @@
 #include <assert.h>
 #include <string.h>
 #include <pthread.h>
+#include <stdlib.h>
 #define PORT 1311 
 #define MAXLINE 1024
+#define SOCKETERROR (-1)
+
 pthread_t tid[256];
 void ConnectServer();
 void ConnectClient();
 struct Vtbl;
-
+int check(int exp, const char *msg);
 typedef struct {
 	struct Vtbl const *vptr;
 
@@ -49,9 +52,7 @@ void PeerCtr(Peer * const me) {
      };
      me->vptr = &vtbl; /* "hook" the vptr to the vtbl */
 	
-if ( me->sock=(socket(AF_INET, SOCK_STREAM, 0)))  {//man socket
-}else{
-printf("socket creation failed\n");}
+check ( me->sock=(socket(AF_INET, SOCK_STREAM, 0)), "socket creation failed\n");
    me->addres.sin_family = AF_INET;
    me->addres.sin_port = htons(PORT);
 
@@ -99,6 +100,13 @@ void ConnectToChat(Peer const * const me) {
     (*me->vptr->conn)(me);
 }
 
+int check(int exp, const char *msg){
+if (exp == SOCKETERROR){
+	printf("%s\n",msg);
+	exit(1);
+}
+return exp;
+}
 
 enum PeerType{
  server,
@@ -146,6 +154,7 @@ int main(){
 args ar[256]={NULL,"127.0.0.1",server};
 ///ar[0].isServer=server;
 //args ar;
+//printf("waiting for connection...");
 int j=0;
 
 for (int i=0;i<256;i++){
@@ -157,6 +166,7 @@ ar[j].x=i;
 //for(int s=200;s<204;s++)
 //pthread_join(tid[s],NULL);
 //ar.y="test";
+//printf("waiting for connection...");
 sleep(5);
 //printf("%s\n",ar[0].y);
 //if (ar.y!="test")isServer=client;
