@@ -52,8 +52,13 @@ void PeerCtr(Peer * const me) {
      };
      me->vptr = &vtbl; /* "hook" the vptr to the vtbl */
 	
-check ( me->sock=(socket(AF_INET, SOCK_STREAM, 0)), "socket creation failed\n");
-   me->addres.sin_family = AF_INET;
+ me->sock=(socket(AF_INET, SOCK_STREAM, 0));
+
+
+	check(me->sock, "socket creation failed\n");   
+
+
+me->addres.sin_family = AF_INET;
    me->addres.sin_port = htons(PORT);
 
 }
