@@ -19,6 +19,10 @@
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
 
+
+
+
+
 pthread_t tid[256];
 void ConnectServer();
 void ConnectClient();
@@ -26,8 +30,6 @@ struct Vtbl;
 int check(int exp, const char *msg);
 typedef struct {
 	struct Vtbl const *vptr;
-
-
         int sock;
         struct sockaddr_in addres;
 	char* message;
@@ -36,13 +38,12 @@ typedef struct {
 } Peer;
 static void _conn(Peer const * const me);
 struct Vtbl {
-
     void (*conn)(Peer const * const me);
 };
 
 
 static void _conn(Peer const * const me) {
-    assert(0); /* purely-virtual function should never be called */
+    assert(0);
 }
 
 
@@ -117,13 +118,34 @@ enum PeerType{
  server,
  client
 };
+struct arg;
+
+struct node{
+	struct node *next;
+	struct arg;
+
+};
+
+typedef struct node node_t;
+typedef struct arg args;
+node_t * head = NULL;
+node_t * tail = NULL;
+void enqueue(args * ar){}
+
+args * dequeue(){}
+
+
+
+
+
+
 struct arg{
 	int x;
 	char y[256];
 	enum PeerType isServer;
 };
+
 Client cli;
-typedef struct arg args;
 struct sockaddr_in addr;
 //args ar;
 
@@ -160,24 +182,28 @@ args ar[256]={NULL,"127.0.0.1",server};
 ///ar[0].isServer=server;
 //args ar;
 //printf("waiting for connection...");
+
 int j=0;
 
-for (int i=0;i<256;i++){
+for (int i=100;i<255;i++){
 ar[j].x=i;
   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
  j++;
 }
 
-//for(int s=200;s<204;s++)
-//pthread_join(tid[s],NULL);
+
+
+
+
+for(int s=100;s<255;s++)if(tid[s]!=NULL)pthread_join(tid[s],NULL);
 //ar.y="test";
 //printf("waiting for connection...");
-sleep(5);
+//sleep(2);
 //printf("%s\n",ar[0].y);
 //if (ar.y!="test")isServer=client;
 enum PeerType isserver=server;
 int u;
-for(u=0;u<256;u++){
+for(u=0;u<155;u++){
 if(ar[u].isServer==client){isserver=client;break;}
 }
 
@@ -227,8 +253,8 @@ ConnectToChat(&ser);
 ser.max_clients=10;
 ser.sd=0;
 ser.sd2=0;
-        bind(ser.peer.sock, (struct sockaddr *)&ser.peer.addres, sizeof(ser.peer.addres));
-        listen(ser.peer.sock, 15);
+        check(bind(ser.peer.sock, (struct sockaddr *)&ser.peer.addres, sizeof(ser.peer.addres)), "error bind"    );
+        check(listen(ser.peer.sock, 15), "error listen");
         for (int i = 0; i < ser.max_clients; i++) ser.client_socket[i] = -1;  
 
         for(;;){
@@ -243,8 +269,8 @@ ser.sd2=0;
         FD_SET(ser.peer.sock, &ser.peer.read_fd);  
         select(300, &ser.peer.read_fd, NULL, NULL, NULL);
 	if (FD_ISSET(ser.peer.sock, &ser.peer.read_fd)){ 
-	while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}
-	while((ser.new_socket = accept(ser.peer.sock,NULL,NULL))<=0){}	
+	ser.new_socket = accept(ser.peer.sock,NULL,NULL);
+	ser.new_socket = accept(ser.peer.sock,NULL,NULL);	
 	printf("New connection %d\n",ser.new_socket);	
 	dprintf(ser.new_socket,"welcome %d\n",ser.new_socket);	
 	puts("Welcome message sent."); 
