@@ -15,7 +15,7 @@
 #include <string.h>
 #include <pthread.h>
 #include <stdlib.h>
-#define PORT 1311 
+#define PORT 111 
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
 
@@ -201,7 +201,7 @@ args ar[256]={NULL,"127.0.0.1",server};
 
 int j=0;
 
-for (int i=100;i<255;i++){
+for (int i=0;i<255;i++){
 ar[j].x=i;
   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
   ar->tid=tid[j];
@@ -228,7 +228,7 @@ pthread_join(pclient->tid,NULL);
 //if (ar.y!="test")isServer=client;
 enum PeerType isserver=server;
 int u;
-for(u=0;u<155;u++){
+for(u=0;u<255;u++){
 if(ar[u].isServer==client){isserver=client;break;}
 }
 
