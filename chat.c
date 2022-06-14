@@ -119,25 +119,40 @@ enum PeerType{
  client
 };
 struct arg;
-
+typedef struct arg args;
 struct node{
 	struct node *next;
-	struct arg;
+	args *ar;
 
 };
 
 typedef struct node node_t;
-typedef struct arg args;
+//typedef struct arg args;
 node_t * head = NULL;
 node_t * tail = NULL;
-void enqueue(args * ar){}
-
-args * dequeue(){}
-
-
-
-
-
+void enqueue(args * ar){
+node_t * newnode = malloc(sizeof(node_t));
+newnode->ar = ar;
+newnode->next=NULL;
+if(tail==NULL){
+head=newnode;
+}else{
+tail->next = newnode;
+}
+tail=newnode;
+}
+args * dequeue(){
+if(head==NULL){
+return NULL;
+}else{
+args *result = head->ar;
+node_t *temp = head;
+head=head->next;
+if (head==NULL){tail==NULL;};
+free(temp);
+return result;
+}
+}
 
 struct arg{
 	int x;
@@ -188,14 +203,20 @@ int j=0;
 for (int i=100;i<255;i++){
 ar[j].x=i;
   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
- j++;
+  enqueue(&ar[j]); 
+j++;
 }
 
 
 
 
+args *pclient;
+for(int s=100;s<255;s++){
+pclient=dequeue();
+if(tid[s]!=NULL)
+pthread_join(tid[s],NULL);
+}
 
-for(int s=100;s<255;s++)if(tid[s]!=NULL)pthread_join(tid[s],NULL);
 //ar.y="test";
 //printf("waiting for connection...");
 //sleep(2);
