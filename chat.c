@@ -213,7 +213,8 @@ j++;
 
 
 args *pclient;
-for(int s=100;s<255;s++){
+pclient=dequeue();
+while(pclient){
 pclient=dequeue();
 if((pclient!=NULL)&&(pclient->tid!=NULL))
 //if(tid[s]!=NULL)
