@@ -155,6 +155,7 @@ return result;
 }
 
 struct arg{
+	pthread_t tid;
 	int x;
 	char y[256];
 	enum PeerType isServer;
@@ -203,6 +204,7 @@ int j=0;
 for (int i=100;i<255;i++){
 ar[j].x=i;
   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
+  ar->tid=tid[j];
   enqueue(&ar[j]); 
 j++;
 }
@@ -213,8 +215,9 @@ j++;
 args *pclient;
 for(int s=100;s<255;s++){
 pclient=dequeue();
-if(tid[s]!=NULL)
-pthread_join(tid[s],NULL);
+if((pclient!=NULL)&&(pclient->tid!=NULL))
+//if(tid[s]!=NULL)
+pthread_join(pclient->tid,NULL);
 }
 
 //ar.y="test";
