@@ -211,14 +211,15 @@ j++;
 
 
 
-
+enum PeerType isserver=server;
 args *pclient;
 pclient=dequeue();
 while(pclient){
 pclient=dequeue();
-if((pclient!=NULL)&&(pclient->tid!=NULL))
+if((pclient!=NULL)&&(pclient->tid!=NULL)){
 //if(tid[s]!=NULL)
-pthread_join(pclient->tid,NULL);
+pthread_join(pclient->tid,NULL);}
+if(pclient)if(pclient->isServer==client){isserver=client;break;}
 }
 
 //ar.y="test";
@@ -226,11 +227,11 @@ pthread_join(pclient->tid,NULL);
 //sleep(2);
 //printf("%s\n",ar[0].y);
 //if (ar.y!="test")isServer=client;
-enum PeerType isserver=server;
-int u;
-for(u=0;u<255;u++){
-if(ar[u].isServer==client){isserver=client;break;}
-}
+//enum PeerType isserver=server;
+//int u;
+//for(u=0;u<255;u++){
+//if(ar[u].isServer==client){isserver=client;break;}
+//}
 
 switch(isserver)
 {
@@ -240,7 +241,7 @@ switch(isserver)
 //Client cli;
 ClientCtr(&cli);
 ConnectToChat(&cli);
-cli.peer.addres.sin_addr.s_addr = inet_addr(ar[u].y);
+cli.peer.addres.sin_addr.s_addr = inet_addr(pclient->y);
 connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
 	//cli.peer.sock=socke;
 	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
