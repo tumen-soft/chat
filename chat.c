@@ -111,8 +111,8 @@ void ConnectServer(){printf("starting server at ...(ip)\n");}
 void ConnectClient(Client * const me){
 printf("starting client at ...(ip)\n");
 me->peer.addres.sin_addr.s_addr = inet_addr(pclient->y);
-/*connect(me->peer.sock, (struct sockaddr*)&me->peer.addres, sizeof(me->peer.addres));
-        for(;;){
+connect(me->peer.sock, (struct sockaddr*)&me->peer.addres, sizeof(me->peer.addres));
+        /*for(;;){
         memset(cli.peer.buffer, 0, sizeof(cli.peer.buffer));
         FD_ZERO(&cli.peer.read_fd);
         FD_SET(0, &cli.peer.read_fd);
@@ -290,7 +290,7 @@ switch(isserver)
 ClientCtr(&cli);
 ConnectToChat(&cli);
 //cli.peer.addres.sin_addr.s_addr = inet_addr(pclient->y);
-connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
+//connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
 	//cli.peer.sock=socke;
 	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
         //printf("server: %s\n",cli.peer.buffer);
