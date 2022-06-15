@@ -20,9 +20,18 @@
 #define SOCKETERROR (-1)
 
 
-
-
-
+enum PeerType{
+ server,
+ client
+};
+struct arg{
+        pthread_t tid;
+        int x;
+        char y[256];
+        enum PeerType isServer;
+};
+//struct arg;
+typedef struct arg args;
 pthread_t tid[256];
 void ConnectServer();
 void ConnectClient();
@@ -95,11 +104,48 @@ ServerCtr(Server * const me){
     me->peer.addres.sin_addr.s_addr = htonl(INADDR_ANY);
 //me->max_clients=30;
  }
-
+struct arg * pclient;
 
 //typedef struct {Server server; Client client;}Self;
 void ConnectServer(){printf("starting server at ...(ip)\n");}
-void ConnectClient(){printf("starting client at ...(ip)\n");}
+void ConnectClient(Client * const me){
+printf("starting client at ...(ip)\n");
+me->peer.addres.sin_addr.s_addr = inet_addr(pclient->y);
+/*connect(me->peer.sock, (struct sockaddr*)&me->peer.addres, sizeof(me->peer.addres));
+        for(;;){
+        memset(cli.peer.buffer, 0, sizeof(cli.peer.buffer));
+        FD_ZERO(&cli.peer.read_fd);
+        FD_SET(0, &cli.peer.read_fd);
+        FD_SET(cli.peer.sock, &cli.peer.read_fd);
+        select(300, &cli.peer.read_fd, NULL, NULL, NULL);
+        if(FD_ISSET(0, &cli.peer.read_fd)){
+        read(0,cli.peer.buffer,sizeof(cli.peer.buffer));
+        dprintf(cli.peer.sock,cli.peer.buffer);}  
+        if(FD_ISSET(cli.peer.sock, &cli.peer.read_fd)){
+        read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
+        printf("server: %s\n", cli.peer.buffer);}
+        }        
+        close(cli.peer.sock);
+
+
+return 0;
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 void ConnectToChat(Peer const * const me) {
@@ -113,13 +159,13 @@ if (exp == SOCKETERROR){
 }
 return exp;
 }
-
+/*
 enum PeerType{
  server,
  client
-};
-struct arg;
-typedef struct arg args;
+};*/
+//struct arg;
+//typedef struct arg args;
 struct node{
 	struct node *next;
 	args *ar;
@@ -153,14 +199,14 @@ free(temp);
 return result;
 }
 }
-
+/*
 struct arg{
 	pthread_t tid;
 	int x;
 	char y[256];
 	enum PeerType isServer;
 };
-
+*/
 Client cli;
 struct sockaddr_in addr;
 //args ar;
@@ -212,7 +258,9 @@ j++;
 
 
 enum PeerType isserver=server;
-args *pclient;
+//
+
+//args *pclient;
 pclient=dequeue();
 while(pclient){
 pclient=dequeue();
@@ -241,7 +289,7 @@ switch(isserver)
 //Client cli;
 ClientCtr(&cli);
 ConnectToChat(&cli);
-cli.peer.addres.sin_addr.s_addr = inet_addr(pclient->y);
+//cli.peer.addres.sin_addr.s_addr = inet_addr(pclient->y);
 connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
 	//cli.peer.sock=socke;
 	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
