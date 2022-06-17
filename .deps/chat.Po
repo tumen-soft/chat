@@ -48,7 +48,8 @@ chat.o: chat.c /usr/include/stdc-predef.h /usr/include/arpa/inet.h \
  /usr/include/bits/types/struct_itimerspec.h /usr/include/bits/setjmp.h \
  /usr/include/bits/types/struct___jmp_buf_tag.h /usr/include/stdlib.h \
  /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
- /usr/include/alloca.h /usr/include/bits/stdlib-float.h
+ /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdbool.h
 /usr/include/stdc-predef.h:
 /usr/include/arpa/inet.h:
 /usr/include/features.h:
@@ -144,3 +145,4 @@ chat.o: chat.c /usr/include/stdc-predef.h /usr/include/arpa/inet.h \
 /usr/include/bits/waitstatus.h:
 /usr/include/alloca.h:
 /usr/include/bits/stdlib-float.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include/stdbool.h:

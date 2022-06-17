@@ -15,10 +15,11 @@
 #include <string.h>
 #include <pthread.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #define PORT 111 
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
-
+#define CHAT 1 
 
 enum PeerType{
  server,
@@ -107,39 +108,26 @@ pclient->ip.s_addr=inet_addr(pclient->y);
 me->peer.addres.sin_addr = pclient->ip;
 //me->peer.addres.sin_addr = pclient->ip.s_addr++;
 //me->peer.addres.sin_addr = pclient->ip.s_addr--;
-pclient->ip.s_addr  = htonl(ntohl(pclient->ip.s_addr) + 1);
+pclient->ip.s_addr  = htonl(ntohl(pclient->ip.s_addr)+1);
 
 connect(me->peer.sock, (struct sockaddr*)&me->peer.addres, sizeof(me->peer.addres));
-        /*for(;;){
-        memset(cli.peer.buffer, 0, sizeof(cli.peer.buffer));
-        FD_ZERO(&cli.peer.read_fd);
-        FD_SET(0, &cli.peer.read_fd);
-        FD_SET(cli.peer.sock, &cli.peer.read_fd);
-        select(300, &cli.peer.read_fd, NULL, NULL, NULL);
-        if(FD_ISSET(0, &cli.peer.read_fd)){
-        read(0,cli.peer.buffer,sizeof(cli.peer.buffer));
-        dprintf(cli.peer.sock,cli.peer.buffer);}  
-        if(FD_ISSET(cli.peer.sock, &cli.peer.read_fd)){
-        read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
-        printf("server: %s\n", cli.peer.buffer);}
+        while(CHAT){
+        memset(me->peer.buffer, 0, sizeof(me->peer.buffer));
+        FD_ZERO(&me->peer.read_fd);
+        FD_SET(0, &me->peer.read_fd);
+        FD_SET(me->peer.sock, &me->peer.read_fd);
+        select(300, &me->peer.read_fd, NULL, NULL, NULL);
+        if(FD_ISSET(0, &me->peer.read_fd)){
+        read(0,me->peer.buffer,sizeof(me->peer.buffer));
+        dprintf(me->peer.sock,me->peer.buffer);}  
+        if(FD_ISSET(me->peer.sock, &me->peer.read_fd)){
+        read(me->peer.sock, me->peer.buffer, sizeof(me->peer.buffer));
+        printf("server: %s\n", me->peer.buffer);}
         }        
-        close(cli.peer.sock);
+        close(me->peer.sock);
 
 
 return 0;
-
-
-*/
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -293,7 +281,7 @@ ConnectToChat(&cli);
 	//cli.peer.sock=socke;
 	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
         //printf("server: %s\n",cli.peer.buffer);
-	for(;;){
+	/*for(;;){
 	memset(cli.peer.buffer, 0, sizeof(cli.peer.buffer));
 	FD_ZERO(&cli.peer.read_fd);
         FD_SET(0, &cli.peer.read_fd);
@@ -309,7 +297,7 @@ ConnectToChat(&cli);
 	close(cli.peer.sock);
 
 
-return 0;
+return 0;*/
 }
 
 
@@ -330,7 +318,7 @@ ser.sd2=0;
         check(listen(ser.peer.sock, 15), "error listen");
         for (int i = 0; i < ser.max_clients; i++) ser.client_socket[i] = -1;  
 
-        for(;;){
+        while(CHAT){
         FD_ZERO(&ser.peer.read_fd);      
         ser.max_sd = ser.peer.sock; 
 	ser.client_socket[0]=0;

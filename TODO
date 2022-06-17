@@ -30,7 +30,6 @@ V client error fix (ip)
 V fix echo to write client
   privat message enum commands, typedefs nicknames
   nicknames
-
-
-  init to ctr
+V init to ctr
+  updrade ip++
 
