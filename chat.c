@@ -19,7 +19,20 @@
 #define PORT 111 
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
-#define CHAT 1 
+#define FOREVER 1 
+
+using Func = void (*)(struct Peer*);
+	Func crt_sock, cls_sock, cnt_to_sock, bnd_sock, lsn_sock, acpt_conn, sel_conn;
+
+struct proto_ops {
+      int             (*crt_sock)   (struct Peer*);
+      int             (*cls_sock)   (struct Peer*);
+      int             (*cnt_to_sock)(struct Peer*) 
+      int             (*bnd_sock)(struct Peer *)
+      int             (*lsn_sock)    (struct socket *sock,
+      int             (*acpt_conn)   (struct socket *sock,
+      int 	      (*sel_conn)()
+}
 
 enum PeerType{
  server,
@@ -64,6 +77,41 @@ void PeerCtr(Peer * const me) {
 
 me->addres.sin_family = AF_INET;
    me->addres.sin_port = htons(PORT);
+
+
+
+
+
+ 
+ peer->crt_sock=create_socket;
+ peer->cls_sock=close_socket;
+ peer->sel_conn=select_connection;
+ peer->addres.sin_family = AF_INET;
+ peer->addres.sin_port = htons(PORT);
+ 
+ if (type){
+ struct Server *p_ser = static_cast<Server*>(peer);
+ p_ser->addres.sin_addr.s_addr = htonl(INADDR_ANY);
+ peer->lsn_sock=listen_socket;
+ peer->bnd_sock=bind_socket;
+ peer->acpt_conn=accept_connection;
+ }else{
+ struct Client *p_cli=static_cast<Client*>(peer);
+ p_cli->addres.sin_addr.s_addr = inet_addr(CLIIP);
+ peer->cnt_to_sock=connect_to_socket;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
@@ -113,7 +161,7 @@ me->sd2=0;
         for (int i = 0; i < me->max_clients; i++) me->client_socket[i] = -1;  
 
 /*
-       while(CHAT){
+       while(FOREVER){
         FD_ZERO(&ser.peer.read_fd);      
         ser.max_sd = ser.peer.sock; 
 	ser.client_socket[0]=0;
@@ -184,7 +232,7 @@ me->peer.addres.sin_addr = pclient->ip;
 //pclient->ip.s_addr  = htonl(ntohl(pclient->ip.s_addr)+1);
 
 connect(me->peer.sock, (struct sockaddr*)&me->peer.addres, sizeof(me->peer.addres));
-        while(CHAT){
+        while(FOREVER){
         memset(me->peer.buffer, 0, sizeof(me->peer.buffer));
         FD_ZERO(&me->peer.read_fd);
         FD_SET(0, &me->peer.read_fd);
@@ -205,6 +253,61 @@ return 0;
 
 
 }
+
+
+
+void create_socket(struct Peer *peer){
+	peer->socket=socket(AF_INET, SOCK_STREAM, 0);
+}
+void close_socket(struct Peer *peer){
+	close(peer->socket);
+}
+void connect_to_socket(struct Peer * peer){
+	connect(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+}
+void bind_socket(struct Peer * peer){
+	bind(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+}
+void listen_socket(struct Peer * peer){
+	listen(peer->socket, 10);
+}
+void accept_connection(struct Peer *peer){
+        struct Server *p_ser = static_cast<Server*>(peer);
+	p_ser->new_socket = accept(peer->socket,NULL,NULL);
+}
+void select_connection(struct Peer *peer)
+{
+}
+
+
+
+/*
+
+void init(struct Peer *peer, bool type){
+
+	peer->crt_sock=create_socket;
+	peer->cls_sock=close_socket;
+	peer->sel_conn=select_connection;
+	peer->addres.sin_family = AF_INET;
+	peer->addres.sin_port = htons(PORT);
+
+if (type){
+	struct Server *p_ser = static_cast<Server*>(peer);
+	p_ser->addres.sin_addr.s_addr = htonl(INADDR_ANY); 
+	peer->lsn_sock=listen_socket;
+	peer->bnd_sock=bind_socket;
+	peer->acpt_conn=accept_connection;
+}else{
+	struct Client *p_cli=static_cast<Client*>(peer);
+	p_cli->addres.sin_addr.s_addr = inet_addr(CLIIP);
+	peer->cnt_to_sock=connect_to_socket;
+}
+}
+
+*/
+
+
+
 
 
 void ConnectToChat(Peer const * const me) {
