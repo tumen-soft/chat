@@ -1,17 +1,8 @@
-int HUNGRY;
-int eat(){
-int i=5;
-HUNGRY=i;
-i--;
+int eat(int HUNGRY){
+return HUNGRY-1;
 }
-
-
 int main(){
-
-while(HUNGRY){
-eat();
-
-}
-
+int HUNGRY=5;
+while(HUNGRY)HUNGRY=eat(HUNGRY);
 return 0;
 }
