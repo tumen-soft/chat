@@ -337,11 +337,13 @@ if (type){
 void ConnectToChat(Peer const * const me) {
     (*me->vptr->conn)(me);
 }
-
-int check(int exp, const char *msg){
-if (exp==SOCKETERROR){
-	printf("%s\n",msg);
-	exit(1);
+//obrabotchik oshibok s dvumia parametrami
+int check(int exp, const char *msg){//x.y 
+if (exp==SOCKETERROR)/*constanta(FALSE)*/{
+	//x.y (y!=x)
+	//esli exp(function) vozvratila -1(FALSE)
+	printf("%s\n",msg);//vivodim soobshenie
+	exit(1);//i vihodim
 }
 return exp;
 }
