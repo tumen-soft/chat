@@ -85,7 +85,7 @@ pthread_t tid[256];
 void ConnectServer();
 void ConnectClient();
 struct Vtbl;
-int check(int exp, const char *msg);
+int check(int exp, const char *msg, const char *msg1);
 typedef struct {
 	struct Vtbl const *vptr;
         int sock;
@@ -180,8 +180,8 @@ printf("starting server at ...(ip)\n");
 me->max_clients=10;
 me->sd=0;
 me->sd2=0;
-        check(bind(me->peer.sock, (struct sockaddr *)&me->peer.addres, sizeof(me->peer.addres)), "error bind"    );
-        check(listen(me->peer.sock, 15), "error listen");
+        check(bind(me->peer.sock, (struct sockaddr *)&me->peer.addres, sizeof(me->peer.addres)), "error bind" ,"bind seccessful"   );
+        check(listen(me->peer.sock, 15), "error listen", "listen success");
         for (int i = 0; i < me->max_clients; i++) me->client_socket[i] = -1;  
 
 /*
@@ -338,13 +338,13 @@ void ConnectToChat(Peer const * const me) {
     (*me->vptr->conn)(me);
 }
 //obrabotchik oshibok s dvumia parametrami
-int check(int exp, const char *msg){//x.y 
+int check(int exp, const char *msg, const char *msg1){//x.y 
 if (exp==SOCKETERROR)/*constanta(FALSE)*/{
 	//x.y (y!=x)
 	//esli exp(function) vozvratila -1(FALSE)
 	printf("%s\n",msg);//vivodim soobshenie
 	exit(1);//i vihodim
-}
+}else printf("%s\n",msg1);
 return exp;
 }
 /*
