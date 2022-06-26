@@ -1,5 +1,5 @@
 /* Async net chat  by Vergun Denis <blu.eagle@mail.ru>
- * Four structures : Client, Server, Chat, Self. 
+ * Four structures : Client, Server, Peer for abstraction 
  * main() function. 
  * init() func.
  * Functions: create_socket(), close_socket(), connect_to_socket(),
@@ -21,53 +21,14 @@
 #define SOCKETERROR (-1)
 #define FOREVER 1 
 
-struct Peer;
-
-
-
-int create_socket(struct Peer *peer){
-         peer->socket=socket(AF_INET, SOCK_STREAM, 0);
- }
- int close_socket(struct Peer *peer){
-         close(peer->socket);
- }
- int connect_to_socket(struct Peer * peer){
-         connect(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
- }
- int bind_socket(struct Peer * peer){
-         bind(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
- }
- int listen_socket(struct Peer * peer){
-         listen(peer->socket, 10);
- }
- int accept_connection(struct Peer *peer){
-         struct Server *p_ser = static_cast<Server*>(peer);
-         p_ser->new_socket = accept(peer->socket,NULL,NULL);
- }
- int  select_connection(struct Peer *peer)
- {
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
 struct proto_ops {
-      int             (*crt_sock)   (struct Peer*);
-      int             (*cls_sock)   (struct Peer*);
-      int             (*cnt_to_sock) (struct Peer*); 
-      int             (*bnd_sock) (struct Peer *);
-      int             (*lsn_sock)    (struct Peer *);
-      int             (*acpt_conn)   (struct Peer *);
-      int 	      (*sel_conn) (struct Peer *);
+      int             (*crt_sock)   (Peer*);
+      int             (*cls_sock)   (Peer*);
+      int             (*cnt_to_sock) (Peer*); 
+      int             (*bnd_sock) (Peer *);
+      int             (*lsn_sock)    (Peer *);
+      int             (*acpt_conn)  (Server *);
+      int 	      (*sel_conn) (Peer *);
 };
 
 enum PeerType{
@@ -88,12 +49,57 @@ struct Vtbl;
 int check(int exp, const char *msg, const char *msg1);
 typedef struct {
 	struct Vtbl const *vptr;
-        int sock;
+        struct proto_ops *ops;
+	int sock;
         struct sockaddr_in addres;
 	char* message;
         char buffer[MAXLINE];
 	fd_set read_fd;
 } Peer;
+
+typedef struct {
+        Peer peer;
+        int  sd, sd2, new_socket, client_socket[30], max_clients, activity, i, max_sd;
+        int valread;
+	pthread_t tid[2];
+}Server;
+
+
+int create_socket(Peer *peer){
+         peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+ }
+ int close_socket(Peer *peer){
+         close(peer->sock);
+ }
+ int connect_to_socket(Peer * peer){
+         connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+ }
+ int bind_socket(Peer * peer){
+         bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+ }
+ int listen_socket(Peer * peer){
+         listen(peer->sock, 10);
+ }
+ int accept_connection(Server *ser){
+         //struct Server *p_ser = static_cast<Server*>(peer);
+         ser->new_socket = accept(ser->peer.sock,NULL,NULL);
+ }
+ int  select_connection(Peer *peer)
+ {
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
 static void _conn(Peer const * const me);
 struct Vtbl{void (*conn)(Peer const * const me);};
 static void _conn(Peer const * const me){assert(0);}
@@ -108,22 +114,22 @@ void PeerCtr(Peer * const me) {
  me->sock=(socket(AF_INET, SOCK_STREAM, 0));
 
 
-	check(me->sock, "socket creation failed\n");   
+	check(me->sock, "socket creation failed\n","socket creation seccesful");   
 
 
-me->addres.sin_family = AF_INET;
-   me->addres.sin_port = htons(PORT);
+//me->addres.sin_family = AF_INET;
+//   me->addres.sin_port = htons(PORT);
 
  
- me->crt_sock=create_socket;
- me->cls_sock=close_socket;
- me->sel_conn=select_connection;
- me->addres.sin_family = AF_INET;
- me->addres.sin_port = htons(PORT);
- me->lsn_sock=listen_socket;
- me->bnd_sock=bind_socket;
- me->acpt_conn=accept_connection;
- me->cnt_to_sock=connect_to_socket;
+ me->ops->crt_sock=create_socket;
+ me->ops->cls_sock=close_socket;
+ me->ops->sel_conn=select_connection;
+ //me->ops->addres.sin_family = AF_INET;
+ //me->ops->addres.sin_port = htons(PORT);
+ me->ops->lsn_sock=listen_socket;
+ me->ops->bnd_sock=bind_socket;
+ me->ops->acpt_conn=accept_connection;
+ me->ops->cnt_to_sock=connect_to_socket;
 
 
 }
@@ -153,14 +159,14 @@ void ClientCtr(Client * const me){
     //me->peer.addres.sin_addr.s_addr = inet_addr("127.0.0.1");
 }
 
-
+/*
 typedef struct {
         Peer peer;
         int  sd, sd2, new_socket, client_socket[30], max_clients, activity, i, max_sd;
 	int valread;
         pthread_t tid[2];
 }Server;
-
+*/
 
 
 ServerCtr(Server * const me){
