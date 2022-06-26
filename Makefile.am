@@ -1,3 +1,4 @@
-CFLAGS = -lpthread
-bin_PROGRAMS = chat
-chat_SOURCES = chat.c
+
+
+bin_PROGRAMS=chat
+chat_SOURCES=chat.cpp

@@ -2,13 +2,14 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.71])
-AC_INIT([chat], [0.31], [blu.eagle@mail.ru])
+AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
 AC_CONFIG_SRCDIR([chat.cpp])
-AM_INIT_AUTOMAKE
+AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CXX
-AC_PROG_CC
+
+AM_INIT_AUTOMAKE
 
 # Checks for libraries.
 
@@ -16,10 +17,9 @@ AC_PROG_CC
 AC_CHECK_HEADERS([arpa/inet.h sys/socket.h unistd.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_CHECK_HEADER_STDBOOL
 
 # Checks for library functions.
-AC_CHECK_FUNCS([socket])
+AC_CHECK_FUNCS([memset select socket])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
