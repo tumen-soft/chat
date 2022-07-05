@@ -133,9 +133,13 @@ void init(struct Self *self){
 }
 using namespace net;
 
-int main(){
+
   struct Self _self;
-  struct Self *self=&_self;
+  struct Self *self;
+char s[80];
+PeerType isServer;
+int main(){
+self=&_self;
   init(self);
 int y=self->Chat::run();
 printf("%i\n",y);
@@ -144,13 +148,17 @@ if (y>0){sprintf(ip,"%d",y);
 char a[256] = "192.168.1.";
 strcat(a,ip);
 self->Client::addres.sin_addr.s_addr = inet_addr(a);}
-PeerType isServer;
+//PeerType isServer;
 if (y)isServer=Client; else isServer=Server;
-char s[80];
+
 std::cout << "nick:";
 std::cin >> s;
+}
 
 
+template <bool seR> class chat
+{
+chat(){
 switch(isServer)
 {
     case Server:
@@ -232,4 +240,5 @@ switch(isServer)
   }
 }
 }
+};
 
