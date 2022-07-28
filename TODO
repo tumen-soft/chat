@@ -33,4 +33,6 @@ V fix echo to write client
 V init to ctr
   updrade ip++
   use overloading  (foo(void*arg1, int arg2)  
-  use Ch2_4 template for switch 
+V use Ch2_4 template for switch 
+  use object factory for somthing 
+  peer to node
