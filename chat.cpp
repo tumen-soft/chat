@@ -346,65 +346,19 @@ void* doSomeThing(void *args)
 
 
 int main(){
-
-//enum PeerType isServer;
- arg ar[256]={NULL,"127.0.0.1",PeerType::Server};
- ///ar[0].isServer=server;
- //args ar;
- //printf("waiting for connection...");
- 
- int j=0;
- 
- for (int i=0;i<255;i++){
- ar[j].x=i;
-   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
-   ar->tid=tid[j];
-   enqueue(&ar[j]);
- j++;
- }
- 
- 
- 
-enum PeerType isserver=PeerType::Server;
- //
- 
- //args *pclient;
- pclient=dequeue();
- while(pclient){
- pclient=dequeue();
- if((pclient!=NULL)&&(pclient->tid!=NULL)){
- //if(tid[s]!=NULL)
- pthread_join(pclient->tid,NULL);}
- if(pclient)if(pclient->isServer==PeerType::Client){isserver=PeerType::Client;break;}
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 self=&_self;
   init(self);
 int y=self->Chat::run();
+
+
+
+
+
+
+
+
+
+
 printf("%i\n",y);
 char ip[10];
 if (y>0){sprintf(ip,"%d",y);
