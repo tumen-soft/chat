@@ -19,6 +19,7 @@
 #define MAXLINE 1024
 
 namespace net {
+pthread_t tid[256];
 
 typedef std::map<int,char*> nmap;
 
@@ -29,7 +30,9 @@ enum PeerType{
 
 using Func = void (*)(struct Self *self);
 
-struct Chat{
+class Chat{
+	public:
+	Chat(){};
         int sock;
         struct sockaddr_in addres;
 	char* message;
@@ -63,8 +66,10 @@ struct Chat{
 	return 0;
 };
 };
-struct Client : virtual Chat{
-        ~Client(){printf("clidestroy");};
+class Client : virtual public Chat{
+        public:
+	Client(){};
+	~Client(){printf("clidestroy");};
 	Func cnt_to_sock;
 	int run(void){return 0;};
 };
@@ -74,7 +79,9 @@ struct Client : virtual Chat{
 
 
 
-struct Server : virtual Chat{
+class Server : virtual public Chat{
+	public:
+	Server(){};
         Func bnd_sock, lsn_sock, acpt_conn;
 	int run(void){return 0;};
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
@@ -84,37 +91,37 @@ struct Server : virtual Chat{
 
 };
 
-struct Self : Server, Client{};
+class Self : public Server, public Client{};
 
 
 
 
 //funkcii visokogo urovnya
 
-void create_socket(struct Self *self){
+void create_socket(class Self *self){
 	self->sock=socket(AF_INET, SOCK_STREAM, 0);
 }
-void close_socket(struct Self *self){
+void close_socket(class Self *self){
 	close(self->sock);
 }
-void connect_to_socket(struct Self * self){
+void connect_to_socket(class Self * self){
 	connect(self->sock, (struct sockaddr*)&self->Client::addres, sizeof(self->Client::addres));
 }
-void bind_socket(struct Self* self){
+void bind_socket(class Self* self){
 	bind(self->sock, (struct sockaddr*)&self->addres, sizeof(self->addres));
 }
-void listen_socket(struct Self * self){
+void listen_socket(class Self * self){
 	listen(self->sock, 10);
 }
-void accept_connection(struct Self * self){
+void accept_connection(class Self * self){
 	self->new_socket = accept(self->sock,NULL,NULL);
 }
-void select_connection(struct Self *self){
+void select_connection(class Self *self){
 	select(10, &self->read_fd, NULL, NULL, NULL);
 }
 
 
-void init(struct Self *self){
+void init(class Self *self){
 
 	self->crt_sock=create_socket;
 	self->cls_sock=close_socket;
@@ -134,8 +141,8 @@ void init(struct Self *self){
 using namespace net;
 
 
-  struct Self _self;
-  struct Self *self;
+  class Self _self;
+  class Self *self;
 char s[80];
 ///PeerType isServer;
 /*int main(){
@@ -158,13 +165,13 @@ class chat<isServer> _chat;
 }
 */
 
-template <bool isServer> class chat
+template <bool S> class chat
 {
 public:
 chat(){
-switch(isServer)
+switch(S)
 {
-    case Server:
+    case PeerType::Server:
 {
 	self->crt_sock(self);
 	printf("server fd %i \n", self->sock);
@@ -223,7 +230,8 @@ switch(isServer)
 	self->cls_sock(self);
 
   }
-    case Client:
+    case PeerType::Client:
+
 { 
 	self->crt_sock(self); 
 	printf("client fd %i \n", self->sock);
@@ -244,7 +252,156 @@ switch(isServer)
 }
 }
 };
+template <int v> class Int2Type{
+public:
+enum{value=v};
+};
+void funswitch(auto _switch){
+
+chat<_switch.value> _chat;
+
+}
+typedef struct {
+         pthread_t tid;
+         int x;
+         struct in_addr ip;
+         char y[256];
+         enum PeerType isServer;
+ }arg;
+arg * pclient;
+
+struct node{
+        struct node *next;
+        arg *ar;
+
+};
+
+typedef struct node node_t;
+//typedef struct arg args;
+node_t * head = NULL;
+node_t * tail = NULL;
+void enqueue(arg * ar){
+node_t * newnode = malloc(sizeof(node_t));
+newnode->ar = ar;
+newnode->next=NULL;
+if(tail==NULL){
+head=newnode;
+}else{
+tail->next = newnode;
+}
+tail=newnode;
+}
+arg * dequeue(){
+if(head==NULL){
+return NULL;
+}else{
+arg *result = head->ar;
+node_t *temp = head;
+head=head->next;
+if (head==NULL){tail==NULL;};
+free(temp);
+return result;
+}
+}
+struct sockaddr_in addr;
+
+void* doSomeThing(void *args)
+ {
+ //ar.y="test";
+ arg* q=(arg*)args;
+ 
+ //sprintf(q->y,"%s","test");
+ //q->y="test";
+ // struct sockaddr_in addr;
+  int socke = socket(AF_INET, SOCK_STREAM, 0);
+  addr.sin_family = AF_INET;
+  addr.sin_port = htons(PORT);
+ // pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
+  //for(int i=202;i<204;i++){
+  char a[256] = "192.168.1.";
+  char b[10];
+  //int c = i;
+  sprintf(b,"%d",q->x);
+  //a="192.168.1."
+  strcat(a,b);
+ 
+ //puts(a);
+ addr.sin_addr.s_addr =  inet_addr(a);
+ 
+  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=PeerType::Client;return 0;}
+     return NULL;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main(){
+
+//enum PeerType isServer;
+ arg ar[256]={NULL,"127.0.0.1",PeerType::Server};
+ ///ar[0].isServer=server;
+ //args ar;
+ //printf("waiting for connection...");
+ 
+ int j=0;
+ 
+ for (int i=0;i<255;i++){
+ ar[j].x=i;
+   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
+   ar->tid=tid[j];
+   enqueue(&ar[j]);
+ j++;
+ }
+ 
+ 
+ 
+enum PeerType isserver=PeerType::Server;
+ //
+ 
+ //args *pclient;
+ pclient=dequeue();
+ while(pclient){
+ pclient=dequeue();
+ if((pclient!=NULL)&&(pclient->tid!=NULL)){
+ //if(tid[s]!=NULL)
+ pthread_join(pclient->tid,NULL);}
+ if(pclient)if(pclient->isServer==PeerType::Client){isserver=PeerType::Client;break;}
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 self=&_self;
   init(self);
 int y=self->Chat::run();
@@ -255,12 +412,15 @@ char a[256] = "192.168.1.";
 strcat(a,ip);
 self->Client::addres.sin_addr.s_addr = inet_addr(a);}
 //isServer;
-if (y)class chat<true> _chat; else class chat<false> _chat;
+//Chat _chat;
+if (y){Int2Type<PeerType::Client> _switch;funswitch(_switch);}else{Int2Type<PeerType::Server> _switch;funswitch(_switch);}
 
 
-std::cout << "nick:";
-std::cin >> s;
 
-//class chat<isServer> _chat;
+//Int2Type<PeerType::Server> a;
+
+//std::cout << "nick:";
+//std::cin >> s;
+
 }
 

@@ -1,4 +1,4 @@
-AM_CXXFLAGS= -g
+AM_CXXFLAGS= -g -fpermissive
 
 bin_PROGRAMS=chat
 chat_SOURCES=chat.cpp
