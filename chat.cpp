@@ -17,15 +17,15 @@
 #include <iostream>
 #define PORT 3111 
 #define MAXLINE 1024
+#define SOCKETERROR (-1)
 
-namespace net {
 pthread_t tid[256];
 
 typedef std::map<int,char*> nmap;
 
 enum PeerType{
-	Server,
-	Client
+	server,
+	client
 };
 
 using Func = void (*)(struct Self *self);
@@ -137,8 +137,6 @@ void init(class Self *self){
 	//comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
 }
 
-}
-using namespace net;
 
 
   class Self _self;
@@ -171,7 +169,7 @@ public:
 chat(){
 switch(S)
 {
-    case PeerType::Server:
+    case PeerType::server:
 {
 	self->crt_sock(self);
 	printf("server fd %i \n", self->sock);
@@ -230,7 +228,7 @@ switch(S)
 	self->cls_sock(self);
 
   }
-    case PeerType::Client:
+    case PeerType::client:
 
 { 
 	self->crt_sock(self); 
@@ -261,18 +259,24 @@ void funswitch(auto _switch){
 chat<_switch.value> _chat;
 
 }
-typedef struct {
-         pthread_t tid;
-         int x;
-         struct in_addr ip;
-         char y[256];
-         enum PeerType isServer;
- }arg;
-arg * pclient;
 
+int check(int exp, const char *msg){
+if (exp == SOCKETERROR){
+	printf("%s\n",msg);
+	exit(1);
+}
+return exp;
+}
+
+/*enum PeerType{
+ server,
+ client
+};*/
+struct arg;
+typedef struct arg args;
 struct node{
-        struct node *next;
-        arg *ar;
+	struct node *next;
+	args *ar;
 
 };
 
@@ -280,7 +284,7 @@ typedef struct node node_t;
 //typedef struct arg args;
 node_t * head = NULL;
 node_t * tail = NULL;
-void enqueue(arg * ar){
+void enqueue(args * ar){
 node_t * newnode = malloc(sizeof(node_t));
 newnode->ar = ar;
 newnode->next=NULL;
@@ -291,11 +295,11 @@ tail->next = newnode;
 }
 tail=newnode;
 }
-arg * dequeue(){
+args * dequeue(){
 if(head==NULL){
 return NULL;
 }else{
-arg *result = head->ar;
+args *result = head->ar;
 node_t *temp = head;
 head=head->next;
 if (head==NULL){tail==NULL;};
@@ -303,57 +307,103 @@ free(temp);
 return result;
 }
 }
-struct sockaddr_in addr;
 
-void* doSomeThing(void *args)
- {
- //ar.y="test";
- arg* q=(arg*)args;
- 
- //sprintf(q->y,"%s","test");
- //q->y="test";
- // struct sockaddr_in addr;
-  int socke = socket(AF_INET, SOCK_STREAM, 0);
-  addr.sin_family = AF_INET;
-  addr.sin_port = htons(PORT);
- // pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
-  //for(int i=202;i<204;i++){
-  char a[256] = "192.168.1.";
-  char b[10];
-  //int c = i;
-  sprintf(b,"%d",q->x);
-  //a="192.168.1."
-  strcat(a,b);
- 
+struct arg{
+	pthread_t tid;
+	int x;
+	char y[256];
+	enum PeerType isServer;
+};
+
+Client cli;
+struct sockaddr_in addr;
+//args ar;
+
+void* doSomeThing(void *arg)
+{
+//ar.y="test";
+args* q=(args*)arg;
+
+//sprintf(q->y,"%s","test");
+//q->y="test";
+// struct sockaddr_in addr;
+ int socke = socket(AF_INET, SOCK_STREAM, 0);
+ addr.sin_family = AF_INET;
+ addr.sin_port = htons(PORT);
+// pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
+ //for(int i=202;i<204;i++){
+ char a[256] = "192.168.1.";
+ char b[10];
+ //int c = i;
+ sprintf(b,"%d",q->x);
+ //a="192.168.1."
+ strcat(a,b);
  //puts(a);
  addr.sin_addr.s_addr =  inet_addr(a);
  
-  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=PeerType::Client;return 0;}
-     return NULL;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=client;return 0;}
+    return NULL;
+}
 
 int main(){
 self=&_self;
-  init(self);
-int y=self->Chat::run();
+    init(self);
+  int y=self->Chat::run();
+  
+
+//enum PeerType isServer;
+args ar[256]={NULL,"127.0.0.1",server};
+///ar[0].isServer=server;
+//args ar;
+//printf("waiting for connection...");
+
+int j=0;
+
+for (int i=0;i<255;i++){
+ar[j].x=i;
+  pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
+  ar->tid=tid[j];
+  enqueue(&ar[j]); 
+j++;
+}
 
 
 
+enum PeerType isserver=server;
+args *pclient;
+pclient=dequeue();
+while(pclient){
+pclient=dequeue();
+if((pclient!=NULL)&&(pclient->tid!=NULL)){
+//if(tid[s]!=NULL)
+pthread_join(pclient->tid,NULL);}
+if(pclient)if(pclient->isServer==client){isserver=client;break;}
+}
 
+//ar.y="test";
+//printf("waiting for connection...");
+//sleep(2);
+//printf("%s\n",ar[0].y);
+//if (ar.y!="test")isServer=client;
+//enum PeerType isserver=server;
+//int u;
+//for(u=0;u<255;u++){
+//if(ar[u].isServer==client){isserver=client;break;}
+//}
 
+switch(isserver)
+{
+    case client:
+{
+	printf("client...\n");
+
+}
+    case server:
+{
+	printf("server...\n");
+
+}
+}
 
 
 
@@ -367,7 +417,7 @@ strcat(a,ip);
 self->Client::addres.sin_addr.s_addr = inet_addr(a);}
 //isServer;
 //Chat _chat;
-if (y){Int2Type<PeerType::Client> _switch;funswitch(_switch);}else{Int2Type<PeerType::Server> _switch;funswitch(_switch);}
+if (y){Int2Type<PeerType::client> _switch;funswitch(_switch);}else{Int2Type<PeerType::server> _switch;funswitch(_switch);}
 
 
 
