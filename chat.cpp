@@ -94,6 +94,8 @@ class Server : virtual public Chat{
 class Self : public Server, public Client{};
 
 
+  class Self _self;
+  class Self *self;
 
 
 //funkcii visokogo urovnya
@@ -139,8 +141,8 @@ void init(class Self *self){
 
 
 
-  class Self _self;
-  class Self *self;
+//  class Self _self;
+//  class Self *self;
 char s[80];
 ///PeerType isServer;
 /*int main(){
@@ -341,7 +343,11 @@ args* q=(args*)arg;
  //puts(a);
  addr.sin_addr.s_addr =  inet_addr(a);
  
- if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=client;return 0;}
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);
+std::cout<< a <<std::endl;
+std::cout<<"pcli:  " <<q->y << std::endl;
+
+q->isServer=client;return 0;}
     return NULL;
 }
 
@@ -374,9 +380,8 @@ args *pclient;
 pclient=dequeue();
 while(pclient){
 pclient=dequeue();
-if((pclient!=NULL)&&(pclient->tid!=NULL)){
-//if(tid[s]!=NULL)
-pthread_join(pclient->tid,NULL);}
+if((pclient!=NULL)&&(pclient->tid!=NULL))
+pthread_join(pclient->tid,NULL);
 if(pclient)if(pclient->isServer==client){isserver=client;break;}
 }
 
@@ -414,10 +419,12 @@ switch(isserver)
 //if (y>0){sprintf(ip,"%d",y);
 //char a[256] = "192.168.1.";
 //strcat(a,ip);
-self->Client::addres.sin_addr.s_addr = inet_addr(pclient->y);//}
+//std::cout<<"ip:"<<((char)&pclient->y)<<std::endl;
+
+//self->Client::addres.sin_addr.s_addr = inet_addr((char)pclient->y);//}
 //isServer;
 //Chat _chat;
-if (!isserver){Int2Type<PeerType::client> _switch;funswitch(_switch);}else{Int2Type<PeerType::server> _switch;funswitch(_switch);}
+if (isserver){Int2Type<PeerType::client> _switch;self->Client::addres.sin_addr.s_addr = inet_addr(pclient->y);funswitch(_switch);}else{Int2Type<PeerType::server> _switch;funswitch(_switch);}
 
 
 
