@@ -390,7 +390,7 @@ if(pclient)if(pclient->isServer==client){isserver=client;break;}
 //for(u=0;u<255;u++){
 //if(ar[u].isServer==client){isserver=client;break;}
 //}
-
+/*
 switch(isserver)
 {
     case client:
@@ -405,19 +405,19 @@ switch(isserver)
 }
 }
 
+*/
 
 
 
-
-printf("%i\n",y);
-char ip[10];
-if (y>0){sprintf(ip,"%d",y);
-char a[256] = "192.168.1.";
-strcat(a,ip);
-self->Client::addres.sin_addr.s_addr = inet_addr(a);}
+//printf("%i\n",y);
+//char ip[10];
+//if (y>0){sprintf(ip,"%d",y);
+//char a[256] = "192.168.1.";
+//strcat(a,ip);
+self->Client::addres.sin_addr.s_addr = inet_addr(pclient->y);//}
 //isServer;
 //Chat _chat;
-if (y){Int2Type<PeerType::client> _switch;funswitch(_switch);}else{Int2Type<PeerType::server> _switch;funswitch(_switch);}
+if (!isserver){Int2Type<PeerType::client> _switch;funswitch(_switch);}else{Int2Type<PeerType::server> _switch;funswitch(_switch);}
 
 
 
