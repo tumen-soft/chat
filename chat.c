@@ -15,6 +15,7 @@
 #include <string.h>
 #include <pthread.h>
 #include <stdlib.h>
+//#include <thread>
 #define PORT 111 
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
@@ -194,7 +195,7 @@ args* q=(args*)arg;
 int main(){
 
 //enum PeerType isServer;
-args ar[256]={NULL,"127.0.0.1",server};
+args ar[256]={NULL,0,"127.0.0.1",server};
 ///ar[0].isServer=server;
 //args ar;
 //printf("waiting for connection...");
