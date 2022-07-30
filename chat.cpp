@@ -15,10 +15,14 @@
 #include <map>
 #include <cstring>
 #include <iostream>
+#include <thread>
+#include <vector>
 #define PORT 3111 
 #define MAXLINE 1024
+#define SOCKETERROR (-1)
 
 namespace net {
+pthread_t tid[256];
 
 typedef std::map<int,char*> nmap;
 
@@ -133,8 +137,149 @@ void init(struct Self *self){
 }
 using namespace net;
 
+int check(int exp, const char *msg){
+if (exp == SOCKETERROR){
+	printf("%s\n",msg);
+	exit(1);
+}
+return exp;
+}
+/*
+enum PeerType{
+ server,
+ client
+};
+*/
+struct arg;
+typedef struct arg args;
+struct node{
+	struct node *next;
+	args *ar;
+
+};
+
+typedef struct node node_t;
+//typedef struct arg args;
+node_t * head = NULL;
+node_t * tail = NULL;
+void enqueue(args * ar){
+node_t * newnode = malloc(sizeof(node_t));
+newnode->ar = ar;
+newnode->next=NULL;
+if(tail==NULL){
+head=newnode;
+}else{
+tail->next = newnode;
+}
+tail=newnode;
+}
+args * dequeue(){
+if(head==NULL){
+return NULL;
+}else{
+args *result = head->ar;
+node_t *temp = head;
+head=head->next;
+if (head==NULL){tail==NULL;};
+free(temp);
+return result;
+}
+}
+
+struct arg{
+	pthread_t tid;
+	int x;
+	char y[256];
+	enum PeerType isServer;
+};
+
+struct sockaddr_in addr;
+//args ar;
+
+void* doSomeThing(void *arg)
+{
+//ar.y="test";
+args* q=(args*)arg;
+
+//sprintf(q->y,"%s","test");
+//q->y="test";
+// struct sockaddr_in addr;
+ int socke = socket(AF_INET, SOCK_STREAM, 0);
+ addr.sin_family = AF_INET;
+ addr.sin_port = htons(PORT);
+// pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
+ //for(int i=202;i<204;i++){
+ char a[256] = "192.168.1.";
+ char b[10];
+ //int c = i;
+ sprintf(b,"%d",q->x);
+ //a="192.168.1."
+ strcat(a,b);
+ //puts(a);
+ addr.sin_addr.s_addr =  inet_addr(a);
+ 
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;return 0;}
+    return NULL;
+}
+
+
+
+using namespace std;
+
+void doSomething(args *arg) {
+ //  cout << id << "\n";
+
+//ar.y="test";
+args* q=(args*)arg;
+
+//sprintf(q->y,"%s","test");
+//q->y="test";
+// struct sockaddr_in addr;
+// int socke = socket(AF_INET, SOCK_STREAM, 0);
+/* 
+addr.sin_family = AF_INET;
+ addr.sin_port = htons(PORT);
+// pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
+ //for(int i=202;i<204;i++){
+ char a[256] = "192.168.1.";
+ char b[10];
+ //int c = i;
+ sprintf(b,"%d",q->x);
+ //a="192.168.1."
+ strcat(a,b);
+ //puts(a);
+ addr.sin_addr.s_addr =  inet_addr(a);
+ 
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;return 0;}
+    return NULL;
+*/
+}
+
+/**
+ * Spawns n threads
+ */
+void spawnThreads(int n)
+{
+	args ar[256]={NULL,0,"127.0.0.1",Server};
+
+    std::vector<thread> threads(n);
+    // spawn n threads:
+    for (int i = 0; i < n; i++) {
+        threads[i] = thread(doSomething,&ar[i]);
+    }
+
+    for (auto& th : threads) {
+        th.join();
+    }
+
+
+}
+
+
 int main(){
-  struct Self _self;
+spawnThreads(255);
+
+ struct Self _self;
   struct Self *self=&_self;
   init(self);
 int y=self->Chat::run();
