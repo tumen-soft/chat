@@ -108,13 +108,13 @@ void bind_socket(struct Self* self){
 	bind(self->sock, (struct sockaddr*)&self->addres, sizeof(self->addres));
 }
 void listen_socket(struct Self * self){
-	listen(self->sock, 10);
+	listen(self->sock, 300);
 }
 void accept_connection(struct Self * self){
 	self->new_socket = accept(self->sock,NULL,NULL);
 }
 void select_connection(struct Self *self){
-	select(10, &self->read_fd, NULL, NULL, NULL);
+	select(300, &self->read_fd, NULL, NULL, NULL);
 }
 
 
@@ -225,6 +225,7 @@ args* q=(args*)arg;
 
 
 using namespace std;
+  ///      args ar[256]={NULL,0,"127.0.0.1",Server};
 
 void doSomething(args *arg) {
  //  cout << id << "\n";
@@ -235,8 +236,8 @@ args* q=(args*)arg;
 //sprintf(q->y,"%s","test");
 //q->y="test";
 // struct sockaddr_in addr;
-// int socke = socket(AF_INET, SOCK_STREAM, 0);
-/* 
+ int socke = socket(AF_INET, SOCK_STREAM, 0);
+ 
 addr.sin_family = AF_INET;
  addr.sin_port = htons(PORT);
 // pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
@@ -252,15 +253,16 @@ addr.sin_family = AF_INET;
  
  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;return 0;}
     return NULL;
-*/
+
 }
+  args ar[256]={NULL,0,"127.0.0.1",Server};
 
 /**
  * Spawns n threads
  */
 void spawnThreads(int n)
 {
-	args ar[256]={NULL,0,"127.0.0.1",Server};
+//	args ar[256]={NULL,0,"127.0.0.1",Server};
 
     std::vector<thread> threads(n);
     // spawn n threads:
@@ -277,7 +279,10 @@ void spawnThreads(int n)
 
 
 int main(){
-spawnThreads(255);
+//args ar[256]={NULL,0,"127.0.0.1",Server};
+
+spawnThreads(20);
+
 
  struct Self _self;
   struct Self *self=&_self;
@@ -316,7 +321,8 @@ switch(isServer)
         FD_SET(self->sock, &self->read_fd);  
         self->sel_conn(self);
 	if (FD_ISSET(self->sock, &self->read_fd)) 
-                {
+                {	
+			
        			self->acpt_conn(self);
 			self->acpt_conn(self);
 			char g[80]={0};
