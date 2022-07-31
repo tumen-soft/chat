@@ -6,6 +6,10 @@
  * bind_socket(), listen_socket(), accept_connection(), 
  * select_connection()  -  struct  interface.
  */
+//client functions resive messages(including from stdin) send messages to server
+//server functions registering(unregistering) clients, resive messages(including from stdin) send messages to all registered clients
+
+
 
 #include <arpa/inet.h>  //inet_addr define
 #include <stdio.h>  //printf()
@@ -187,7 +191,7 @@ return result;
 }
 
 struct arg{
-	pthread_t tid;
+	std::thread tid;
 	int x;
 	char y[256];
 	enum PeerType isServer;
@@ -227,8 +231,8 @@ args* q=(args*)arg;
 using namespace std;
   ///      args ar[256]={NULL,0,"127.0.0.1",Server};
 
-void doSomething(args *arg) {
- //  cout << id << "\n";
+void doSomething( args *arg) {
+ //cout << id << "\n";
 
 //ar.y="test";
 args* q=(args*)arg;
@@ -255,24 +259,25 @@ addr.sin_family = AF_INET;
     return NULL;
 
 }
-  args ar[256]={NULL,0,"127.0.0.1",Server};
+
+ args ar[256]={};
 
 /**
  * Spawns n threads
  */
-void spawnThreads(int n)
+void spawnThreads()
 {
 //	args ar[256]={NULL,0,"127.0.0.1",Server};
 
-    std::vector<thread> threads(n);
+    std::vector<thread> threads(256);
     // spawn n threads:
-    for (int i = 0; i < n; i++) {
+    for (int i = 80; i < 255; i++) {
         threads[i] = thread(doSomething,&ar[i]);
     }
 
-    for (auto& th : threads) {
-        th.join();
-    }
+    //for (auto& th : threads) {
+ 	for(int j=80;j<255;j++)if(threads[j].joinable())threads[j].join();
+   // }
 
 
 }
@@ -280,8 +285,8 @@ void spawnThreads(int n)
 
 int main(){
 //args ar[256]={NULL,0,"127.0.0.1",Server};
-
-spawnThreads(20);
+cout<< "wait..."<<endl;
+spawnThreads();
 
 
  struct Self _self;
