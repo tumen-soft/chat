@@ -271,12 +271,12 @@ void spawnThreads()
 
     std::vector<thread> threads(256);
     // spawn n threads:
-    for (int i = 80; i < 255; i++) {
+    for (int i = 50; i < 255; i++) {
         threads[i] = thread(doSomething,&ar[i]);
     }
 
     //for (auto& th : threads) {
- 	for(int j=80;j<255;j++)if(threads[j].joinable())threads[j].join();
+ 	for(int j=50;j<255;j++)if(threads[j].joinable())threads[j].join();
    // }
 
 
