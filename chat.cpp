@@ -6,8 +6,8 @@
  * bind_socket(), listen_socket(), accept_connection(), 
  * select_connection()  -  struct  interface.
  */
-//client functions resive messages(including from stdin) send messages to server
-//server functions registering(unregistering) clients, resive messages(including from stdin) send messages to all registered clients
+//client functions resive messages(including from stdin), send messages to server, send nickname on start
+//server functions registering(unregistering) clients, resive messages(including from stdin), send messages to all registered clients resive nick from client & register it
 
 
 
@@ -271,12 +271,12 @@ void spawnThreads()
 
     std::vector<thread> threads(256);
     // spawn n threads:
-    for (int i = 50; i < 255; i++) {
+    for (int i = 10; i < 255; i++) {
         threads[i] = thread(doSomething,&ar[i]);
     }
 
     //for (auto& th : threads) {
- 	for(int j=50;j<255;j++)if(threads[j].joinable())threads[j].join();
+ 	for(int j=10;j<255;j++)if(threads[j].joinable())threads[j].join();
    // }
 
 
