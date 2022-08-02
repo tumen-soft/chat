@@ -13,12 +13,10 @@ struct AB
 	int a, b;
 };
 
+using namespace Chapter2::Ch2_1;
 int main()
 {
 	std::cout << std::endl;
 	std::cout << "***** 2.1 *****" << std::endl;
-	//STATIC_CHECK(sizeof(AB) >= sizeof(A), Destination_Too_Narrow);
-	Chapter2::Ch2_1::CompileTimeChecker<true> d1;
-
-
+	STATIC_CHECK(sizeof(AB) >= sizeof(A), Destination_Too_Narrow);
 }

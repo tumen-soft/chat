@@ -14,7 +14,7 @@
 	Note: In C++11 you can use static_assert, but while I'm following the book, I'm going to pretend its 2001.
 */
 
-#include <iostream>
+
 namespace Chapter2
 {
 	namespace Ch2_1
@@ -24,11 +24,11 @@ namespace Chapter2
 			class ERROR_##msg {} ;\
 			(void) sizeof((Chapter2::Ch2_1::CompileTimeChecker<(expr) != 0> (ERROR_##msg())));\
 		}
-		template <bool> class CompileTimeChecker
-		{	public:
-			CompileTimeChecker(){std::cout<<"test"<<std::endl;};
+		template <bool> struct CompileTimeChecker
+		{
+			CompileTimeChecker(...);
 		};
-		template<> struct CompileTimeChecker<false> d2;
+		template<> struct CompileTimeChecker<false> { };
 
 		void Run();
 	}
