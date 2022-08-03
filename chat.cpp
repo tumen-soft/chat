@@ -55,6 +55,10 @@ struct Chat{
 	//setsockopt(socke, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof timeout);
 
 	//setsockopt(socke, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof timeout);
+	
+	int* p = new int(65);
+        char* ch = reinterpret_cast<char*>(p);
+
 	int i;
 	for(i=202;i<204;i++){
 	char a[256] = "192.168.1.";
@@ -271,13 +275,13 @@ void spawnThreads()
 
     std::vector<thread> threads(256);
     // spawn n threads:
-    for (int i = 2; i < 255; i++) {
+    for (int i = 0; i < 255; i++) {
         threads[i] = thread(doSomething,&ar[i]);
     }
 
-    //for (auto& th : threads) {
- 	for(int j=0;j<255;j++)if(threads[j].joinable())threads[j].join();
-   // }
+    for (auto& th : threads) {
+ 	/*for(int j=0;j<255;j++)*/if(th.joinable())th.join();
+    }
 
 
 }
