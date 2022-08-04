@@ -168,7 +168,7 @@ struct node{
 };
 std::queue<args*> qq;
 
-
+/*
 typedef struct node node_t;
 //typedef struct arg args;
 node_t * head = NULL;
@@ -196,7 +196,7 @@ free(temp);
 return result;
 }
 }
-
+*/
 struct arg{
 	std::thread tid;
 	int x;
@@ -206,7 +206,7 @@ struct arg{
 
 struct sockaddr_in addr;
 //args ar;
-
+/*
 void* doSomeThing(void *arg)
 {
 //ar.y="test";
@@ -232,7 +232,7 @@ args* q=(args*)arg;
  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;return 0;}
     return NULL;
 }
-
+*/
 
 
 using namespace std;
@@ -276,12 +276,12 @@ void spawnThreads()
 {
 //	args ar[256]={NULL,0,"127.0.0.1",Server};
 
-    std::vector<thread> threads(256);
+    //std::vector<thread> threads(256);
     // spawn n threads:
     for (int i = 0; i < 255; i++) {
         ar[i].x=i;
 	ar[i].tid = thread(doSomething,&ar[i]);
-	enqueue(&ar[i]);
+	//enqueue(&ar[i]);
 	qq.push(&ar[i]); 
    }
 
