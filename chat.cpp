@@ -21,6 +21,7 @@
 #include <iostream>
 #include <thread>
 #include <vector>
+#include <queue>
 #define PORT 3111 
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
@@ -165,6 +166,8 @@ struct node{
 	args *ar;
 
 };
+std::queue<args*> qq;
+
 
 typedef struct node node_t;
 //typedef struct arg args;
@@ -279,7 +282,8 @@ void spawnThreads()
         ar[i].x=i;
 	ar[i].tid = thread(doSomething,&ar[i]);
 	enqueue(&ar[i]);
-    }
+	qq.push(&ar[i]); 
+   }
 
    // for (auto& th : threads) {
  	//for(int j=0;j<255;j++)if(ar[j].tid.joinable())ar[j].tid.join();
@@ -318,6 +322,7 @@ if((pclient!=NULL)&&(pclient->tid.joinable())){
 //if(tid[s]!=NULL)
 pclient->tid.join();}
 if(pclient)if(pclient->isServer==Client){isserver=Client;break;}
+qq.pop();
 }
 
 
