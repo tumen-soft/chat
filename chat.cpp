@@ -238,7 +238,7 @@ args* q=(args*)arg;
 using namespace std;
   ///      args ar[256]={NULL,0,"127.0.0.1",Server};
 
-void doSomething( args *arg) {
+void connector( args *arg) {
  //cout << id << "\n";
 
 //ar.y="test";
@@ -280,7 +280,7 @@ void spawnThreads()
     // spawn n threads:
     for (int i = 0; i < 255; i++) {
         ar[i].x=i;
-	ar[i].tid = thread(doSomething,&ar[i]);
+	ar[i].tid = thread(connector,&ar[i]);
 	//enqueue(&ar[i]);
 	qq.push(&ar[i]); 
    }
@@ -351,7 +351,7 @@ qq.pop();
   struct Self *self=&_self;
   init(self);
 
-int y=self->Chat::run();
+//int y=self->Chat::run();
 if(isserver==Client){
 char a[256] = "192.168.1.";
  char b[10];
