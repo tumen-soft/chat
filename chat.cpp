@@ -315,9 +315,9 @@ j++;
 
 enum PeerType isserver=Server;
 args *pclient;
-pclient=dequeue();
-while(pclient){
-pclient=dequeue();
+//pclient=dequeue();
+while(!qq.empty()){
+pclient=qq.front();
 if((pclient!=NULL)&&(pclient->tid.joinable())){
 //if(tid[s]!=NULL)
 pclient->tid.join();}
