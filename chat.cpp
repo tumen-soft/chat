@@ -70,7 +70,7 @@ struct Chat{
 	puts(a);
 	addr.sin_addr.s_addr =  inet_addr(a);
 	
-	if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0)return i;
+	//if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0)return i;
 	}
 	return 0;
 };
@@ -384,8 +384,8 @@ switch(isserver)
         for(;;){
         FD_ZERO(&self->read_fd);      
         //comm->max_sd = comm->sock; 
-        for (auto it1 = self->nicknames.begin(); it1!=self->nicknames.end();  ++it1)
-    std::cout << it1->first << "->" << it1->second << std::endl;  
+      //  for (auto it1 = self->nicknames.begin(); it1!=self->nicknames.end();  ++it1)
+    //std::cout << it1->first << "->" << it1->second << std::endl;  
 	for (auto itr = self->nicknames.begin(); itr != self->nicknames.end(); ++itr)FD_SET(itr->first, &self->read_fd);
         FD_SET(self->sock, &self->read_fd);  
         self->sel_conn(self);
@@ -400,8 +400,8 @@ switch(isserver)
 			printf("New connection %s\n",self->nicknames.find(self->new_socket)->second);
 			dprintf(self->new_socket,"welcome %d\n",self->new_socket);  
                 }
-		for (auto it2 = self->nicknames.begin(); it2!=self->nicknames.end();  ++it2)
-    std::cout << it2->first << "->" << it2->second << std::endl; 
+		//for (auto it2 = self->nicknames.begin(); it2!=self->nicknames.end();  ++it2)
+    //std::cout << it2->first << "->" << it2->second << std::endl; 
 		for (auto itr2 = self->nicknames.begin(); itr2 != self->nicknames.end(); ++itr2)
                 { 
 			self->sd = itr2->first; 
@@ -424,8 +424,8 @@ switch(isserver)
                         } 
                 } 
         
-	            for (auto it3 = self->nicknames.begin(); it3!=self->nicknames.end();  ++it3)
-    std::cout << it3->first << "->" << it3->second << std::endl; 
+	          //  for (auto it3 = self->nicknames.begin(); it3!=self->nicknames.end();  ++it3)
+   // std::cout << it3->first << "->" << it3->second << std::endl; 
 
 	}
         close(self->sd2);
