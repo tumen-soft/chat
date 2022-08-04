@@ -58,14 +58,14 @@ struct Chat{
 	
 	int* p = new int(65);
         char* ch = reinterpret_cast<char*>(p);
-
+	char r;
+	//strcat(r,(char)ch);
+	
 	int i;
 	for(i=202;i<204;i++){
 	char a[256] = "192.168.1.";
 	char b[10];
-	//int c = i;
 	sprintf(b,"%d",i);
-	//a="192.168.1."
 	strcat(a,b);
 	puts(a);
 	addr.sin_addr.s_addr =  inet_addr(a);
@@ -276,12 +276,14 @@ void spawnThreads()
     std::vector<thread> threads(256);
     // spawn n threads:
     for (int i = 0; i < 255; i++) {
-        threads[i] = thread(doSomething,&ar[i]);
+        ar[i].x=i;
+	ar[i].tid = thread(doSomething,&ar[i]);
+	enqueue(&ar[i]);
     }
 
-    for (auto& th : threads) {
- 	/*for(int j=0;j<255;j++)*/if(th.joinable())th.join();
-    }
+   // for (auto& th : threads) {
+ 	//for(int j=0;j<255;j++)if(ar[j].tid.joinable())ar[j].tid.join();
+    //}
 
 
 }
@@ -293,11 +295,68 @@ cout<< "wait..."<<endl;
 spawnThreads();
 
 
+
+/*
+int j=0;
+
+for (int i=0;i<255;i++){
+ar[j].x=i;
+  pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
+  ar->tid=tid[j];
+  enqueue(&ar[j]); 
+j++;
+}
+*/
+
+
+enum PeerType isserver=Server;
+args *pclient;
+pclient=dequeue();
+while(pclient){
+pclient=dequeue();
+if((pclient!=NULL)&&(pclient->tid.joinable())){
+//if(tid[s]!=NULL)
+pclient->tid.join();}
+if(pclient)if(pclient->isServer==Client){isserver=Client;break;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  struct Self _self;
   struct Self *self=&_self;
   init(self);
+
 int y=self->Chat::run();
-printf("%i\n",y);
+if(isserver==Client){
+char a[256] = "192.168.1.";
+ char b[10];
+ //int c = i;
+ sprintf(b,"%d",pclient->x);
+ //a="192.168.1."
+  strcat(a,b);
+ self->Client::addres.sin_addr.s_addr = inet_addr(a);}
+
+/*printf("%i\n",y);
 char ip[10];
 if (y>0){sprintf(ip,"%d",y);
 char a[256] = "192.168.1.";
@@ -305,12 +364,13 @@ strcat(a,ip);
 self->Client::addres.sin_addr.s_addr = inet_addr(a);}
 PeerType isServer;
 if (y)isServer=Client; else isServer=Server;
+*/
 char s[80];
 std::cout << "nick:";
 std::cin >> s;
 
 
-switch(isServer)
+switch(isserver)
 {
     case Server:
 {
