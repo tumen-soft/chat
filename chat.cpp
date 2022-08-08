@@ -146,6 +146,26 @@ void init(struct Self *self){
 }
 using namespace net;
 
+
+
+#define STATIC_CHECK(expr, msg) \
+                {\
+                        class ERROR_##msg {} ;\
+                        (void) sizeof((CompileTimeChecker<(expr) != 0> (ERROR_##msg())));\
+                }
+                template <bool> struct CompileTimeChecker
+                {
+                        CompileTimeChecker(...);
+                };
+                template<> struct CompileTimeChecker<false> {                          CompileTimeChecker(...);
+ };
+
+
+
+
+
+
+
 int check(int exp, const char *msg){
 if (exp == SOCKETERROR){
 	printf("%s\n",msg);
@@ -293,8 +313,15 @@ void spawnThreads()
 }
 
 
+
+
+
 int main(){
 //args ar[256]={NULL,0,"127.0.0.1",Server};
+
+//        STATIC_CHECK(sizeof(AB) <= sizeof(A), Destination_Too_Narrow);
+
+
 cout<< "wait..."<<endl;
 spawnThreads();
 
@@ -313,7 +340,7 @@ j++;
 */
 
 
-enum PeerType isserver=Server;
+enum  PeerType isserver=Server;
 args *pclient;
 //pclient=dequeue();
 while(!qq.empty()){
@@ -374,6 +401,7 @@ char s[80];
 std::cout << "nick:";
 std::cin >> s;
 
+if(isserver){STATIC_CHECK(1, Destination_Too_Narrow);}else {STATIC_CHECK(0, Destination_Too_Narrow);}
 
 switch(isserver)
 {
