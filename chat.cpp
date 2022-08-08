@@ -45,7 +45,7 @@ struct Chat{
         char buffer[MAXLINE];
 	fd_set read_fd;
 	Func crt_sock, cls_sock, sel_conn;
-	int run(void){
+	/*int run(void){
   	struct sockaddr_in addr;
 	int socke = socket(AF_INET, SOCK_STREAM, 0);
 	addr.sin_family = AF_INET;
@@ -74,7 +74,7 @@ struct Chat{
 	//if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0)return i;
 	}
 	return 0;
-};
+};*/
 };
 struct Client : virtual Chat{
         ~Client(){printf("clidestroy");};
@@ -282,35 +282,6 @@ struct node{
 };
 std::queue<args*> qq;
 
-/*
-typedef struct node node_t;
-//typedef struct arg args;
-node_t * head = NULL;
-node_t * tail = NULL;
-void enqueue(args * ar){
-node_t * newnode = malloc(sizeof(node_t));
-newnode->ar = ar;
-newnode->next=NULL;
-if(tail==NULL){
-head=newnode;
-}else{
-tail->next = newnode;
-}
-tail=newnode;
-}
-args * dequeue(){
-if(head==NULL){
-return NULL;
-}else{
-args *result = head->ar;
-node_t *temp = head;
-head=head->next;
-if (head==NULL){tail==NULL;};
-free(temp);
-return result;
-}
-}
-*/
 struct arg{
 	std::thread tid;
 	int x;
@@ -319,35 +290,6 @@ struct arg{
 };
 
 struct sockaddr_in addr;
-//args ar;
-/*
-void* doSomeThing(void *arg)
-{
-//ar.y="test";
-args* q=(args*)arg;
-
-//sprintf(q->y,"%s","test");
-//q->y="test";
-// struct sockaddr_in addr;
- int socke = socket(AF_INET, SOCK_STREAM, 0);
- addr.sin_family = AF_INET;
- addr.sin_port = htons(PORT);
-// pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
- //for(int i=202;i<204;i++){
- char a[256] = "192.168.1.";
- char b[10];
- //int c = i;
- sprintf(b,"%d",q->x);
- //a="192.168.1."
- strcat(a,b);
- //puts(a);
- addr.sin_addr.s_addr =  inet_addr(a);
- 
- if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;return 0;}
-    return NULL;
-}
-*/
-
 
 using namespace std;
   ///      args ar[256]={NULL,0,"127.0.0.1",Server};
@@ -421,18 +363,6 @@ spawnThreads();
 
 
 
-/*
-int j=0;
-
-for (int i=0;i<255;i++){
-ar[j].x=i;
-  pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
-  ar->tid=tid[j];
-  enqueue(&ar[j]); 
-j++;
-}
-*/
-
 
 enum  PeerType isserver=Server;
 args *pclient;
@@ -496,88 +426,5 @@ std::cout << "nick:";
 std::cin >> s;
 
 if(isserver){STATIC_CHECK(1, Destination_Too_Narrow);}else {STATIC_CHECK(0, Destination_Too_Narrow);}
-/*
-switch(isserver)
-{
-    case Server:
-{
-	self->crt_sock(self);
-	printf("server fd %i \n", self->sock);
-	self->bnd_sock(self);
-	self->lsn_sock(self);
-
-	self->nicknames.insert({0,s});
-	
-        for(;;){
-        FD_ZERO(&self->read_fd);      
-        //comm->max_sd = comm->sock; 
-      //  for (auto it1 = self->nicknames.begin(); it1!=self->nicknames.end();  ++it1)
-    //std::cout << it1->first << "->" << it1->second << std::endl;  
-	for (auto itr = self->nicknames.begin(); itr != self->nicknames.end(); ++itr)FD_SET(itr->first, &self->read_fd);
-        FD_SET(self->sock, &self->read_fd);  
-        self->sel_conn(self);
-	if (FD_ISSET(self->sock, &self->read_fd)) 
-                {	
-			
-       			self->acpt_conn(self);
-			self->acpt_conn(self);
-			char g[80]={0};
-			read(self->new_socket,g,1024);
-			self->nicknames.insert({self->new_socket,g});
-			printf("New connection %s\n",self->nicknames.find(self->new_socket)->second);
-			dprintf(self->new_socket,"welcome %d\n",self->new_socket);  
-                }
-		//for (auto it2 = self->nicknames.begin(); it2!=self->nicknames.end();  ++it2)
-    //std::cout << it2->first << "->" << it2->second << std::endl; 
-		for (auto itr2 = self->nicknames.begin(); itr2 != self->nicknames.end(); ++itr2)
-                { 
-			self->sd = itr2->first; 
-			if (FD_ISSET(self->sd , &self->read_fd)) 
-                        { 
-				if ((self->valread = read( self->sd , self->buffer, 1024))==0)//man read 
-				{ 
-                                        printf("Host disconnected %s \n" ,itr2->second); 
-                                        close(self->sd); 
-					self->nicknames.erase(itr2); 
-                                	break;				
-				} 
-                                else
-				{ 
-	  				self->buffer[self->valread] = '\0';
-					for (auto itr1 = self->nicknames.begin(); itr1 != self->nicknames.end(); ++itr1)
-					dprintf(itr1->first,"%i says: %s\n",self->sd,self->buffer);
-					
-                                 }  
-                        } 
-                } 
-        
-	          //  for (auto it3 = self->nicknames.begin(); it3!=self->nicknames.end();  ++it3)
-   // std::cout << it3->first << "->" << it3->second << std::endl; 
-
-	}
-        close(self->sd2);
-	self->cls_sock(self);
-
-  }
-    case Client:
-{ 
-	self->crt_sock(self); 
-	printf("client fd %i \n", self->sock);
-	self->cnt_to_sock(self);
-	dprintf(self->sock,s);
-        for(;;)
-	{
-        	memset(self->buffer, 0, sizeof(self->buffer));
-        	FD_ZERO(&self->read_fd);
-        	FD_SET(0, &self->read_fd);
-        	FD_SET(self->sock, &self->read_fd);
-        	self->sel_conn(self);
-        	if (FD_ISSET(0, &self->read_fd)){read(0,self->buffer,sizeof(self->buffer));dprintf(self->sock, self->buffer);}  
-        	if(FD_ISSET(self->sock, &self->read_fd)){read(self->sock, self->buffer, sizeof(self->buffer));dprintf(0,self->buffer);}
-	}   
-	self->cls_sock(self);
-  }
-}
-*/
 }
 
