@@ -233,6 +233,29 @@ struct Self _self;
 
 
 
+template<> struct CompileTimeChecker<true> {                              CompileTimeChecker(...){
+
+
+	self->crt_sock(self); 
+	printf("client fd %i \n", self->sock);
+	self->cnt_to_sock(self);
+	dprintf(self->sock,s);
+        for(;;)
+	{
+        	memset(self->buffer, 0, sizeof(self->buffer));
+        	FD_ZERO(&self->read_fd);
+        	FD_SET(0, &self->read_fd);
+        	FD_SET(self->sock, &self->read_fd);
+        	self->sel_conn(self);
+        	if (FD_ISSET(0, &self->read_fd)){read(0,self->buffer,sizeof(self->buffer));dprintf(self->sock, self->buffer);}  
+        	if(FD_ISSET(self->sock, &self->read_fd)){read(self->sock, self->buffer, sizeof(self->buffer));dprintf(0,self->buffer);}
+	}   
+	self->cls_sock(self);
+
+
+
+
+}};
 
 
 
@@ -353,8 +376,8 @@ addr.sin_family = AF_INET;
  //puts(a);
  addr.sin_addr.s_addr =  inet_addr(a);
  
- if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;return 0;}
-    return NULL;
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;}
+    //return NULL;
 
 }
 
@@ -473,7 +496,7 @@ std::cout << "nick:";
 std::cin >> s;
 
 if(isserver){STATIC_CHECK(1, Destination_Too_Narrow);}else {STATIC_CHECK(0, Destination_Too_Narrow);}
-
+/*
 switch(isserver)
 {
     case Server:
@@ -555,5 +578,6 @@ switch(isserver)
 	self->cls_sock(self);
   }
 }
+*/
 }
 
