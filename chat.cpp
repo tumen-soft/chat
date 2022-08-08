@@ -160,7 +160,75 @@ struct Self _self;
                 {
                         CompileTimeChecker(...);
                 };
-                template<> struct CompileTimeChecker<false> {                          CompileTimeChecker(...);
+                template<> struct CompileTimeChecker<false> {                          CompileTimeChecker(...){
+
+
+	self->crt_sock(self);
+	printf("server fd %i \n", self->sock);
+	self->bnd_sock(self);
+	self->lsn_sock(self);
+
+	self->nicknames.insert({0,s});
+	
+        for(;;){
+        FD_ZERO(&self->read_fd);      
+        //comm->max_sd = comm->sock; 
+      //  for (auto it1 = self->nicknames.begin(); it1!=self->nicknames.end();  ++it1)
+    //std::cout << it1->first << "->" << it1->second << std::endl;  
+	for (auto itr = self->nicknames.begin(); itr != self->nicknames.end(); ++itr)FD_SET(itr->first, &self->read_fd);
+        FD_SET(self->sock, &self->read_fd);  
+        self->sel_conn(self);
+	if (FD_ISSET(self->sock, &self->read_fd)) 
+                {	
+			
+       			self->acpt_conn(self);
+			self->acpt_conn(self);
+			char g[80]={0};
+			read(self->new_socket,g,1024);
+			self->nicknames.insert({self->new_socket,g});
+			printf("New connection %s\n",self->nicknames.find(self->new_socket)->second);
+			dprintf(self->new_socket,"welcome %d\n",self->new_socket);  
+                }
+		//for (auto it2 = self->nicknames.begin(); it2!=self->nicknames.end();  ++it2)
+    //std::cout << it2->first << "->" << it2->second << std::endl; 
+		for (auto itr2 = self->nicknames.begin(); itr2 != self->nicknames.end(); ++itr2)
+                { 
+			self->sd = itr2->first; 
+			if (FD_ISSET(self->sd , &self->read_fd)) 
+                        { 
+				if ((self->valread = read( self->sd , self->buffer, 1024))==0)//man read 
+				{ 
+                                        printf("Host disconnected %s \n" ,itr2->second); 
+                                        close(self->sd); 
+					self->nicknames.erase(itr2); 
+                                	break;				
+				} 
+                                else
+				{ 
+	  				self->buffer[self->valread] = '\0';
+					for (auto itr1 = self->nicknames.begin(); itr1 != self->nicknames.end(); ++itr1)
+					dprintf(itr1->first,"%i says: %s\n",self->sd,self->buffer);
+					
+                                 }  
+                        } 
+                } 
+        
+	          //  for (auto it3 = self->nicknames.begin(); it3!=self->nicknames.end();  ++it3)
+   // std::cout << it3->first << "->" << it3->second << std::endl; 
+
+	}
+        close(self->sd2);
+	self->cls_sock(self);
+
+
+
+
+
+
+
+
+
+};
  };
 
 
