@@ -147,6 +147,9 @@ void init(struct Self *self){
 using namespace net;
 
 
+struct Self _self;
+  struct Self *self=&_self;
+ char s[80];
 
 #define STATIC_CHECK(expr, msg) \
                 {\
@@ -374,8 +377,8 @@ qq.pop();
 
 
 
- struct Self _self;
-  struct Self *self=&_self;
+// struct Self _self;
+ // struct Self *self=&_self;
   init(self);
 
 //int y=self->Chat::run();
@@ -397,7 +400,7 @@ self->Client::addres.sin_addr.s_addr = inet_addr(a);}
 PeerType isServer;
 if (y)isServer=Client; else isServer=Server;
 */
-char s[80];
+//char s[80];
 std::cout << "nick:";
 std::cin >> s;
 
