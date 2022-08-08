@@ -154,7 +154,7 @@ struct Self _self;
 #define STATIC_CHECK(expr, msg) \
                 {\
                         class ERROR_##msg {} ;\
-                        (void) sizeof((CompileTimeChecker<(expr) != 0> (ERROR_##msg())));\
+                        (void) CompileTimeChecker<(expr) != 0> (ERROR_##msg());\
                 }
                 template <bool> struct CompileTimeChecker
                 {
