@@ -1,14 +1,39 @@
-/* Async net chat  by Vergun Denis <blu.eagle@mail.ru>
+/* Async multiclient net chat  by Vergun Denis <blu.eagle@mail.ru>
  * Four structures : Client, Server, Chat, Self. 
  * main() function. 
  * init() func.
  * Functions: create_socket(), close_socket(), connect_to_socket(),
  * bind_socket(), listen_socket(), accept_connection(), 
- * select_connection()  -  struct  interface.
+ * select_connection().
  */
-//client functions resive messages(including from stdin), send messages to server, send nickname on start
-//server functions registering(unregistering) clients, resive messages(including from stdin), send messages to all registered clients resive nick from client & register it
 
+
+//enum PeerType (55) consist of two members - Client & Server. There two state: Client or Server in programm.
+//Client: functions resive messages(including from stdin), send messages to server, send nickname on start
+//Server: functions registering(unregistering) clients, resive messages(including from stdin), send messages to all registered clients resive nick from client & register it
+//ip scaner, avtomaticheskiy vibor regima raboti.
+
+/*
+                (begin)
+                   |
+                   |    
+                  \|/   
+        create threads   loop(256(ip 192.168.1.*))(check for connect)
+                   |    (threads massive)
+                   |
+                  \|/
+        wait threads ends
+                   |
+                   |
+                  \|/   
+        check for client(susess connection) loop  yes ----> end  (client)
+                   |
+                no |               
+                  \|/
+                server
+
+
+*/
 
 
 #include <arpa/inet.h>  //inet_addr define
@@ -96,6 +121,25 @@ struct Server : virtual Chat{
 	
 
 };
+
+
+struct Peers{
+
+        
+        struct Server *server;
+        struct Client *client;
+
+
+
+};
+
+
+
+
+
+
+
+
 
 struct Self : Server, Client{};
 
