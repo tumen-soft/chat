@@ -63,7 +63,7 @@ enum PeerType{
 
 using Func = void (*)(struct Self *self);
 
-struct Chat{
+struct Attr{
         int sock;
         struct sockaddr_in addres;
 	char* message;
@@ -101,7 +101,7 @@ struct Chat{
 	return 0;
 };*/
 };
-struct Client : virtual Chat{
+struct Client : virtual Attr{
         ~Client(){printf("clidestroy");};
 	Func cnt_to_sock;
 	int run(void){return 0;};
@@ -112,7 +112,7 @@ struct Client : virtual Chat{
 
 
 
-struct Server : virtual Chat{
+struct Server : virtual Attr{
         Func bnd_sock, lsn_sock, acpt_conn;
 	int run(void){return 0;};
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
@@ -465,7 +465,6 @@ self->Client::addres.sin_addr.s_addr = inet_addr(a);}
 PeerType isServer;
 if (y)isServer=Client; else isServer=Server;
 */
-//char s[80];
 std::cout << "nick:";
 std::cin >> s;
 
