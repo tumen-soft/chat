@@ -60,6 +60,7 @@ enum PeerType{
 	Server,
 	Client
 };
+char s[80];
 
 using Func = void (*)(struct Self *self);
 
@@ -70,8 +71,9 @@ struct Attr{
         char buffer[MAXLINE];
 	fd_set read_fd;
 	Func crt_sock, cls_sock, sel_conn;
-	/*int run(void){
-  	struct sockaddr_in addr;
+	int run(){
+	/*  	
+struct sockaddr_in addr;
 	int socke = socket(AF_INET, SOCK_STREAM, 0);
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(PORT);
@@ -99,12 +101,14 @@ struct Attr{
 	//if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0)return i;
 	}
 	return 0;
-};*/
+*/
 };
+};
+
 struct Client : virtual Attr{
         ~Client(){printf("clidestroy");};
 	Func cnt_to_sock;
-	int run(void){return 0;};
+	int run(void);
 };
 
 
@@ -114,7 +118,7 @@ struct Client : virtual Attr{
 
 struct Server : virtual Attr{
         Func bnd_sock, lsn_sock, acpt_conn;
-	int run(void){return 0;};
+	int run(void);
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
 	int valread;
         nmap nicknames;
@@ -190,23 +194,35 @@ void init(struct Self *self){
 }
 using namespace net;
 
-
 struct Self _self;
-  struct Self *self=&_self;
- char s[80];
+struct Self *self=&_self;
+
 
 #define STATIC_CHECK(expr, msg) \
                 {\
-                        class ERROR_##msg {} ;\
-                        (void) CompileTimeChecker<(expr) != 0> (ERROR_##msg());\
-                }
-                template <bool> struct CompileTimeChecker
-                {
-                        CompileTimeChecker(...);
-                };
-                template<> struct CompileTimeChecker<false> {                          CompileTimeChecker(...){
+  class ERROR_##msg {} ;\
+  (void) CompileTimeChecker<(expr) != 0> (ERROR_##msg());\
+}
+template <bool> struct CompileTimeChecker
+{
+CompileTimeChecker(...);
+};
+template<> struct CompileTimeChecker<false> {
+CompileTimeChecker(...){
+self->Server::run();
+}
+};
+template<> struct CompileTimeChecker<true> {   
+CompileTimeChecker(...){
+self->Client::run();
+}
+};
 
 
+
+
+
+Server::run(){
 	self->crt_sock(self);
 	printf("server fd %i \n", self->sock);
 	self->bnd_sock(self);
@@ -272,14 +288,12 @@ struct Self _self;
 
 
 
-};
- };
+}
+ 
 
 
 
-template<> struct CompileTimeChecker<true> {                              CompileTimeChecker(...){
-
-
+Client::run(){
 	self->crt_sock(self); 
 	printf("client fd %i \n", self->sock);
 	self->cnt_to_sock(self);
@@ -299,24 +313,11 @@ template<> struct CompileTimeChecker<true> {                              Compil
 
 
 
-}};
-
-
-
-
-int check(int exp, const char *msg){
-if (exp == SOCKETERROR){
-	printf("%s\n",msg);
-	exit(1);
 }
-return exp;
-}
-/*
-enum PeerType{
- server,
- client
-};
-*/
+
+
+
+
 struct arg;
 typedef struct arg args;
 struct node{
