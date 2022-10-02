@@ -63,7 +63,7 @@ char s[80];
 
 using Func = void (*)(struct Self *self);
 
-struct Attr{
+struct Net{
         int sock;
         struct sockaddr_in addres;
 	char* message;
@@ -104,7 +104,7 @@ struct sockaddr_in addr;
 };
 };
 
-struct Client : virtual Attr{
+struct Client : virtual Net{
         ~Client(){printf("clidestroy");};
 	Func cnt_to_sock;
 	int run(void);
@@ -115,7 +115,7 @@ struct Client : virtual Attr{
 
 
 
-struct Server : virtual Attr{
+struct Server : virtual Net{
         Func bnd_sock, lsn_sock, acpt_conn;
 	int run(void);
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
