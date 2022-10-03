@@ -51,7 +51,6 @@
 #define SOCKETERROR (-1)
 
 namespace net {
-pthread_t tid[256];
 
 typedef std::map<int,char*> nmap;
 
@@ -70,38 +69,7 @@ struct Net{
         char buffer[MAXLINE];
 	fd_set read_fd;
 	Func crt_sock, cls_sock, sel_conn;
-	int run(){
-	/*  	
-struct sockaddr_in addr;
-	int socke = socket(AF_INET, SOCK_STREAM, 0);
-	addr.sin_family = AF_INET;
-	addr.sin_port = htons(PORT);
-	struct timeval timeout;
-	timeout.tv_sec=3;
-	timeout.tv_usec=0;
-	//setsockopt(socke, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof timeout);
-
-	//setsockopt(socke, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof timeout);
-	
-	int* p = new int(65);
-        char* ch = reinterpret_cast<char*>(p);
-	char r;
-	//strcat(r,(char)ch);
-	
-	int i;
-	for(i=202;i<204;i++){
-	char a[256] = "192.168.1.";
-	char b[10];
-	sprintf(b,"%d",i);
-	strcat(a,b);
-	puts(a);
-	addr.sin_addr.s_addr =  inet_addr(a);
-	
-	//if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0)return i;
-	}
-	return 0;
-*/
-};
+	int run(){};
 };
 
 struct Client : virtual Net{
