@@ -7,6 +7,7 @@
  * select_connection().
  */
 
+
 //enum PeerType (55) consist of two members - Client & Server. There two state: Client or Server in programm.
 //Client: functions resive messages(including from stdin), send messages to server, send nickname on start
 //Server: functions registering(unregistering) clients, resive messages(including from stdin), send messages to all registered clients resive nick from client & register it
@@ -53,7 +54,7 @@
 namespace net {
 
 typedef std::map<int,char*> nmap;
-
+//enimeration for ip scaner
 enum PeerType{
 	Server,
 	Client
@@ -69,7 +70,7 @@ struct Net{
         char buffer[MAXLINE];
 	fd_set read_fd;
 	Func crt_sock, cls_sock, sel_conn;
-	int run(){};
+	int run();
 };
 
 struct Client : virtual Net{
@@ -293,9 +294,9 @@ struct node{
 
 };
 std::queue<args*> qq;
-
+using namespace std;
 struct arg{
-	std::thread tid;
+	thread tid;
 	int x;
 	char y[256];
 	enum PeerType isServer;
@@ -303,7 +304,6 @@ struct arg{
 
 struct sockaddr_in addr;
 
-using namespace std;
   ///      args ar[256]={NULL,0,"127.0.0.1",Server};
 
 void connector( args *arg) {
@@ -410,8 +410,6 @@ qq.pop();
 
 
 
-// struct Self _self;
- // struct Self *self=&_self;
   init(self);
 
 //int y=self->Chat::run();
@@ -424,15 +422,6 @@ char a[256] = "192.168.1.";
   strcat(a,b);
  self->Client::addres.sin_addr.s_addr = inet_addr(a);}
 
-/*printf("%i\n",y);
-char ip[10];
-if (y>0){sprintf(ip,"%d",y);
-char a[256] = "192.168.1.";
-strcat(a,ip);
-self->Client::addres.sin_addr.s_addr = inet_addr(a);}
-PeerType isServer;
-if (y)isServer=Client; else isServer=Server;
-*/
 std::cout << "nick:";
 std::cin >> s;
 
