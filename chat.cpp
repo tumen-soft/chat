@@ -7,7 +7,6 @@
  * select_connection().
  */
 
-
 //enum PeerType (55) consist of two members - Client & Server. There two state: Client or Server in programm.
 //Client: functions resive messages(including from stdin), send messages to server, send nickname on start
 //Server: functions registering(unregistering) clients, resive messages(including from stdin), send messages to all registered clients resive nick from client & register it
@@ -63,6 +62,7 @@ char s[80];
 
 using Func = void (*)(struct Self *self);
 
+
 struct Net{
         int sock;
         struct sockaddr_in addres;
@@ -78,11 +78,6 @@ struct Client : virtual Net{
 	Func cnt_to_sock;
 	int run(void);
 };
-
-
-
-
-
 
 struct Server : virtual Net{
         Func bnd_sock, lsn_sock, acpt_conn;
