@@ -2,8 +2,9 @@
  * Four structures : Client, Server, Chat, Self. 
  * main() function. 
  * init() func.
- * Functions: create_socket(), close_socket(), connect_to_socket(),
- * bind_socket(), listen_socket(), accept_connection(), 
+ * Functions: creation create_socket(), closing socket close_socket(), 
+ * connecting connect_to_socket(), initialisation bind_socket(), 
+ * waiting for connection listen_socket() and accept_connection(), 
  * select_connection().
  */
 
@@ -70,7 +71,7 @@ struct Net{
         char buffer[MAXLINE];
 	fd_set read_fd;
 	Func crt_sock, cls_sock, sel_conn;
-	int run();
+	int run(void);
 };
 
 struct Client : virtual Net{
@@ -283,11 +284,6 @@ Client::run(){
 
 struct arg;
 typedef struct arg args;
-struct node{
-	struct node *next;
-	args *ar;
-
-};
 std::queue<args*> qq;
 using namespace std;
 struct arg{
