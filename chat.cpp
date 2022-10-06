@@ -204,6 +204,7 @@ Server::run(){
         FD_SET(self->sock, &self->read_fd);  
 	//wait for connection/recive message
         self->sel_conn(self);
+	
 	if (FD_ISSET(self->sock, &self->read_fd)) 
                 {	
 			//acepting connection	
