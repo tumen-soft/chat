@@ -183,9 +183,6 @@ self->Client::run();
 };
 
 
-
-
-
 Server::run(){
 	self->crt_sock(self);
 	printf("server fd %i \n", self->sock);
