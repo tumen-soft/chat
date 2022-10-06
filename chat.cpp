@@ -184,9 +184,13 @@ self->Client::run();
 
 
 Server::run(){
+	//socket creation
 	self->crt_sock(self);
+	//output socket file descriptor
 	printf("server fd %i \n", self->sock);
+	//initialisation
 	self->bnd_sock(self);
+	//waiting for connection
 	self->lsn_sock(self);
 
 	self->nicknames.insert({0,s});
@@ -198,10 +202,11 @@ Server::run(){
     //std::cout << it1->first << "->" << it1->second << std::endl;  
 	for (auto itr = self->nicknames.begin(); itr != self->nicknames.end(); ++itr)FD_SET(itr->first, &self->read_fd);
         FD_SET(self->sock, &self->read_fd);  
+	//wait for connection/recive message
         self->sel_conn(self);
 	if (FD_ISSET(self->sock, &self->read_fd)) 
                 {	
-			
+			//acepting connection	
        			self->acpt_conn(self);
 			self->acpt_conn(self);
 			char g[80]={0};
@@ -239,6 +244,7 @@ Server::run(){
 
 	}
         close(self->sd2);
+	//closing socket
 	self->cls_sock(self);
 
 
