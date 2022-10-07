@@ -63,18 +63,13 @@ char s[80];
 
 using Func = void (*)(struct Self *self);
 
-
-struct Net{
+struct Server{
         int sock;
         struct sockaddr_in addres;
 	char* message;
         char buffer[MAXLINE];
 	fd_set read_fd;
 	Func crt_sock, cls_sock, sel_conn;
-	int run(void);
-};
-
-struct Server : Net{
         Func bnd_sock, lsn_sock, acpt_conn, cnt_to_sock;
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
 	int valread;
