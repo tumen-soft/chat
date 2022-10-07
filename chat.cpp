@@ -89,6 +89,15 @@ struct Client : Server{
 struct Self : Client{};
 
 
+struct Peers{
+
+        
+        struct Server *server;
+        struct Client *client;
+
+
+
+};
 
 
 //funkcii visokogo urovnya
