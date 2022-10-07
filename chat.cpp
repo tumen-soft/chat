@@ -74,42 +74,24 @@ struct Net{
 	int run(void);
 };
 
-struct Client : virtual Net{
-        ~Client(){printf("clidestroy");};
-	Func cnt_to_sock;
-	int run(void);
-};
-
-struct Server : virtual Net{
-        Func bnd_sock, lsn_sock, acpt_conn;
-	int run(void);
+struct Server : Net{
+        Func bnd_sock, lsn_sock, acpt_conn, cnt_to_sock;
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
 	int valread;
         nmap nicknames;
+        int run(void);
 	
 
 };
 
-
-struct Peers{
-
-        
-        struct Server *server;
-        struct Client *client;
-
+struct Client : Server{
+        int run(void);
 
 
 };
 
 
-
-
-
-
-
-
-
-struct Self : Server, Client{};
+struct Self : Client{};
 
 
 
@@ -384,36 +366,12 @@ qq.pop();
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   init(self);
 
-//int y=self->Chat::run();
 if(isserver==Client){
 char a[256] = "192.168.1.";
  char b[10];
- //int c = i;
  sprintf(b,"%d",pclient->x);
- //a="192.168.1."
   strcat(a,b);
  self->Client::addres.sin_addr.s_addr = inet_addr(a);}
 
