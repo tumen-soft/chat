@@ -13,8 +13,8 @@
 
 	Note: In C++11 you can use static_assert, but while I'm following the book, I'm going to pretend its 2001.
 */
-
-
+#include <iostream>
+using namespace std;
 namespace Chapter2
 {
 	namespace Ch2_1
@@ -22,13 +22,23 @@ namespace Chapter2
 		#define STATIC_CHECK(expr, msg) \
 		{\
 			class ERROR_##msg {} ;\
-			(void) sizeof((Chapter2::Ch2_1::CompileTimeChecker<(expr) != 0> (ERROR_##msg())));\
+			(void) Chapter2::Ch2_1::CompileTimeChecker<(expr) != 0> (ERROR_##msg());\
 		}
-		template <bool> struct CompileTimeChecker
+		template <bool> class CompileTimeChecker
 		{
-			CompileTimeChecker(...);
+			CompileTimeChecker(...){cout<<"top";};
 		};
-		template<> struct CompileTimeChecker<false> { };
+		template<> class CompileTimeChecker<false> {   
+		public:
+                       CompileTimeChecker(...){std::cout << "false"<< std::endl;};
+ };
+
+
+            template<> class CompileTimeChecker<true> {   
+		public:
+	                       CompileTimeChecker(...){std::cout<<"true"<<std::endl;};
+ };
+
 
 		void Run();
 	}
