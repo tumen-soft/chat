@@ -88,12 +88,13 @@ struct Client : Server{
 
 struct Self : Client{};
 
+struct Peer{};
 
 struct Peers{
 
         
-        struct Server *server;
-        struct Client *client;
+        struct Peer *server;
+        struct Peer *client;
 
 
 
@@ -368,7 +369,6 @@ pclient->tid.join();}
 if(pclient)if(pclient->isServer==Client){isserver=Client;break;}
 qq.pop();
 }
-
 
   init(self);
 
