@@ -102,7 +102,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_chat_OBJECTS = chat.$(OBJEXT)
+am_chat_OBJECTS = peer.$(OBJEXT) chat.$(OBJEXT)
 chat_OBJECTS = $(am_chat_OBJECTS)
 chat_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
@@ -120,7 +120,7 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/chat.Po
+am__depfiles_remade = ./$(DEPDIR)/chat.Po ./$(DEPDIR)/peer.Po
 am__mv = mv -f
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
@@ -183,12 +183,12 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} '/root/chat/missing' aclocal-1.16
+ACLOCAL = ${SHELL} '/root/forge/chat/missing' aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} '/root/chat/missing' autoconf
-AUTOHEADER = ${SHELL} '/root/chat/missing' autoheader
-AUTOMAKE = ${SHELL} '/root/chat/missing' automake-1.16
+AUTOCONF = ${SHELL} '/root/forge/chat/missing' autoconf
+AUTOHEADER = ${SHELL} '/root/forge/chat/missing' autoheader
+AUTOMAKE = ${SHELL} '/root/forge/chat/missing' automake-1.16
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -216,7 +216,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} '/root/chat/missing' makeinfo
+MAKEINFO = ${SHELL} '/root/forge/chat/missing' makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = full-package-name
@@ -231,10 +231,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = VERSION
-abs_builddir = /root/chat
-abs_srcdir = /root/chat
-abs_top_builddir = /root/chat
-abs_top_srcdir = /root/chat
+abs_builddir = /root/forge/chat
+abs_srcdir = /root/forge/chat
+abs_top_builddir = /root/forge/chat
+abs_top_srcdir = /root/forge/chat
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -254,7 +254,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /root/chat/install-sh
+install_sh = ${SHELL} /root/forge/chat/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -276,7 +276,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 AM_CXXFLAGS = -g -fpermissive
-chat_SOURCES = chat.cpp
+chat_SOURCES = peer.cpp chat.cpp
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -384,6 +384,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/chat.Po # am--include-marker
+include ./$(DEPDIR)/peer.Po # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -679,6 +680,7 @@ clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 		-rm -f ./$(DEPDIR)/chat.Po
+	-rm -f ./$(DEPDIR)/peer.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-tags
@@ -727,6 +729,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
 		-rm -f ./$(DEPDIR)/chat.Po
+	-rm -f ./$(DEPDIR)/peer.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

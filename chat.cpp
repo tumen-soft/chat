@@ -35,7 +35,6 @@
 
 */
 
-
 #include <arpa/inet.h>  //inet_addr define
 #include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
@@ -50,57 +49,12 @@
 #define PORT 3111 
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
+//#include "self.h"
+
 
 namespace net {
 
-typedef std::map<int,char*> nmap;
-//enimeration for ip scaner
-enum PeerType{
-	Server,
-	Client
-};
-char s[80];
-
-using Func = void (*)(struct Self *self);
-
-struct Server{
-        int sock;
-        struct sockaddr_in addres;
-	char* message;
-        char buffer[MAXLINE];
-	fd_set read_fd;
-	Func crt_sock, cls_sock, sel_conn;
-        Func bnd_sock, lsn_sock, acpt_conn, cnt_to_sock;
-        int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
-	int valread;
-        nmap nicknames;
-        int run(void);
-	
-
-};
-
-struct Client : Server{
-        int run(void);
-
-
-};
-
-
-struct Self : Client{};
-
-struct Peer{};
-
-struct Peers{
-
-        
-        struct Peer *server;
-        struct Peer *client;
-
-
-
-};
-
-
+/*
 //funkcii visokogo urovnya
 
 void create_socket(struct Self *self){
@@ -141,14 +95,14 @@ void init(struct Self *self){
 	self->Server::addres.sin_addr.s_addr = htonl(INADDR_ANY); 
 	//comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
 }
-
+*/
 }
 using namespace net;
 
-struct Self _self;
-struct Self *self=&_self;
+//struct Self _self;
+//struct Self *self=&_self;
 
-
+/*
 #define STATIC_CHECK(expr, msg) \
                 {\
   class ERROR_##msg {} ;\
@@ -168,7 +122,6 @@ CompileTimeChecker(...){
 self->Client::run();
 }
 };
-
 
 Server::run(){
 	//socket creation
@@ -247,7 +200,6 @@ Server::run(){
  
 
 
-
 Client::run(){
 	self->crt_sock(self); 
 	printf("client fd %i \n", self->sock);
@@ -269,30 +221,16 @@ Client::run(){
 
 
 }
-
-
-
-
+*/
 struct arg;
 typedef struct arg args;
-std::queue<args*> qq;
-using namespace std;
-struct arg{
-	thread tid;
-	int x;
-	char y[256];
-	enum PeerType isServer;
-};
-
-struct sockaddr_in addr;
-
-  ///      args ar[256]={NULL,0,"127.0.0.1",Server};
-
-void connector( args *arg) {
+void connector( args *argz); 
+/*
+{
  //cout << id << "\n";
 
 //ar.y="test";
-args* q=(args*)arg;
+args* q=(args*)argz;
 
 //sprintf(q->y,"%s","test");
 //q->y="test";
@@ -316,13 +254,15 @@ addr.sin_family = AF_INET;
     //return NULL;
 
 }
-
- args ar[256]={};
+*/
+ //args ar[256]={};
 
 /**
  * Spawns n threads
  */
-void spawnThreads()
+
+void spawnThreads();
+/*
 {
 //	args ar[256]={NULL,0,"127.0.0.1",Server};
 
@@ -330,7 +270,7 @@ void spawnThreads()
     // spawn n threads:
     for (int i = 0; i < 255; i++) {
         ar[i].x=i;
-	ar[i].tid = thread(connector,&ar[i]);
+	ar[i].tid = std::thread(connector,&ar[i]);
 	//enqueue(&ar[i]);
 	qq.push(&ar[i]); 
    }
@@ -341,10 +281,10 @@ void spawnThreads()
 
 
 }
-
-
-
-
+*/
+void wait();
+void check();
+using namespace std;
 
 int main(){
 //args ar[256]={NULL,0,"127.0.0.1",Server};
@@ -356,8 +296,8 @@ cout<< "wait..."<<endl;
 spawnThreads();
 
 
-
-
+wait();
+/*
 enum  PeerType isserver=Server;
 args *pclient;
 //pclient=dequeue();
@@ -369,7 +309,8 @@ pclient->tid.join();}
 if(pclient)if(pclient->isServer==Client){isserver=Client;break;}
 qq.pop();
 }
-
+*/
+/*
   init(self);
 
 if(isserver==Client){
@@ -383,5 +324,8 @@ std::cout << "nick:";
 std::cin >> s;
 
 if(isserver){STATIC_CHECK(1, Destination_Too_Narrow);}else {STATIC_CHECK(0, Destination_Too_Narrow);}
+*/
+
+check();
 }
 
