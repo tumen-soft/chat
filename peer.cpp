@@ -1,4 +1,4 @@
-#include "chat.h"
+#include "peer.h"
 using namespace net;
 
 //struct Self _self;
@@ -95,27 +95,6 @@ Server::run(){
 
 
 }
-/*
-#define STATIC_CHECK(expr, msg) \
-                {\
-  class ERROR_##msg {} ;\
-  (void) CompileTimeChecker<(expr) != 0> (ERROR_##msg());\
-}
-template <bool> struct CompileTimeChecker
-{
-CompileTimeChecker(...);
-};
-template<> struct CompileTimeChecker<false> {
-CompileTimeChecker(...){
-self->Server::run();
-}
-};
-template<> struct CompileTimeChecker<true> {   
-CompileTimeChecker(...){
-self->Client::run();
-}
-};
-*/
 //funkcii visokogo urovnya
 
 void create_socket(struct Self *self){
