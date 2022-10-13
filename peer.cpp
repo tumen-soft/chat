@@ -247,6 +247,7 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
+
 if(isserver){STATIC_CHECK(1, Destination_Too_Narrow);}else {STATIC_CHECK(0, Destination_Too_Narrow);}
 
 
