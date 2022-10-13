@@ -66,15 +66,8 @@ void check();
 using namespace std;
 
 int main(){
-//args ar[256]={NULL,0,"127.0.0.1",Server};
-
-//        STATIC_CHECK(sizeof(AB) <= sizeof(A), Destination_Too_Narrow);
-
-
 cout<< "wait..."<<endl;
 spawnThreads();
-
-
 wait();
 check();
 }
