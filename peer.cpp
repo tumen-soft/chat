@@ -1,9 +1,6 @@
 #include "peer.h"
 using namespace net;
 
-//struct Self _self;
-//struct Self *self=&_self;
-
 Client::run(){
         self->crt_sock(self); 
         printf("client fd %i \n", self->sock);
@@ -135,9 +132,8 @@ void init(struct Self *self){
         //comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
 }
 
-typedef struct arg args;
-std::queue<args*> qq;
-struct sockaddr_in addr;
+//std::queue<args*> qq;
+//struct sockaddr_in addr;
 
   ///      args ar[256]={NULL,0,"127.0.0.1",Server};
 
@@ -248,8 +244,12 @@ std::cout << "nick:";
 std::cin >> s;
 
 
-if(isserver){STATIC_CHECK(1, Destination_Too_Narrow);}else {STATIC_CHECK(0, Destination_Too_Narrow);}
-
+switch (isserver){
+	case Client:
+{STATIC_CHECK(1, Destination_Too_Narrow);}
+	case Server:
+{STATIC_CHECK(0, Destination_Too_Narrow);}
+}
 
 
 

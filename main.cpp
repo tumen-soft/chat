@@ -34,24 +34,7 @@
 
 
 */
-
-#include <arpa/inet.h>  //inet_addr define
-#include <stdio.h>  //printf()
-#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
-#include <unistd.h>  //close(), fread()
-#include <string>  //string type
-#include <map>
-#include <cstring>
 #include <iostream>
-#include <thread>
-#include <vector>
-#include <queue>
-#define PORT 3111 
-#define MAXLINE 1024
-#define SOCKETERROR (-1)
-//#include "self.h"
-
-
 namespace net {
 
 }

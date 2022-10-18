@@ -30,6 +30,8 @@ struct arg{
 
 
 typedef struct arg args;
+std::queue<args*> qq;
+struct sockaddr_in addr;
 
 using Func = void (*)(struct Self *self);
 
