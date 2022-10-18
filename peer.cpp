@@ -222,8 +222,14 @@ qq.pop();
 
 
 
-
-
+void start(enum PeerType chat){
+switch (chat){
+        case Client:
+ {STATIC_CHECK(1, Destination_Too_Narrow);}
+        case Server:
+ {STATIC_CHECK(0, Destination_Too_Narrow);}
+ }
+}
 
 
 
@@ -243,18 +249,7 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-
-switch (isserver){
-	case Client:
-{STATIC_CHECK(1, Destination_Too_Narrow);}
-	case Server:
-{STATIC_CHECK(0, Destination_Too_Narrow);}
-}
-
-
-
-
-
+start(isserver);
 
 
 }
