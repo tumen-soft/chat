@@ -40,9 +40,9 @@ namespace net {
 }
 using namespace net;
 
-struct arg;
-typedef struct arg args;
-void connector( args *argz); 
+//struct arg;
+//typedef struct arg args;
+//void connector( args *argz); 
 void spawnThreads();
 void wait();
 void check();

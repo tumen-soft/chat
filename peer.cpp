@@ -1,7 +1,6 @@
 #include "peer.h"
 using namespace net;
-
-Client::run(){
+void Peerrunclient(){
         self->crt_sock(self); 
         printf("client fd %i \n", self->sock);
         self->cnt_to_sock(self);
@@ -25,7 +24,7 @@ Client::run(){
 
 
 
-Server::run(){
+void Peerrunserver(){
 	//socket creation
 	self->crt_sock(self);
 	//output socket file descriptor
@@ -94,29 +93,29 @@ Server::run(){
 }
 //funkcii visokogo urovnya
 
-void create_socket(struct Self *self){
+void create_socket(struct Peer *self){
         self->sock=socket(AF_INET, SOCK_STREAM, 0);
 }
-void close_socket(struct Self *self){
+void close_socket(struct Peer *self){
         close(self->sock);
 }
-void connect_to_socket(struct Self * self){
-        connect(self->sock, (struct sockaddr*)&self->Client::addres, sizeof(self->Client::addres));
+void connect_to_socket(struct Peer * self){
+        connect(self->sock, (struct sockaddr*)&self->addres, sizeof(self->addres));
 }
-void bind_socket(struct Self* self){
+void bind_socket(struct Peer* self){
         bind(self->sock, (struct sockaddr*)&self->addres, sizeof(self->addres));
 }
-void listen_socket(struct Self * self){
+void listen_socket(struct Peer * self){
         listen(self->sock, 300);
 }
-void accept_connection(struct Self * self){
+void accept_connection(struct Peer * self){
         self->new_socket = accept(self->sock,NULL,NULL);
 }
-void select_connection(struct Self *self){
+void select_connection(struct Peer *self){
         select(300, &self->read_fd, NULL, NULL, NULL);
 }
 
-void init(struct Self *self){
+void init(struct Peer *self){
 
         self->crt_sock=create_socket;
         self->cls_sock=close_socket;
@@ -128,41 +127,24 @@ void init(struct Self *self){
         self->acpt_conn=accept_connection;
         self->cnt_to_sock=connect_to_socket;
         self->sel_conn=select_connection;
-        self->Server::addres.sin_addr.s_addr = htonl(INADDR_ANY); 
+        self->addres.sin_addr.s_addr = htonl(INADDR_ANY); 
         //comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
 }
 
-//std::queue<args*> qq;
-//struct sockaddr_in addr;
-
-  ///      args ar[256]={NULL,0,"127.0.0.1",Server};
-
 void connector( args *argz) {
- //cout << id << "\n";
-
-//ar.y="test";
 args* q=(args*)argz;
 
-//sprintf(q->y,"%s","test");
-//q->y="test";
-// struct sockaddr_in addr;
  int socke = socket(AF_INET, SOCK_STREAM, 0);
  
 addr.sin_family = AF_INET;
  addr.sin_port = htons(PORT);
-// pthread_create(&(tid[0]), NULL, &doSomeThing, NULL);
- //for(int i=202;i<204;i++){
  char a[256] = "192.168.1.";
  char b[10];
- //int c = i;
  sprintf(b,"%d",q->x);
- //a="192.168.1."
  strcat(a,b);
- //puts(a);
  addr.sin_addr.s_addr =  inet_addr(a);
  
  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;}
-    //return NULL;
 
 }
 
@@ -173,20 +155,12 @@ args ar[256]={};
 
 void spawnThreads()
 {
-//      args ar[256]={NULL,0,"127.0.0.1",Server};
 
-    //std::vector<thread> threads(256);
-    // spawn n threads:
     for (int i = 0; i < 255; i++) {
         ar[i].x=i;
         ar[i].tid = std::thread(connector,&ar[i]);
-        //enqueue(&ar[i]);
         qq.push(&ar[i]); 
    }
-
-   // for (auto& th : threads) {
-        //for(int j=0;j<255;j++)if(ar[j].tid.joinable())ar[j].tid.join();
-    //}
 
 
 }
@@ -198,13 +172,9 @@ args *pclient;
 
 void wait()
 {
-//enum  PeerType isserver=Server;
-//args *pclient;
-//pclient=dequeue();
 while(!qq.empty()){
 pclient=qq.front();
 if((pclient!=NULL)&&(pclient->tid.joinable())){
-//if(tid[s]!=NULL)
 pclient->tid.join();}
 if(pclient)if(pclient->isServer==Client){isserver=Client;break;}
 qq.pop();
@@ -225,9 +195,16 @@ qq.pop();
 void start(enum PeerType chat){
 switch (chat){
         case Client:
- {STATIC_CHECK(1, Destination_Too_Narrow);}
+	{peers->client=new Peer;
+	init(peers->client);
+	self=peers->client;
+	Peerrunclient();}
         case Server:
- {STATIC_CHECK(0, Destination_Too_Narrow);}
+	{
+	peers->server=new Peer;
+        init(peers->server);
+        self=peers->server;
+        Peerrunserver();}
  }
 }
 
@@ -237,14 +214,14 @@ switch (chat){
 void check(){
 
 
-  init(self);
+//  init(self);
 
 if(isserver==Client){
 char a[256] = "192.168.1.";
  char b[10];
  sprintf(b,"%d",pclient->x);
   strcat(a,b);
- self->Client::addres.sin_addr.s_addr = inet_addr(a);}
+ self->addres.sin_addr.s_addr = inet_addr(a);}
 
 std::cout << "nick:";
 std::cin >> s;

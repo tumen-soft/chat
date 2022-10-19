@@ -33,7 +33,7 @@ typedef struct arg args;
 std::queue<args*> qq;
 struct sockaddr_in addr;
 
-using Func = void (*)(struct Self *self);
+using Func = void (*)(struct Peer *self);
 
 struct Server{
         int sock;
@@ -60,7 +60,19 @@ struct Client : Server{
 
 struct Self : Client{};
 
-struct Peer{};
+struct Peer{
+        int sock;
+        struct sockaddr_in addres;
+        char* message;
+        char buffer[MAXLINE];
+        fd_set read_fd;
+        Func crt_sock, cls_sock, sel_conn;
+        Func bnd_sock, lsn_sock, acpt_conn, cnt_to_sock;
+        int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
+        int valread;
+        nmap nicknames;
+        int run(void);
+};
 
 struct Peers{
 
@@ -71,30 +83,13 @@ struct Peers{
 
 
 };
+struct Peers _peers;
+struct Peers *peers=&_peers;
 
-struct Self _self;
-struct Self *self=&_self;
 
 
-#define STATIC_CHECK(expr, msg) \
-                {\
-  \
-  (void) CompileTimeChecker<(expr) != 0> ();\
+struct Peer _self;
+struct Peer *self=&_self;
+
+
 }
-template <bool> void CompileTimeChecker()
-{
-//CompileTimeChecker(...);
-};
-template<> void CompileTimeChecker<false>() {
-//CompileTimeChecker(...){
-self->Server::run();
-//}
-};
-template<> void CompileTimeChecker<true>() {   
-//CompileTimeChecker(...){
-self->Client::run();
-//}
-};
-}
-
-
