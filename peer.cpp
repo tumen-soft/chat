@@ -75,7 +75,7 @@ void Peerrunserver(){
 				{ 
 	  				self->buffer[self->valread] = '\0';
 					for (auto itr1 = self->nicknames.begin(); itr1 != self->nicknames.end(); ++itr1)
-					dprintf(itr1->first,"%i says: %s\n",self->sd,self->buffer);
+					dprintf(itr1->first,"%s says: %s\n",itr2->second,self->buffer);
 					
                                  }  
                         } 
