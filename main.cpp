@@ -7,7 +7,7 @@
  * waiting for connection listen_socket() and accept_connection(), 
  * select_connection().
  */
-
+//DEBUG
 //enum PeerType (55) consist of two members - Client & Server. There two state: Client or Server in programm.
 //Client: functions resive messages(including from stdin), send messages to server, send nickname on start
 //Server: functions registering(unregistering) clients, resive messages(including from stdin), send messages to all registered clients resive nick from client & register it
