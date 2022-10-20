@@ -25,7 +25,7 @@ addr.sin_family = AF_INET;
 
 int main()
 {
-    std::cout << "Scaning : "<<std::endl;
+    std::cout << "Scaning..." <<std::endl;
     //for (int i=70;i<81;i++)
     int i = 80;
     if (port_is_open("108.177.14.94", i))
