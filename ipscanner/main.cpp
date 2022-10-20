@@ -9,7 +9,6 @@ struct sockaddr_in addr;
 
 static bool port_is_open(const char * address, int port)
 {
-//args* q=(args*)argz;
 
  int socke = socket(AF_INET, SOCK_STREAM, 0);
  
