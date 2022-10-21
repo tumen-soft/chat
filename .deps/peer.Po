@@ -1,12 +1,12 @@
-chat.o: chat.cpp /usr/include/stdc-predef.h /usr/include/arpa/inet.h \
- /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
- /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
- /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
- /usr/include/netinet/in.h /usr/include/bits/stdint-uintn.h \
- /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/time64.h /usr/include/sys/socket.h \
- /usr/include/bits/types/struct_iovec.h \
+peer.o: peer.cpp /usr/include/stdc-predef.h peer.h \
+ /usr/include/arpa/inet.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/netinet/in.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/sys/socket.h /usr/include/bits/types/struct_iovec.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include/stddef.h \
  /usr/include/bits/socket.h /usr/include/sys/types.h \
  /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
@@ -171,6 +171,7 @@ chat.o: chat.cpp /usr/include/stdc-predef.h /usr/include/arpa/inet.h \
  /usr/include/c++/11.2.0/bits/stl_heap.h \
  /usr/include/c++/11.2.0/bits/stl_queue.h
 /usr/include/stdc-predef.h:
+peer.h:
 /usr/include/arpa/inet.h:
 /usr/include/features.h:
 /usr/include/features-time64.h:

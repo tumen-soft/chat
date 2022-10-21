@@ -15,77 +15,20 @@
 #include <string.h>
 #include <pthread.h>
 #include <stdlib.h>
-#include <stdbool.h>
+//#include <thread>
 #define PORT 111 
 #define MAXLINE 1024
 #define SOCKETERROR (-1)
-#define FOREVER 1 
-
-struct Peer;
-
-
-
-int create_socket(struct Peer *peer){
-         peer->socket=socket(AF_INET, SOCK_STREAM, 0);
- }
- int close_socket(struct Peer *peer){
-         close(peer->socket);
- }
- int connect_to_socket(struct Peer * peer){
-         connect(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
- }
- int bind_socket(struct Peer * peer){
-         bind(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
- }
- int listen_socket(struct Peer * peer){
-         listen(peer->socket, 10);
- }
- int accept_connection(struct Peer *peer){
-         struct Server *p_ser = static_cast<Server*>(peer);
-         p_ser->new_socket = accept(peer->socket,NULL,NULL);
- }
- int  select_connection(struct Peer *peer)
- {
- }
 
 
 
 
 
-
-
-
-
-
-
-
-
-struct proto_ops {
-      int             (*crt_sock)   (struct Peer*);
-      int             (*cls_sock)   (struct Peer*);
-      int             (*cnt_to_sock) (struct Peer*); 
-      int             (*bnd_sock) (struct Peer *);
-      int             (*lsn_sock)    (struct Peer *);
-      int             (*acpt_conn)   (struct Peer *);
-      int 	      (*sel_conn) (struct Peer *);
-};
-
-enum PeerType{
- server,
- client
-};
-typedef struct {
-        pthread_t tid;
-        int x;
-        struct in_addr ip;
-	char y[256];
-        enum PeerType isServer;
-}arg;
 pthread_t tid[256];
 void ConnectServer();
 void ConnectClient();
 struct Vtbl;
-int check(int exp, const char *msg, const char *msg1);
+int check(int exp, const char *msg);
 typedef struct {
 	struct Vtbl const *vptr;
         int sock;
@@ -95,8 +38,14 @@ typedef struct {
 	fd_set read_fd;
 } Peer;
 static void _conn(Peer const * const me);
-struct Vtbl{void (*conn)(Peer const * const me);};
-static void _conn(Peer const * const me){assert(0);}
+struct Vtbl {
+    void (*conn)(Peer const * const me);
+};
+
+
+static void _conn(Peer const * const me) {
+    assert(0);
+}
 
 
 void PeerCtr(Peer * const me) {
@@ -114,30 +63,7 @@ void PeerCtr(Peer * const me) {
 me->addres.sin_family = AF_INET;
    me->addres.sin_port = htons(PORT);
 
- 
- me->crt_sock=create_socket;
- me->cls_sock=close_socket;
- me->sel_conn=select_connection;
- me->addres.sin_family = AF_INET;
- me->addres.sin_port = htons(PORT);
- me->lsn_sock=listen_socket;
- me->bnd_sock=bind_socket;
- me->acpt_conn=accept_connection;
- me->cnt_to_sock=connect_to_socket;
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -170,193 +96,34 @@ ServerCtr(Server * const me){
     me->peer.addres.sin_addr.s_addr = htonl(INADDR_ANY);
 //me->max_clients=30;
  }
-arg * pclient;
+
 
 //typedef struct {Server server; Client client;}Self;
-void ConnectServer(Server * const me){
-printf("starting server at ...(ip)\n");
-
-
-me->max_clients=10;
-me->sd=0;
-me->sd2=0;
-        check(bind(me->peer.sock, (struct sockaddr *)&me->peer.addres, sizeof(me->peer.addres)), "error bind" ,"bind seccessful"   );
-        check(listen(me->peer.sock, 15), "error listen", "listen success");
-        for (int i = 0; i < me->max_clients; i++) me->client_socket[i] = -1;  
-
-/*
-       while(FOREVER){
-        FD_ZERO(&ser.peer.read_fd);      
-        ser.max_sd = ser.peer.sock; 
-	ser.client_socket[0]=0;
-	for (int i = 0 ; i < ser.max_clients ; i++){ 
-        ser.sd = ser.client_socket[i]; 
-        if(ser.sd >= 0)FD_SET( ser.sd , &ser.peer.read_fd); 
-        if(ser.sd > ser.max_sd)ser.max_sd = ser.sd;}  
-        //FD_SET(0, &ser.peer.read_fd);
-        FD_SET(ser.peer.sock, &ser.peer.read_fd);  
-        select(300, &ser.peer.read_fd, NULL, NULL, NULL);
-	if (FD_ISSET(ser.peer.sock, &ser.peer.read_fd)){ 
-	ser.new_socket = accept(ser.peer.sock,NULL,NULL);
-	ser.new_socket = accept(ser.peer.sock,NULL,NULL);	
-	printf("New connection %d\n",ser.new_socket);	
-	dprintf(ser.new_socket,"welcome %d\n",ser.new_socket);	
-	puts("Welcome message sent."); 
-	for (int j = 0; j < ser.max_clients; j++) 
-	{ 
-	if( ser.client_socket[j] == -1) 
-	{ 
-	ser.client_socket[j] = ser.new_socket; 
-	printf("Adding to list of sockets as %d\n" , j); 
-	break; 
-	} 
-	} 
-	} 
-
-		for (int k = 0; k < ser.max_clients; k++) 
-		{ 
-			//ser.sd = ser.client_socket[k]; 
-			if (FD_ISSET( ser.client_socket[k] , &ser.peer.read_fd )) 
-			{ 
-				if ((ser.valread = read(ser.client_socket[k], &ser.peer.buffer, sizeof(ser.peer.buffer))) == 0)//man read 
-				{ 
-				
-					printf("Host disconnected %d \n" , ser.client_socket[k]); 
-					close( ser.client_socket[k] ); 
-					ser.client_socket[k] = -1; 
-				} 
-			else
-				{ 
-			//ser.peer.buffer[ser.valread] = '\0';  
-         		for ( int l = 0 ; l < ser.max_clients ; l++){if(ser.client_socket[l]>=0)dprintf(ser.client_socket[l],"%i says: %s\n",ser.client_socket[k], ser.peer.buffer);
-
-			//printf("%i says: %s\n",ser.client_socket[k],ser.peer.buffer);}
-		        //if (l==ser.max_clients-1)printf("%s\n",ser.peer.buffer);
-}
-				}
-			} 
-		} 
-	}
-	close(ser.sd2);
-	close(ser.peer.sock);
-
-}
-}
-*/
-return 0;
-}
-
-
-void ConnectClient(Client * const me){
-printf("starting client at ...(ip)\n");
-pclient->ip.s_addr=inet_addr(pclient->y);
-me->peer.addres.sin_addr = pclient->ip;
-//me->peer.addres.sin_addr = pclient->ip.s_addr++;
-//me->peer.addres.sin_addr = pclient->ip.s_addr--;
-//pclient->ip.s_addr  = htonl(ntohl(pclient->ip.s_addr)+1);
-
-connect(me->peer.sock, (struct sockaddr*)&me->peer.addres, sizeof(me->peer.addres));
-        while(FOREVER){
-        memset(me->peer.buffer, 0, sizeof(me->peer.buffer));
-        FD_ZERO(&me->peer.read_fd);
-        FD_SET(0, &me->peer.read_fd);
-        FD_SET(me->peer.sock, &me->peer.read_fd);
-        select(300, &me->peer.read_fd, NULL, NULL, NULL);
-        if(FD_ISSET(0, &me->peer.read_fd)){
-        read(0,me->peer.buffer,sizeof(me->peer.buffer));
-        dprintf(me->peer.sock,me->peer.buffer);}  
-        if(FD_ISSET(me->peer.sock, &me->peer.read_fd)){
-        read(me->peer.sock, me->peer.buffer, sizeof(me->peer.buffer));
-        printf("server: %s\n", me->peer.buffer);}
-        }        
-        close(me->peer.sock);
-
-
-return 0;
-
-
-
-}
-
-/*
-
-void create_socket(struct Peer *peer){
-	peer->socket=socket(AF_INET, SOCK_STREAM, 0);
-}
-void close_socket(struct Peer *peer){
-	close(peer->socket);
-}
-void connect_to_socket(struct Peer * peer){
-	connect(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
-}
-void bind_socket(struct Peer * peer){
-	bind(peer->socket, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
-}
-void listen_socket(struct Peer * peer){
-	listen(peer->socket, 10);
-}
-void accept_connection(struct Peer *peer){
-        struct Server *p_ser = static_cast<Server*>(peer);
-	p_ser->new_socket = accept(peer->socket,NULL,NULL);
-}
-void select_connection(struct Peer *peer)
-{
-}
-*/
-
-
-/*
-
-void init(struct Peer *peer, bool type){
-
-	peer->crt_sock=create_socket;
-	peer->cls_sock=close_socket;
-	peer->sel_conn=select_connection;
-	peer->addres.sin_family = AF_INET;
-	peer->addres.sin_port = htons(PORT);
-
-if (type){
-	struct Server *p_ser = static_cast<Server*>(peer);
-	p_ser->addres.sin_addr.s_addr = htonl(INADDR_ANY); 
-	peer->lsn_sock=listen_socket;
-	peer->bnd_sock=bind_socket;
-	peer->acpt_conn=accept_connection;
-}else{
-	struct Client *p_cli=static_cast<Client*>(peer);
-	p_cli->addres.sin_addr.s_addr = inet_addr(CLIIP);
-	peer->cnt_to_sock=connect_to_socket;
-}
-}
-
-*/
-
-
-
+void ConnectServer(){printf("starting server at ...(ip)\n");}
+void ConnectClient(){printf("starting client at ...(ip)\n");}
 
 
 void ConnectToChat(Peer const * const me) {
     (*me->vptr->conn)(me);
 }
-//obrabotchik oshibok s dvumia parametrami
-int check(int exp, const char *msg, const char *msg1){//x.y 
-if (exp==SOCKETERROR)/*constanta(FALSE)*/{
-	//x.y (y!=x)
-	//esli exp(function) vozvratila -1(FALSE)
-	printf("%s\n",msg);//vivodim soobshenie
-	exit(1);//i vihodim
-}else printf("%s\n",msg1);
+
+int check(int exp, const char *msg){
+if (exp == SOCKETERROR){
+	printf("%s\n",msg);
+	exit(1);
+}
 return exp;
 }
-/*
+
 enum PeerType{
  server,
  client
-};*/
-//struct arg;
-//typedef struct arg args;
+};
+struct arg;
+typedef struct arg args;
 struct node{
 	struct node *next;
-	arg *ar;
+	args *ar;
 
 };
 
@@ -364,7 +131,7 @@ typedef struct node node_t;
 //typedef struct arg args;
 node_t * head = NULL;
 node_t * tail = NULL;
-void enqueue(arg * ar){
+void enqueue(args * ar){
 node_t * newnode = malloc(sizeof(node_t));
 newnode->ar = ar;
 newnode->next=NULL;
@@ -375,11 +142,11 @@ tail->next = newnode;
 }
 tail=newnode;
 }
-arg * dequeue(){
+args * dequeue(){
 if(head==NULL){
 return NULL;
 }else{
-arg *result = head->ar;
+args *result = head->ar;
 node_t *temp = head;
 head=head->next;
 if (head==NULL){tail==NULL;};
@@ -387,22 +154,22 @@ free(temp);
 return result;
 }
 }
-/*
+
 struct arg{
 	pthread_t tid;
 	int x;
 	char y[256];
 	enum PeerType isServer;
 };
-*/
+
 Client cli;
 struct sockaddr_in addr;
 //args ar;
 
-void* doSomeThing(void *args)
+void* doSomeThing(void *arg)
 {
 //ar.y="test";
-arg* q=(arg*)args;
+args* q=(args*)arg;
 
 //sprintf(q->y,"%s","test");
 //q->y="test";
@@ -418,9 +185,8 @@ arg* q=(arg*)args;
  sprintf(b,"%d",q->x);
  //a="192.168.1."
  strcat(a,b);
-
-//puts(a);
-addr.sin_addr.s_addr =  inet_addr(a);
+ //puts(a);
+ addr.sin_addr.s_addr =  inet_addr(a);
  
  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=client;return 0;}
     return NULL;
@@ -429,7 +195,7 @@ addr.sin_addr.s_addr =  inet_addr(a);
 int main(){
 
 //enum PeerType isServer;
-arg ar[256]={NULL,"127.0.0.1",server};
+args ar[256]={NULL,0,"127.0.0.1",server};
 ///ar[0].isServer=server;
 //args ar;
 //printf("waiting for connection...");
@@ -447,9 +213,7 @@ j++;
 
 
 enum PeerType isserver=server;
-//
-
-//args *pclient;
+args *pclient;
 pclient=dequeue();
 while(pclient){
 pclient=dequeue();
@@ -478,6 +242,27 @@ switch(isserver)
 //Client cli;
 ClientCtr(&cli);
 ConnectToChat(&cli);
+cli.peer.addres.sin_addr.s_addr = inet_addr(pclient->y);
+connect(cli.peer.sock, (struct sockaddr*)&cli.peer.addres, sizeof(cli.peer.addres));
+	//cli.peer.sock=socke;
+	//read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
+        //printf("server: %s\n",cli.peer.buffer);
+	for(;;){
+	memset(cli.peer.buffer, 0, sizeof(cli.peer.buffer));
+	FD_ZERO(&cli.peer.read_fd);
+        FD_SET(0, &cli.peer.read_fd);
+        FD_SET(cli.peer.sock, &cli.peer.read_fd);
+        select(300, &cli.peer.read_fd, NULL, NULL, NULL);
+	if(FD_ISSET(0, &cli.peer.read_fd)){
+	read(0,cli.peer.buffer,sizeof(cli.peer.buffer));
+	dprintf(cli.peer.sock,cli.peer.buffer);}  
+        if(FD_ISSET(cli.peer.sock, &cli.peer.read_fd)){
+	read(cli.peer.sock, cli.peer.buffer, sizeof(cli.peer.buffer));
+	printf("server: %s\n", cli.peer.buffer);}
+	}        
+	close(cli.peer.sock);
+
+
 return 0;
 }
 
@@ -492,14 +277,14 @@ ServerCtr(&ser);
 ConnectToChat(&ser);
 
 
-/*ser.max_clients=10;
+ser.max_clients=10;
 ser.sd=0;
 ser.sd2=0;
         check(bind(ser.peer.sock, (struct sockaddr *)&ser.peer.addres, sizeof(ser.peer.addres)), "error bind"    );
         check(listen(ser.peer.sock, 15), "error listen");
         for (int i = 0; i < ser.max_clients; i++) ser.client_socket[i] = -1;  
-*/
-        while(FOREVER){
+
+        for(;;){
         FD_ZERO(&ser.peer.read_fd);      
         ser.max_sd = ser.peer.sock; 
 	ser.client_socket[0]=0;

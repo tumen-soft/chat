@@ -1,3 +1,4 @@
-CFLAGS = -lpthread
-bin_PROGRAMS = chat
-chat_SOURCES = chat.c
+AM_CXXFLAGS= -g -fpermissive
+
+bin_PROGRAMS=chat
+chat_SOURCES=peer.cpp main.cpp
