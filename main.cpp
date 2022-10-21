@@ -1,7 +1,4 @@
 /* Async multiclient net chat  by Vergun Denis <blu.eagle@mail.ru>
- * Four structures : Client, Server, Chat, Self. 
- * main() function. 
- * init() func.
  * Functions: creation create_socket(), closing socket close_socket(), 
  * connecting connect_to_socket(), initialisation bind_socket(), 
  * waiting for connection listen_socket() and accept_connection(), 
@@ -35,21 +32,14 @@
 
 */
 #include <iostream>
-namespace net {
 
-}
-using namespace net;
-
-//struct arg;
-//typedef struct arg args;
-//void connector( args *argz); 
 void spawnThreads();
 void wait();
 void check();
 using namespace std;
 
 int main(){
-cout<< "wait..."<<endl;
+cout<< "scaning network, please wait..."<<endl;
 spawnThreads();
 wait();
 check();
