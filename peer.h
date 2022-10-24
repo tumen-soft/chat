@@ -9,6 +9,7 @@
 #include <thread>
 #include <vector>
 #include <queue>
+#include <typeinfo>
 #define MAXLINE 1024
 #define PORT 3111 
 typedef std::map<int,char*> nmap;
@@ -31,31 +32,6 @@ std::queue<args*> qq;
 struct sockaddr_in addr;
 
 using Func = void (*)(struct Peer *self);
-
-
-class Connect {
-
-	Connect();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-};
-
-
-
 
 
 
@@ -104,13 +80,9 @@ class Peers{
 public:        
         Server *server;
         Client *client;
-
-int run(){};
+void connect();
+void run();
 
 };
 Peers _peers;
 Peers *peers=&_peers;
-
-
-//auto _peer, _self;
-//auto *self=&_self, *peer=&_peer;

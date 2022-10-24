@@ -1,19 +1,10 @@
 #include "peer.h"
-Connect::Connect(){
+void Peers::run(){
 
-
-
-
-
-
-
-
-
-
-}
-
-
-int Client::run(){
+switch()
+{
+case _Client:
+{
 /*
         peer->crt_sock(peer); 
         printf("client fd %i \n", peer->sock);
@@ -34,8 +25,8 @@ int Client::run(){
 }
 
 
-
-int Server::run(){
+case _Server:
+{
 /*
 	//socket creation
 	self->crt_sock(self);
@@ -102,6 +93,8 @@ int Server::run(){
 	self->cls_sock(self);
 */
 
+}
+}
 }
 //funkcii visokogo urovnya
 /*
@@ -210,11 +203,13 @@ switch (chat){
 	{
 	peers->client=new Client;
 	init(peers->client);
+	std::cout<<typeid(peers->client).name()<<std::endl;
 	}
         case _Server:
 	{
 	peers->server=new Server;
 	init(peers->server);
+	std::cout << typeid(peers->server).name()<<std::endl;
         }
  }
 }
