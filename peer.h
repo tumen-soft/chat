@@ -1,4 +1,3 @@
-//DEBUG
 #include <arpa/inet.h>  //inet_addr define
 #include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 

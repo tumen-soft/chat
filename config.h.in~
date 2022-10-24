@@ -9,9 +9,6 @@
 /* Define to 1 if you have the `memset' function. */
 #undef HAVE_MEMSET
 
-/* Define to 1 if you have the <peer.h> header file. */
-#undef HAVE_PEER_H
-
 /* Define to 1 if you have the `select' function. */
 #undef HAVE_SELECT
 

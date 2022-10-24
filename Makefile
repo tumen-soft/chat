@@ -70,10 +70,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/full-package-name
-pkgincludedir = $(includedir)/full-package-name
-pkglibdir = $(libdir)/full-package-name
-pkglibexecdir = $(libexecdir)/full-package-name
+pkgdatadir = $(datadir)/chat
+pkgincludedir = $(includedir)/chat
+pkglibdir = $(libdir)/chat
+pkglibexecdir = $(libexecdir)/chat
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -183,12 +183,12 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} '/root/fire/chat/missing' aclocal-1.16
+ACLOCAL = ${SHELL} '/media/nvme0n1p4/src/forge/chat/missing' aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} '/root/fire/chat/missing' autoconf
-AUTOHEADER = ${SHELL} '/root/fire/chat/missing' autoheader
-AUTOMAKE = ${SHELL} '/root/fire/chat/missing' automake-1.16
+AUTOCONF = ${SHELL} '/media/nvme0n1p4/src/forge/chat/missing' autoconf
+AUTOHEADER = ${SHELL} '/media/nvme0n1p4/src/forge/chat/missing' autoheader
+AUTOMAKE = ${SHELL} '/media/nvme0n1p4/src/forge/chat/missing' automake-1.16
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -216,25 +216,25 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} '/root/fire/chat/missing' makeinfo
+MAKEINFO = ${SHELL} '/media/nvme0n1p4/src/forge/chat/missing' makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
-PACKAGE = full-package-name
-PACKAGE_BUGREPORT = BUG-REPORT-ADDRESS
-PACKAGE_NAME = FULL-PACKAGE-NAME
-PACKAGE_STRING = FULL-PACKAGE-NAME VERSION
-PACKAGE_TARNAME = full-package-name
+PACKAGE = chat
+PACKAGE_BUGREPORT = blu.eagle@mail.ru
+PACKAGE_NAME = Chat
+PACKAGE_STRING = Chat 0.8
+PACKAGE_TARNAME = chat
 PACKAGE_URL = 
-PACKAGE_VERSION = VERSION
+PACKAGE_VERSION = 0.8
 PATH_SEPARATOR = :
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = 
-VERSION = VERSION
-abs_builddir = /root/fire/chat
-abs_srcdir = /root/fire/chat
-abs_top_builddir = /root/fire/chat
-abs_top_srcdir = /root/fire/chat
+VERSION = 0.8
+abs_builddir = /media/nvme0n1p4/src/forge/chat
+abs_srcdir = /media/nvme0n1p4/src/forge/chat
+abs_top_builddir = /media/nvme0n1p4/src/forge/chat
+abs_top_srcdir = /media/nvme0n1p4/src/forge/chat
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -254,7 +254,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /root/fire/chat/install-sh
+install_sh = ${SHELL} /media/nvme0n1p4/src/forge/chat/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -277,6 +277,7 @@ top_builddir = .
 top_srcdir = .
 AM_CXXFLAGS = -g -fpermissive
 chat_SOURCES = peer.cpp main.cpp
+EXTRA_DIST = peer.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

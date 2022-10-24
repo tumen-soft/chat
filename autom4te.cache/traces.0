@@ -967,6 +967,7 @@ m4trace:configure.ac:17: -1- AC_DEFUN([_AC_Header_unistd_h], [m4_divert_text([IN
   [AS_VAR_APPEND([ac_header_]]_AC_LANG_ABBREV[[_list],
   [" unistd.h ]AS_TR_SH([unistd.h]) AS_TR_CPP([HAVE_unistd.h])["])])_AC_HEADERS_EXPANSION(_AC_LANG_ABBREV)])
 m4trace:configure.ac:17: -1- m4_pattern_allow([^STDC_HEADERS$])
+m4trace:configure.ac:17: -1- m4_pattern_allow([^HAVE_PEER_H$])
 m4trace:configure.ac:17: -1- m4_pattern_allow([^HAVE_ARPA_INET_H$])
 m4trace:configure.ac:17: -1- m4_pattern_allow([^HAVE_SYS_SOCKET_H$])
 m4trace:configure.ac:17: -1- m4_pattern_allow([^HAVE_UNISTD_H$])

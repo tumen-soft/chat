@@ -10,6 +10,9 @@
 /* Define to 1 if you have the `memset' function. */
 #define HAVE_MEMSET 1
 
+/* Define to 1 if you have the <peer.h> header file. */
+/* #undef HAVE_PEER_H */
+
 /* Define to 1 if you have the `select' function. */
 #define HAVE_SELECT 1
 
@@ -44,25 +47,25 @@
 #define HAVE_UNISTD_H 1
 
 /* Name of package */
-#define PACKAGE "full-package-name"
+#define PACKAGE "chat"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "BUG-REPORT-ADDRESS"
+#define PACKAGE_BUGREPORT "blu.eagle@mail.ru"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "FULL-PACKAGE-NAME"
+#define PACKAGE_NAME "Chat"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "FULL-PACKAGE-NAME VERSION"
+#define PACKAGE_STRING "Chat 0.8"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "full-package-name"
+#define PACKAGE_TARNAME "chat"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "VERSION"
+#define PACKAGE_VERSION "0.8"
 
 /* Define to 1 if all of the C90 standard headers exist (not just the ones
    required in a freestanding environment). This macro is provided for
@@ -70,4 +73,4 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "VERSION"
+#define VERSION "0.8"

@@ -1,5 +1,3 @@
-//DEBUG
-
 #include "peer.h"
 using namespace net;
 void Peerrunclient(){
@@ -66,7 +64,7 @@ void Peerrunserver(){
 			self->sd = itr2->first; 
 			if (FD_ISSET(self->sd , &self->read_fd)) 
                         { 
-				if ((read( self->sd , self->buffer, 1024))==0)//man read 
+				if ((self->valread = read( self->sd , self->buffer, 1024))==0)//man read 
 				{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
                                         close(self->sd); 

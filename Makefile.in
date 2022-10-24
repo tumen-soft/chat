@@ -277,6 +277,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -g -fpermissive
 chat_SOURCES = peer.cpp main.cpp
+EXTRA_DIST = peer.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
