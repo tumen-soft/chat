@@ -32,6 +32,33 @@ struct sockaddr_in addr;
 
 using Func = void (*)(struct Peer *self);
 
+
+class Connect {
+
+	Connect();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+};
+
+
+
+
+
+
 class Server{
         public:
 	int sock;

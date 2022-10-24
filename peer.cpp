@@ -1,4 +1,18 @@
 #include "peer.h"
+Connect::Connect(){
+
+
+
+
+
+
+
+
+
+
+}
+
+
 int Client::run(){
 /*
         peer->crt_sock(peer); 
@@ -218,7 +232,7 @@ char a[256] = "192.168.1.";
  char b[10];
  sprintf(b,"%d",pclient->x);
   strcat(a,b);
- //self->addres.sin_addr.s_addr = inet_addr(a);
+
 }
 
 std::cout << "nick:";
