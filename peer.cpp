@@ -190,20 +190,17 @@ qq.pop();
 
 
 
-
 void start(enum PeerType chat){
 switch (chat){
         case _Client:
 	{
-	client=new Client;
-	init(client);
-	self=client;
+	peers->client=new Client;
+	init(peers->client);
 	}
         case _Server:
 	{
-	server=new Server;
-        init(server);
-        self=server;
+	peers->server=new Server;
+	init(peers->server);
         }
  }
 }
@@ -221,12 +218,13 @@ char a[256] = "192.168.1.";
  char b[10];
  sprintf(b,"%d",pclient->x);
   strcat(a,b);
- self->addres.sin_addr.s_addr = inet_addr(a);}
+ //self->addres.sin_addr.s_addr = inet_addr(a);
+}
 
 std::cout << "nick:";
 std::cin >> s;
 
 start(isserver);
-//peer.run();
+peers->run();
 
 }

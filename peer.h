@@ -72,18 +72,18 @@ struct Peer{
         int run(void);
 };
 
-//class Peers{
+class Peers{
 
-        
+public:        
         Server *server;
         Client *client;
 
+int run(){};
+
+};
+Peers _peers;
+Peers *peers=&_peers;
 
 
-//};
-//struct Peers _peers;
-//struct Peers *peers=&_peers;
-
-
-class Self _peer, _self;
-class Self *self=&_self, *peer=&_peer;
+//auto _peer, _self;
+//auto *self=&_self, *peer=&_peer;
