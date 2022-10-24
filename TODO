@@ -2,9 +2,9 @@ V make stdin select()
 V make multi client chat
 V make echo server to chat
 V fix error client[0]
-  make nick& connect to test
+V make nick& connect to test
 V remove cliaddt struct
-+ Peer using
+V Peer using
 V use dprintf for to client output
   new connection print to all client
 V make object comm
@@ -42,3 +42,6 @@ X objekt factory for self
 X switch in object factory
   joinable() threads sort -  mashina
   zamenit` ochered` na stek
+  .join() in multithreads  (sort alternative)
+  threads scan net in c
+  template Server Client diff types

@@ -11,14 +11,11 @@
 #include <queue>
 #define MAXLINE 1024
 #define PORT 3111 
-
-namespace net {
-
 typedef std::map<int,char*> nmap;
 //enimeration for ip scaner
 enum PeerType{
-        Server,
-        Client
+        _Server,
+        _Client
 };
 char s[80];
 struct arg{
@@ -35,8 +32,9 @@ struct sockaddr_in addr;
 
 using Func = void (*)(struct Peer *self);
 
-struct Server{
-        int sock;
+class Server{
+        public:
+	int sock;
         struct sockaddr_in addres;
         char* message;
         char buffer[MAXLINE];
@@ -51,14 +49,14 @@ struct Server{
 
 };
 
-struct Client : Server{
+class Client : public Server{
         int run(void);
 
 
 };
 
 
-struct Self : Client{};
+class Self : public Client{};
 
 struct Peer{
         int sock;
@@ -74,22 +72,18 @@ struct Peer{
         int run(void);
 };
 
-struct Peers{
+//class Peers{
 
         
-        struct Peer *server;
-        struct Peer *client;
+        Server *server;
+        Client *client;
 
 
 
-};
-struct Peers _peers;
-struct Peers *peers=&_peers;
+//};
+//struct Peers _peers;
+//struct Peers *peers=&_peers;
 
 
-
-struct Peer _self;
-struct Peer *self=&_self;
-
-
-}
+class Self _peer, _self;
+class Self *self=&_self, *peer=&_peer;

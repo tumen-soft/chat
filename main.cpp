@@ -35,10 +35,6 @@
 
 */
 #include <iostream>
-namespace net {
-
-}
-using namespace net;
 
 void spawnThreads();
 void wait();

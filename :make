@@ -1,4 +1,5 @@
 #include "peer.h"
+using namespace net;
 int Client::run(){
 /*
         peer->crt_sock(peer); 
@@ -143,7 +144,7 @@ addr.sin_family = AF_INET;
  strcat(a,b);
  addr.sin_addr.s_addr =  inet_addr(a);
  
- if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=_Client;}
+ if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=Client;}
 
 }
 
@@ -164,7 +165,7 @@ void spawnThreads()
 
 }
 
-enum  PeerType isserver=_Server;
+enum  PeerType isserver=Server;
 args *pclient;
 
 
@@ -175,7 +176,7 @@ while(!qq.empty()){
 pclient=qq.front();
 if((pclient!=NULL)&&(pclient->tid.joinable())){
 pclient->tid.join();}
-if(pclient)if(pclient->isServer==_Client){isserver=_Client;break;}
+if(pclient)if(pclient->isServer==Client){isserver=Client;break;}
 qq.pop();
 }
 
@@ -193,17 +194,16 @@ qq.pop();
 
 void start(enum PeerType chat){
 switch (chat){
-        case _Client:
-	{
-	client=new Client;
-	init(client);
-	self=client;
+        case Client:
+	{peers->client=new Client;
+	init(peers->client);
+	//peer=peers->client;
 	}
-        case _Server:
+        case Server:
 	{
-	server=new Server;
-        init(server);
-        self=server;
+	peers->server=new Server;
+        init(peers->server);
+        //self=peers->server;
         }
  }
 }
@@ -216,7 +216,7 @@ void check(){
 
 //  init(self);
 
-if(isserver==_Client){
+if(isserver==Client){
 char a[256] = "192.168.1.";
  char b[10];
  sprintf(b,"%d",pclient->x);
