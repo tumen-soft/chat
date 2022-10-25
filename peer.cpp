@@ -1,30 +1,11 @@
 #include "peer.h"
-void Peers::run(){
+void Peers::connect(){};
 
-switch()
+template<class T> void Peers::run(T*s){
+const char * ser = "P6Server";
+const char * typ = typeid(s).name();
+switch(strcmp(ser,typ)!=0)
 {
-case _Client:
-{
-/*
-        peer->crt_sock(peer); 
-        printf("client fd %i \n", peer->sock);
-        peer->cnt_to_sock(peer);
-        dprintf(peer->sock, s);
-        for(;;)
-        {
-                memset(peer->buffer, 0, sizeof(peer->buffer));
-                FD_ZERO(&peer->read_fd);
-                FD_SET(0, &peer->read_fd);
-                FD_SET(peer->sock, &peer->read_fd);
-                peer->sel_conn(peer);
-                if(FD_ISSET(0, &peer->read_fd)){read(0, peer->buffer,sizeof(peer->buffer));dprintf(peer->sock, peer->buffer);}  
-                if(FD_ISSET(peer->sock, &peer->read_fd)){read(peer->sock, peer->buffer, sizeof(peer->buffer));dprintf(0, peer->buffer);}
-        }   
-        peer->cls_sock(peer);
-*/
-}
-
-
 case _Server:
 {
 /*
@@ -92,8 +73,36 @@ case _Server:
 	//closing socket
 	self->cls_sock(self);
 */
-
+std::cout<<"ser"<<std::endl;
+break;
 }
+case _Client:
+{
+/*
+        peer->crt_sock(peer); 
+        printf("client fd %i \n", peer->sock);
+        peer->cnt_to_sock(peer);
+        dprintf(peer->sock, s);
+        for(;;)
+        {
+                memset(peer->buffer, 0, sizeof(peer->buffer));
+                FD_ZERO(&peer->read_fd);
+                FD_SET(0, &peer->read_fd);
+                FD_SET(peer->sock, &peer->read_fd);
+                peer->sel_conn(peer);
+                if(FD_ISSET(0, &peer->read_fd)){read(0, peer->buffer,sizeof(peer->buffer));dprintf(peer->sock, peer->buffer);}  
+                if(FD_ISSET(peer->sock, &peer->read_fd)){read(peer->sock, peer->buffer, sizeof(peer->buffer));dprintf(0, peer->buffer);}
+        }   
+        peer->cls_sock(peer);
+*/
+std::cout<<"cli"<<std::endl;
+break;
+}
+
+
+
+
+
 }
 }
 //funkcii visokogo urovnya
@@ -171,7 +180,7 @@ void spawnThreads()
 
 }
 
-enum  PeerType isserver=_Server;
+//enum  PeerType isserver=_Server;
 args *pclient;
 
 
@@ -201,15 +210,15 @@ void start(enum PeerType chat){
 switch (chat){
         case _Client:
 	{
-	peers->client=new Client;
+	peers->client=new Client();
 	init(peers->client);
-	std::cout<<typeid(peers->client).name()<<std::endl;
+	peers->run(peers->client);
 	}
         case _Server:
 	{
-	peers->server=new Server;
+	peers->server=new Server();
 	init(peers->server);
-	std::cout << typeid(peers->server).name()<<std::endl;
+	peers->run(peers->server);
         }
  }
 }
@@ -234,6 +243,7 @@ std::cout << "nick:";
 std::cin >> s;
 
 start(isserver);
-peers->run();
+//init(peers->peer);
+//peers->run();
 
 }
