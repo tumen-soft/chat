@@ -31,58 +31,49 @@ typedef struct arg args;
 std::queue<args*> qq;
 struct sockaddr_in addr;
 
-using Func = void (*)(struct Peer *self);
+using Func = void (*)(class Peer *self);
 
 
 
-class Server{
+class Peer{
         public:
 	int sock;
         struct sockaddr_in addres;
-        char* message;
         char buffer[MAXLINE];
         fd_set read_fd;
         Func crt_sock, cls_sock, sel_conn;
-        Func bnd_sock, lsn_sock, acpt_conn, cnt_to_sock;
+        
+};
+
+
+class Server:public Peer{
+	Func bnd_sock, lsn_sock, acpt_conn, cnt_to_sock;
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
         int valread;
         nmap nicknames;
-        int run(void);
         
 
 };
 
-class Client : public Server{
-        int run(void);
-
+class Client:public Peer{
+	/*
+        public:
+	int sock;
+	struct sockaddr_in addres;
+	char buffer[MAXLINE];
+	fd_set read_fd;
+	Func crt_sock, cls_sock, sel_conn;
+	*/
 
 };
-
-
-class Self : public Client{};
-
-struct Peer{
-        int sock;
-        struct sockaddr_in addres;
-        char* message;
-        char buffer[MAXLINE];
-        fd_set read_fd;
-        Func crt_sock, cls_sock, sel_conn;
-        Func bnd_sock, lsn_sock, acpt_conn, cnt_to_sock;
-        int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
-        int valread;
-        nmap nicknames;
-        int run(void);
-};
-
 class Peers{
 
 public:        
         Server *server;
         Client *client;
 void connect();
-void run();
+template<class T> void run(T*s);
 
 };
-Peers _peers;
-Peers *peers=&_peers;
+Peers *peers=new Peers();
+enum PeerType isserver=_Server;

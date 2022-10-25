@@ -2,9 +2,9 @@
 void Peers::connect(){};
 
 template<class T> void Peers::run(T*s){
-const char * ser = "P6Server";
-const char * typ = typeid(s).name();
-switch(strcmp(ser,typ)!=0)
+//const char * ser = "P6Server";
+//const char * typ = typeid(s).name();
+switch(strcmp(typeid(s).name(),"P6Server")!=0)
 {
 case _Server:
 {
