@@ -1,65 +1,60 @@
 #include "peer.h"
-void Peers::connect(){};
 
-template<class T> void Peers::run(T*s){
-//const char * ser = "P6Server";
-//const char * typ = typeid(s).name();
-switch(strcmp(typeid(s).name(),"P6Server")!=0)
+void Peers::run(Server *peer)
 {
-case _Server:
-{
-/*
+
 	//socket creation
-	self->crt_sock(self);
+        peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 	//output socket file descriptor
-	printf("server fd %i \n", self->sock);
+	printf("server fd %i \n", peer->sock);
 	//initialisation
-	self->bnd_sock(self);
+        bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
 	//waiting for connection
-	self->lsn_sock(self);
+        listen(peer->sock, 300);
 
-	self->nicknames.insert({0,s});
+	peer->nicknames.insert({0,s});
 	
         for(;;){
-        FD_ZERO(&self->read_fd);      
+        FD_ZERO(&peer->read_fd);      
         //comm->max_sd = comm->sock; 
       //  for (auto it1 = self->nicknames.begin(); it1!=self->nicknames.end();  ++it1)
     //std::cout << it1->first << "->" << it1->second << std::endl;  
-	for (auto itr = self->nicknames.begin(); itr != self->nicknames.end(); ++itr)FD_SET(itr->first, &self->read_fd);
-        FD_SET(self->sock, &self->read_fd);  
+	for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
+        FD_SET(peer->sock, &peer->read_fd);  
 	//wait for connection/recive message
-        self->sel_conn(self);
+        select(300, &peer->read_fd, NULL, NULL, NULL);
 	
-	if (FD_ISSET(self->sock, &self->read_fd)) 
+	if (FD_ISSET(peer->sock, &peer->read_fd)) 
                 {	
 			//acepting connection	
-       			self->acpt_conn(self);
-			self->acpt_conn(self);
+			peer->new_socket = accept(peer->sock,NULL,NULL);
+			//close(peer->sock);
+			peer->new_socket = accept(peer->sock,NULL,NULL);
 			char g[80]={0};
-			read(self->new_socket,g,1024);
-			self->nicknames.insert({self->new_socket,g});
-			printf("New connection %s\n",self->nicknames.find(self->new_socket)->second);
-			dprintf(self->new_socket,"welcome %d\n",self->new_socket);  
+			read(peer->new_socket,g,1024);
+			peer->nicknames.insert({peer->new_socket,g});
+			printf("New connection %s\n", peer->nicknames.find(peer->new_socket)->second);
+			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  
                 }
 		//for (auto it2 = self->nicknames.begin(); it2!=self->nicknames.end();  ++it2)
     //std::cout << it2->first << "->" << it2->second << std::endl; 
-		for (auto itr2 = self->nicknames.begin(); itr2 != self->nicknames.end(); ++itr2)
+		for (auto itr2 = peer->nicknames.begin(); itr2 != peer->nicknames.end(); ++itr2)
                 { 
-			self->sd = itr2->first; 
-			if (FD_ISSET(self->sd , &self->read_fd)) 
+			peer->sd = itr2->first; 
+			if (FD_ISSET(peer->sd , &peer->read_fd)) 
                         { 
-				if ((self->valread = read( self->sd , self->buffer, 1024))==0)//man read 
+				if ((peer->valread = read(peer->sd, peer->buffer, 1024))==0) 
 				{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
-                                        close(self->sd); 
-					self->nicknames.erase(itr2); 
+                                        close(peer->sd); 
+					peer->nicknames.erase(itr2); 
                                 	break;				
 				} 
                                 else
 				{ 
-	  				self->buffer[self->valread] = '\0';
-					for (auto itr1 = self->nicknames.begin(); itr1 != self->nicknames.end(); ++itr1)
-					dprintf(itr1->first,"%s says: %s\n",itr2->second,self->buffer);
+	  				peer->buffer[peer->valread] = '\0';
+					for (auto itr1 = peer->nicknames.begin(); itr1 != peer->nicknames.end(); ++itr1)
+					dprintf(itr1->first,"%s says: %s\n",itr2->second, peer->buffer);
 					
                                  }  
                         } 
@@ -69,19 +64,18 @@ case _Server:
    // std::cout << it3->first << "->" << it3->second << std::endl; 
 
 	}
-        close(self->sd2);
+        close(peer->sd2);
 	//closing socket
-	self->cls_sock(self);
-*/
-std::cout<<"ser"<<std::endl;
-break;
+	close(peer->sock);
+
+//std::cout<<"ser"<<std::endl;
 }
-case _Client:
+void Peers::run(Client * peer)
 {
-/*
-        peer->crt_sock(peer); 
+
+        peer->sock=socket(AF_INET, SOCK_STREAM, 0);
         printf("client fd %i \n", peer->sock);
-        peer->cnt_to_sock(peer);
+        connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
         dprintf(peer->sock, s);
         for(;;)
         {
@@ -89,61 +83,25 @@ case _Client:
                 FD_ZERO(&peer->read_fd);
                 FD_SET(0, &peer->read_fd);
                 FD_SET(peer->sock, &peer->read_fd);
-                peer->sel_conn(peer);
+ 		select(300, &peer->read_fd, NULL, NULL, NULL);
                 if(FD_ISSET(0, &peer->read_fd)){read(0, peer->buffer,sizeof(peer->buffer));dprintf(peer->sock, peer->buffer);}  
                 if(FD_ISSET(peer->sock, &peer->read_fd)){read(peer->sock, peer->buffer, sizeof(peer->buffer));dprintf(0, peer->buffer);}
         }   
-        peer->cls_sock(peer);
-*/
-std::cout<<"cli"<<std::endl;
-break;
-}
+        close(peer->sock);
+ 
 
-
-
-
-
-}
+//std::cout<<"cli"<<std::endl;
 }
 //funkcii visokogo urovnya
 /*
-void create_socket(struct Peer *self){
-        self->sock=socket(AF_INET, SOCK_STREAM, 0);
-}
-void close_socket(struct Peer *self){
-        close(self->sock);
-}
-void connect_to_socket(struct Peer * self){
-        connect(self->sock, (struct sockaddr*)&self->addres, sizeof(self->addres));
-}
-void bind_socket(struct Peer* self){
-        bind(self->sock, (struct sockaddr*)&self->addres, sizeof(self->addres));
-}
-void listen_socket(struct Peer * self){
-        listen(self->sock, 300);
-}
-void accept_connection(struct Peer * self){
-        self->new_socket = accept(self->sock,NULL,NULL);
-}
-void select_connection(struct Peer *self){
-        select(300, &self->read_fd, NULL, NULL, NULL);
-}
 */
-template <class T> void init(T *self){
-/*
-        self->crt_sock=create_socket;
-        self->cls_sock=close_socket;
-        self->sel_conn=select_connection;
-        self->addres.sin_family = AF_INET;
-        self->addres.sin_port = htons(PORT);
-        self->lsn_sock=listen_socket;
-        self->bnd_sock=bind_socket;
-        self->acpt_conn=accept_connection;
-        self->cnt_to_sock=connect_to_socket;
-        self->sel_conn=select_connection;
-        self->addres.sin_addr.s_addr = htonl(INADDR_ANY); 
+template <class T> void init(T *peer){
+
+        peer->addres.sin_family = AF_INET;
+        peer->addres.sin_port = htons(PORT);
+        peer->addres.sin_addr.s_addr = htonl(INADDR_ANY); 
         //comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
-*/
+
 }
 
 void connector( args *argz) {
