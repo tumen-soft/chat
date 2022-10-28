@@ -1,6 +1,6 @@
 #include "peer.h"
 
-void Peers::run(Server *peer)
+void Server::run(Server *peer)
 {
 
 	//socket creation
@@ -70,7 +70,7 @@ void Peers::run(Server *peer)
 
 //std::cout<<"ser"<<std::endl;
 }
-void Peers::run(Client * peer)
+void Client::run(Client * peer)
 {
 
         peer->sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -92,6 +92,8 @@ void Peers::run(Client * peer)
 
 //std::cout<<"cli"<<std::endl;
 }
+
+
 //funkcii visokogo urovnya
 /*
 */
@@ -164,19 +166,19 @@ qq.pop();
 
 
 
-void start(enum PeerType chat){
+void Peers::run(enum PeerType chat){
 switch (chat){
         case _Client:
 	{
 	peers->client=new Client();
 	init(peers->client);
-	peers->run(peers->client);
+	peers->client->run(peers->client);
 	}
         case _Server:
 	{
 	peers->server=new Server();
 	init(peers->server);
-	peers->run(peers->server);
+	peers->server->run(peers->server);
         }
  }
 }
@@ -200,7 +202,7 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-start(isserver);
+peers->run(isserver);
 //init(peers->peer);
 //peers->run();
 
