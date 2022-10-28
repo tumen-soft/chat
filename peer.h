@@ -32,7 +32,7 @@ std::queue<args*> qq;
 struct sockaddr_in addr;
 
 
-class Peer{
+class Client{
         public:
 	int sock;
         struct sockaddr_in addres;
@@ -42,24 +42,12 @@ class Peer{
 };
 
 
-class Server:public Peer{
+class Server:public Client{
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
         int valread;
         nmap nicknames;
         
-
-};
-
-class Client:public Peer{
-	/*
-        public:
-	int sock;
-	struct sockaddr_in addres;
-	char buffer[MAXLINE];
-	fd_set read_fd;
-	Func crt_sock, cls_sock, sel_conn;
-	*/
 
 };
 class Peers{
