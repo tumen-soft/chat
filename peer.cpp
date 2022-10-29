@@ -1,10 +1,10 @@
-/*		server
+/*		server									
 		  |
-		  |
+		 loop (imfinite)
 	     	  |
-     ________\	loop(without staitment(infinite)),
+     ________\	 \|/ 
     |	     /	sets socket for listening.          /______________________________________|
-    |		  |                                 \                                      |
+    |		stdin, self and clients             \                                      |
     |		  |                                                                        |
     |		 \|/                                                                       |
     |	select() /return descriptor(s) if incomming, holds if nothing(waiting for)         |
@@ -24,6 +24,44 @@
 				erase from socket	 other sockets                     |
 				from sockets massive		|			   |
 					|_______________________|__________________________|
+
+
+
+(stdin is at descriptor 0) (messages from  server)
+
+
+		client
+		  |
+	 send nick to server 
+		 \|/
+		loop(infinite)
+		  |
+		  |
+		 \|/
+	set sockets to listen(stdin and self (client))
+		  |
+		  |
+		 \|/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
