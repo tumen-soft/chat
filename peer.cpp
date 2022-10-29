@@ -1,30 +1,29 @@
 /*		server
 		  |
 		  |
-		  |
-		loop(without staitment(infinite)),
-		sets socket for listening.
-		  |
-		  |
-		 \|/
-	select() /return descriptor(s) if incomming, holds if nothing(waiting for)
-	  |				|
-	  |				|
-	 \|/			       \|/
-	if select returns 	   for staitment(check for returned(select()) socket(s))	
-	servers socket  		|
-					| 
-				       \|/ 
-				if socket in returned massive
-				|		|
-				|		|
-			       \|/	       \|/
-
-
-
-
-
-
+	     	  |
+     ________\	loop(without staitment(infinite)),
+    |	     /	sets socket for listening.          /______________________________________|
+    |		  |                                 \                                      |
+    |		  |                                                                        |
+    |		 \|/                                                                       |
+    |	select() /return descriptor(s) if incomming, holds if nothing(waiting for)         |
+    |	  |						|                                  |
+    |	  |				    		|                                  |
+    |	 \|/			                       \|/                                 |
+    |	if select returns 	   for staitment(check for returned(select()) socket(s))   |	
+    |	servers socketi:  				|                                  |
+    |	accept new connection				|                                  |
+    |		|		       		       \|/                                 |
+    |		|		if socket in returned massive  read() from it              |
+    |___________|			|			|                          |
+					|			|                          |
+				       \|/	      	       \|/                         |
+				message not present: 	 message present:                  |
+				send Host Disconnect	 send message to                   |
+				erase from socket	 other sockets                     |
+				from sockets massive		|			   |
+					|_______________________|__________________________|
 
 
 
