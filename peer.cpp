@@ -1,3 +1,35 @@
+/*		server
+		  |
+		  |
+		  |
+		loop(without staitment(infinite)),
+		sets socket for listening.
+		  |
+		  |
+		 \|/
+	select() /return descriptor(s) if incomming, holds if nothing(waiting for)
+	  |				|
+	  |				|
+	 \|/			       \|/
+	if select returns 	   for staitment(check for returned(select()) socket(s))	
+	servers socket  		|
+					| 
+				       \|/ 
+				if socket in returned massive
+				|		|
+				|		|
+			       \|/	       \|/
+
+
+
+
+
+
+
+
+
+*/
+
 #include "peer.h"
 
 void Server::run(Server *peer)
