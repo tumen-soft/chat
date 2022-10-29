@@ -26,42 +26,28 @@
 					|_______________________|__________________________|
 
 
-
-(stdin is at descriptor 0) (messages from  server)
+(stdin is at descriptor 0) 
 
 
 		client
 		  |
 	 send nick to server 
 		 \|/
-		loop(infinite)
-		  |
-		  |
-		 \|/
-	set sockets to listen(stdin and self (client))
-		  |
-		  |
-		 \|/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ _____________\	loop(infinite)
+ |	      /	  |
+ |		  |
+ |		 \|/
+ |	set sockets to listen(stdin and self (client))
+ |		  |
+ |		  |
+ |		 \|/
+ |	select() wait for messages(0 fd is stdin, and other fd is connection descriptor)
+ |					|				|
+ |					|				|
+ |		      		       \|/			       \|/
+ |				stdin - send messg to server	  recive mess from server
+ |					|				|
+ |______________________________________|_______________________________|
 
 
 
