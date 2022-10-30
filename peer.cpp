@@ -1,5 +1,7 @@
 /*		server									
 		  |
+	initialisation of connection(bind(), listen())
+		  |
 		 loop (imfinite)
 	     	  |
      ________\	 \|/ 
@@ -12,7 +14,7 @@
     |	  |				    		|                                  |
     |	 \|/			                       \|/                                 |
     |	if select returns 	   for staitment(check for returned(select()) socket(s))   |	
-    |	servers socketi:  				|                                  |
+    |	servers socket:  				|                                  |
     |	accept new connection				|                                  |
     |		|		       		       \|/                                 |
     |		|		if socket in returned massive  read() from it              |
@@ -31,6 +33,9 @@
 
 		client
 		  |
+		  |
+	connect() to server
+		 \|/
 	 send nick to server 
 		 \|/
  _____________\	loop(infinite)
