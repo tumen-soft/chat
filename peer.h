@@ -54,7 +54,7 @@ class Peers{
 public:        
         Server *server;
         Client *client;
-void run(enum PeerType chat);
+Client *run(enum PeerType chat);
 
 };
 Peers *peers=new Peers();

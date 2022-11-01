@@ -226,7 +226,7 @@ qq.pop();
 
 
 
-void Peers::run(enum PeerType chat){
+Client *Peers::run(enum PeerType chat){
 Client *peer;
 switch (chat){
         case _Client:
@@ -242,7 +242,7 @@ switch (chat){
  }
 
 init(peer);
-peer->run();
+return peer;
 }
 
 
@@ -250,8 +250,6 @@ peer->run();
 
 void check(){
 
-
-//  init(self);
 
 if(isserver==_Client){
 char a[256] = "192.168.1.";
@@ -264,8 +262,6 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-peers->run(isserver);
-//init(peers->peer);
-//peers->run();
+(peers->run(isserver))->run();
 
 }
