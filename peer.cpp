@@ -58,6 +58,11 @@
 
 */
 
+
+//programm waits most of time
+
+
+
 #include <peer.h>
 
 void Server::run()
