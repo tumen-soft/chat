@@ -228,28 +228,51 @@ qq.pop();
 
 
 
+template<class T>
+struct OpNew
+{
+        OpNew(){
+        T a = T();
+        //init(&a);
+        
+	a.addres.sin_family = AF_INET;
+        a.addres.sin_port = htons(PORT);
+        a.addres.sin_addr.s_addr = htonl(INADDR_ANY); 
+
+
+
+	a.run();
+        //std::cout<<Create()<<std::endl;
+        }
+        //T Create()
+        //{
+          //      return T();
+        //}
+
+};
 
 
 
 Client *Peers::run(enum PeerType chat){
-Client *peer;
+Client peer;
 switch (chat){
         case _Client:
 	{
-	peer=new Client;
+	struct OpNew<Client> type;
+	//peer=new Client;
 	break;
 	}
         case _Server:
 	{
-	peer=new Server;
+	//peer=new Server;
+	struct OpNew<Server> type;
         break;
 	}
  }
 
-init(peer);
-return peer;
+//init(peer);
+//return peer;
 }
-
 
 
 
