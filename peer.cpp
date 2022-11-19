@@ -162,11 +162,11 @@ void Client::run()
 //funkcii visokogo urovnya
 /*
 */
-template <class T> void init(T *peer){
+template <class T1> void init(T1 peer){
 
-        peer->addres.sin_family = AF_INET;
-        peer->addres.sin_port = htons(PORT);
-        peer->addres.sin_addr.s_addr = htonl(INADDR_ANY); 
+        peer.addres.sin_family = AF_INET;
+        peer.addres.sin_port = htons(PORT);
+        peer.addres.sin_addr.s_addr = htonl(INADDR_ANY); 
         //comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
 
 }
