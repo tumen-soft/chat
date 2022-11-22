@@ -50,12 +50,12 @@ class Server:public Client{
         void run() override;
 };
 class Peers{
+public:
+        Server server;
+        Client client;
 
-public:        
-        Server *server;
-        Client *client;
-Client *run(enum PeerType chat);
+Client run(enum PeerType chat);
 
 };
-Peers *peers=new Peers();
+Peers peers;
 enum PeerType isserver=_Server;

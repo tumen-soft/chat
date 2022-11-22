@@ -253,22 +253,24 @@ struct OpNew
 
 
 
-Client *Peers::run(enum PeerType chat){
-Client peer;
-switch (chat){
-        case _Client:
-	{
-	struct OpNew<Client> type;
-	//peer=new Client;
-	break;
-	}
-        case _Server:
-	{
+Client Peers::run(enum PeerType chat){
+Client chAt = Peers::client;
+//switch (chat){
+//        case _Client:
+//	{
+	//struct OpNew<Client> type;
+	//if(peer=dynamic_cast<Client*>(new Server()))std::cout<<"true"<<std::endl;
+	chAt.run();
+	//struct OpNew<Client> type;
+//	break;
+//	}
+//        case _Server:
+//	{
 	//peer=new Server;
-	struct OpNew<Server> type;
-        break;
-	}
- }
+//	struct OpNew<Server> type;
+  //      break;
+//	}
+ //}
 
 //init(peer);
 //return peer;
