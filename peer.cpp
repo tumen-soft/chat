@@ -292,6 +292,6 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-peers->run(isserver);
+peers.run(isserver);
 
 }
