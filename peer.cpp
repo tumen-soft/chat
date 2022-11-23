@@ -254,7 +254,7 @@ struct OpNew
 
 
 Client Peers::run(enum PeerType chat){
-Client chAt = run();
+Server chAt = run();
 //switch (chat){
 //        case _Client:
 //	{

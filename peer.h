@@ -52,7 +52,8 @@ class Server:public Client{
 class Peers: public Server{
 public:
 	using Client::run;
-Client run(enum PeerType chat);
+	using Server::run;
+	Client run(enum PeerType chat);
 
 };
 Peers peers;
