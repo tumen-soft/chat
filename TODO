@@ -49,4 +49,8 @@ X switch in object factory
   more detal commit
   exit command
   commits rewrite
-  abstract factory cli/ser
+V abstract factory cli/ser
+X dymnam cast write
+  plan:
+   inherit server for visitor
+   discribe visitor
