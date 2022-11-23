@@ -65,7 +65,7 @@
 
 #include <peer.h>
 
-void Server::run()
+Server Server::run()
 {
 
 	//socket creation
@@ -132,10 +132,10 @@ void Server::run()
         close(sd2);
 	//closing socket
 	close(sock);
-
+return *this;
 //std::cout<<"ser"<<std::endl;
 }
-void Client::run()
+Client Client::run()
 {
 
         sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -154,7 +154,7 @@ void Client::run()
         }   
         close(sock);
  
-
+return *this;
 //std::cout<<"cli"<<std::endl;
 }
 
@@ -254,13 +254,13 @@ struct OpNew
 
 
 Client Peers::run(enum PeerType chat){
-Client chAt = Peers::client;
+Client chAt = run();
 //switch (chat){
 //        case _Client:
 //	{
 	//struct OpNew<Client> type;
 	//if(peer=dynamic_cast<Client*>(new Server()))std::cout<<"true"<<std::endl;
-	chAt.run();
+	//chAt.run();
 	//struct OpNew<Client> type;
 //	break;
 //	}
