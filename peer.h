@@ -53,6 +53,7 @@ class Peers: public Server{
 public:
 	using Client::run;
 	using Server::run;
+	Client *chAt;
 	Client run(enum PeerType chat);
 
 };
