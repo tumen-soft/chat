@@ -1,8 +1,8 @@
-/*		server									
+/*		сервер									
 		  |
-	initialisation of connection(bind(), listen())
+	инициализация соединения функции bind(), listen()
 		  |
-		 loop (imfinite)
+		цикл (бесконечный)
 	     	  |
      ________\	 \|/ 
     |	     /	sets socket for listening.          /______________________________________|
