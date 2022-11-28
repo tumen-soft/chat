@@ -1,37 +1,37 @@
-/*		сервер									
+/*		<сервер>									
 		  |
 	инициализация соединения функции bind(), listen()
 		  |
 		цикл (бесконечный)
 	     	  |
      ________\	 \|/ 
-    |	     /	sets socket for listening.          /______________________________________|
-    |		stdin, self and clients             \                                      |
+    |	     / установка сокетов для прослушивания. /______________________________________|
+    |		поток вывода, свой и клиентские     \                                      |
     |		  |                                                                        |
     |		 \|/                                                                       |
-    |	select() /return descriptor(s) if incomming, holds if nothing(waiting for)         |
-    |	  |						|                                  |
+    |	<select() возврыщает массив дескрипторов     режим ожидания>  		           |
+    |	  |	при записи вних		   	   	|                                  |
     |	  |				    		|                                  |
     |	 \|/			                       \|/                                 |
-    |	if select returns 	   for staitment(check for returned(select()) socket(s))   |	
-    |	servers socket:  				|                                  |
-    |	accept() new connection				|                                  |
+    |	если select возвращает 	     			|				   |	
+    |	сокет сервера:  				|                                  |
+    |	accept() нового соединения			|                                  |
     |		|		       		       \|/                                 |
-    |		|		if socket in returned massive  read() from it              |
+    |		|		если select() возвращает дескрипторы  read() из них        |
     |___________|			|			|                          |
 					|			|                          |
 				       \|/	      	       \|/                         |
-				message not present: 	 message present:                  |
+				сообшение отсутствует: 	 сообшение присутствует:           |
 				send Host Disconnect	 send message to                   |
 				erase from socket	 other sockets                     |
 				from sockets massive		|			   |
 					|_______________________|__________________________|
 
 
-(stdin is at descriptor 0) 
+(stdin (поток ввода) на дескрипторе 0) 
 
 
-		client
+		<клиент>
 		  |
 		  |
 	connect() to server
@@ -59,7 +59,7 @@
 */
 
 
-//programm waits most of time
+//программа ждет большую часть времени
 
 
 
