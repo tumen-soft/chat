@@ -65,9 +65,9 @@
 
 #include <peer.h>
 
-Server *Server::run()
+void Server::run()
 {
-
+	//std::cout<<c<<std::endl;
 	//socket creation
         sock=socket(AF_INET, SOCK_STREAM, 0);
 	//output socket file descriptor
@@ -132,10 +132,10 @@ Server *Server::run()
         close(sd2);
 	//closing socket
 	close(sock);
-return this;
+//return this;
 //std::cout<<"ser"<<std::endl;
 }
-Client *Client::run()
+void Client::run()
 {
 
         sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -154,22 +154,10 @@ Client *Client::run()
         }   
         close(sock);
  
-return this;
+//return this;
 //std::cout<<"cli"<<std::endl;
 }
 
-
-//funkcii visokogo urovnya
-/*
-*/
-template <class T1> void init(T1 peer){
-
-        peer.addres.sin_family = AF_INET;
-        peer.addres.sin_port = htons(PORT);
-        peer.addres.sin_addr.s_addr = htonl(INADDR_ANY); 
-        //comm->Client::addres.sin_addr.s_addr = inet_addr(CLIIP);
-
-}
 
 void connector( args *argz) {
 args* q=(args*)argz;
@@ -225,56 +213,108 @@ qq.pop();
 
 
 
+/*
+#include <iostream>
 
 
+class Base{
+public:
+        virtual Base *clone(){std::cout<<"base"<<std::endl;return this;}
 
-template<class T>
-struct OpNew
-{
-        OpNew(){
-        T a = T();
-        //init(&a);
-        
-	a.addres.sin_family = AF_INET;
-        a.addres.sin_port = htons(PORT);
-        a.addres.sin_addr.s_addr = htonl(INADDR_ANY); 
+char* c ="base";
+
+};
+class Derived:public Base{
+public:
+
+        Derived *clone(){std::cout<<"derived"<<std::endl;return this;}
 
 
+char* c ="der";
 
-	a.run();
-        //std::cout<<Create()<<std::endl;
-        }
-        //T Create()
-        //{
-          //      return T();
-        //}
 
 };
 
 
 
-Client Peers::run(enum PeerType chat){
+class three: Derived{
+        public:
+        using Base::clone;
+        //using Derived::clone;
 
-//Client *chAt;
+void run(){
+
+//Derived chat;// = Derived();
+//Derived *d = &chat;
+Base *b =new Derived;
 
 
-	chAt = Client::run();
-//switch (chat){
-//        case _Client:
-//	{
+std::cout<< b->clone()->c<<std::endl;
+std::cout<< dynamic_cast <Derived*>(b->clone())->c<<std::endl;
+
+}};
+
+int main(){
+
+three t=three();
+
+t.run();
+
+Derived d;
+
+Base b = (Base)d;
+
+return 0;
+
+
+}
+
+
+*/
+
+
+
+
+
+
+
+
+void Peers::run(enum PeerType chat){
+
+//Server chA=Server();
+//
+//Server cha;
+//Client ch=(Client)chA;
+
+chAt->addres.sin_family = AF_INET;
+    chAt->addres.sin_port = htons(PORT);
+       chAt->addres.sin_addr.s_addr = htonl(INADDR_ANY);
+
+
+
+
+//chAt->running();
+
+//	std::cout<<chAt->running()->c<<std::endl;
+//	std::cout<<dynamic_cast<Server*>(chAt)->c<<std::endl;
+
+switch (chat){
+        case _Client:
+	{
+	chAt->run();
 	//struct OpNew<Client> type;
-	chAt = dynamic_cast<Server*>(chAt->run());
-	//chAt.run();
+	//std::cout<<(dynamic_cast<Derived*>(chA->r()))->c<<std::endl;
+	//std::cout<<chA->c<<std::endl;
 	//struct OpNew<Client> type;
-//	break;
-//	}
-//        case _Server:
-//	{
+	break;
+	}
+        case _Server:
+	{
 	//peer=new Server;
-//	struct OpNew<Server> type;
-  //      break;
-//	}
- //}
+        dynamic_cast<Server*>(chAt)->run();
+	break;
+	}
+}
 
 //init(peer);
 //return peer;
@@ -283,7 +323,6 @@ Client Peers::run(enum PeerType chat){
 
 
 void check(){
-
 
 if(isserver==_Client){
 char a[256] = "192.168.1.";
