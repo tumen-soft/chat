@@ -58,7 +58,7 @@ class Peers: public Server{
 public:
 	using Client::run;
 	using Server::run;
-	Client *chAt=new Client();
+	Client *cHAt=new Client();
 	void run(enum PeerType chat);
 
 };

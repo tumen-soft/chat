@@ -213,8 +213,6 @@ qq.pop();
 
 
 
-/*
-#include <iostream>
 
 
 class Base{
@@ -237,40 +235,26 @@ char* c ="der";
 
 
 
-class three: Derived{
+class three: Server{
         public:
-        using Base::clone;
+        //using Base::clone;
         //using Derived::clone;
 
 void run(){
 
 //Derived chat;// = Derived();
 //Derived *d = &chat;
-Base *b =new Derived;
+Client *b =new Server;
 
 
-std::cout<< b->clone()->c<<std::endl;
-std::cout<< dynamic_cast <Derived*>(b->clone())->c<<std::endl;
+std::cout<< b->c<<std::endl;
+std::cout<< dynamic_cast <Server*>(b)->c<<std::endl;
 
 }};
 
-int main(){
+/*three t=three();
 
-three t=three();
-
-t.run();
-
-Derived d;
-
-Base b = (Base)d;
-
-return 0;
-
-
-}
-
-
-*/
+t.run();*/
 
 
 
@@ -286,22 +270,24 @@ void Peers::run(enum PeerType chat){
 //Server cha;
 //Client ch=(Client)chA;
 
-chAt->addres.sin_family = AF_INET;
-    chAt->addres.sin_port = htons(PORT);
-       chAt->addres.sin_addr.s_addr = htonl(INADDR_ANY);
+cHAt->addres.sin_family = AF_INET;
+    cHAt->addres.sin_port = htons(PORT);
+       cHAt->addres.sin_addr.s_addr = htonl(INADDR_ANY);
+three t=three();
 
+ t.run();
 
 
 
 //chAt->running();
 
-//	std::cout<<chAt->running()->c<<std::endl;
-//	std::cout<<dynamic_cast<Server*>(chAt)->c<<std::endl;
+std::cout<<cHAt->c<<std::endl;
+std::cout<<dynamic_cast<Server*>(cHAt)->c<<std::endl;
 
 switch (chat){
         case _Client:
 	{
-	chAt->run();
+	//chAt->run();
 	//struct OpNew<Client> type;
 	//std::cout<<(dynamic_cast<Derived*>(chA->r()))->c<<std::endl;
 	//std::cout<<chA->c<<std::endl;
@@ -311,7 +297,7 @@ switch (chat){
         case _Server:
 	{
 	//peer=new Server;
-        dynamic_cast<Server*>(chAt)->run();
+        //dynamic_cast<Server*>(chAt)->run();
 	break;
 	}
 }
