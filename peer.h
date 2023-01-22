@@ -38,10 +38,7 @@ class Client{
         struct sockaddr_in addres;
         char buffer[MAXLINE];
         fd_set read_fd;
-	//Client *running(){return this;};
-	virtual void run();        
-	char* c="cli";
-
+	Client *run();        
 
 };
 
@@ -51,14 +48,13 @@ class Server:public Client{
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
         int valread;
         nmap nicknames;
-        void run();
-	char * c = "ser";
+	Server *run();
 };
 class Peers: public Server{
 public:
 	using Client::run;
-	using Server::run;
-	Client *cHAt=new Client();
+	//using Server::run;
+	//Client *b=new Client;
 	void run(enum PeerType chat);
 
 };

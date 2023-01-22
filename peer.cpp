@@ -65,7 +65,8 @@
 
 #include <peer.h>
 
-void Server::run()
+
+Server *Server::run()
 {
 	//std::cout<<c<<std::endl;
 	//socket creation
@@ -132,10 +133,12 @@ void Server::run()
         close(sd2);
 	//closing socket
 	close(sock);
-//return this;
+return this;
 //std::cout<<"ser"<<std::endl;
 }
-void Client::run()
+
+
+Client *Client::run()
 {
 
         sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -154,7 +157,7 @@ void Client::run()
         }   
         close(sock);
  
-//return this;
+return this;
 //std::cout<<"cli"<<std::endl;
 }
 
@@ -212,57 +215,6 @@ qq.pop();
 
 
 
-
-
-
-class Base{
-public:
-        virtual Base *clone(){std::cout<<"base"<<std::endl;return this;}
-
-char* c ="base";
-
-};
-class Derived:public Base{
-public:
-
-        Derived *clone(){std::cout<<"derived"<<std::endl;return this;}
-
-
-char* c ="der";
-
-
-};
-
-
-
-class three: Server{
-        public:
-        //using Base::clone;
-        //using Derived::clone;
-
-void run(){
-
-//Derived chat;// = Derived();
-//Derived *d = &chat;
-Client *b =new Server;
-
-
-std::cout<< b->c<<std::endl;
-std::cout<< dynamic_cast <Server*>(b)->c<<std::endl;
-
-}};
-
-/*three t=three();
-
-t.run();*/
-
-
-
-
-
-
-
-
 void Peers::run(enum PeerType chat){
 
 //Server chA=Server();
@@ -270,32 +222,42 @@ void Peers::run(enum PeerType chat){
 //Server cha;
 //Client ch=(Client)chA;
 
-cHAt->addres.sin_family = AF_INET;
-    cHAt->addres.sin_port = htons(PORT);
-       cHAt->addres.sin_addr.s_addr = htonl(INADDR_ANY);
-three t=three();
+//b->addres.sin_family = AF_INET;
+//   b->addres.sin_port = htons(PORT);
+ //      b->addres.sin_addr.s_addr = htonl(INADDR_ANY);
+//three t=three();
 
- t.run();
+//t.run();
+
+//Client *b ;
+
+
+//std::cout<< b->c<<std::endl;
+//std::cout<< dynamic_cast <Server*>(b)->c<<std::endl;
 
 
 
-//chAt->running();
 
-std::cout<<cHAt->c<<std::endl;
-std::cout<<dynamic_cast<Server*>(cHAt)->c<<std::endl;
+run();
+//(Server*)run();
+
+
+//std::cout<<cHAt->c<<std::endl;
+//std::cout<<dynamic_cast<Server*>(cHAt)->c<<std::endl;
 
 switch (chat){
         case _Client:
 	{
-	//chAt->run();
-	//struct OpNew<Client> type;
+	//b->run();
+	////struct OpNew<Client> type;
 	//std::cout<<(dynamic_cast<Derived*>(chA->r()))->c<<std::endl;
-	//std::cout<<chA->c<<std::endl;
+	///std::cout<<chA->c<<std::endl;
 	//struct OpNew<Client> type;
 	break;
 	}
         case _Server:
 	{
+	//dynamic_cast <Server*>(b)->run();
 	//peer=new Server;
         //dynamic_cast<Server*>(chAt)->run();
 	break;
