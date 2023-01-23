@@ -238,8 +238,9 @@ void Peers::run(enum PeerType chat){
 
 
 
-run();
-//(Server*)run();
+//run();
+Client::run();
+//run();
 
 
 //std::cout<<cHAt->c<<std::endl;
@@ -283,6 +284,6 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-peers.run(isserver);
+Peers::run(isserver);
 
 }

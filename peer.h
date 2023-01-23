@@ -52,6 +52,7 @@ class Server:public Client{
 };
 class Peers: public Server{
 public:
+	//Server::run;
 	using Client::run;
 	//using Server::run;
 	//Client *b=new Client;

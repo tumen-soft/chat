@@ -1,4 +1,4 @@
-AM_CXXFLAGS= -g -fpermissive
+AM_CXXFLAGS= -g -fpermissive -lpthread
 
 bin_PROGRAMS=chat
 chat_SOURCES=peer.cpp main.cpp
