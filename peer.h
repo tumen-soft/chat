@@ -12,6 +12,10 @@
 #include <typeinfo>
 #define MAXLINE 1024
 #define PORT 3111 
+//not client - server
+//in the begin  client    - server check
+
+
 typedef std::map<int,char*> nmap;
 //enimeration for ip scaner
 enum PeerType{
@@ -38,7 +42,7 @@ class Client{
         struct sockaddr_in addres;
         char buffer[MAXLINE];
         fd_set read_fd;
-	Client *run();        
+	Client* run();        
 
 };
 
@@ -48,9 +52,9 @@ class Server:public Client{
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
         int valread;
         nmap nicknames;
-	Server *run();
+	Server* run();
 };
-class Peers: public Server{
+class Peers:public Server{
 public:
 	//Server::run;
 	using Client::run;

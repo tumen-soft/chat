@@ -138,7 +138,7 @@ return this;
 }
 
 
-Client *Client::run()
+Client* Client::run()
 {
 
         sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -239,16 +239,25 @@ void Peers::run(enum PeerType chat){
 
 
 //run();
-Client::run();
+//Client::run();
 //run();
 
 
 //std::cout<<cHAt->c<<std::endl;
 //std::cout<<dynamic_cast<Server*>(cHAt)->c<<std::endl;
 
+
+
+if (chat!=_Server) Client::run(); else Server::run();
+//if (chat==_Client) Client::run();
+
+
+
+
 switch (chat){
         case _Client:
 	{
+	//Client::run();
 	//b->run();
 	////struct OpNew<Client> type;
 	//std::cout<<(dynamic_cast<Derived*>(chA->r()))->c<<std::endl;
@@ -258,6 +267,7 @@ switch (chat){
 	}
         case _Server:
 	{
+	//Server::run();
 	//dynamic_cast <Server*>(b)->run();
 	//peer=new Server;
         //dynamic_cast<Server*>(chAt)->run();
@@ -284,6 +294,6 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-Peers::run(isserver);
+peers.run(_Client);
 
 }
