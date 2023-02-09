@@ -66,7 +66,7 @@
 #include <peer.h>
 
 
-Server *Server::run()
+void Server::run()
 {
 	//std::cout<<c<<std::endl;
 	//socket creation
@@ -138,7 +138,7 @@ return this;
 }
 
 
-Client* Client::run()
+void Client::run()
 {
 
         sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -294,6 +294,6 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-peers.run(_Client);
+peers.run(_Server);
 
 }
