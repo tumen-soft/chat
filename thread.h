@@ -1,3 +1,5 @@
+
+pthread_t tid[256];
 enum PeerType{
  server,
  client
@@ -74,7 +76,7 @@ args* q=(args*)arg;
     return NULL;
 }
 
-int main(){
+void main1(){
 
 //enum PeerType isServer;
 args ar[256]={NULL,0,"127.0.0.1",server};
@@ -116,9 +118,5 @@ if(pclient)if(pclient->isServer==client){isserver=client;break;}
 //if(ar[u].isServer==client){isserver=client;break;}
 //}
 
-switch(isserver)
-{
-    case client:
-{
-
+}
 
