@@ -66,7 +66,7 @@
 #include <peer.h>
 
 
-void Server::run()
+void Server::r()
 {
 	//std::cout<<c<<std::endl;
 	//socket creation
@@ -138,7 +138,7 @@ return this;
 }
 
 
-void Client::run()
+void Client::r()
 {
 
         sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -187,7 +187,7 @@ args ar[256]={};
 void spawnThreads()
 {
 
-    for (int i = 0; i < 255; i++) {
+    for (int i = 0; i < 2; i++) {
         ar[i].x=i;
         ar[i].tid = std::thread(connector,&ar[i]);
         qq.push(&ar[i]); 
@@ -238,7 +238,7 @@ void Peers::run(enum PeerType chat){
 
 
 
-//run();
+//(Client*)run()->run();
 //Client::run();
 //run();
 
@@ -246,10 +246,13 @@ void Peers::run(enum PeerType chat){
 //std::cout<<cHAt->c<<std::endl;
 //std::cout<<dynamic_cast<Server*>(cHAt)->c<<std::endl;
 
-
-
-if (chat!=_Server) Client::run(); else Server::run();
+Client * peer = new Server;
+std::cout<<typeid(peer).name()<<std::endl;
+//bp->run()->ru();
+//dynamic_cast<Server*>(peer->run())->fast();
+//if (chat!=_Server)(Client*)run();else run();
 //if (chat==_Client) Client::run();
+((Server*)(peer->run()))->fast();
 
 
 
@@ -294,6 +297,6 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-peers.run(_Server);
+peers.run(_Client);
 
 }

@@ -35,16 +35,35 @@
 
 */
 #include <iostream>
-
+enum choice {
+    RUN, EXIT
+};
 void spawnThreads();
 void wait();
 void check();
 using namespace std;
 
 int main(){
-cout<< "wait..."<<endl;
-spawnThreads();
-wait();
-check();
+choice ch;
+st:;
+cout<<"0.run"<<endl;
+cout<<"1.exit"<<endl;
+int c;
+cin>>c;
+ch=(int)c;
+switch(ch){
+
+	case EXIT:
+		return 0;
+		break;
+
+	case RUN:
+		cout<< "wait..."<<endl;
+		spawnThreads();
+		wait();
+		check();
+	default:
+		goto st;
+}
 }
 
