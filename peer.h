@@ -65,7 +65,7 @@ public:
 	//Server::run;
 	//using Server::run;
 	//Client *b=new Client;
-	void run(enum PeerType chat);
+	void run(auto *peer);
 
 };
 Peers peers;
