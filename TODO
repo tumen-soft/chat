@@ -57,4 +57,5 @@ X dymnam cast write
   make connect send recv funktion with polimorphism   make polimorphism by return arg non pointer i ges it works  test.cpp(37) pol.cpp  selection (pointer)
 
 
-  make client object
+  make client objects
+  make proff     if peer  funktion (cli ser)  threads on c run cli or ser
