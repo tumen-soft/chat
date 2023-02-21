@@ -65,6 +65,28 @@
 
 #include <peer.h>
 
+void Client::conn(Client * peer)
+        {
+        connect(sock, (struct sockaddr*)&addres, sizeof(addres));
+        dprintf(sock, s);
+
+        }
+void Server::conn(Server* peer)
+        {
+
+        bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+        //waiting for connection
+        listen(peer->sock, 300);
+
+        peer->nicknames.insert({0,s});
+        }
+
+
+
+
+
+
+
 
 
 void connector( args *argz) {
@@ -120,7 +142,7 @@ qq.pop();
 
 
 
-void Peers::run(auto *peer){
+void Peers::run(auto * peer){
 
 //Server chA=Server();
 //
@@ -174,10 +196,15 @@ enum PEER chat;
 
 chat='P6Client';
 std::string a = "P6Client", b = typeid(peer).name();
+//Server *ss=new Server();
+//ss->run()->sockett();
 
 peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
-switch (a==b){
+
+peer->conn(peer);
+
+/*switch (a==b){
 	case true:
 	{
         connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
@@ -185,7 +212,7 @@ switch (a==b){
 
 	}
 	case false:
-	{
+v	{
 
 	bind(sock, (struct sockaddr*)&addres, sizeof(addres));
 	//waiting for connection
@@ -278,7 +305,7 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 
 //for(;;)
 }
-
+*/
 //run()
 }
 
@@ -302,8 +329,12 @@ std::cout << "1.client"<<std::endl;
 int p;
 std::cin >> p;
 //Client * peer = new Server;
-switch(p){
-	case 0: peers.run((Server*)peers.runn());
-	case 1: peers.run(peers.runn());
-}
+//switch(p){
+//	case 0: peers.run((Server*)peers.runn());
+//	case 1: peers.run(peers.runn());
+//}
+
+
+
+peers.run(peers.runn());
 }

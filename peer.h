@@ -15,7 +15,6 @@
 //not client - server
 //in the begin  client    - server check
 
-
 typedef std::map<int,char*> nmap;
 //enimeration for ip scaner
 enum PeerType{
@@ -35,17 +34,16 @@ typedef struct arg args;
 std::queue<args*> qq;
 struct sockaddr_in addr;
 
-
 class Client{
         public:
 	int sock;
         struct sockaddr_in addres;
         char buffer[MAXLINE];
         fd_set read_fd;
-	virtual Client *run(){return new Client();}	
-	void fast(){r();};
+	virtual Client *run(){return this;}	
+	void conn(Client * peer);
 	private:
-	void r();        
+	//int sock;
 
 };
 
@@ -55,18 +53,22 @@ class Server:public Client{
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
         int valread;
         nmap nicknames;
-	Server *run(){return new Server();}	
-	void fast(){r();}
+	Server *run(){return this;}
+	void conn(Server *peer);
+//using Client::socke;
+        //sock=socket(AF_INET, SOCK_STREAM, 0);
+        //std::cout<< typeid(this).name() << " fd " << sock << std::endl;
+        //};
+
 	private:
-	void r();
 };
 class Peers:public Server{
 public:
 	//Server::run;
 	//using Server::run;
 	//Client *b=new Client;
-	void run(auto *peer);
-	auto *runn(){return peer->run();}
+	void run(auto * peer);
+	auto *runn(){return new Server;}
 private:
 	Client * peer = new Server;
 };
