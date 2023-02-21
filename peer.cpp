@@ -142,7 +142,7 @@ qq.pop();
 
 
 
-void Peers::run(auto * peer){
+void run(auto * peer){
 
 //Server chA=Server();
 //
@@ -329,12 +329,12 @@ std::cout << "1.client"<<std::endl;
 int p;
 std::cin >> p;
 //Client * peer = new Server;
-//switch(p){
-//	case 0: peers.run((Server*)peers.runn());
-//	case 1: peers.run(peers.runn());
-//}
+switch(p){
+	case 0: run((Server*)runn());
+	case 1: run(runn());
+}
 
 
 
-peers.run(peers.runn());
+//run(.runn());
 }
