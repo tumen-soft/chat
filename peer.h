@@ -66,7 +66,9 @@ public:
 	//using Server::run;
 	//Client *b=new Client;
 	void run(auto *peer);
-
+	auto *runn(){return peer->run();}
+private:
+	Client * peer = new Server;
 };
 Peers peers;
 enum PeerType isserver=_Server;

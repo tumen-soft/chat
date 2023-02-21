@@ -301,9 +301,9 @@ std::cout << "0.server"<<std::endl;
 std::cout << "1.client"<<std::endl;
 int p;
 std::cin >> p;
-Client * peer = new Server;
+//Client * peer = new Server;
 switch(p){
-	case 0: peers.run((Server*)peer->run());
-	case 1: peers.run(peer->run());
+	case 0: peers.run((Server*)peers.runn());
+	case 1: peers.run(peers.runn());
 }
 }
