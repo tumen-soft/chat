@@ -42,6 +42,7 @@ class Client{
         fd_set read_fd;
 	virtual Client *run(){return this;}	
 	void conn(Client * peer);
+	void funct(){std::cout<<"pass"<<std::endl;};
 	private:
 	//int sock;
 
@@ -53,6 +54,7 @@ class Server:public Client{
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sd;
         int valread;
         nmap nicknames;
+	void funct(){std::cout<<"fail"<<std::endl;};
 	Server *run(){return this;}
 	void conn(Server *peer);
 //using Client::socke;
@@ -68,6 +70,7 @@ class Server:public Client{
 	//using Server::run;
 	//Client *b=new Client;
 	Client * peer = new Server;
+	Client * fun(auto*peer){return peer;};
 	void run(auto * peer);
 	auto *runn(){return peer->run();}
 //private:

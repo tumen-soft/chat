@@ -61,7 +61,7 @@
 
 //программа ждет большую часть времени
 
-
+//ехать f1 min max => f2 min max  экономика
 
 #include <peer.h>
 
@@ -324,14 +324,17 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
+fun(peer)->funct();
+
+
 std::cout << "0.server"<<std::endl;
 std::cout << "1.client"<<std::endl;
 int p;
 std::cin >> p;
 //Client * peer = new Server;
 switch(p){
-	case 0: run((Server*)runn());
-	case 1: run(runn());
+	case 0: {run((Server*)runn());break;}
+	case 1: {run(runn());break;}
 }
 
 

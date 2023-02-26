@@ -59,3 +59,9 @@ X dymnam cast write
 
   make client objects
   make proff     if peer  funktion (cli ser)  threads on c run cli or ser
+  make for(;;)
+  enum of chat  255  server client  255(server) no connect   255 client no connect
+  make linked list nicknames   make not node	
+  
+  streams
+  make manipulators
