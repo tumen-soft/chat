@@ -147,9 +147,25 @@ qq.pop();
 
 }
 
+void run(Client *peer){
+
+peer->init(peer);
+peer->conn(peer);
 
 
-void run(auto * peer){
+}
+
+
+
+
+
+
+
+
+
+
+
+void run(Server *peer){
 
 //Server chA=Server();
 //
