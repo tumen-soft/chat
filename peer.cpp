@@ -81,6 +81,13 @@ void Server::conn(Server* peer)
         peer->nicknames.insert({0,s});
         }
 
+void Client::init(auto *peer){
+
+peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
+
+
+}
 
 
 
@@ -199,9 +206,9 @@ std::string a = "P6Client", b = typeid(peer).name();
 //Server *ss=new Server();
 //ss->run()->sockett();
 
-peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
-
+//peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+//std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
+peer->init(peer);
 peer->conn(peer);
 
 /*switch (a==b){
@@ -324,17 +331,20 @@ char a[256] = "192.168.1.";
 std::cout << "nick:";
 std::cin >> s;
 
-fun(peer)->funct();
+//fun(peer)->funct();
 
 
 std::cout << "0.server"<<std::endl;
 std::cout << "1.client"<<std::endl;
 int p;
 std::cin >> p;
-//Client * peer = new Server;
+//peer = new Server;
+
+//run((Server *)peer);
+
 switch(p){
-	case 0: {run((Server*)runn());break;}
-	case 1: {run(runn());break;}
+	case 0: {run((Server*)peer);break;}
+	case 1: {run(peer);break;}
 }
 
 

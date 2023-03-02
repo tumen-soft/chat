@@ -12,7 +12,7 @@
 #include <typeinfo>
 #define MAXLINE 1024
 #define PORT 3111 
-
+//наследование функции гены мужчина
 typedef std::map<int,char*> nmap;
 enum PeerType{
         _Server,
@@ -37,10 +37,8 @@ class Client{
         struct sockaddr_in addres;
         char buffer[MAXLINE];
         fd_set read_fd;
-	virtual Client *run(){return this;}	
 	void conn(Client * peer);
-	void init(auto peer);
-	virtual void funct(){std::cout<<"pass"<<std::endl;};
+	void init(auto *peer);
 	private:
 	//int sock;
 
@@ -51,8 +49,6 @@ class Server:public Client{
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
         nmap nicknames;
-	void funct () {std::cout<<"fail"<<std::endl;};
-	Server *run(){return this;}
 	void conn(Server *peer);
 //using Client::socke;
         //sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -67,9 +63,9 @@ class Server:public Client{
 	//using Server::run;
 	//Client *b=new Client;
 	Client * peer = new Server;
-	Client * fun(auto*peer){return peer;};
+	//Client * fun(auto*peer){return peer;};
 	void run(auto * peer);
-	auto *runn(){return peer->run();}
+	//auto *runn(){return peer->run();}
 //private:
 	//Client * peer = new Server;
 //};
