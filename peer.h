@@ -10,6 +10,13 @@
 #include <vector>
 #include <queue>
 #include <typeinfo>
+#include <ext/stdio_filebuf.h>
+#include <fstream>
+
+using namespace std;
+
+
+
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина

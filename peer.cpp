@@ -222,12 +222,25 @@ std::string a = "P6Client", b = typeid(peer).name();
 //Server *ss=new Server();
 //ss->run()->sockett();
 
+
+    int posix_handle = 2;//fileno(::fopen("test.txt", "r"));
+
+    __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
+    istream is(&filebuf); // 2
+
+    string line;
+    //getline(is, line);
+
+
+
+
+
 //peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 //std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
 peer->init(peer);
 peer->conn(peer);
 
-/*switch (a==b){
+switch (a==b){
 	case true:
 	{
         connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
@@ -235,7 +248,7 @@ peer->conn(peer);
 
 	}
 	case false:
-v	{
+	{
 
 	bind(sock, (struct sockaddr*)&addres, sizeof(addres));
 	//waiting for connection
@@ -245,8 +258,8 @@ v	{
 	
 
 
-	}
-}
+	
+
 
 
 
@@ -326,9 +339,13 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
         	}
 
 
+
+}}
+
 //for(;;)
 }
-*/
+
+
 //run()
 }
 

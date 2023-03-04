@@ -69,3 +69,5 @@ X dymnam cast write
   make client objects
   remove others
   ediniy podhod k klientu i serveru
+  make logs
+  make packet
