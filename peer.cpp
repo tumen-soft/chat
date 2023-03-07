@@ -341,10 +341,9 @@ std::cout << "nick:";
 std::cin >> s;
 
 //fun(peer)->funct();
-
-
-std::cout << "0.server"<<std::endl;
-std::cout << "1.client"<<std::endl;
+ofstream out("/dev/stdout");
+out << "0.server"<<std::endl;
+out << "1.client"<<std::endl;
 int p;
 std::cin >> p;
 //peer = new Server;
