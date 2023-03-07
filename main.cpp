@@ -35,6 +35,7 @@
 
 */
 #include <iostream>
+#include <fstream>
 enum choice {
     END, RUN
 };
@@ -46,8 +47,9 @@ using namespace std;
 int main(){
 choice ch;
 st:;
-cout<<"0.end"<<endl;
-cout<<"1.run"<<endl;
+ofstream out("/dev/stdout");
+out<<"0.end"<<endl;
+out<<"1.run"<<endl;
 int c;
 cin>>c;
 ch=(int)c;
