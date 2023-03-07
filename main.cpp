@@ -36,7 +36,7 @@
 */
 #include <iostream>
 enum choice {
-    RUN, EXIT
+    END, RUN
 };
 void spawnThreads();
 void wait();
@@ -46,14 +46,14 @@ using namespace std;
 int main(){
 choice ch;
 st:;
-cout<<"0.run"<<endl;
-cout<<"1.exit"<<endl;
+cout<<"0.end"<<endl;
+cout<<"1.run"<<endl;
 int c;
 cin>>c;
 ch=(int)c;
 switch(ch){
 
-	case EXIT:
+	case END:
 		return 0;
 		break;
 

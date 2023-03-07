@@ -35,6 +35,8 @@ struct arg{
 
 
 typedef struct arg args;
+args ar[256]={};
+args *pclient;
 std::queue<args*> qq;
 struct sockaddr_in addr;
 //вводим определение клиента и сервера

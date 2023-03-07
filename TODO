@@ -71,3 +71,5 @@ X dymnam cast write
   ediniy podhod k klientu i serveru
   make logs
   make packet
+  make cli/ser  polymprph
+  make simple (funct to files)  readable

@@ -67,8 +67,8 @@
 
 void Client::conn(Client * peer)
         {
-        connect(sock, (struct sockaddr*)&addres, sizeof(addres));
-        dprintf(sock, s);
+        connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+        dprintf(peer->sock, s);
 
         }
 void Server::conn(Server* peer)
@@ -114,7 +114,7 @@ addr.sin_family = AF_INET;
 }
 
 
-args ar[256]={};
+//args ar[256]={};
 
 
 
@@ -131,7 +131,7 @@ void spawnThreads()
 }
 
 //enum  PeerType isserver=_Server;
-args *pclient;
+//args *pclient;
 
 
 
@@ -240,30 +240,7 @@ std::string a = "P6Client", b = typeid(peer).name();
 peer->init(peer);
 peer->conn(peer);
 
-switch (a==b){
-	case true:
-	{
-        connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
-        dprintf(peer->sock, s);
-
-	}
-	case false:
-	{
-
-	bind(sock, (struct sockaddr*)&addres, sizeof(addres));
-	//waiting for connection
-        listen(sock, 300);
-
-	nicknames.insert({0,s});
-	
-
-
-	
-
-
-
-
-
+/*
 for(;;)
 {
 
@@ -340,11 +317,10 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 
 
 
-}}
 
 //for(;;)
 }
-
+*/
 
 //run()
 }
