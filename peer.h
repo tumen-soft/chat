@@ -20,6 +20,9 @@ using namespace std;
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина
+pthread_t tid[256];
+
+
 typedef std::map<int,char*> nmap;
 enum PeerType{
         _Server,
@@ -32,7 +35,13 @@ struct arg{
         char y[256];
         enum PeerType isServer;
 };
-
+/*struct arg{
+        pthread_t tid;
+        int x;
+        char y[256];
+        enum PeerType isServer;
+};
+*/
 
 typedef struct arg args;
 args ar[256]={};
