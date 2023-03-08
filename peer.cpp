@@ -90,7 +90,7 @@ std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
 }
 
 
-
+/*
 struct node{
         struct node *next;
         args *ar;
@@ -129,7 +129,7 @@ return result;
 
 
 
-
+*/
 
 
 
