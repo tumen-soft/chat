@@ -83,13 +83,13 @@ void Server::conn(Server* peer)
 
 void Client::init(auto *peer){
 
-peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
+	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+	std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
 
 
 }
 
-
+namespace fix{
 /*
 struct node{
         struct node *next;
@@ -171,7 +171,29 @@ args* q=(args*)arg;
 }
 
 
+void spawnThreads()
+{
 
+/*
+args ar[256]={NULL,0,"127.0.0.1",server};
+///ar[0].isServer=server;
+//args ar;
+//printf("waiting for connection...");
+
+int j=0;
+
+for (int i=0;i<255;i++){
+ar[j].x=i;
+  pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
+  ar->tid=tid[j];
+  enqueue(&ar[j]); 
+j++;
+}
+*/
+}
+
+
+};
 
 void connector( args *argz) {
 args* q=(args*)argz;
@@ -197,27 +219,6 @@ addr.sin_family = AF_INET;
 
 void spawnThreads()
 {
-
-/*
-args ar[256]={NULL,0,"127.0.0.1",server};
-///ar[0].isServer=server;
-//args ar;
-//printf("waiting for connection...");
-
-int j=0;
-
-for (int i=0;i<255;i++){
-ar[j].x=i;
-  pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
-  ar->tid=tid[j];
-  enqueue(&ar[j]); 
-j++;
-}
-*/
-
-
-
-
 
     for (int i = 0; i < 2; i++) {
         ar[i].x=i;
@@ -423,8 +424,7 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 //run()
 }
 
-
-
+namespace fix{
 void check(){
 /*
 enum PeerType isserver=server;
@@ -438,6 +438,9 @@ pthread_join(pclient->tid,NULL);}
 if(pclient)if(pclient->isServer==client){isserver=client;break;}
 }
 */
+}
+
+};
 
 
 
@@ -448,11 +451,7 @@ if(pclient)if(pclient->isServer==client){isserver=client;break;}
 
 
 
-
-
-
-
-
+void check(){
 
 if(isserver==_Client){
 char a[256] = "192.168.1.";
