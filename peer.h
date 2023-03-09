@@ -35,19 +35,30 @@ struct arg{
         char y[256];
         enum PeerType isServer;
 };
-/*struct arg{
+namespace fix{
+struct arg{
         pthread_t tid;
         int x;
         char y[256];
         enum PeerType isServer;
 };
-*/
+};
 
 typedef struct arg args;
 args ar[256]={};
 args *pclient;
 std::queue<args*> qq;
 struct sockaddr_in addr;
+namespace fix{
+typedef struct arg args;
+args ar[256]={};
+args *pclient;
+std::queue<args*> qq;
+struct sockaddr_in addr;
+};
+
+
+
 //вводим определение клиента и сервера
 class Client{
         public:
