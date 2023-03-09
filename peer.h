@@ -15,6 +15,8 @@
 
 using namespace std;
 
+ofstream out("/dev/stdout");
+ifstream in("/dev/stdin");
 
 
 #define MAXLINE 1024

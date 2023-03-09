@@ -465,8 +465,8 @@ std::cout << "nick:";
 std::cin >> s;
 
 //fun(peer)->funct();
-ofstream out("/dev/stdout");
-ifstream in("/dev/stdin");
+//ofstream out("/dev/stdout");
+//ifstream in("/dev/stdin");
 
 out << "0.server"<<std::endl;
 out << "1.client"<<std::endl;
