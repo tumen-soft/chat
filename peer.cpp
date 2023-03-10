@@ -383,8 +383,6 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 			printf("New connection %s\n", nicknames.find(new_socket)->second);
 			dprintf(new_socket,"welcome %d\n", new_socket);  
                 }
-		//for (auto it2 = self->nicknames.begin(); it2!=self->nicknames.end();  ++it2)
-    //std::cout << it2->first << "->" << it2->second << std::endl; 
 
 	}//switch()
 
