@@ -142,8 +142,7 @@ return result;
 
 
 
-
-
+//функция вообше для типов дынных и аргумент в частности
 void *doSomeThing(void *arg)
 {
 //ar.y="test";
