@@ -82,11 +82,9 @@ void conn(Server* peer)
         }
 
 void init(auto *peer){
-
-	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+	if((peer->sock=socket(AF_INET, SOCK_STREAM, 0))<0)return 0;
 	out<< typeid(peer).name() << " fd " << peer->sock << std::endl;
-
-
+	return 1;
 }
 
 namespace fix{
