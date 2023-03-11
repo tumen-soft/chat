@@ -81,10 +81,10 @@ void conn(Server* peer)
         peer->nicknames.insert({0,s});
         }
 
-void init(auto *peer){
-	if((peer->sock=socket(AF_INET, SOCK_STREAM, 0))<0)return 0;
+auto init(auto *peer){
+	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 	out<< typeid(peer).name() << " fd " << peer->sock << std::endl;
-	return 1;
+	return peer;
 }
 
 namespace fix{
@@ -245,8 +245,8 @@ qq.pop();
 
 void run(Client *peer){
 
-init(peer);
-conn(peer);
+conn(init(peer));
+//conn(peer);
 
 
 }
