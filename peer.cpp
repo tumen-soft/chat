@@ -65,13 +65,13 @@
 
 #include <peer.h>
 
-void Client::conn(Client * peer)
+void conn(Client * peer)
         {
         connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
         dprintf(peer->sock, s);
 
         }
-void Server::conn(Server* peer)
+void conn(Server* peer)
         {
 
         bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
@@ -81,10 +81,10 @@ void Server::conn(Server* peer)
         peer->nicknames.insert({0,s});
         }
 
-void Client::init(auto *peer){
+void init(auto *peer){
 
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-	std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
+	out<< typeid(peer).name() << " fd " << peer->sock << std::endl;
 
 
 }
@@ -247,8 +247,8 @@ qq.pop();
 
 void run(Client *peer){
 
-peer->init(peer);
-peer->conn(peer);
+init(peer);
+conn(peer);
 
 
 }
@@ -335,8 +335,8 @@ std::string a = "P6Client", b = typeid(peer).name();
 
 //peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 //std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
-peer->init(peer);
-peer->conn(peer);
+init(peer);
+conn(peer);
 
 /*
 for(;;)
@@ -458,8 +458,8 @@ char a[256] = "192.168.1.";
 
 }
 
-std::cout << "nick:";
-std::cin >> s;
+out << "nick:";
+in >> s;
 
 //fun(peer)->funct();
 //ofstream out("/dev/stdout");
