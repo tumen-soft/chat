@@ -36,6 +36,10 @@
 */
 #include <iostream>
 #include <fstream>
+
+//extern ofstream out("/dev/stdout");
+//extern ifstream in("/dev/stdin");
+
 enum choice {
     END, RUN
 };
@@ -43,15 +47,21 @@ void spawnThreads();
 void wait();
 void check();
 using namespace std;
+extern ofstream out;
+extern ifstream in;
 
 int main(){
 choice ch;
 st:;
-ofstream out("/dev/stdout");
+//ofstream out("/dev/stdout");
+//ifstream in("/dev/stdin");
+
+
+
 out<<"0.end"<<endl;
 out<<"1.run"<<endl;
 int c;
-cin>>c;
+in>>c;
 ch=(int)c;
 switch(ch){
 
