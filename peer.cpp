@@ -217,7 +217,7 @@ addr.sin_family = AF_INET;
 void spawnThreads()
 {
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 1; i++) {
         ar[i].x=i;
         ar[i].tid = std::thread(connector,&ar[i]);
         qq.push(&ar[i]); 
@@ -242,7 +242,7 @@ qq.pop();
 }
 
 }
-
+/*
 void run(Client *peer){
 
 conn(init(peer));
@@ -252,6 +252,7 @@ conn(init(peer));
 }
 
 
+*/
 
 
 
@@ -260,8 +261,7 @@ conn(init(peer));
 
 
 
-
-void run(Server *peer){
+void run(auto *peer){
 
 //Server chA=Server();
 //

@@ -95,8 +95,8 @@ class Server:public Client{
 	//Client *b=new Client;
 	Client * peer = new Server;
 	//Client * fun(auto*peer){return peer;};
-	void run(Server *peer);
-	void run(Client *peer);
+	//void run(Server *peer);
+	void run(auto *peer);
 	//auto *runn(){return peer->run();}
 //private:
 	//Client * peer = new Server;
