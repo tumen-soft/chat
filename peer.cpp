@@ -60,18 +60,27 @@
 
 
 //программа ждет большую часть времени
-
 //ехать f1 min max => f2 min max  экономика
 
 #include <peer.h>
 
-void conn(Client * peer)
+//init создание сокета клиента/сервера
+
+
+
+
+
+
+
+
+Client *conn(Client * peer)
         {
         connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
         dprintf(peer->sock, s);
+        return peer;
 
         }
-void conn(Server* peer)
+Server *conn(Server* peer)
         {
 
         bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
@@ -79,7 +88,9 @@ void conn(Server* peer)
         listen(peer->sock, 300);
 
         peer->nicknames.insert({0,s});
-        }
+        return peer;
+
+	}
 
 auto init(auto *peer){
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
