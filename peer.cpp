@@ -254,9 +254,54 @@ conn(init(peer));
 
 */
 
+void sendmessage(){
+	/*
+for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+                { 
+			sd = itr2->first; 
+			if (FD_ISSET(sd , &read_fd)) 
+                        { 
+				if ((valread = read(sd, buffer, 1024))==0) 
+				{ 
+                                        printf("Host disconnected %s \n" ,itr2->second); 
+                                        close(sd); 
+					nicknames.erase(itr2); 
+                                	break;				
+				} 
+                                else
+				{ 
+	  				buffer[valread] = '\0';
+					for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
+					dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
+					
+                                 }  
+                        } 
+             
+        	}
+*/
+}
+
+
+void connect1(Server *peer){
+/*			new_socket = accept(sock,NULL,NULL);
+			//accepting connection
+			new_socket = accept(sock,NULL,NULL);
+			char g[80]={0};
+			read(new_socket,g,1024);
+			nicknames.insert({new_socket,g});
+			printf("New connection %s\n", nicknames.find(new_socket)->second);
+			dprintf(new_socket,"welcome %d\n", new_socket);  
+*/
+}
+void connect1(Client *peer){
+/*
+ read(sock, buffer, sizeof(buffer));
+	 dprintf(0, buffer);
+*/
 
 
 
+}
 
 
 
@@ -360,55 +405,7 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 
 
 	if (FD_ISSET(sock, &read_fd)) 
-	switch (a==b){
-
-        case true:
-	{
-         read(sock, buffer, sizeof(buffer));
-	 dprintf(0, buffer);
-		break;
-	}
-        case false:
-	{
-
-			new_socket = accept(sock,NULL,NULL);
-			//accepting connection
-			new_socket = accept(sock,NULL,NULL);
-			char g[80]={0};
-			read(new_socket,g,1024);
-			nicknames.insert({new_socket,g});
-			printf("New connection %s\n", nicknames.find(new_socket)->second);
-			dprintf(new_socket,"welcome %d\n", new_socket);  
-                }
-
-	}//switch()
-
-
-
-
-	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
-                { 
-			sd = itr2->first; 
-			if (FD_ISSET(sd , &read_fd)) 
-                        { 
-				if ((valread = read(sd, buffer, 1024))==0) 
-				{ 
-                                        printf("Host disconnected %s \n" ,itr2->second); 
-                                        close(sd); 
-					nicknames.erase(itr2); 
-                                	break;				
-				} 
-                                else
-				{ 
-	  				buffer[valread] = '\0';
-					for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
-					dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
-					
-                                 }  
-                        } 
-             
-        	}
-
+	connect1(peer);
 
 
 
