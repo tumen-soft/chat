@@ -456,7 +456,7 @@ char a[256] = "192.168.1.";
 
 }
 
-out << "nick:";
+out << "nick: " << std::endl;;
 in >> s;
 
 //fun(peer)->funct();
