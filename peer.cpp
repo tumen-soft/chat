@@ -381,7 +381,7 @@ std::string a = "P6Client", b = typeid(peer).name();
 init(peer);
 conn(peer);
 
-/*
+
 for(;;)
 {
 
@@ -411,7 +411,7 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 
 //for(;;)
 }
-*/
+
 
 //run()
 }
