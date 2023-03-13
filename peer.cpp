@@ -620,9 +620,9 @@ switch(ch){
 
         case RUN:
                 out<< "wait..."<<std::endl;
-                //spawnThreads();
-                //wait();
-                //check();
+                spawnThreads();
+                wait();
+                check();
         default:
                 goto st;
 }
