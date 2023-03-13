@@ -598,3 +598,33 @@ switch(p){
 //run(.runn());
 }
 export void spawn(){out<<"hello module"<<std::endl;}
+
+
+enum choice {
+    END, RUN
+};
+
+export int m(){
+choice ch;
+st:;
+out<<"0.end"<<std::endl;
+out<<"1.run"<<std::endl;
+int c;
+in>>c;
+ch=(int)c;
+switch(ch){
+
+        case END:
+                return 0;
+                break;
+
+        case RUN:
+                out<< "wait..."<<std::endl;
+                //spawnThreads();
+                //wait();
+                //check();
+        default:
+                goto st;
+}
+}
+

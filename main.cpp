@@ -1,5 +1,5 @@
 import peer;
 int main(){
-spawn();
+m();
 return 0;
 }
