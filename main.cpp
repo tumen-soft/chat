@@ -34,18 +34,18 @@
 
 
 */
-#include <iostream>
+//import <iostream>
 #include <fstream>
-
-//extern ofstream out("/dev/stdout");
-//extern ifstream in("/dev/stdin");
+//std::ofstream out("/dev/stdout");
+//std::ifstream in("/dev/stdin");
+import peer;
 
 enum choice {
     END, RUN
 };
-void spawnThreads();
-void wait();
-void check();
+//void spawnThreads();
+//void wait();
+//void check();
 using namespace std;
 extern ofstream out;
 extern ifstream in;
@@ -70,10 +70,10 @@ switch(ch){
 		break;
 
 	case RUN:
-		cout<< "wait..."<<endl;
-		spawnThreads();
-		wait();
-		check();
+		out<< "wait..."<<endl;
+		//spawnThreads();
+		//wait();
+		//check();
 	default:
 		goto st;
 }

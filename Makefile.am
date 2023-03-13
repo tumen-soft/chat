@@ -1,5 +1,6 @@
-AM_CXXFLAGS= -g -fpermissive -lpthread
+AM_CXXFLAGS= -g -fpermissive -lpthread -std=c++20 -fmodules-ts 
+
 
 bin_PROGRAMS=chat
 chat_SOURCES=peer.cpp main.cpp
-EXTRA_DIST=peer.h
+#EXTRA_DIST=peer.h
