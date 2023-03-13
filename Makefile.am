@@ -1,4 +1,4 @@
-AM_CXXFLAGS= -g -fpermissive -lpthread -std=c++20 -fmodules-ts 
+AM_CXXFLAGS= -fpermissive -lpthread -std=c++20 -fmodules-ts 
 
 
 bin_PROGRAMS=chat

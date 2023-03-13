@@ -275,7 +275,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CXXFLAGS = -g -fpermissive -lpthread -std=c++20 -fmodules-ts 
+AM_CXXFLAGS = -fpermissive -lpthread -std=c++20 -fmodules-ts 
 chat_SOURCES = peer.cpp main.cpp
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
