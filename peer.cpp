@@ -597,3 +597,4 @@ switch(p){
 
 //run(.runn());
 }
+export void spawn(){out<<"hello module"<<std::endl;}
