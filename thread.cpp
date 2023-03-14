@@ -41,7 +41,7 @@ typedef std::map<int,char*> nmap;
         char y[256];
         enum PeerType isServer;
 };*/
-namespace fix{
+/*namespace fix{
 struct arg{
         pthread_t tid;
         int x;
@@ -49,20 +49,20 @@ struct arg{
         enum PeerType isServer;
 };
 };
-
+*/
 typedef struct arg args;
 //args ar[256]={};
 //args *pclient;
 //std::queue<args*> qq;
 //struct sockaddr_in addr;
-namespace fix{
+/*namespace fix{
 typedef struct arg args;
 args ar[256]={};
 args *pclient;
 std::queue<args*> qq;
 struct sockaddr_in addr;
 };
-
+*/
 
 
 	//Client * peer = new Server;
@@ -119,7 +119,7 @@ return result;
 
 
 
-
+/*
 //Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ� Ð²Ð¾Ð¾Ð±ÑˆÐµ Ð´Ð»Ñ� Ñ‚Ð¸Ð¿Ð¾Ð² Ð´Ñ‹Ð½Ð½Ñ‹Ñ… Ð¸ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚ Ð² Ñ‡Ð°Ñ�Ñ‚Ð½Ð¾Ñ�Ñ‚Ð¸
 void *doSomeThing(void *arg)
 {
@@ -147,7 +147,7 @@ args* q=(args*)arg;
     return NULL;
 }
 
-/*
+
 void spawnThreads()
 {
 
