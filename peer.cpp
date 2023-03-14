@@ -26,16 +26,16 @@ export std::ifstream in("/dev/stdin");
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина
-pthread_t tid[256];
+export pthread_t tid[256];
 
 
 typedef std::map<int,char*> nmap;
-enum PeerType{
+export enum PeerType{
         _Server,
         _Client
 };
-char s[80];
-struct arg{
+export char s[80];
+export struct arg{
         std::thread tid;
         int x;
         char y[256];
@@ -51,10 +51,10 @@ struct arg{
 };
 
 typedef struct arg args;
-args ar[256]={};
-args *pclient;
-std::queue<args*> qq;
-struct sockaddr_in addr;
+export args ar[256]={};
+export args *pclient;
+export std::queue<args*> qq;
+export struct sockaddr_in addr;
 namespace fix{
 typedef struct arg args;
 args ar[256]={};
@@ -63,10 +63,8 @@ std::queue<args*> qq;
 struct sockaddr_in addr;
 };
 
-
-
 //вводим определение клиента и сервера
-class Client{
+export class Client{
         public:
 	int sock;
         struct sockaddr_in addres;
@@ -80,7 +78,7 @@ class Client{
 };
 
 
-class Server:public Client{
+export class Server:public Client{
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
         nmap nicknames;
@@ -97,7 +95,7 @@ class Server:public Client{
 	//Server::run;
 	//using Server::run;
 	//Client *b=new Client;
-	Client * peer = new Server;
+	export Client * peer = new Server;
 	//Client * fun(auto*peer){return peer;};
 	//void run(Server *peer);
 	void run(auto *peer);
@@ -106,7 +104,9 @@ class Server:public Client{
 	//Client * peer = new Server;
 //};
 //Peers peers;
-enum PeerType isserver=_Server;
+export enum PeerType isserver=_Server;
+
+
 /*		<Ñ�ÐµÑ€Ð²ÐµÑ€>									
 		  |
 	Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ� Ñ�Ð¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ñ� Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ bind(), listen()
