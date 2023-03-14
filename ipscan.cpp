@@ -194,7 +194,7 @@ addr.sin_family = AF_INET;
 
 
 
-export void spawnThreads()
+void spawnThreads()
 {
 
     for (int i = 0; i < 1; i++) {
@@ -211,7 +211,7 @@ export void spawnThreads()
 
 
 
-export void wait()
+void wait()
 {
 while(!qq.empty()){
 pclient=qq.front();
