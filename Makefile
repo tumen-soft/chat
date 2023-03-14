@@ -102,7 +102,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_chat_OBJECTS = peer.$(OBJEXT) main.$(OBJEXT)
+am_chat_OBJECTS = ipscan.$(OBJEXT) peer.$(OBJEXT) main.$(OBJEXT)
 chat_OBJECTS = $(am_chat_OBJECTS)
 chat_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
@@ -120,7 +120,8 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/main.Po ./$(DEPDIR)/peer.Po
+am__depfiles_remade = ./$(DEPDIR)/ipscan.Po ./$(DEPDIR)/main.Po \
+	./$(DEPDIR)/peer.Po
 am__mv = mv -f
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
@@ -222,15 +223,15 @@ OBJEXT = o
 PACKAGE = chat
 PACKAGE_BUGREPORT = blu.eagle@mail.ru
 PACKAGE_NAME = Chat
-PACKAGE_STRING = Chat 0.8.10
+PACKAGE_STRING = Chat 0.8.15
 PACKAGE_TARNAME = chat
 PACKAGE_URL = 
-PACKAGE_VERSION = 0.8.10
+PACKAGE_VERSION = 0.8.15
 PATH_SEPARATOR = :
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = 
-VERSION = 0.8.10
+VERSION = 0.8.15
 abs_builddir = /home/programmer/chat
 abs_srcdir = /home/programmer/chat
 abs_top_builddir = /home/programmer/chat
@@ -276,7 +277,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 AM_CXXFLAGS = -fpermissive -lpthread -std=c++20 -fmodules-ts 
-chat_SOURCES = peer.cpp main.cpp
+chat_SOURCES = ipscan.cpp peer.cpp main.cpp
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -383,6 +384,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/ipscan.Po # am--include-marker
 include ./$(DEPDIR)/main.Po # am--include-marker
 include ./$(DEPDIR)/peer.Po # am--include-marker
 
@@ -679,7 +681,8 @@ clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-		-rm -f ./$(DEPDIR)/main.Po
+		-rm -f ./$(DEPDIR)/ipscan.Po
+	-rm -f ./$(DEPDIR)/main.Po
 	-rm -f ./$(DEPDIR)/peer.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
@@ -728,7 +731,8 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-		-rm -f ./$(DEPDIR)/main.Po
+		-rm -f ./$(DEPDIR)/ipscan.Po
+	-rm -f ./$(DEPDIR)/main.Po
 	-rm -f ./$(DEPDIR)/peer.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic

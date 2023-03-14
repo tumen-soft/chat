@@ -56,7 +56,7 @@
 #define PACKAGE_NAME "Chat"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Chat 0.8.10"
+#define PACKAGE_STRING "Chat 0.8.15"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "chat"
@@ -65,7 +65,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.8.10"
+#define PACKAGE_VERSION "0.8.15"
 
 /* Define to 1 if all of the C90 standard headers exist (not just the ones
    required in a freestanding environment). This macro is provided for
@@ -73,4 +73,4 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "0.8.10"
+#define VERSION "0.8.15"
