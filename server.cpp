@@ -22,10 +22,11 @@ import client;
 #define PORT 3111 
 //наследование функции гены мужчина
 typedef std::map<int,char*> nmap;
-enum PeerType{
+/*enum PeerType{
         _Server,
         _Client
 };
+*/
 export class Server:public Client
 {
 	public:

@@ -6,75 +6,80 @@ module;
 #include <string>  //string type
 #include <map>
 #include <cstring>
-//#include <iostream>
-#include <thread>
-#include <vector>
+#include <iostream>
+#include <pthread.h>
+//#include <vector>
 #include <queue>
-#include <typeinfo>
-#include <ext/stdio_filebuf.h>
-#include <fstream>
+//#include <typeinfo>
+//#include <ext/stdio_filebuf.h>
+//#include <fstream>
 //export module peer;
 //using namespace std;
 export module ipscan;
 
 //import peer;
 
-std::ofstream out("/dev/stdout");
-std::ifstream in("/dev/stdin");
+//std::ofstream out("/dev/stdout");
+//std::ifstream in("/dev/stdin");
 
 
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина
-//pthread_t tid[256];
+pthread_t tid[256];
 
 
-typedef std::map<int,char*> nmap;
+//typedef std::map<int,char*> nmap;
+
 enum PeerType{
         _Server,
         _Client
 };
 char s[80];
+
+/*
 struct arg{
-        std::thread tid;
+//        std::thread tid;
         int x;
         char y[256];
         enum PeerType isServer;
 };
-/*namespace fix{
+*/
+
 struct arg{
         pthread_t tid;
         int x;
         char y[256];
         enum PeerType isServer;
 };
-};
-*/
+
+/*
 typedef struct arg args;
 args ar[256]={};
 args *pclient;
 std::queue<args*> qq;
 struct sockaddr_in addr;
-/*namespace fix{
+*/
+
 typedef struct arg args;
 args ar[256]={};
 args *pclient;
-std::queue<args*> qq;
+//std::queue<args*> qq;
 struct sockaddr_in addr;
-};
-*/
+
+
 
 
 	//Client * peer = new Server;
-	void run(auto *peer);
+//	void run(auto *peer);
 enum PeerType isserver=_Server;
-/*
+
 struct node{
         struct node *next;
         args *ar;
 
 };
-`
+
 typedef struct node node_t;
 //typedef struct arg args;
 node_t * head = NULL;
@@ -107,7 +112,6 @@ return result;
 
 
 
-*/
 
 
 
@@ -119,7 +123,8 @@ return result;
 
 
 
-/*
+
+
 //Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ� Ð²Ð¾Ð¾Ð±ÑˆÐµ Ð´Ð»Ñ� Ñ‚Ð¸Ð¿Ð¾Ð² Ð´Ñ‹Ð½Ð½Ñ‹Ñ… Ð¸ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚ Ð² Ñ‡Ð°Ñ�Ñ‚Ð½Ð¾Ñ�Ñ‚Ð¸
 void *doSomeThing(void *arg)
 {
@@ -148,11 +153,11 @@ args* q=(args*)arg;
 }
 
 
-void spawnThreads()
+export void spawnThreads()
 {
 
 
-args ar[256]={NULL,0,"127.0.0.1",server};
+args ar[256]={NULL,0,"127.0.0.1",_Server};
 ///ar[0].isServer=server;
 //args ar;
 //printf("waiting for connection...");
@@ -168,10 +173,10 @@ j++;
 }
 
 }
-*/
 
 
 
+/*
 void connector( args *argz) {
 args* q=(args*)argz;
 
@@ -188,13 +193,13 @@ addr.sin_family = AF_INET;
  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=_Client;}
 
 }
-
+*/
 
 //args ar[256]={};
 
 
-
-export void spawnThreads()
+/*
+void spawnThreads()
 {
 
     for (int i = 0; i < 1; i++) {
@@ -205,13 +210,13 @@ export void spawnThreads()
 
 
 }
-
+*/
 //enum  PeerType isserver=_Server;
 //args *pclient;
 
 
-
-export void wait()
+/*
+void wait()
 {
 while(!qq.empty()){
 pclient=qq.front();
@@ -221,12 +226,12 @@ if(pclient)if(pclient->isServer==_Client){isserver=_Client;break;}
 qq.pop();
 }
 }
+*/
 
 
-/*
-void check(){
+export void check(){
 
-enum PeerType isserver=server;
+enum PeerType isserver=_Server;
 args *pclient;
 pclient=dequeue();
 while(pclient){
@@ -234,11 +239,10 @@ pclient=dequeue();
 if((pclient!=NULL)&&(pclient->tid!=NULL)){
 //if(tid[s]!=NULL)
 pthread_join(pclient->tid,NULL);}
-if(pclient)if(pclient->isServer==client){isserver=client;break;}
+if(pclient)if(pclient->isServer==_Client){isserver=_Client;break;}
 }
 
 }
-*/
 
 
 
@@ -250,7 +254,8 @@ if(pclient)if(pclient->isServer==client){isserver=client;break;}
 
 
 
-export void check(){
+
+export void check1(){
 
 if(isserver==_Client){
 char a[256] = "192.168.1.";
@@ -260,17 +265,17 @@ char a[256] = "192.168.1.";
 
 }
 
-out << "nick: " << std::endl;;
-in >> s;
+//out << "nick: " << std::endl;;
+//in >> s;
 
 //fun(peer)->funct();
 //ofstream out("/dev/stdout");
 //ifstream in("/dev/stdin");
 
-out << "0.server"<<std::endl;
-out << "1.client"<<std::endl;
-int p;
-in >> p;
+printf("0.server\n");
+printf("1.client\n");
+//int p;
+//in >> p;
 //peer = new Server;
 
 //run((Server *)peer);

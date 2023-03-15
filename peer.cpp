@@ -27,7 +27,7 @@ import ipscan;
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина
-pthread_t tid[256];
+//pthread_t tid[256];
 
 
 //typedef std::map<int,char*> nmap;
@@ -375,7 +375,7 @@ switch(p){
 
 */
 
-export int wait1(){printf("check");return 0;}
+//export int wait1(){printf("check");return 0;}
 
 
 
@@ -383,7 +383,7 @@ enum choice {
     END, RUN
 };
 
-void m(){
+export void m(){
 choice ch;
 st:;
    std::cout<<"0.end"<<std::endl;
@@ -400,8 +400,9 @@ switch(ch){
         case RUN:
 		std::cout<< "wait..."<<std::endl;
                 spawnThreads();
-                wait();
+                //wait();
                 check();
+		check1();
         default:
                 goto st;
 }
