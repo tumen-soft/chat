@@ -337,47 +337,6 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 }
 
 */
-/*
-void check(){
-
-if(isserver==_Client){
-char a[256] = "192.168.1.";
- char b[10];
- sprintf(b,"%d",pclient->x);
-  strcat(a,b);
-
-}
-
-out << "nick: " << std::endl;;
-in >> s;
-
-//fun(peer)->funct();
-//ofstream out("/dev/stdout");
-//ifstream in("/dev/stdin");
-
-out << "0.server"<<std::endl;
-out << "1.client"<<std::endl;
-int p;
-in >> p;
-//peer = new Server;
-
-//run((Server *)peer);
-
-switch(p){
-	case 0: {run((Server*)peer);break;}
-	case 1: {run(peer);break;}
-}
-
-
-
-//run(.runn());
-}
-
-*/
-
-//export int wait1(){printf("check");return 0;}
-
-
 
 enum choice {
     END, RUN

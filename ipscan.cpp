@@ -37,29 +37,12 @@ enum PeerType{
 };
 char s[80];
 
-/*
-struct arg{
-//        std::thread tid;
-        int x;
-        char y[256];
-        enum PeerType isServer;
-};
-*/
-
 struct arg{
         pthread_t tid;
         int x;
         char y[256];
         enum PeerType isServer;
 };
-
-/*
-typedef struct arg args;
-args ar[256]={};
-args *pclient;
-std::queue<args*> qq;
-struct sockaddr_in addr;
-*/
 
 typedef struct arg args;
 args ar[256]={};
@@ -175,58 +158,6 @@ j++;
 }
 
 
-
-/*
-void connector( args *argz) {
-args* q=(args*)argz;
-
- int socke = socket(AF_INET, SOCK_STREAM, 0);
- 
-addr.sin_family = AF_INET;
- addr.sin_port = htons(PORT);
- char a[256] = "192.168.1.";
- char b[10];
- sprintf(b,"%d",q->x);
- strcat(a,b);
- addr.sin_addr.s_addr =  inet_addr(a);
- 
- if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=_Client;}
-
-}
-*/
-
-//args ar[256]={};
-
-
-/*
-void spawnThreads()
-{
-
-    for (int i = 0; i < 1; i++) {
-        ar[i].x=i;
-        ar[i].tid = std::thread(connector,&ar[i]);
-        qq.push(&ar[i]); 
-   }
-
-
-}
-*/
-//enum  PeerType isserver=_Server;
-//args *pclient;
-
-
-/*
-void wait()
-{
-while(!qq.empty()){
-pclient=qq.front();
-if((pclient!=NULL)&&(pclient->tid.joinable())){
-pclient->tid.join();}
-if(pclient)if(pclient->isServer==_Client){isserver=_Client;break;}
-qq.pop();
-}
-}
-*/
 
 
 export void check(){
