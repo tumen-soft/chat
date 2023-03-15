@@ -12,7 +12,7 @@ module;
 #include <queue>
 #include <typeinfo>
 #include <ext/stdio_filebuf.h>
-#include <fstream>
+//#include <fstream>
 export module peer;
 //using namespace std;
 
@@ -375,11 +375,15 @@ switch(p){
 
 */
 
+export int wait1(){printf("check");return 0;}
+
+
+
 enum choice {
     END, RUN
 };
 
-export int m(){
+void m(){
 choice ch;
 st:;
    std::cout<<"0.end"<<std::endl;

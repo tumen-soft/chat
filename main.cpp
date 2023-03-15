@@ -1,4 +1,4 @@
 import peer;
 int main(){
-	return 0;
+return wait1();
 }
