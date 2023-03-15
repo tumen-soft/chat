@@ -16,8 +16,8 @@ module;
 //export module peer;
 //using namespace std;
 export module server;
-
-
+import client;
+char s[80];
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина
@@ -26,7 +26,7 @@ enum PeerType{
         _Server,
         _Client
 };
-/*class Server:public Client
+class Server:public Client
 {
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
@@ -38,7 +38,7 @@ enum PeerType{
         //};
 
 	private:
-};*/
+};
 //class Peers:public Server{
 //public:
 	//Server::run;
@@ -124,7 +124,7 @@ enum PeerType{
 
 //export module netchat;
 //init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
-/*
+
 Server *conn(Server* peer)
         {
 
@@ -138,7 +138,7 @@ Server *conn(Server* peer)
 	}
 
 void sendmessage(){
-	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+/*	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
 			sd = itr2->first; 
 			if (FD_ISSET(sd , &read_fd)) 
@@ -160,12 +160,12 @@ void sendmessage(){
                         } 
              
         	}
-
+*/
 }
 
 
 void connect1(Server *peer){
-			new_socket = accept(sock,NULL,NULL);
+/*			new_socket = accept(sock,NULL,NULL);
 			//accepting connection
 			new_socket = accept(sock,NULL,NULL);
 			char g[80]={0};
@@ -173,5 +173,5 @@ void connect1(Server *peer){
 			nicknames.insert({new_socket,g});
 			printf("New connection %s\n", nicknames.find(new_socket)->second);
 			dprintf(new_socket,"welcome %d\n", new_socket);  
-
-}*/
+*/
+}
