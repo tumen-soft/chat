@@ -16,8 +16,8 @@ module;
 export module peer;
 //using namespace std;
 
-import client;
-import server;
+export import peer:client;
+export import peer:server;
 import ipscan;
 
 //std::ofstream out1("/dev/stdout");
@@ -312,21 +312,12 @@ for(;;)
 		sel(peer);
 
  		select(300, &peer->read_fd, NULL, NULL, NULL);
-/*
+
+		if (FD_ISSET(peer->sock, &peer->read_fd)) 
+		connect1(peer);
 
 
 
-
-
-       if(a==b)if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
-               // if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
-
-
-	if (FD_ISSET(sock, &read_fd)) 
-	connect1(peer);
-
-
-*/
 //for(;;)
 }
 

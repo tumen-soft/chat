@@ -15,7 +15,7 @@ module;
 #include <fstream>
 //export module peer;
 //using namespace std;
-export module client;
+export module peer:client;
 
 
 
@@ -52,6 +52,16 @@ void connect1(Client *peer){
 	 dprintf(0, buffer);
 */
 
+/*
+
+
+
+
+
+       if(a==b)if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+               // if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
+
+*/
 
 
 }

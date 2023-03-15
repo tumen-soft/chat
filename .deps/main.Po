@@ -1,4 +1,1 @@
-main.o: main.cpp /usr/include/stdc-predef.h
-/usr/include/stdc-predef.h:
-main.o: peer.c++m
-CXX_IMPORTS += peer.c++m
+# dummy

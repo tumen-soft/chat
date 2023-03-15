@@ -15,8 +15,8 @@ module;
 #include <fstream>
 //export module peer;
 //using namespace std;
-export module server;
-import client;
+export module peer:server;
+import peer:client;
 //char s[80];
 #define MAXLINE 1024
 #define PORT 3111 
@@ -151,13 +151,13 @@ void sendmessage(){
 
 
 void connect1(Server *peer){
-/*			new_socket = accept(sock,NULL,NULL);
+			peer->new_socket = accept(peer->sock,NULL,NULL);
 			//accepting connection
-			new_socket = accept(sock,NULL,NULL);
+			peer->new_socket = accept(peer->sock,NULL,NULL);
 			char g[80]={0};
-			read(new_socket,g,1024);
-			nicknames.insert({new_socket,g});
-			printf("New connection %s\n", nicknames.find(new_socket)->second);
-			dprintf(new_socket,"welcome %d\n", new_socket);  
-*/
+			read(peer->new_socket,g,1024);
+			peer->nicknames.insert({peer->new_socket,g});
+			printf("New connection %s\n", peer->nicknames.find(peer->new_socket)->second);
+			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  
+
 }
