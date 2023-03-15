@@ -494,6 +494,8 @@ server.o gcm.cache/server.gcm: server.cpp /usr/include/stdc-predef.h \
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/basic_file.h:
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/c++io.h:
 /usr/include/c++/11.2.0/bits/fstream.tcc:
+server.o gcm.cache/server.gcm: client.c++m
 server.c++m: gcm.cache/server.gcm
 .PHONY: server.c++m
 gcm.cache/server.gcm:| server.o
+CXX_IMPORTS += client.c++m

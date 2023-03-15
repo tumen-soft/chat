@@ -17,7 +17,7 @@ module;
 //using namespace std;
 export module server;
 import client;
-char s[80];
+//char s[80];
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина
@@ -26,7 +26,7 @@ enum PeerType{
         _Server,
         _Client
 };
-class Server:public Client
+export class Server:public Client
 {
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
@@ -132,7 +132,7 @@ Server *conn(Server* peer)
         //waiting for connection
         listen(peer->sock, 300);
 
-        peer->nicknames.insert({0,s});
+        //peer->nicknames.insert({0,s});
         return peer;
 
 	}

@@ -494,6 +494,8 @@ peer.o gcm.cache/peer.gcm: peer.cpp /usr/include/stdc-predef.h \
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/basic_file.h:
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/c++io.h:
 /usr/include/c++/11.2.0/bits/fstream.tcc:
+peer.o gcm.cache/peer.gcm: server.c++m client.c++m
 peer.c++m: gcm.cache/peer.gcm
 .PHONY: peer.c++m
 gcm.cache/peer.gcm:| peer.o
+CXX_IMPORTS += server.c++m client.c++m

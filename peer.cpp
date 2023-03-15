@@ -16,7 +16,8 @@ module;
 //export module peer;
 //using namespace std;
 export module peer;
-
+import client;
+import server;
 
 
 export std::ofstream out("/dev/stdout");
@@ -63,36 +64,8 @@ std::queue<args*> qq;
 struct sockaddr_in addr;
 };
 
-//вводим определение клиента и сервера
-export class Client{
-        public:
-	int sock;
-        struct sockaddr_in addres;
-        char buffer[MAXLINE];
-        fd_set read_fd;
-	//void conn(Client * peer);
-	//void init(auto *peer);
-	private:
-	//int sock;
-
-};
 
 
-export class Server:public Client{
-	public:
-        int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
-        nmap nicknames;
-	//void conn(Server *peer);
-//using Client::socke;
-        //sock=socket(AF_INET, SOCK_STREAM, 0);
-        //std::cout<< typeid(this).name() << " fd " << sock << std::endl;
-        //};
-
-	private:
-};
-//class Peers:public Server{
-//public:
-	//Server::run;
 	//using Server::run;
 	//Client *b=new Client;
 	export Client * peer = new Server;

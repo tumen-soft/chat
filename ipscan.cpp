@@ -196,13 +196,13 @@ addr.sin_family = AF_INET;
 
 void spawnThreads()
 {
-
+/*
     for (int i = 0; i < 1; i++) {
         ar[i].x=i;
         ar[i].tid = std::thread(connector,&ar[i]);
         qq.push(&ar[i]); 
    }
-
+*/
 
 }
 
