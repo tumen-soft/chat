@@ -22,8 +22,10 @@ Ip scanner состоит:
 1:Модуля main.cpp
 2:Модуля peer.cpp
 3:Модуля ipscan.cpp
-4:Системы сборки autotools.
-5:Система контроля версий Git.
+4:Модуля server.cpp
+5:Модуля client.cpp
+6:Системы сборки autotools.
+7:Система контроля версий Git.
 
 Разработан инрерфейс модуля ipscan:
 
