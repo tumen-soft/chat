@@ -299,21 +299,20 @@ std::string a = "P6Client", b = typeid(peer).name();
 //peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 //std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
 init(peer);
-//conn(peer);
+conn(peer);
 
 
 for(;;)
 {
-/*		memset(buffer, 0, sizeof(buffer));
-                FD_ZERO(&read_fd);
-                FD_SET(0, &read_fd);
-                FD_SET(sock, &read_fd);
+		memset(peer->buffer, 0, sizeof(peer->buffer));
+                FD_ZERO(&peer->read_fd);
+                FD_SET(0, &peer->read_fd);
+                FD_SET(peer->sock, &peer->read_fd);
 
+		sel(peer);
 
-if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(itr->first, &read_fd);
-
- 		select(300, &read_fd, NULL, NULL, NULL);
-
+ 		select(300, &peer->read_fd, NULL, NULL, NULL);
+/*
 
 
 
@@ -363,7 +362,7 @@ switch(ch){
 		p=check1();
 		switch(p){
 	case 0: {run((Server*)peer);break;}
-        case 1: {}//{run(peer);break;}
+        case 1: {run(peer);break;}
 		}
 
         default:

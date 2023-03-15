@@ -32,27 +32,7 @@ export class Server:public Client
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
         nmap nicknames;
-	//void conn(Server *peer);
-//using Client::socke;
-        //sock=socket(AF_INET, SOCK_STREAM, 0);
-        //std::cout<< typeid(this).name() << " fd " << sock << std::endl;
-        //};
-
-	private:
 };
-//class Peers:public Server{
-//public:
-	//Server::run;
-	//using Server::run;
-	//Client *b=new Client;
-	//Client * fun(auto*peer){return peer;};
-	//void run(Server *peer);
-	//auto *runn(){return peer->run();}
-//private:
-	//Client * peer = new Server;
-//};
-//Peers peers;
-
 
 /*		<Ñ�ÐµÑ€Ð²ÐµÑ€>									
 		  |
@@ -126,7 +106,7 @@ export class Server:public Client
 //export module netchat;
 //init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
 
-Server *conn(Server* peer)
+export Server *conn(Server* peer)
         {
 
         bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
@@ -137,6 +117,11 @@ Server *conn(Server* peer)
         return peer;
 
 	}
+
+export Server *sel(Server *peer){
+for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
+
+}
 
 void sendmessage(){
 /*	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
