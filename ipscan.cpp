@@ -9,7 +9,7 @@ module;
 #include <iostream>
 #include <pthread.h>
 //#include <vector>
-#include <queue>
+//#include <queue>
 //#include <typeinfo>
 //#include <ext/stdio_filebuf.h>
 //#include <fstream>
@@ -186,7 +186,7 @@ if(pclient)if(pclient->isServer==_Client){isserver=_Client;break;}
 
 
 
-export void check1(){
+export int check1(){
 
 if(isserver==_Client){
 char a[256] = "192.168.1.";
@@ -196,7 +196,7 @@ char a[256] = "192.168.1.";
 
 }
 
-//out << "nick: " << std::endl;;
+
 //in >> s;
 
 //fun(peer)->funct();
@@ -205,15 +205,17 @@ char a[256] = "192.168.1.";
 
 printf("0.server\n");
 printf("1.client\n");
-//int p;
-//in >> p;
+int p;
+scanf("%i", &p);  
+
 //peer = new Server;
 
 //run((Server *)peer);
+return p;
 /*
 switch(p){
-	case 0: //{run((Server*)peer);break;}
-	case 1: //{run(peer);break;}
+	case 0: {}//{run((Server*)peer);break;}
+	case 1: {}//{run(peer);break;}
 }
 */
 

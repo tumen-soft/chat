@@ -153,14 +153,13 @@ struct sockaddr_in addr;
 //init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
 
 
-/*auto init(auto *peer){
+auto init(auto *peer){
 	//Ð² Ð¿Ð¾Ð»Ðµ sock Ð¾Ð±ÑŒÐµÐºÑ‚Ð° peer Ð·Ð°Ð¿Ð¸Ñ�Ñ‹Ð²Ð°ÐµÑ‚Ñ�Ñ� Ñ„Ð°Ð¹Ð»Ð¾Ð²Ñ‹Ð¹ Ð´ÐµÑ�ÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€,
 	//Ñ�Ð¾Ð·Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÐµÐ¹ socket().
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-	out<< typeid(peer).name() << " fd " << peer->sock << std::endl;
+	std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
 	return peer;
 }
-*/
 /*
 void connector( args *argz) {
 args* q=(args*)argz;
@@ -225,7 +224,7 @@ conn(init(peer));
 
 */
 
-/*
+
 void run(auto *peer){
 
 
@@ -284,7 +283,7 @@ std::string a = "P6Client", b = typeid(peer).name();
 //Server *ss=new Server();
 //ss->run()->sockett();
 
-
+/*
     int posix_handle = 2;//fileno(::fopen("test.txt", "r"));
 
     __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
@@ -293,19 +292,19 @@ std::string a = "P6Client", b = typeid(peer).name();
     string line;
     //getline(is, line);
 
-
+*/
 
 
 
 //peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 //std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
-//init(peer);
+init(peer);
 //conn(peer);
 
 
 for(;;)
 {
-		memset(buffer, 0, sizeof(buffer));
+/*		memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
                 FD_SET(0, &read_fd);
                 FD_SET(sock, &read_fd);
@@ -328,7 +327,7 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 	connect1(peer);
 
 
-
+*/
 //for(;;)
 }
 
@@ -336,7 +335,7 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 //run()
 }
 
-*/
+
 
 enum choice {
     END, RUN
@@ -347,7 +346,7 @@ choice ch;
 st:;
    std::cout<<"0.end"<<std::endl;
    std::cout<<"1.run"<<std::endl;
-int c;
+int c,p;
 std::cin>>c;
 ch=(int)c;
 switch(ch){
@@ -361,7 +360,12 @@ switch(ch){
                 spawnThreads();
                 //wait();
                 check();
-		check1();
+		p=check1();
+		switch(p){
+	case 0: {run((Server*)peer);break;}
+        case 1: {}//{run(peer);break;}
+		}
+
         default:
                 goto st;
 }
