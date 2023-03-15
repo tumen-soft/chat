@@ -6,37 +6,37 @@ module;
 #include <string>  //string type
 #include <map>
 #include <cstring>
-//#include <iostream>
+#include <iostream>
 #include <thread>
 #include <vector>
 #include <queue>
 #include <typeinfo>
 #include <ext/stdio_filebuf.h>
 #include <fstream>
-//export module peer;
-//using namespace std;
 export module peer;
+//using namespace std;
+
 import client;
 import server;
+import ipscan;
 
-
-export std::ofstream out("/dev/stdout");
-export std::ifstream in("/dev/stdin");
+//std::ofstream out1("/dev/stdout");
+//std::ifstream in1("/dev/stdin");
 
 
 #define MAXLINE 1024
 #define PORT 3111 
 //наследование функции гены мужчина
-export pthread_t tid[256];
+pthread_t tid[256];
 
 
-typedef std::map<int,char*> nmap;
-export enum PeerType{
+//typedef std::map<int,char*> nmap;
+enum PeerType{
         _Server,
         _Client
 };
-export char s[80];
-export struct arg{
+/*char s[80];
+struct arg{
         std::thread tid;
         int x;
         char y[256];
@@ -52,10 +52,10 @@ struct arg{
 };
 
 typedef struct arg args;
-export args ar[256]={};
-export args *pclient;
-export std::queue<args*> qq;
-export struct sockaddr_in addr;
+args ar[256]={};
+args *pclient;
+std::queue<args*> qq;
+struct sockaddr_in addr;
 namespace fix{
 typedef struct arg args;
 args ar[256]={};
@@ -64,11 +64,11 @@ std::queue<args*> qq;
 struct sockaddr_in addr;
 };
 
-
+*/
 
 	//using Server::run;
 	//Client *b=new Client;
-	export Client * peer = new Server;
+	Client * peer = new Server;
 	//Client * fun(auto*peer){return peer;};
 	//void run(Server *peer);
 	void run(auto *peer);
@@ -77,7 +77,7 @@ struct sockaddr_in addr;
 	//Client * peer = new Server;
 //};
 //Peers peers;
-export enum PeerType isserver=_Server;
+//enum PeerType isserver=_Server;
 
 
 /*		<Ñ�ÐµÑ€Ð²ÐµÑ€>									
@@ -152,33 +152,16 @@ export enum PeerType isserver=_Server;
 //export module netchat;
 //init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
 
-Client *conn(Client * peer)
-        {
-        connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
-        dprintf(peer->sock, s);
-        return peer;
 
-        }
-Server *conn(Server* peer)
-        {
-
-        bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
-        //waiting for connection
-        listen(peer->sock, 300);
-
-        peer->nicknames.insert({0,s});
-        return peer;
-
-	}
-
-auto init(auto *peer){
+/*auto init(auto *peer){
 	//Ð² Ð¿Ð¾Ð»Ðµ sock Ð¾Ð±ÑŒÐµÐºÑ‚Ð° peer Ð·Ð°Ð¿Ð¸Ñ�Ñ‹Ð²Ð°ÐµÑ‚Ñ�Ñ� Ñ„Ð°Ð¹Ð»Ð¾Ð²Ñ‹Ð¹ Ð´ÐµÑ�ÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€,
 	//Ñ�Ð¾Ð·Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÐµÐ¹ socket().
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 	out<< typeid(peer).name() << " fd " << peer->sock << std::endl;
 	return peer;
 }
-
+*/
+/*
 void connector( args *argz) {
 args* q=(args*)argz;
 
@@ -195,12 +178,12 @@ addr.sin_family = AF_INET;
  if(connect(socke, (struct sockaddr*)&addr, sizeof(addr))==0){sprintf(q->y,"%s",a);q->isServer=_Client;}
 
 }
-
+*/
 
 //args ar[256]={};
 
 
-
+/*
 void spawnThreads()
 {
 
@@ -212,12 +195,12 @@ void spawnThreads()
 
 
 }
-
+*/
 //enum  PeerType isserver=_Server;
 //args *pclient;
 
 
-
+/*
 void wait()
 {
 while(!qq.empty()){
@@ -229,6 +212,7 @@ qq.pop();
 }
 
 }
+*/
 /*
 void run(Client *peer){
 
@@ -241,58 +225,7 @@ conn(init(peer));
 
 */
 
-void sendmessage(){
-	/*
-for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
-                { 
-			sd = itr2->first; 
-			if (FD_ISSET(sd , &read_fd)) 
-                        { 
-				if ((valread = read(sd, buffer, 1024))==0) 
-				{ 
-                                        printf("Host disconnected %s \n" ,itr2->second); 
-                                        close(sd); 
-					nicknames.erase(itr2); 
-                                	break;				
-				} 
-                                else
-				{ 
-	  				buffer[valread] = '\0';
-					for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
-					dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
-					
-                                 }  
-                        } 
-             
-        	}
-*/
-}
-
-
-void connect1(Server *peer){
-/*			new_socket = accept(sock,NULL,NULL);
-			//accepting connection
-			new_socket = accept(sock,NULL,NULL);
-			char g[80]={0};
-			read(new_socket,g,1024);
-			nicknames.insert({new_socket,g});
-			printf("New connection %s\n", nicknames.find(new_socket)->second);
-			dprintf(new_socket,"welcome %d\n", new_socket);  
-*/
-}
-void connect1(Client *peer){
 /*
- read(sock, buffer, sizeof(buffer));
-	 dprintf(0, buffer);
-*/
-
-
-
-}
-
-
-
-
 void run(auto *peer){
 
 
@@ -351,7 +284,7 @@ std::string a = "P6Client", b = typeid(peer).name();
 //Server *ss=new Server();
 //ss->run()->sockett();
 
-/*
+
     int posix_handle = 2;//fileno(::fopen("test.txt", "r"));
 
     __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
@@ -361,18 +294,17 @@ std::string a = "P6Client", b = typeid(peer).name();
     //getline(is, line);
 
 
-*/
+
 
 
 //peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 //std::cout<< typeid(peer).name() << " fd " << peer->sock << std::endl;
-init(peer);
-conn(peer);
+//init(peer);
+//conn(peer);
 
 
 for(;;)
 {
-/*
 		memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
                 FD_SET(0, &read_fd);
@@ -396,7 +328,7 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 	connect1(peer);
 
 
-*/
+
 //for(;;)
 }
 
@@ -404,8 +336,8 @@ if(a!=b)for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(
 //run()
 }
 
-
-
+*/
+/*
 void check(){
 
 if(isserver==_Client){
@@ -440,8 +372,8 @@ switch(p){
 
 //run(.runn());
 }
-export void spawn(){out<<"hello module"<<std::endl;}
 
+*/
 
 enum choice {
     END, RUN
@@ -450,10 +382,10 @@ enum choice {
 export int m(){
 choice ch;
 st:;
-out<<"0.end"<<std::endl;
-out<<"1.run"<<std::endl;
+   std::cout<<"0.end"<<std::endl;
+   std::cout<<"1.run"<<std::endl;
 int c;
-in>>c;
+std::cin>>c;
 ch=(int)c;
 switch(ch){
 
@@ -462,7 +394,7 @@ switch(ch){
                 break;
 
         case RUN:
-                out<< "wait..."<<std::endl;
+		std::cout<< "wait..."<<std::endl;
                 spawnThreads();
                 wait();
                 check();

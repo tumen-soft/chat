@@ -17,10 +17,10 @@ module;
 //using namespace std;
 export module ipscan;
 
-import peer;
+//import peer;
 
-//export std::ofstream out("/dev/stdout");
-//export std::ifstream in("/dev/stdin");
+std::ofstream out("/dev/stdout");
+std::ifstream in("/dev/stdin");
 
 
 #define MAXLINE 1024
@@ -30,17 +30,17 @@ import peer;
 
 
 typedef std::map<int,char*> nmap;
-/*enum PeerType{
+enum PeerType{
         _Server,
         _Client
-};*/
-//char s[80];
-/*struct arg{
+};
+char s[80];
+struct arg{
         std::thread tid;
         int x;
         char y[256];
         enum PeerType isServer;
-};*/
+};
 /*namespace fix{
 struct arg{
         pthread_t tid;
@@ -51,10 +51,10 @@ struct arg{
 };
 */
 typedef struct arg args;
-//args ar[256]={};
-//args *pclient;
-//std::queue<args*> qq;
-//struct sockaddr_in addr;
+args ar[256]={};
+args *pclient;
+std::queue<args*> qq;
+struct sockaddr_in addr;
 /*namespace fix{
 typedef struct arg args;
 args ar[256]={};
@@ -67,7 +67,7 @@ struct sockaddr_in addr;
 
 	//Client * peer = new Server;
 	void run(auto *peer);
-//enum PeerType isserver=_Server;
+enum PeerType isserver=_Server;
 /*
 struct node{
         struct node *next;
@@ -194,15 +194,15 @@ addr.sin_family = AF_INET;
 
 
 
-void spawnThreads()
+export void spawnThreads()
 {
-/*
+
     for (int i = 0; i < 1; i++) {
         ar[i].x=i;
         ar[i].tid = std::thread(connector,&ar[i]);
         qq.push(&ar[i]); 
    }
-*/
+
 
 }
 
@@ -211,7 +211,7 @@ void spawnThreads()
 
 
 
-void wait()
+export void wait()
 {
 while(!qq.empty()){
 pclient=qq.front();

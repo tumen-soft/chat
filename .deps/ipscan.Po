@@ -494,8 +494,6 @@ ipscan.o gcm.cache/ipscan.gcm: ipscan.cpp /usr/include/stdc-predef.h \
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/basic_file.h:
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/c++io.h:
 /usr/include/c++/11.2.0/bits/fstream.tcc:
-ipscan.o gcm.cache/ipscan.gcm: peer.c++m
 ipscan.c++m: gcm.cache/ipscan.gcm
 .PHONY: ipscan.c++m
 gcm.cache/ipscan.gcm:| ipscan.o
-CXX_IMPORTS += peer.c++m

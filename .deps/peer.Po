@@ -141,8 +141,31 @@ peer.o gcm.cache/peer.gcm: peer.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11.2.0/bits/stl_multimap.h \
  /usr/include/c++/11.2.0/bits/erase_if.h /usr/include/c++/11.2.0/cstring \
  /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/11.2.0/thread /usr/include/c++/11.2.0/stop_token \
- /usr/include/c++/11.2.0/atomic \
+ /usr/include/c++/11.2.0/iostream /usr/include/c++/11.2.0/ostream \
+ /usr/include/c++/11.2.0/ios /usr/include/c++/11.2.0/exception \
+ /usr/include/c++/11.2.0/bits/exception_ptr.h \
+ /usr/include/c++/11.2.0/bits/cxxabi_init_exception.h \
+ /usr/include/c++/11.2.0/typeinfo \
+ /usr/include/c++/11.2.0/bits/nested_exception.h \
+ /usr/include/c++/11.2.0/bits/ios_base.h \
+ /usr/include/c++/11.2.0/bits/locale_classes.h \
+ /usr/include/c++/11.2.0/bits/locale_classes.tcc \
+ /usr/include/c++/11.2.0/system_error \
+ /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/error_constants.h \
+ /usr/include/c++/11.2.0/stdexcept /usr/include/c++/11.2.0/streambuf \
+ /usr/include/c++/11.2.0/bits/streambuf.tcc \
+ /usr/include/c++/11.2.0/bits/basic_ios.h \
+ /usr/include/c++/11.2.0/bits/locale_facets.h \
+ /usr/include/c++/11.2.0/cwctype /usr/include/wctype.h \
+ /usr/include/bits/wctype-wchar.h \
+ /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_base.h \
+ /usr/include/c++/11.2.0/bits/streambuf_iterator.h \
+ /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_inline.h \
+ /usr/include/c++/11.2.0/bits/locale_facets.tcc \
+ /usr/include/c++/11.2.0/bits/basic_ios.tcc \
+ /usr/include/c++/11.2.0/bits/ostream.tcc /usr/include/c++/11.2.0/istream \
+ /usr/include/c++/11.2.0/bits/istream.tcc /usr/include/c++/11.2.0/thread \
+ /usr/include/c++/11.2.0/stop_token /usr/include/c++/11.2.0/atomic \
  /usr/include/c++/11.2.0/bits/atomic_base.h \
  /usr/include/c++/11.2.0/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11.2.0/bits/atomic_wait.h \
@@ -156,32 +179,9 @@ peer.o gcm.cache/peer.gcm: peer.cpp /usr/include/stdc-predef.h \
  /usr/include/sys/syscall.h /usr/include/asm/unistd.h \
  /usr/include/asm/unistd_64.h /usr/include/bits/syscall.h \
  /usr/include/c++/11.2.0/bits/std_mutex.h \
- /usr/include/c++/11.2.0/system_error \
- /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/error_constants.h \
- /usr/include/c++/11.2.0/stdexcept /usr/include/c++/11.2.0/exception \
- /usr/include/c++/11.2.0/bits/exception_ptr.h \
- /usr/include/c++/11.2.0/bits/cxxabi_init_exception.h \
- /usr/include/c++/11.2.0/typeinfo \
- /usr/include/c++/11.2.0/bits/nested_exception.h \
  /usr/include/c++/11.2.0/bits/std_thread.h \
  /usr/include/c++/11.2.0/bits/refwrap.h \
  /usr/include/c++/11.2.0/bits/unique_ptr.h \
- /usr/include/c++/11.2.0/ostream /usr/include/c++/11.2.0/ios \
- /usr/include/c++/11.2.0/bits/ios_base.h \
- /usr/include/c++/11.2.0/bits/locale_classes.h \
- /usr/include/c++/11.2.0/bits/locale_classes.tcc \
- /usr/include/c++/11.2.0/streambuf \
- /usr/include/c++/11.2.0/bits/streambuf.tcc \
- /usr/include/c++/11.2.0/bits/basic_ios.h \
- /usr/include/c++/11.2.0/bits/locale_facets.h \
- /usr/include/c++/11.2.0/cwctype /usr/include/wctype.h \
- /usr/include/bits/wctype-wchar.h \
- /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_base.h \
- /usr/include/c++/11.2.0/bits/streambuf_iterator.h \
- /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_inline.h \
- /usr/include/c++/11.2.0/bits/locale_facets.tcc \
- /usr/include/c++/11.2.0/bits/basic_ios.tcc \
- /usr/include/c++/11.2.0/bits/ostream.tcc \
  /usr/include/c++/11.2.0/semaphore \
  /usr/include/c++/11.2.0/bits/semaphore_base.h \
  /usr/include/c++/11.2.0/bits/atomic_timed_wait.h \
@@ -199,9 +199,7 @@ peer.o gcm.cache/peer.gcm: peer.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11.2.0/bits/deque.tcc \
  /usr/include/c++/11.2.0/bits/stl_queue.h \
  /usr/include/c++/11.2.0/ext/stdio_filebuf.h \
- /usr/include/c++/11.2.0/fstream /usr/include/c++/11.2.0/istream \
- /usr/include/c++/11.2.0/bits/istream.tcc \
- /usr/include/c++/11.2.0/bits/codecvt.h \
+ /usr/include/c++/11.2.0/fstream /usr/include/c++/11.2.0/bits/codecvt.h \
  /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/11.2.0/bits/fstream.tcc
@@ -413,6 +411,35 @@ peer.o gcm.cache/peer.gcm: peer.cpp /usr/include/stdc-predef.h \
 /usr/include/c++/11.2.0/cstring:
 /usr/include/string.h:
 /usr/include/strings.h:
+/usr/include/c++/11.2.0/iostream:
+/usr/include/c++/11.2.0/ostream:
+/usr/include/c++/11.2.0/ios:
+/usr/include/c++/11.2.0/exception:
+/usr/include/c++/11.2.0/bits/exception_ptr.h:
+/usr/include/c++/11.2.0/bits/cxxabi_init_exception.h:
+/usr/include/c++/11.2.0/typeinfo:
+/usr/include/c++/11.2.0/bits/nested_exception.h:
+/usr/include/c++/11.2.0/bits/ios_base.h:
+/usr/include/c++/11.2.0/bits/locale_classes.h:
+/usr/include/c++/11.2.0/bits/locale_classes.tcc:
+/usr/include/c++/11.2.0/system_error:
+/usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/error_constants.h:
+/usr/include/c++/11.2.0/stdexcept:
+/usr/include/c++/11.2.0/streambuf:
+/usr/include/c++/11.2.0/bits/streambuf.tcc:
+/usr/include/c++/11.2.0/bits/basic_ios.h:
+/usr/include/c++/11.2.0/bits/locale_facets.h:
+/usr/include/c++/11.2.0/cwctype:
+/usr/include/wctype.h:
+/usr/include/bits/wctype-wchar.h:
+/usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_base.h:
+/usr/include/c++/11.2.0/bits/streambuf_iterator.h:
+/usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_inline.h:
+/usr/include/c++/11.2.0/bits/locale_facets.tcc:
+/usr/include/c++/11.2.0/bits/basic_ios.tcc:
+/usr/include/c++/11.2.0/bits/ostream.tcc:
+/usr/include/c++/11.2.0/istream:
+/usr/include/c++/11.2.0/bits/istream.tcc:
 /usr/include/c++/11.2.0/thread:
 /usr/include/c++/11.2.0/stop_token:
 /usr/include/c++/11.2.0/atomic:
@@ -435,35 +462,9 @@ peer.o gcm.cache/peer.gcm: peer.cpp /usr/include/stdc-predef.h \
 /usr/include/asm/unistd_64.h:
 /usr/include/bits/syscall.h:
 /usr/include/c++/11.2.0/bits/std_mutex.h:
-/usr/include/c++/11.2.0/system_error:
-/usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/error_constants.h:
-/usr/include/c++/11.2.0/stdexcept:
-/usr/include/c++/11.2.0/exception:
-/usr/include/c++/11.2.0/bits/exception_ptr.h:
-/usr/include/c++/11.2.0/bits/cxxabi_init_exception.h:
-/usr/include/c++/11.2.0/typeinfo:
-/usr/include/c++/11.2.0/bits/nested_exception.h:
 /usr/include/c++/11.2.0/bits/std_thread.h:
 /usr/include/c++/11.2.0/bits/refwrap.h:
 /usr/include/c++/11.2.0/bits/unique_ptr.h:
-/usr/include/c++/11.2.0/ostream:
-/usr/include/c++/11.2.0/ios:
-/usr/include/c++/11.2.0/bits/ios_base.h:
-/usr/include/c++/11.2.0/bits/locale_classes.h:
-/usr/include/c++/11.2.0/bits/locale_classes.tcc:
-/usr/include/c++/11.2.0/streambuf:
-/usr/include/c++/11.2.0/bits/streambuf.tcc:
-/usr/include/c++/11.2.0/bits/basic_ios.h:
-/usr/include/c++/11.2.0/bits/locale_facets.h:
-/usr/include/c++/11.2.0/cwctype:
-/usr/include/wctype.h:
-/usr/include/bits/wctype-wchar.h:
-/usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_base.h:
-/usr/include/c++/11.2.0/bits/streambuf_iterator.h:
-/usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/ctype_inline.h:
-/usr/include/c++/11.2.0/bits/locale_facets.tcc:
-/usr/include/c++/11.2.0/bits/basic_ios.tcc:
-/usr/include/c++/11.2.0/bits/ostream.tcc:
 /usr/include/c++/11.2.0/semaphore:
 /usr/include/c++/11.2.0/bits/semaphore_base.h:
 /usr/include/c++/11.2.0/bits/atomic_timed_wait.h:
@@ -488,14 +489,12 @@ peer.o gcm.cache/peer.gcm: peer.cpp /usr/include/stdc-predef.h \
 /usr/include/c++/11.2.0/bits/stl_queue.h:
 /usr/include/c++/11.2.0/ext/stdio_filebuf.h:
 /usr/include/c++/11.2.0/fstream:
-/usr/include/c++/11.2.0/istream:
-/usr/include/c++/11.2.0/bits/istream.tcc:
 /usr/include/c++/11.2.0/bits/codecvt.h:
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/basic_file.h:
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/c++io.h:
 /usr/include/c++/11.2.0/bits/fstream.tcc:
-peer.o gcm.cache/peer.gcm: server.c++m client.c++m
+peer.o gcm.cache/peer.gcm: server.c++m client.c++m ipscan.c++m
 peer.c++m: gcm.cache/peer.gcm
 .PHONY: peer.c++m
 gcm.cache/peer.gcm:| peer.o
-CXX_IMPORTS += server.c++m client.c++m
+CXX_IMPORTS += server.c++m client.c++m ipscan.c++m

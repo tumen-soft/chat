@@ -1,5 +1,4 @@
 import peer;
 int main(){
-m();
-return 0;
+	return 0;
 }
