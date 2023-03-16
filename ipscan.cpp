@@ -147,7 +147,7 @@ args ar[256]={NULL,0,"127.0.0.1",_Server};
 
 int j=0;
 
-for (int i=0;i<255;i++){
+for (int i=0;i<1;i++){
 ar[j].x=i;
   pthread_create(&(tid[j]), NULL, &doSomeThing, &ar[j]);
   ar->tid=tid[j];
