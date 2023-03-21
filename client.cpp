@@ -6,7 +6,7 @@ module;
 #include <string>  //string type
 #include <map>
 #include <cstring>
-//#include <iostream>
+#include <iostream>
 #include <thread>
 #include <vector>
 #include <queue>
@@ -21,7 +21,7 @@ export module peer:client;
 
 
 #define MAXLINE 1024
-#define PORT 3111 
+#define PORT 8080 
 //наследование функции гены мужчина
 
 //вводим определение клиента и сервера
@@ -33,6 +33,9 @@ export class Client{
         fd_set read_fd;
 	//void conn(Client * peer);
 	//void init(auto *peer);
+	Client *sel(Client*);
+	auto *init1(auto *peer);
+	auto *init(auto *peer);
 	private:
 	//int sock;
 
@@ -65,3 +68,27 @@ void connect1(Client *peer){
 
 
 }
+
+export Client *Client::sel(Client *peer){
+return this;
+}
+
+export auto *Client::init1(auto *peer){
+
+	        memset(buffer, 0, sizeof(buffer));
+                FD_ZERO(&read_fd);
+                FD_SET(0, &read_fd);
+                FD_SET(sock, &read_fd);
+
+return this;
+
+
+
+
+}
+export auto *Client::init(auto *peer){
+        sock=socket(AF_INET, SOCK_STREAM, 0);
+        std::cout<< typeid(peer).name() << " fd " << sock << std::endl;
+        return this;
+}
+

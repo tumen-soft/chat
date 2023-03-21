@@ -24,7 +24,7 @@ export module ipscan;
 
 
 #define MAXLINE 1024
-#define PORT 3111 
+#define PORT 8080 
 //наследование функции гены мужчина
 pthread_t tid[256];
 

@@ -19,7 +19,7 @@ export module peer:server;
 import peer:client;
 //char s[80];
 #define MAXLINE 1024
-#define PORT 3111 
+#define PORT 8080 
 //наследование функции гены мужчина
 typedef std::map<int,char*> nmap;
 /*enum PeerType{
@@ -32,6 +32,8 @@ export class Server:public Client
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
         nmap nicknames;
+	Server *sel(Server*);
+	Server *conn(Server*);
 };
 
 /*		<Ñ�ÐµÑ€Ð²ÐµÑ€>									
@@ -106,21 +108,21 @@ export class Server:public Client
 //export module netchat;
 //init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
 
-export Server *conn(Server* peer)
+export Server *Server::conn(Server* peer)
         {
 
-        bind(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+        bind(sock, (struct sockaddr*)&addres, sizeof(addres));
         //waiting for connection
-        listen(peer->sock, 300);
+        listen(sock, 300);
 
         //peer->nicknames.insert({0,s});
-        return peer;
+        return this;
 
 	}
 
-export Server *sel(Server *peer){
-for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
-
+export Server *Server::sel(Server *peer){
+for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(itr->first, &read_fd);
+return this;
 }
 
 void sendmessage(){
@@ -149,7 +151,7 @@ void sendmessage(){
 */
 }
 
-
+/*
 void connect1(Server *peer){
 			peer->new_socket = accept(peer->sock,NULL,NULL);
 			//accepting connection
@@ -160,4 +162,4 @@ void connect1(Server *peer){
 			printf("New connection %s\n", peer->nicknames.find(peer->new_socket)->second);
 			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  
 
-}
+}*/
