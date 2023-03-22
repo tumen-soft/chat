@@ -27,13 +27,51 @@ typedef std::map<int,char*> nmap;
         _Client
 };
 */
+/*		<сервер>									
+		  |
+	инициализация соединения функции bind(), listen()
+		  |
+		цикл (бесконечный)
+	     	  |
+     ________\	 \|/ 
+    |	     / установка сокетов для прослушивания. /______________________________________|
+    |		поток вывода, свой и клиентские     \                                      |
+    |		  |                                                                        |
+    |		 \|/                                                                       |
+    |	<select() возврыщает массив дескрипторов     режим ожидания>  		           |
+    |	  |	при записи вних		   	   	|                                  |
+    |	  |				    		|                                  |
+    |	 \|/			                       \|/                                 |
+    |	если select возвращает 	     			|				   |	
+    |	сокет сервера:  				|                                  |
+    |	accept() нового соединения			|                                  |
+    |		|		       		       \|/                                 |
+    |		|		если select() возвращает дескрипторы  read() из них        |
+    |___________|			|			|                          |
+					|			|                          |
+				       \|/	      	       \|/                         |
+				сообшение отсутствует: 	 сообшение присутствует:           |
+				send Host Disconnect	 send message to                   |
+				erase from socket	 other sockets                     |
+				from sockets massive		|			   |
+					|_______________________|__________________________|
+
+
+(stdin (поток ввода) на дескрипторе 0) 
+
+
+
+*/
+
+
 export class Server:public Client
 {
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
         nmap nicknames;
-	Server *sel(Server*);
-	Server *conn(Server*);
+	Server *init1(Server *peer);
+	Server *sel(Server *);
+	Server *conn(Server *);
 };
 
 /*		<Ñ�ÐµÑ€Ð²ÐµÑ€>									
@@ -108,13 +146,13 @@ export class Server:public Client
 //export module netchat;
 //init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
 
-export Server *Server::conn(Server* peer)
+export Server *Server::init1(Server* peer)
         {
 
         bind(sock, (struct sockaddr*)&addres, sizeof(addres));
         //waiting for connection
         listen(sock, 300);
-
+        //std::cout <<"test" <<std::endl;
         //peer->nicknames.insert({0,s});
         return this;
 
@@ -151,8 +189,8 @@ void sendmessage(){
 */
 }
 
-/*
-void connect1(Server *peer){
+
+export Server *Server::conn(Server *peer){
 			peer->new_socket = accept(peer->sock,NULL,NULL);
 			//accepting connection
 			peer->new_socket = accept(peer->sock,NULL,NULL);
@@ -162,4 +200,4 @@ void connect1(Server *peer){
 			printf("New connection %s\n", peer->nicknames.find(peer->new_socket)->second);
 			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  
 
-}*/
+}

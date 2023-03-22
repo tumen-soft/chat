@@ -22,7 +22,39 @@ export module peer:client;
 
 #define MAXLINE 1024
 #define PORT 8080 
-//наследование функции гены мужчина
+
+/*
+<клиент>
+		  |
+		  |
+	connect() to server
+		 \|/
+	 send nick to server 
+		 \|/
+ _____________\	loop(infinite)
+ |	      /	  |
+ |		  |
+ |		 \|/
+ |	set sockets to listen(stdin and self (client))
+ |		  |
+ |		  |
+ |		 \|/
+ |	select() wait for messages(0 fd is stdin, and other fd is connection descriptor)
+ |					|				|
+ |					|				|
+ |		      		       \|/			       \|/
+ |				stdin - send messg to server	  recive mess from server
+ |					|				|
+ |______________________________________|_______________________________|
+
+
+
+*/
+
+
+
+
+
 
 //вводим определение клиента и сервера
 export class Client{
@@ -31,24 +63,49 @@ export class Client{
         struct sockaddr_in addres;
         char buffer[MAXLINE];
         fd_set read_fd;
-	//void conn(Client * peer);
-	//void init(auto *peer);
-	Client *sel(Client*);
-	auto *init1(auto *peer);
+	Client *conn(Client * peer);
 	auto *init(auto *peer);
-	private:
-	//int sock;
-
+	Client *sel(Client*);
+	Client *init1(Client *peer);
+	auto *selinit(auto *peer);
 };
+auto *Client::init(auto *peer){
+        sock=socket(AF_INET, SOCK_STREAM, 0);
+        std::cout<< typeid(peer).name() << " fd " << sock << std::endl;
+        return this;
+}
 
 
-Client *conn(Client * peer)
+Client *Client::init1(Client * peer)
         {
-        connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+        connect(sock, (struct sockaddr*)&addres, sizeof(addres));
         //dprintf(peer->sock, s);
-        return peer;
+	//std::cout <<"test" <<std::endl;
+	return peer;
 
         }
+
+auto *Client::selinit(auto *peer){
+
+                memset(buffer, 0, sizeof(buffer));
+                FD_ZERO(&read_fd);
+                FD_SET(0, &read_fd);
+                FD_SET(sock, &read_fd);
+
+return this;
+}
+
+
+
+
+
+
+export Client *Client::sel(Client *peer){
+return this;
+}
+
+
+
 void connect1(Client *peer){
 /*
  read(sock, buffer, sizeof(buffer));
@@ -67,28 +124,5 @@ void connect1(Client *peer){
 */
 
 
-}
-
-export Client *Client::sel(Client *peer){
-return this;
-}
-
-export auto *Client::init1(auto *peer){
-
-	        memset(buffer, 0, sizeof(buffer));
-                FD_ZERO(&read_fd);
-                FD_SET(0, &read_fd);
-                FD_SET(sock, &read_fd);
-
-return this;
-
-
-
-
-}
-export auto *Client::init(auto *peer){
-        sock=socket(AF_INET, SOCK_STREAM, 0);
-        std::cout<< typeid(peer).name() << " fd " << sock << std::endl;
-        return this;
 }
 
