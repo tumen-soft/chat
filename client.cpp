@@ -15,7 +15,7 @@ module;
 #include <fstream>
 //export module peer;
 //using namespace std;
-export module peer:client;
+export module message:client;
 
 
 
@@ -78,6 +78,10 @@ auto *Client::init(auto *peer){
 
 Client *Client::init1(Client * peer)
         {
+	addres.sin_family = AF_INET;
+        addres.sin_port = htons(PORT);
+        addres.sin_addr.s_addr = inet_addr("127.0.0.1");
+
         connect(sock, (struct sockaddr*)&addres, sizeof(addres));
         //dprintf(peer->sock, s);
 	//std::cout <<"test" <<std::endl;
@@ -106,11 +110,11 @@ return this;
 
 
 
-void connect1(Client *peer){
-/*
+Client *Client::conn(Client *peer){
+
  read(sock, buffer, sizeof(buffer));
 	 dprintf(0, buffer);
-*/
+
 
 /*
 

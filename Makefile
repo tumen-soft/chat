@@ -103,7 +103,7 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_chat_OBJECTS = client.$(OBJEXT) server.$(OBJEXT) ipscan.$(OBJEXT) \
-	peer.$(OBJEXT) main.$(OBJEXT)
+	message.$(OBJEXT) main.$(OBJEXT)
 chat_OBJECTS = $(am_chat_OBJECTS)
 chat_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
@@ -122,7 +122,8 @@ DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = ./$(DEPDIR)/client.Po ./$(DEPDIR)/ipscan.Po \
-	./$(DEPDIR)/main.Po ./$(DEPDIR)/peer.Po ./$(DEPDIR)/server.Po
+	./$(DEPDIR)/main.Po ./$(DEPDIR)/message.Po \
+	./$(DEPDIR)/server.Po
 am__mv = mv -f
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
@@ -278,7 +279,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 AM_CXXFLAGS = -fpermissive -lpthread -std=c++20 -fmodules-ts 
-chat_SOURCES = client.cpp server.cpp ipscan.cpp peer.cpp main.cpp
+chat_SOURCES = client.cpp server.cpp ipscan.cpp message.cpp main.cpp
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -388,7 +389,7 @@ distclean-compile:
 include ./$(DEPDIR)/client.Po # am--include-marker
 include ./$(DEPDIR)/ipscan.Po # am--include-marker
 include ./$(DEPDIR)/main.Po # am--include-marker
-include ./$(DEPDIR)/peer.Po # am--include-marker
+include ./$(DEPDIR)/message.Po # am--include-marker
 include ./$(DEPDIR)/server.Po # am--include-marker
 
 $(am__depfiles_remade):
@@ -687,7 +688,7 @@ distclean: distclean-am
 		-rm -f ./$(DEPDIR)/client.Po
 	-rm -f ./$(DEPDIR)/ipscan.Po
 	-rm -f ./$(DEPDIR)/main.Po
-	-rm -f ./$(DEPDIR)/peer.Po
+	-rm -f ./$(DEPDIR)/message.Po
 	-rm -f ./$(DEPDIR)/server.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
@@ -739,7 +740,7 @@ maintainer-clean: maintainer-clean-am
 		-rm -f ./$(DEPDIR)/client.Po
 	-rm -f ./$(DEPDIR)/ipscan.Po
 	-rm -f ./$(DEPDIR)/main.Po
-	-rm -f ./$(DEPDIR)/peer.Po
+	-rm -f ./$(DEPDIR)/message.Po
 	-rm -f ./$(DEPDIR)/server.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic

@@ -148,6 +148,9 @@ export class Server:public Client
 
 Server *Server::init1(Server* peer)
         {
+	addres.sin_family = AF_INET;
+        addres.sin_port = htons(PORT);
+        addres.sin_addr.s_addr = htonl(INADDR_ANY);
 
         bind(sock, (struct sockaddr*)&addres, sizeof(addres));
         //waiting for connection
