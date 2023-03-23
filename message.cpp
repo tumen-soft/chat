@@ -21,7 +21,7 @@ class message{
 	std::string from;
 	std::string to;
 	std::string buffer;
-	message(){
+	void operator()(Server *peer){	
 
 /*      for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
@@ -49,6 +49,9 @@ class message{
 		}
 
 
+
+
+	void operator()(Client *peer){}
 
 
 };
@@ -79,8 +82,8 @@ void run(auto *peer){
 //peer->addres.sin_family = AF_INET;
 //peer->addres.sin_port = htons(PORT);
 //peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
-
-
+message mess;
+mess(peer);
 
 /*
     int posix_handle = 2;//fileno(::fopen("test.txt", "r"));

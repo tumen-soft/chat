@@ -194,7 +194,7 @@ void sendmessage(){
 
 
 Server *Server::conn(Server *peer){
-			peer->new_socket = accept(peer->sock,NULL,NULL);
+			//peer->new_socket = accept(peer->sock,NULL,NULL);
 			//accepting connection
 			peer->new_socket = accept(peer->sock,NULL,NULL);
 			char g[80]={0};
