@@ -15,8 +15,8 @@ module;
 #include <fstream>
 //export module peer;
 //using namespace std;
-export module peer:server;
-import peer:client;
+export module message:server;
+import message:client;
 //char s[80];
 #define MAXLINE 1024
 #define PORT 8080 
@@ -69,7 +69,7 @@ export class Server:public Client
 	public:
         int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
         nmap nicknames;
-	Server *init1(Server *peer);
+	Server *init1(Server *);
 	Server *sel(Server *);
 	Server *conn(Server *);
 };
@@ -146,7 +146,7 @@ export class Server:public Client
 //export module netchat;
 //init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
 
-export Server *Server::init1(Server* peer)
+Server *Server::init1(Server* peer)
         {
 
         bind(sock, (struct sockaddr*)&addres, sizeof(addres));
@@ -158,7 +158,7 @@ export Server *Server::init1(Server* peer)
 
 	}
 
-export Server *Server::sel(Server *peer){
+Server *Server::sel(Server *peer){
 for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(itr->first, &read_fd);
 return this;
 }
@@ -190,14 +190,99 @@ void sendmessage(){
 }
 
 
-export Server *Server::conn(Server *peer){
+Server *Server::conn(Server *peer){
 			peer->new_socket = accept(peer->sock,NULL,NULL);
 			//accepting connection
 			peer->new_socket = accept(peer->sock,NULL,NULL);
 			char g[80]={0};
-			read(peer->new_socket,g,1024);
-			peer->nicknames.insert({peer->new_socket,g});
+			//read(peer->new_socket,g,1024);
+			//peer->nicknames.insert({peer->new_socket,g});
 			printf("New connection %s\n", peer->nicknames.find(peer->new_socket)->second);
 			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  
+
+/*
+	//std::cout<<c<<std::endl;
+	//socket creation
+        sock=socket(AF_INET, SOCK_STREAM, 0);
+	//output socket file descriptor
+	printf("server fd %i \n", sock);
+	//initialisation
+        addres.sin_family = AF_INET;
+        addres.sin_port = htons(PORT);
+        addres.sin_addr.s_addr = htonl(INADDR_ANY);
+
+	bind(sock, (struct sockaddr*)&addres, sizeof(addres));
+	//waiting for connection
+        listen(sock, 300);
+
+	nicknames.insert({0,"tim"});
+	
+        for(;;){
+        FD_ZERO(&read_fd);      
+        //comm->max_sd = comm->sock; 
+      //  for (auto it1 = self->nicknames.begin(); it1!=self->nicknames.end();  ++it1)
+    //std::cout << it1->first << "->" << it1->second << std::endl;  
+	for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)FD_SET(itr->first, &read_fd);
+        FD_SET(sock, &read_fd);  
+	//wait for connection/recive message
+        select(300, &read_fd, NULL, NULL, NULL);
+	
+	if (FD_ISSET(sock, &read_fd)) 
+                {	
+			//furst for scanner	
+			new_socket = accept(sock,NULL,NULL);
+			//accepting connection
+			new_socket = accept(sock,NULL,NULL);
+			char g[80]={0};
+			read(new_socket,g,1024);
+			nicknames.insert({new_socket,g});
+			printf("New connection %s\n", nicknames.find(new_socket)->second);
+			dprintf(new_socket,"welcome %d\n", new_socket);  
+                }
+		//for (auto it2 = self->nicknames.begin(); it2!=self->nicknames.end();  ++it2)
+    //std::cout << it2->first << "->" << it2->second << std::endl; 
+		for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+                { 
+			sd = itr2->first; 
+			if (FD_ISSET(sd , &read_fd)) 
+                        { 
+				if ((valread = read(sd, buffer, 1024))==0) 
+				{ 
+                                        printf("Host disconnected %s \n" ,itr2->second); 
+                                        close(sd); 
+					nicknames.erase(itr2); 
+                                	break;				
+				} 
+                                else
+				{ 
+	  				buffer[valread] = '\0';
+					for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
+					dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
+					
+                                 }  
+                        } 
+                } 
+        
+	          //  for (auto it3 = self->nicknames.begin(); it3!=self->nicknames.end();  ++it3)
+   // std::cout << it3->first << "->" << it3->second << std::endl; 
+
+	}
+        close(sd2);
+	//closing socket
+	close(sock);
+return this;
+//std::cout<<"ser"<<std::endl;
+
+
+*/
+
+
+
+
+
+
+
+
+
 
 }

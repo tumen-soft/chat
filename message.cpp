@@ -9,16 +9,19 @@ module;
 #include <typeinfo>
 #include <ext/stdio_filebuf.h>
 //#include <fstream>
-export module peer;
+export module message;
 //using namespace std;
 
-export import peer:client;
-export import peer:server;
+export import message:client;
+export import message:server;
 import ipscan;
 
 class message{
 	public:
-		message(){
+	std::string from;
+	std::string to;
+	std::string buffer;
+	message(){
 
 /*      for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
@@ -73,6 +76,9 @@ enum PeerType{
 
 
 void run(auto *peer){
+//peer->addres.sin_family = AF_INET;
+//peer->addres.sin_port = htons(PORT);
+//peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
 
 
 
@@ -97,13 +103,12 @@ peer->init1(peer);
 
 for(;;)
 {
-		//peer->selinit(peer);
+		peer->selinit(peer);
 		peer->sel(peer);
 
  		select(300, &peer->read_fd, NULL, NULL, NULL);
 
-		//if (FD_ISSET(peer->sock, &peer->read_fd)) 
-		//connect1(peer);
+		if (FD_ISSET(peer->sock, &peer->read_fd))peer->conn(peer);
 
 
 
@@ -124,10 +129,11 @@ std::ostream& os = std::cout;
 export void m(){
 choice ch;
 st:;
-   std::cout<<"0.end"<<std::endl;
-   std::cout<<"1.run"<<std::endl;
+ //  std::cout<<"0.end"<<std::endl;
+  // std::cout<<"1.run"<<std::endl;
 int c,p;
-std::cin>>c;
+//std::cin>>c;
+c=1;
 ch=(int)c;
 switch(ch){
 
@@ -136,7 +142,7 @@ switch(ch){
                 break;
 
         case RUN:
-		std::cout<< "wait..."<<std::endl;
+		//std::cout<< "wait..."<<std::endl;
                 spawnThreads();
                 //wait();
                 check();
