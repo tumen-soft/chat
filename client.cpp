@@ -63,7 +63,7 @@ export class Client{
         struct sockaddr_in addres;
         char buffer[MAXLINE];
         fd_set read_fd;
-	Client *conn(Client * peer);
+	Client *conn(Client *peer);
 	auto *init(auto *peer);
 	Client *sel(Client*);
 	Client *init1(Client *peer);
@@ -123,8 +123,6 @@ Client *Client::conn(Client *peer){
 
 
        if(a==b)if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
-               // if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
-
 */
 
 

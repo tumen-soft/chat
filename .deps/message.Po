@@ -391,9 +391,9 @@ message.o gcm.cache/message.gcm: message.cpp /usr/include/stdc-predef.h \
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/basic_file.h:
 /usr/include/c++/11.2.0/x86_64-pc-linux-gnu/bits/c++io.h:
 /usr/include/c++/11.2.0/bits/fstream.tcc:
-message.o gcm.cache/message.gcm: message:server.c++m message:client.c++m \
+message.o gcm.cache/message.gcm: message:client.c++m message:server.c++m \
  ipscan.c++m
 message.c++m: gcm.cache/message.gcm
 .PHONY: message.c++m
 gcm.cache/message.gcm:| message.o
-CXX_IMPORTS += message:server.c++m message:client.c++m ipscan.c++m
+CXX_IMPORTS += message:client.c++m message:server.c++m ipscan.c++m

@@ -111,7 +111,7 @@ for(;;)
 
  		select(300, &peer->read_fd, NULL, NULL, NULL);
 
-		if (FD_ISSET(peer->sock, &peer->read_fd))peer->conn(peer);
+		if(FD_ISSET(peer->sock, &peer->read_fd))peer->conn(peer);
 
 
 
