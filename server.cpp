@@ -203,5 +203,5 @@ Server *Server::conn(Server *peer){
 			printf("New connection %s\n", nicknames.find(new_socket)->second);
 			dprintf(new_socket,"welcome %d\n", new_socket);  
 
-
+return this;
 }

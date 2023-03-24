@@ -115,7 +115,7 @@ Client *Client::conn(Client *peer){
  read(sock, buffer, sizeof(buffer));
 	 dprintf(0, buffer);
 
-
+return this;
 /*
 
 
