@@ -8,7 +8,7 @@ module;
 #include <iostream>
 #include <typeinfo>
 #include <ext/stdio_filebuf.h>
-//#include <fstream>
+#include <fstream>
 export module message;
 //using namespace std;
 
@@ -18,8 +18,8 @@ import ipscan;
 
 class message{
 	public:
-	std::string from;
-	std::string to;
+	int from;
+	int to;
 	std::string buffer;
 	void operator()(Server *peer){	
 
@@ -85,6 +85,7 @@ void run(auto *peer){
 message mess;
 mess(peer);
 
+
 /*
     int posix_handle = 2;//fileno(::fopen("test.txt", "r"));
 
@@ -99,6 +100,23 @@ mess(peer);
 
 
 peer->init(peer);
+
+    int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
+
+    __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
+    std::istream is(&filebuf); // 2
+
+    std::string line;
+    //getline(is, line);
+
+
+
+
+
+
+
+
+
 peer->init1(peer);
 
 //peer->conn(peer);

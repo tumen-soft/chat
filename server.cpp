@@ -67,7 +67,7 @@ typedef std::map<int,char*> nmap;
 export class Server:public Client
 {
 	public:
-        int  sd, sd2, new_socket, client_socket[30], max_clients=30, activity, i, max_sdi, valread;
+        int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
         nmap nicknames;
 	Server *init1(Server *);
 	Server *sel(Server *);
