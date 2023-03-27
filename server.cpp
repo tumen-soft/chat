@@ -20,14 +20,14 @@ import message:client;
 //char s[80];
 #define MAXLINE 1024
 #define PORT 8080 
-//наследование функции гены мужчина
 typedef std::map<int,char*> nmap;
 /*enum PeerType{
         _Server,
         _Client
 };
 */
-/*		<сервер>									
+#if 0	
+		<сервер>									
 		  |
 	инициализация соединения функции bind(), listen()
 		  |
@@ -61,7 +61,7 @@ typedef std::map<int,char*> nmap;
 
 
 
-*/
+#endif
 
 
 export class Server:public Client
@@ -73,78 +73,6 @@ export class Server:public Client
 	Server *sel(Server *);
 	Server *conn(Server *);
 };
-
-/*		<Ñ�ÐµÑ€Ð²ÐµÑ€>									
-		  |
-	Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ� Ñ�Ð¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ñ� Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ bind(), listen()
-		  |
-		Ñ†Ð¸ÐºÐ» (Ð±ÐµÑ�ÐºÐ¾Ð½ÐµÑ‡Ð½Ñ‹Ð¹)
-	     	  |
-     ________\	 \|/ 
-    |	     / ÑƒÑ�Ñ‚Ð°Ð½Ð¾Ð²ÐºÐ° Ñ�Ð¾ÐºÐµÑ‚Ð¾Ð² Ð´Ð»Ñ� Ð¿Ñ€Ð¾Ñ�Ð»ÑƒÑˆÐ¸Ð²Ð°Ð½Ð¸Ñ�. /______________________________________|
-    |		Ð¿Ð¾Ñ‚Ð¾Ðº Ð²Ñ‹Ð²Ð¾Ð´Ð°, Ñ�Ð²Ð¾Ð¹ Ð¸ ÐºÐ»Ð¸ÐµÐ½Ñ‚Ñ�ÐºÐ¸Ðµ     \                                      |
-    |		  |                                                                        |
-    |		 \|/                                                                       |
-    |	<select() Ð²Ð¾Ð·Ð²Ñ€Ñ‹Ñ‰Ð°ÐµÑ‚ Ð¼Ð°Ñ�Ñ�Ð¸Ð² Ð´ÐµÑ�ÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€Ð¾Ð²     Ñ€ÐµÐ¶Ð¸Ð¼ Ð¾Ð¶Ð¸Ð´Ð°Ð½Ð¸Ñ�>  		           |
-    |	  |	Ð¿Ñ€Ð¸ Ð·Ð°Ð¿Ð¸Ñ�Ð¸ Ð²Ð½Ð¸Ñ…		   	   	|                                  |
-    |	  |				    		|                                  |
-    |	 \|/			                       \|/                                 |
-    |	ÐµÑ�Ð»Ð¸ select Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ 	     			|				   |	
-    |	Ñ�Ð¾ÐºÐµÑ‚ Ñ�ÐµÑ€Ð²ÐµÑ€Ð°:  				|                                  |
-    |	accept() Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ñ�Ð¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ñ�			|                                  |
-    |		|		       		       \|/                                 |
-    |		|		ÐµÑ�Ð»Ð¸ select() Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð´ÐµÑ�ÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€Ñ‹  read() Ð¸Ð· Ð½Ð¸Ñ…        |
-    |___________|			|			|                          |
-					|			|                          |
-				       \|/	      	       \|/                         |
-				Ñ�Ð¾Ð¾Ð±ÑˆÐµÐ½Ð¸Ðµ Ð¾Ñ‚Ñ�ÑƒÑ‚Ñ�Ñ‚Ð²ÑƒÐµÑ‚: 	 Ñ�Ð¾Ð¾Ð±ÑˆÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¸Ñ�ÑƒÑ‚Ñ�Ñ‚Ð²ÑƒÐµÑ‚:           |
-				send Host Disconnect	 send message to                   |
-				erase from socket	 other sockets                     |
-				from sockets massive		|			   |
-					|_______________________|__________________________|
-
-
-(stdin (Ð¿Ð¾Ñ‚Ð¾Ðº Ð²Ð²Ð¾Ð´Ð°) Ð½Ð° Ð´ÐµÑ�ÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€Ðµ 0) 
-
-
-		<ÐºÐ»Ð¸ÐµÐ½Ñ‚>
-		  |
-		  |
-	connect() to server
-		 \|/
-	 send nick to server 
-		 \|/
- _____________\	loop(infinite)
- |	      /	  |
- |		  |
- |		 \|/
- |	set sockets to listen(stdin and self (client))
- |		  |
- |		  |
- |		 \|/
- |	select() wait for messages(0 fd is stdin, and other fd is connection descriptor)
- |					|				|
- |					|				|
- |		      		       \|/			       \|/
- |				stdin - send messg to server	  recive mess from server
- |					|				|
- |______________________________________|_______________________________|
-
-
-
-*/
-
-
-//Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° Ð¶Ð´ÐµÑ‚ Ð±Ð¾Ð»ÑŒÑˆÑƒÑŽ Ñ‡Ð°Ñ�Ñ‚ÑŒ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸
-//ÐµÑ…Ð°Ñ‚ÑŒ f1 min max => f2 min max  Ñ�ÐºÐ¾Ð½Ð¾Ð¼Ð¸ÐºÐ°
-
-//module;
-
-
-//#include "peer.h"
-
-//export module netchat;
-//init Ñ�Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ�Ð¾ÐºÐµÑ‚Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°/Ñ�ÐµÑ€Ð²ÐµÑ€Ð°
 
 Server *Server::init1(Server* peer)
         {
@@ -167,7 +95,8 @@ return this;
 }
 
 void sendmessage(){
-/*	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+#if 0
+	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
 			sd = itr2->first; 
 			if (FD_ISSET(sd , &read_fd)) 
@@ -189,7 +118,7 @@ void sendmessage(){
                         } 
              
         	}
-*/
+#endif
 }
 
 

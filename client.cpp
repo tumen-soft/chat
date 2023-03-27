@@ -23,7 +23,7 @@ export module message:client;
 #define MAXLINE 1024
 #define PORT 8080 
 
-/*
+#if 0
 <клиент>
 		  |
 		  |
@@ -49,7 +49,7 @@ export module message:client;
 
 
 
-*/
+#endif
 
 
 
@@ -116,15 +116,9 @@ Client *Client::conn(Client *peer){
 	 dprintf(0, buffer);
 
 return this;
-/*
-
-
-
-
-
-       if(a==b)if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
-*/
-
+#if 0
+if(a==b)if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+#endif
 
 }
 

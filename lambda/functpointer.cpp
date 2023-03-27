@@ -10,6 +10,10 @@ return fp(a, 100);
 int some_func(int i, int j){
 return i+j;
 }
+int another_func(int i, int j){
+return i*j;
+}
+
 
 int main(){
 
@@ -21,4 +25,5 @@ fun_ptr = some_func;
 std::cout<< fun_ptr(30,40)<<std::endl;
 std::cout<< f(fun_ptr, 22)<<std::endl;
 std::cout<< f(some_func, 33)<<std::endl;
+std::cout<< f(another_func, 33)<<std::endl;
 }

@@ -22,8 +22,8 @@ class message{
 	int to;
 	std::string buffer;
 	void operator()(Server *peer){	
-
-/*      for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+#if 0
+      for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
                         sd = itr2->first; 
                         if (FD_ISSET(sd , &read_fd)) 
@@ -45,7 +45,8 @@ class message{
                         } 
              
                 }
-*/
+
+#endif
 		}
 
 
@@ -86,7 +87,7 @@ message mess;
 mess(peer);
 
 
-/*
+#if 0
     int posix_handle = 2;//fileno(::fopen("test.txt", "r"));
 
     __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
@@ -95,7 +96,7 @@ mess(peer);
     string line;
     //getline(is, line);
 
-*/
+#endif
 
 
 
