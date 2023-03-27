@@ -15,10 +15,10 @@ int main(){
 
 int (*fun_ptr)(int, int);
 
-some_func(10,20);
+std::cout<<some_func(10,20)<<std::endl;
 fun_ptr = some_func;
 
-std::cout<< fun_ptr(10,20)<<std::endl;
+std::cout<< fun_ptr(30,40)<<std::endl;
 std::cout<< f(fun_ptr, 22)<<std::endl;
-
+std::cout<< f(some_func, 33)<<std::endl;
 }
