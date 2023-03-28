@@ -90,8 +90,14 @@ enum PeerType{
 };
 //	Client * peer = new Server;
 
+//class run{
+//        public:
+        //int from;
+        //int to;
+        //std::string buffer;
+//        void operator()(auto *peer){  
 
-void run(auto *peer){
+auto run=[](auto *peer){
 //peer->addres.sin_family = AF_INET;
 //peer->addres.sin_port = htons(PORT);
 //peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -149,9 +155,10 @@ for(;;)
 //for(;;)
 }
 
-
+//}//operator
+ return peer;
 //run()
-}
+};
 
 
 
