@@ -16,6 +16,19 @@ export import message:client;
 export import message:server;
 import ipscan;
 
+        auto ser = [](auto *pee){return (Server *)pee;};
+        auto cli = [](auto *pee){return pee;};
+
+template <class FUN>
+auto f(FUN fp, auto a)
+{
+        return fp(a);
+}
+
+
+
+
+
 class message{
 	public:
 	int from;
@@ -75,8 +88,7 @@ enum PeerType{
         _Server,
         _Client
 };
-	Client * peer = new Server;
-	void run(auto *peer);
+//	Client * peer = new Server;
 
 
 void run(auto *peer){
@@ -154,6 +166,7 @@ st:;
  //  std::cout<<"0.end"<<std::endl;
   // std::cout<<"1.run"<<std::endl;
 int c,p;
+Client * peer = new Server;
 //std::cin>>c;
 c=1;
 ch=(int)c;
@@ -170,12 +183,13 @@ switch(ch){
                 check();
 		p=check1();
 		switch(p){
-	case 0: {run((Server*)peer);break;}
-        case 1: {run(peer);break;}
+	case 0: {run(f(ser, peer));break;}
+        case 1: {run(f(cli, peer));break;}
 		}
 
         default:
                 goto st;
 }
 }
+
 
