@@ -19,10 +19,10 @@ import ipscan;
         auto ser = [](auto *pee){return (Server *)pee;};
         auto cli = [](auto *pee){return pee;};
 
-template <class FUN>
-auto f(FUN fp, auto a)
+template <class FUN, class FUN1>
+auto f(FUN1 fp1, FUN fp, auto a)
 {
-        return fp(a);
+        return fp1(fp(a));
 }
 
 
@@ -188,10 +188,10 @@ switch(ch){
                 spawnThreads();
                 //wait();
                 check();
-		p=check1();
-		switch(p){
-	case 0: {run(f(ser, peer));break;}
-        case 1: {run(f(cli, peer));break;}
+		//p=check1();
+		switch(check1()){
+	case 0: {f(run, ser, peer);break;}
+        case 1: {f(run, cli, peer);break;}
 		}
 
         default:
