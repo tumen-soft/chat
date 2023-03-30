@@ -119,7 +119,7 @@ mess(peer);
 
 
 peer->init(peer);
-
+#if 0
     int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
 
     __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
@@ -128,7 +128,7 @@ peer->init(peer);
     std::string line;
     //getline(is, line);
 
-
+#endif
 
 
 

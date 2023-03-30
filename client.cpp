@@ -111,9 +111,17 @@ return this;
 
 
 Client *Client::conn(Client *peer){
+    int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
 
- read(sock, buffer, sizeof(buffer));
-	 dprintf(0, buffer);
+    __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
+    std::istream is(&filebuf); // 2
+        char buff[1024] = { 0 };
+
+    //char *line;
+    //getline(is, line);
+	is >> buff;
+// read(sock, buffer, sizeof(buffer));
+	 dprintf(0, buff);
 
 return this;
 #if 0

@@ -82,5 +82,7 @@ X dymnam cast write
   make select 0 and functs() for cli end serv
   posle select sdelat` class for processing serv  messages  class message
   remove sd, sd2 from server
+  make f2run funct
+  f(run,cli,peer)    make dy=f(x)dx   logik
   https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjZlcfD1M_9AhUQuosKHWcNDcsQFnoECCcQAQ&url=http%3A%2F%2Fermak.cs.nstu.ru%2Fcprog%2Fhtml%2F034.htm&usg=AOvVaw3gf79CkX_S4SWj_jjYOFRA
   https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiD7Ivirdb9AhUElosKHccGABIQFnoECDAQAQ&url=https%3A%2F%2Flibraryno.ru%2F7-modul-noe-programmirovanie-petrov_pyavu_part1_2010%2F&usg=AOvVaw3a2yvNawPiC8-K5vwr9K0Z
