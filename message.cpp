@@ -1,26 +1,28 @@
-module;
-#include <arpa/inet.h>  //inet_addr define
-#include <stdio.h>  //printf()
-#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
-#include <unistd.h>  //close(), fread()
-#include <string>  //string type
-#include <cstring>
-#include <iostream>
-#include <typeinfo>
-#include <ext/stdio_filebuf.h>
-#include <fstream>
-export module message;
+//`module;
+//#include <arpa/inet.h>  //inet_addr define
+//#include <stdio.h>  //printf()
+//#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
+//#include <unistd.h>  //close(), fread()
+//#include <string>  //string type
+//#include <cstring>
+//#include <iostream>
+//#include <typeinfo>
+//#include <ext/stdio_filebuf.h>
+//#include <fstream>
+//import <iostream>;
+//export module message;
 //using namespace std;
-
-export import message:client;
-export import message:server;
+import client;
+import server;
 import ipscan;
+import <iostream>;
+//module message;
 
-        auto ser = [](auto *pee){return (Server *)pee;};
-        auto cli = [](auto *pee){return pee;};
+auto ser = [](auto *pee){return (Server *)pee;};
+auto cli = [](auto *pee){return pee;};
 
-template <class FUN, class FUN1>
-auto f(FUN1 fp1, FUN fp, auto a)
+template <class FUN, class FUN1, class FUN2>
+auto f(FUN1 fp1, FUN fp, FUN2 a)
 {
         return fp1(fp(a));
 }
@@ -102,20 +104,7 @@ auto run=[](auto *peer){
 //peer->addres.sin_port = htons(PORT);
 //peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
 message mess;
-mess(peer);
-
-
-#if 0
-    int posix_handle = 2;//fileno(::fopen("test.txt", "r"));
-
-    __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
-    istream is(&filebuf); // 2
-
-    string line;
-    //getline(is, line);
-
-#endif
-
+//mess(peer);
 
 
 peer->init(peer);
@@ -150,6 +139,7 @@ for(;;)
 
 		if(FD_ISSET(peer->sock, &peer->read_fd))peer->conn(peer);
 
+		//mess(peer);
 
 
 //for(;;)
@@ -165,17 +155,17 @@ for(;;)
 enum choice {
     END, RUN
 };
-std::ostream& os = std::cout;
+//std::ostream& os = std::cout;
 
-export void m(){
+int main(){
 choice ch;
 st:;
- //  std::cout<<"0.end"<<std::endl;
-  // std::cout<<"1.run"<<std::endl;
+std::cout<<"0.end"<<std::endl;
+std::cout<<"1.run"<<std::endl;
 int c,p;
 Client * peer = new Server;
-//std::cin>>c;
-c=1;
+std::cin>>c;
+//c=1;
 ch=(int)c;
 switch(ch){
 

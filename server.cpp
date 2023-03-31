@@ -3,7 +3,7 @@ module;
 #include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <unistd.h>  //close(), fread()
-#include <string>  //string type
+//#include <string>  //string type
 #include <map>
 #include <cstring>
 //#include <iostream>
@@ -15,8 +15,8 @@ module;
 #include <fstream>
 //export module peer;
 //using namespace std;
-export module message:server;
-import message:client;
+export module server;
+import client;
 //char s[80];
 #define MAXLINE 1024
 #define PORT 8080 
