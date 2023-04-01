@@ -71,7 +71,7 @@ export class Client{
 };
 auto *Client::init(auto *peer){
         sock=socket(AF_INET, SOCK_STREAM, 0);
-        //std::cout<< typeid(peer).name() << " fd " << sock << std::endl;
+        std::cout<< /*typeid(this) << */ " fd " << sock << std::endl;
         return this;
 }
 
