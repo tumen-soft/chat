@@ -1,6 +1,7 @@
 // speech_english.cpp
-module speech;
+module speech:english;
 
-const char* get_phrase_en() {
-    return "Hello, world!";
-}
+//const char* get_phrase_en() {
+    //return 
+    char *phraseeng="Hello, world!";
+//}
