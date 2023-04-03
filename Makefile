@@ -1,14 +1,15 @@
 chat: client.o server.o ipscan.o message.o 
-	g++   client.o server.o ipscan.o message.o -o chat 
-client.o: client.cpp
-	g++ -c client.cpp -fmodules-ts -std=c++20 
-server.o: server.cpp
-	g++ -c server.cpp -fmodules-ts -std=c++20 
-ipscan.o: ipscan.cpp	
-	g++ -c ipscan.cpp -fpermissive -fmodules-ts -std=c++20 
-message.o: message.cpp
+	g++   client.o server.o ipscan.o message.o -o chat -fno-rtti 
+client.o: client.cxx
+	g++ -c -fmodules-ts -std=c++20 -x c++-system-header iostream typeinfo
+	g++ -c client.cxx -fmodules-ts -std=c++20 -x c++-system-header iostream typeinfo
+server.o: server.cxx
+	g++ -c server.cxx -fmodules-ts -std=c++20 
+ipscan.o: ipscan.cxx	
+	g++ -c ipscan.cxx -fpermissive -fmodules-ts -std=c++20 
+message.o: message.cxx
 	g++ -c -fmodules-ts -std=c++20 -x c++-system-header iostream
-	g++ -c message.cpp -fpermissive -fmodules-ts -std=c++20 -x c++-system-header iostream
+	g++ -c message.cxx -fpermissive -fmodules-ts -std=c++20 -x c++-system-header iostream
 
 
 clean:
