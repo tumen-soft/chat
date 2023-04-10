@@ -1,3 +1,8 @@
+cd build;cmake ..;make
+	||
+	||
+	\/
+
 programmer@pathfinder:~/chat/build$make
 Building standard library modules
 [  0%] Built target std_modules
