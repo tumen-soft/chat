@@ -64,12 +64,12 @@ export class Client{
         char buffer[MAXLINE];
         fd_set read_fd;
 	Client *conn(Client *peer);
-	auto *init(auto *peer);
+	Client *init(Client *peer);
 	Client *sel(Client*);
 	Client *init1(Client *peer);
-	auto *selinit(auto *peer);
+	Client *selinit(Client *peer);
 };
-auto *Client::init(auto *peer){
+Client *Client::init(Client *peer){
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
 	//std::string s = typeid(this).name();// <<" fd " << sock << std::endl;
         
@@ -92,7 +92,7 @@ Client *Client::init1(Client * peer)
 
         }
 
-auto *Client::selinit(auto *peer){
+Client *Client::selinit(Client *peer){
 
                 memset(peer->buffer, 0, sizeof(peer->buffer));
                 FD_ZERO(&peer->read_fd);

@@ -1,5 +1,5 @@
-import message;
-int main(){
+///import message;
+//int main(){
 //return wait1();
-m();
-}
+//m();
+//}

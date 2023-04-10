@@ -1,0 +1,25 @@
+programmer@pathfinder:~/chat/build$make
+Building standard library modules
+[  0%] Built target std_modules
+[ 20%] Building CXX object CMakeFiles/chat-modules.dir/client.cxx.o
+/home/programmer/chat/client.cxx:18:8: internal compiler error: in write_macro_maps, at cp/module.cc:16126
+   18 | export module client;
+      |        ^~~~~~
+0x6a0256 module_state::write_macro_maps(elf_out*, location_map_info&, module_state_config*, unsigned int*)
+	../../gcc/cp/module.cc:16126
+0xa2d178 module_state::write(elf_out*, cpp_reader*)
+	../../gcc/cp/module.cc:17743
+0xa2dab2 finish_module_processing(cpp_reader*)
+	../../gcc/cp/module.cc:19784
+0x9bfa3b c_parse_final_cleanups()
+	../../gcc/cp/decl2.c:5178
+We are damaged, This is broken.
+Logic is lost,
+We struggle,
+Hunt through the rubble for what once was.
+THIS IS AN IN-DEVELOPMENT COMPILER, it barfed, quelle horreur
+See <https://gcc.gnu.org/wiki/cxx-modules#Bugs>, WHICH IS NOT THE USUAL REPORTING MECHANISM!
+make[2]: *** [CMakeFiles/chat-modules.dir/build.make:76: CMakeFiles/chat-modules.dir/client.cxx.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:113: CMakeFiles/chat-modules.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
+

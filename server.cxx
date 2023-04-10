@@ -69,10 +69,21 @@ export class Server:public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
         nmap nicknames;
+	Server *init(Server *peer);
 	Server *init1(Server *);
+	Server *selinit(Server *);
 	Server *sel(Server *);
 	Server *conn(Server *);
 };
+
+Server *Server::init(Server *peer){
+        peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+        //std::string s = typeid(this).name();// <<" fd " << sock << std::endl;
+        
+        return this;
+}
+
+
 
 Server *Server::init1(Server* peer)
         {
@@ -89,6 +100,22 @@ Server *Server::init1(Server* peer)
         return this;
 
 	}
+
+
+Server *Server::selinit(Server *peer){
+
+                memset(peer->buffer, 0, sizeof(peer->buffer));
+                FD_ZERO(&peer->read_fd);
+                FD_SET(0, &peer->read_fd);
+                FD_SET(peer->sock, &peer->read_fd);
+
+return this;
+}
+
+
+
+
+
 
 Server *Server::sel(Server *peer){
 for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
