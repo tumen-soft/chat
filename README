@@ -1,4 +1,9 @@
 Simple net chat
 
+cd build;
+cmake ..;
+make;
+
+
 See    http:blueagle-so.github.io
 

@@ -6,22 +6,24 @@ module;
 //#include <string>  //string type
 #include <map>
 #include <cstring>
-#include <iostream>
+//#include <iostream>
 #include <thread>
 #include <vector>
 #include <queue>
-#include <typeinfo>
+//#include <typeinfo>
 #include <ext/stdio_filebuf.h>
 #include <fstream>
 //export module peer;
 //using namespace std;
-import <iostream>;
 export module server;
+import <iostream>;
+import <typeinfo>;
+//export module server;
 import client;
 //char s[80];
 #define MAXLINE 1024
 #define PORT 8080 
-typedef std::map<int,char*> nmap;
+//typedef std::map<int,char*> nmap;
 /*enum PeerType{
         _Server,
         _Client
@@ -68,7 +70,7 @@ typedef std::map<int,char*> nmap;
 export class Server:public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
-        nmap nicknames;
+        //nmap nicknames;
 	Server *init(Server *peer);
 	Server *init1(Server *);
 	Server *selinit(Server *);
@@ -87,7 +89,8 @@ Server *Server::init(Server *peer){
 
 Server *Server::init1(Server* peer)
         {
-        std::cout<<"Server " <<" fd " << peer->sock << std::endl;
+        char * ser = "Server fd ";
+	std::cout << ser << peer->sock << std::endl;
 	peer->addres.sin_family = AF_INET;
         peer->addres.sin_port = htons(PORT);
         peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -118,7 +121,7 @@ return this;
 
 
 Server *Server::sel(Server *peer){
-for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
+//for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
 return this;
 }
 
@@ -157,7 +160,8 @@ Server *Server::conn(Server *peer){
 			//char g[80]={0};
 			//read(peer->new_socket,g,1024);
 			//peer->nicknames.insert({peer->new_socket,g});
-			printf("New connection %s\n", peer->nicknames.find(peer->new_socket)->second);
+			std::cout<< "New connection"<<std::endl;
+			//printf("New connection %s\n", peer->new_socket);
 			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  
 
 return this;
