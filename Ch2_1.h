@@ -21,8 +21,8 @@ namespace Chapter2
 	{
 		#define STATIC_CHECK(expr, msg) \
 		{\
-			class ERROR_##msg {} ;\
-			(void) sizeof((Chapter2::Ch2_1::CompileTimeChecker<(expr) != 0> (ERROR_##msg())));\
+			class msg {} ;\
+			(void) sizeof((Chapter2::Ch2_1::CompileTimeChecker<(expr)> (msg())));\
 		}
 		template <bool> struct CompileTimeChecker
 		{

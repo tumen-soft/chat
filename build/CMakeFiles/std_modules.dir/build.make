@@ -67,7 +67,6 @@ include CMakeFiles/std_modules.dir/compiler_depend.make
 include CMakeFiles/std_modules.dir/progress.make
 
 CMakeFiles/std_modules:
-	/usr/bin/cmake -E echo Building\ standard\ library\ modules
 	g++ -fmodules-ts -std=c++20 -c -x c++-system-header iostream typeinfo
 
 std_modules: CMakeFiles/std_modules

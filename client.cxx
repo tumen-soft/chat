@@ -64,14 +64,14 @@ export class Client{
         char buffer[MAXLINE];
         fd_set read_fd;
 	Client *conn(Client *peer);
-	Client *init(Client *peer);
+	auto *init(auto *peer);
 	Client *sel(Client*);
 	Client *init1(Client *peer);
 	Client *selinit(Client *peer);
 };
-Client *Client::init(Client *peer){
+auto *Client::init(auto *peer){
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-	//std::string s = typeid(this).name();// <<" fd " << sock << std::endl;
+	std::cout << typeid(peer).name() << " fd " << sock << std::endl;
         
 	return this;
 }
@@ -79,7 +79,7 @@ Client *Client::init(Client *peer){
 
 Client *Client::init1(Client * peer)
         {
-	std::cout<<"Client " <<" fd " << peer->sock << std::endl;
+	//std::cout<<"Client " <<" fd " << peer->sock << std::endl;
 
 	peer->addres.sin_family = AF_INET;
         peer->addres.sin_port = htons(PORT);

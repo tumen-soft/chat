@@ -71,26 +71,26 @@ export class Server:public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
         //nmap nicknames;
-	Server *init(Server *peer);
+	//Server *init(Server *peer);
 	Server *init1(Server *);
 	Server *selinit(Server *);
 	Server *sel(Server *);
 	Server *conn(Server *);
 };
-
+/*
 Server *Server::init(Server *peer){
         peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-        //std::string s = typeid(this).name();// <<" fd " << sock << std::endl;
+	std::cout <<"Server fd " << sock << std::endl;
         
         return this;
 }
-
+*/
 
 
 Server *Server::init1(Server* peer)
         {
-        char * ser = "Server fd ";
-	std::cout << ser << peer->sock << std::endl;
+        //char * ser = "Server fd ";
+	//std::cout << ser << peer->sock << std::endl;
 	peer->addres.sin_family = AF_INET;
         peer->addres.sin_port = htons(PORT);
         peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
