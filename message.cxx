@@ -20,14 +20,14 @@ import <iostream>;
 
 //export class Client;
 //export class Server;
-auto ser = [](auto *pee){return (Server *)pee;};
-auto cli = [](auto *pee){return pee;};
+//auto ser = [](auto *pee){return (Server *)pee;};
+//auto cli = [](auto *pee){return pee;};
 
-template <class FUN, class FUN1, class FUN2>
-auto f(FUN1 fp1, FUN fp, FUN2 a)
-{
-        return fp1(fp(a));
-}
+//template <class FUN, class FUN1, class FUN2>
+//auto f(FUN1 fp1, FUN fp, FUN2 a)
+//{
+//        return fp1(fp(a));
+//}
 
 
 
@@ -100,8 +100,8 @@ enum PeerType{
         //int to;
         //std::string buffer;
 //        void operator()(auto *peer){  
-
-auto run=[](auto *peer){
+template<class U>
+U *run(U *peer){
 //peer->addres.sin_family = AF_INET;
 //peer->addres.sin_port = htons(PORT);
 //peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -179,8 +179,8 @@ switch(ch){
                 check();
 		//p=check1();
 		switch(check1()){
-	case 0: {f(run, ser, peer);break;}
-        case 1: {f(run, cli, peer);break;}
+	case 0: {run<Server>(peer);break;}
+        case 1: {run<Client>(peer);break;}
 		}
 
         default:
