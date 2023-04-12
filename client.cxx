@@ -1,15 +1,15 @@
 module;
 #include <arpa/inet.h>  //inet_addr define
-#include <stdio.h>  //printf()
+//#include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
-#include <unistd.h>  //close(), fread()
-#include <string>  //string type
-#include <map>
-#include <cstring>
+//#include <unistd.h>  //close(), fread()
+//#include <string>  //string type
+//#include <map>
+//#include <cstring>
 //#include <iostream>
-#include <thread>
-#include <vector>
-#include <queue>
+//#include <thread>
+//#include <vector>
+//#include <queue>
 //#include <typeinfo>
 #include <ext/stdio_filebuf.h>
 //#include <fstream>
@@ -18,7 +18,7 @@ module;
 export module client;
 import <iostream>;
 import <typeinfo>;
-
+import <cstring>;
 
 #define MAXLINE 1024
 #define PORT 8080 
@@ -63,11 +63,11 @@ export class Client{
         struct sockaddr_in addres;
         char buffer[MAXLINE];
         fd_set read_fd;
-	Client *conn(Client *peer);
-	auto *init(auto *peer);
-	Client *sel(Client*);
-	template<class T>  T *init1(T *peer);
-	Client *selinit(Client *peer);
+	template<class T> T *conn(T *);
+	auto *init(auto *);
+	template<class T> T *sel(T *);
+	template<class T> T *init1(T *);
+	auto *selinit(auto *);
 };
 auto *Client::init(auto *peer){
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -92,14 +92,14 @@ template<> Client *Client::init1(Client *peer)
 
         }
 
-Client *Client::selinit(Client *peer){
+auto *Client::selinit(auto *peer){
 
                 memset(peer->buffer, 0, sizeof(peer->buffer));
                 FD_ZERO(&peer->read_fd);
                 FD_SET(0, &peer->read_fd);
                 FD_SET(peer->sock, &peer->read_fd);
 
-return this;
+return peer;
 }
 
 
@@ -107,13 +107,13 @@ return this;
 
 
 
-Client *Client::sel(Client *peer){
+template<> Client *Client::sel(Client *peer){
 return this;
 }
 
 
 
-Client *Client::conn(Client *peer){
+template <> Client *Client::conn(Client *peer){
     int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
 
     __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1

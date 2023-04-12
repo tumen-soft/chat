@@ -1,23 +1,24 @@
 module;
 #include <arpa/inet.h>  //inet_addr define
-#include <stdio.h>  //printf()
+//#include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <unistd.h>  //close(), fread()
 //#include <string>  //string type
-#include <map>
+//#include <map>
 #include <cstring>
 //#include <iostream>
-#include <thread>
-#include <vector>
-#include <queue>
+//#include <thread>
+//#include <vector>
+//#include <queue>
 //#include <typeinfo>
 #include <ext/stdio_filebuf.h>
-#include <fstream>
+//#include <fstream>
 //export module peer;
 //using namespace std;
 export module server;
 import <iostream>;
 import <typeinfo>;
+import <map>;
 //export module server;
 import client;
 //char s[80];
@@ -71,20 +72,7 @@ export class Server:public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
         nmap nicknames;
-	//Server *init(Server *peer);
-	//Server *init1(Server *);
-	Server *selinit(Server *);
-	Server *sel(Server *);
-	Server *conn(Server *);
 };
-/*
-Server *Server::init(Server *peer){
-        peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-	std::cout <<"Server fd " << sock << std::endl;
-        
-        return this;
-}
-*/
 
 
 template<> Server *Client::init1(Server* peer)
@@ -100,27 +88,16 @@ template<> Server *Client::init1(Server* peer)
         listen(peer->sock, 300);
         //std::cout <<"test" <<std::endl;
         //peer->nicknames.insert({0,s});
-        return this;
+        return peer;
 
 	}
 
 
-Server *Server::selinit(Server *peer){
-
-                memset(peer->buffer, 0, sizeof(peer->buffer));
-                FD_ZERO(&peer->read_fd);
-                FD_SET(0, &peer->read_fd);
-                FD_SET(peer->sock, &peer->read_fd);
-
-return this;
-}
 
 
 
 
-
-
-Server *Server::sel(Server *peer){
+template<> Server *Client::sel(Server *peer){
 //for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
 return this;
 }
@@ -153,7 +130,7 @@ void sendmessage(){
 }
 
 
-Server *Server::conn(Server *peer){
+template<> Server *Client::conn(Server *peer){
 			//peer->new_socket = accept(peer->sock,NULL,NULL);
 			//accepting connection
 			peer->new_socket = accept(peer->sock,NULL,NULL);

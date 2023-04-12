@@ -4,7 +4,7 @@ project(chat)
 # Add target to build iostream module
 add_custom_target(std_modules ALL
 	#COMMAND ${CMAKE_COMMAND} -E echo "Building standard library modules"
-    COMMAND g++ -fmodules-ts -std=c++20 -c -x c++-system-header iostream typeinfo 
+    COMMAND g++ -fmodules-ts -std=c++20 -c -x c++-system-header iostream typeinfo map cstring 
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
@@ -26,7 +26,7 @@ set (MODULES client.cxx
 	message.cxx)
 
 # Setup program modules object library
-set (MODULE_TARGET chat-modules)
+set (MODULE_TARGET chat_modules)
 add_library(${MODULE_TARGET} OBJECT ${MODULES})
 prepare_for_module(${MODULE_TARGET})
 

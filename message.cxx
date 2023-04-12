@@ -179,8 +179,8 @@ switch(ch){
                 check();
 		//p=check1();
 		switch(check1()){
-	case 0: {run<Server>(peer);break;}
-        case 1: {run<Client>(peer);break;}
+	case 0: {run((Server *)peer);break;}
+        case 1: {run(peer);break;}
 		}
 
         default:
