@@ -23,7 +23,7 @@ import client;
 //char s[80];
 #define MAXLINE 1024
 #define PORT 8080 
-//typedef std::map<int,char*> nmap;
+typedef std::map<int,char*> nmap;
 /*enum PeerType{
         _Server,
         _Client
@@ -70,9 +70,9 @@ import client;
 export class Server:public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
-        //nmap nicknames;
+        nmap nicknames;
 	//Server *init(Server *peer);
-	Server *init1(Server *);
+	//Server *init1(Server *);
 	Server *selinit(Server *);
 	Server *sel(Server *);
 	Server *conn(Server *);
@@ -87,10 +87,10 @@ Server *Server::init(Server *peer){
 */
 
 
-Server *Server::init1(Server* peer)
+template<> Server *Client::init1(Server* peer)
         {
         //char * ser = "Server fd ";
-	//std::cout << ser << peer->sock << std::endl;
+	std::cout << "server start" << std::endl;
 	peer->addres.sin_family = AF_INET;
         peer->addres.sin_port = htons(PORT);
         peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);

@@ -66,7 +66,7 @@ export class Client{
 	Client *conn(Client *peer);
 	auto *init(auto *peer);
 	Client *sel(Client*);
-	Client *init1(Client *peer);
+	template<class T>  T *init1(T *peer);
 	Client *selinit(Client *peer);
 };
 auto *Client::init(auto *peer){
@@ -77,9 +77,9 @@ auto *Client::init(auto *peer){
 }
 
 
-Client *Client::init1(Client * peer)
+template<> Client *Client::init1(Client *peer)
         {
-	//std::cout<<"Client " <<" fd " << peer->sock << std::endl;
+	std::cout<<"client start "  << std::endl;
 
 	peer->addres.sin_family = AF_INET;
         peer->addres.sin_port = htons(PORT);
