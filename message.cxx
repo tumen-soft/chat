@@ -1,87 +1,6 @@
-//`module;
-//#include <arpa/inet.h>  //inet_addr define
-//#include <stdio.h>  //printf()
-//#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
-//#include <unistd.h>  //close(), fread()
-//#include <string>  //string type
-//#include <cstring>
-//#include <iostream>
-//#include <typeinfo>
-//#include <ext/stdio_filebuf.h>
-//#include <fstream>
-//import <iostream>;
-//export module message;
-//using namespace std;
-import client;
 import server;
 import ipscan;
 import <iostream>;
-//export module message;
-
-//export class Client;
-//export class Server;
-//auto ser = [](auto *pee){return (Server *)pee;};
-//auto cli = [](auto *pee){return pee;};
-
-//template <class FUN, class FUN1, class FUN2>
-//auto f(FUN1 fp1, FUN fp, FUN2 a)
-//{
-//        return fp1(fp(a));
-//}
-
-
-
-
-
-class message{
-	public:
-	int from;
-	int to;
-	std::string buffer;
-	void operator()(Server *peer){	
-#if 0
-      for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
-                { 
-                        sd = itr2->first; 
-                        if (FD_ISSET(sd , &read_fd)) 
-                        { 
-                                if ((valread = read(sd, buffer, 1024))==0) 
-                                { 
-                                        printf("Host disconnected %s \n" ,itr2->second); 
-                                        close(sd); 
-                                        nicknames.erase(itr2); 
-                                        break;                          
-                                } 
-                                else
-                                { 
-                                        buffer[valread] = '\0';
-                                        for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
-                                        dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
-                                        
-                                 }  
-                        } 
-             
-                }
-
-#endif
-		}
-
-
-
-
-	void operator()(Client *peer){}
-
-
-};
-
-
-
-
-
-
-
-
-
 
 #define MAXLINE 1024
 #define PORT 8080 
@@ -105,8 +24,6 @@ U *run(U *peer){
 //peer->addres.sin_family = AF_INET;
 //peer->addres.sin_port = htons(PORT);
 //peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
-message mess;
-//mess(peer);
 
 
 peer->init(peer);
@@ -138,8 +55,7 @@ for(;;)
 
 		if(FD_ISSET(peer->sock, &peer->read_fd))peer->conn(peer);
 
-		//mess(peer);
-
+		//sendmessage()
 
 //for(;;)
 }
@@ -162,7 +78,7 @@ st:;
 std::cout<<"0.end"<<std::endl;
 std::cout<<"1.run"<<std::endl;
 int c,p;
-Client * peer = new Server;
+peer = new Server;
 std::cin>>c;
 //c=1;
 ch=(int)c;

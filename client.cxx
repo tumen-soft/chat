@@ -1,20 +1,7 @@
 module;
 #include <arpa/inet.h>  //inet_addr define
-//#include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
-//#include <unistd.h>  //close(), fread()
-//#include <string>  //string type
-//#include <map>
-//#include <cstring>
-//#include <iostream>
-//#include <thread>
-//#include <vector>
-//#include <queue>
-//#include <typeinfo>
 #include <ext/stdio_filebuf.h>
-//#include <fstream>
-//export module peer;
-//using namespace std;
 export module client;
 import <iostream>;
 import <typeinfo>;

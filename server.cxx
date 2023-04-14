@@ -1,35 +1,18 @@
 module;
 #include <arpa/inet.h>  //inet_addr define
-//#include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <unistd.h>  //close(), fread()
-//#include <string>  //string type
-//#include <map>
 #include <cstring>
-//#include <iostream>
-//#include <thread>
-//#include <vector>
-//#include <queue>
-//#include <typeinfo>
 #include <ext/stdio_filebuf.h>
-//#include <fstream>
-//export module peer;
-//using namespace std;
 export module server;
 import <iostream>;
 import <typeinfo>;
 import <map>;
-//export module server;
 import client;
-//char s[80];
 #define MAXLINE 1024
 #define PORT 8080 
+export Client *peer;
 typedef std::map<int,char*> nmap;
-/*enum PeerType{
-        _Server,
-        _Client
-};
-*/
 #if 0	
 		<сервер>									
 		  |
@@ -143,3 +126,5 @@ template<> Server *Client::conn(Server *peer){
 
 return this;
 }
+
+
