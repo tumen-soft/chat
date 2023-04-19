@@ -2,6 +2,8 @@ module;
 #include <arpa/inet.h>  //inet_addr define
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <ext/stdio_filebuf.h>
+#include <stdio.h>  //printf()
+#include <unistd.h>  //close(), fread()
 export module client;
 import <iostream>;
 import <typeinfo>;
@@ -55,6 +57,7 @@ export class Client{
 	template<class T> T *sel(T *);
 	template<class T> T *init1(T *);
 	auto *selinit(auto *);
+	template<class T> T *sendmes(T *);
 };
 auto *Client::init(auto *peer){
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -115,10 +118,24 @@ template <> Client *Client::conn(Client *peer){
 
 return this;
 #if 0
-if(a==b)if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
 if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
 if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
 #endif
 
 }
+template<>Client *Client::sendmes(Client *peer){
+
+
+
+//if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+//if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
+
+return this;
+
+
+
+}
+
+
+
 

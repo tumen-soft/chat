@@ -55,7 +55,7 @@ for(;;)
 
 		if(FD_ISSET(peer->sock, &peer->read_fd))peer->conn(peer);
 
-		//sendmessage()
+		peer->sendmes(peer);
 
 //for(;;)
 }

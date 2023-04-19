@@ -85,7 +85,7 @@ template<> Server *Client::sel(Server *peer){
 return this;
 }
 
-void sendmessage(){
+template<> Server *Client::sendmes(Server *peer){
 #if 0
 	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
@@ -110,6 +110,7 @@ void sendmessage(){
              
         	}
 #endif
+return this;
 }
 
 
