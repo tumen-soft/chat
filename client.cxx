@@ -98,36 +98,39 @@ return peer;
 
 
 template<> Client *Client::sel(Client *peer){
-return this;
+//                select(300, &peer->read_fd, NULL, NULL, NULL);
+
+	return this;
 }
 
 
 
 template <> Client *Client::conn(Client *peer){
-    int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
+  //  int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
 
-    __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
-    std::istream is(&filebuf); // 2
-        char buff[1024] = { 0 };
+    //__gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
+    //std::istream is(&filebuf); // 2
+      //  char buff[1024] = { 0 };
 
     //char *line;
     //getline(is, line);
-	is >> buff;
+//	is >> buff;
 // read(sock, buffer, sizeof(buffer));
-	 dprintf(0, buff);
+	 //dprintf(0, buff);
 
+//return this;
+//#if 0
+///if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+//if(FD_ISSET(sock, &read_fd)){
+read(peer->sock, peer->buffer, sizeof(peer->buffer));dprintf(0, peer->buffer);//}
+//#endif
 return this;
-#if 0
-if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
-if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
-#endif
-
 }
 template<>Client *Client::sendmes(Client *peer){
 
 
 
-//if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+if(FD_ISSET(0, &peer->read_fd)){read(0, peer->buffer,sizeof(peer->buffer));dprintf(peer->sock, peer->buffer);}  
 //if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
 
 return this;

@@ -70,7 +70,7 @@ template<> Server *Client::init1(Server* peer)
         //waiting for connection
         listen(peer->sock, 300);
         //std::cout <<"test" <<std::endl;
-        //peer->nicknames.insert({0,s});
+        peer->nicknames.insert({0,"test"});
         return peer;
 
 	}
@@ -81,51 +81,54 @@ template<> Server *Client::init1(Server* peer)
 
 
 template<> Server *Client::sel(Server *peer){
-//for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)FD_SET(itr->first, &peer->read_fd);
+for (auto itr = peer->nicknames.begin(); itr != peer->nicknames.end(); ++itr)
+FD_SET(itr->first, &peer->read_fd);
+//                select(300, &peer->read_fd, NULL, NULL, NULL);
+
 return this;
 }
 
 template<> Server *Client::sendmes(Server *peer){
-#if 0
-	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+//#if 0
+	for (auto itr2 = peer->nicknames.begin(); itr2 != peer->nicknames.end(); ++itr2)
                 { 
-			sd = itr2->first; 
-			if (FD_ISSET(sd , &read_fd)) 
+			peer->sd = itr2->first; 
+			if (FD_ISSET(peer->sd , &peer->read_fd)) 
                         { 
-				if ((valread = read(sd, buffer, 1024))==0) 
-				{ 
+				if ((peer->valread = read(peer->sd, peer->buffer, 1024))) 
+				/*{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
-                                        close(sd); 
-					nicknames.erase(itr2); 
+                                        close(peer->sd); 
+					peer->nicknames.erase(itr2); 
                                 	break;				
 				} 
                                 else
+					*/
 				{ 
-	  				buffer[valread] = '\0';
-					for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
-					dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
+	  				peer->buffer[peer->valread] = '\0';
+					for (auto itr1 = peer->nicknames.begin(); itr1 != peer->nicknames.end(); ++itr1)
+					dprintf(itr1->first,"%s says: %s\n",itr2->second, peer->buffer);
 					
                                  }  
                         } 
              
         	}
-#endif
+//#endif
 return this;
 }
-
 
 template<> Server *Client::conn(Server *peer){
 			//peer->new_socket = accept(peer->sock,NULL,NULL);
 			//accepting connection
 			peer->new_socket = accept(peer->sock,NULL,NULL);
-			//char g[80]={0};
+			//char g[80]={"sos"};
+			//g="sos";
 			//read(peer->new_socket,g,1024);
-			//peer->nicknames.insert({peer->new_socket,g});
-			std::cout<< "New connection"<<std::endl;
+			peer->nicknames.insert({peer->new_socket,"test"});
+			std::cout<< "New connection "<<peer->new_socket<<std::endl;
 			//printf("New connection %s\n", peer->new_socket);
 			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  
 
 return this;
 }
-
 
