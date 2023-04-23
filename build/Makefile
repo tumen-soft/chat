@@ -65,6 +65,26 @@ CMAKE_BINARY_DIR = /home/programmer/chat/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	/usr/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+.PHONY : package/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/programmer/chat/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+.PHONY : package_source/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -130,17 +150,17 @@ std_modules/fast:
 .PHONY : std_modules/fast
 
 #=============================================================================
-# Target rules for targets named chat-modules
+# Target rules for targets named chat_modules
 
 # Build rule for target.
-chat-modules: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chat-modules
-.PHONY : chat-modules
+chat_modules: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chat_modules
+.PHONY : chat_modules
 
 # fast build rule for target.
-chat-modules/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/build
-.PHONY : chat-modules/fast
+chat_modules/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/build
+.PHONY : chat_modules/fast
 
 #=============================================================================
 # Target rules for targets named chat
@@ -160,7 +180,7 @@ client.o: client.cxx.o
 
 # target to build an object file
 client.cxx.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/client.cxx.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/client.cxx.o
 .PHONY : client.cxx.o
 
 client.i: client.cxx.i
@@ -168,7 +188,7 @@ client.i: client.cxx.i
 
 # target to preprocess a source file
 client.cxx.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/client.cxx.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/client.cxx.i
 .PHONY : client.cxx.i
 
 client.s: client.cxx.s
@@ -176,7 +196,7 @@ client.s: client.cxx.s
 
 # target to generate assembly for a file
 client.cxx.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/client.cxx.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/client.cxx.s
 .PHONY : client.cxx.s
 
 ipscan.o: ipscan.cxx.o
@@ -184,7 +204,7 @@ ipscan.o: ipscan.cxx.o
 
 # target to build an object file
 ipscan.cxx.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/ipscan.cxx.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/ipscan.cxx.o
 .PHONY : ipscan.cxx.o
 
 ipscan.i: ipscan.cxx.i
@@ -192,7 +212,7 @@ ipscan.i: ipscan.cxx.i
 
 # target to preprocess a source file
 ipscan.cxx.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/ipscan.cxx.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/ipscan.cxx.i
 .PHONY : ipscan.cxx.i
 
 ipscan.s: ipscan.cxx.s
@@ -200,7 +220,7 @@ ipscan.s: ipscan.cxx.s
 
 # target to generate assembly for a file
 ipscan.cxx.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/ipscan.cxx.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/ipscan.cxx.s
 .PHONY : ipscan.cxx.s
 
 main.o: main.cpp.o
@@ -232,7 +252,7 @@ message.o: message.cxx.o
 
 # target to build an object file
 message.cxx.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/message.cxx.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/message.cxx.o
 .PHONY : message.cxx.o
 
 message.i: message.cxx.i
@@ -240,7 +260,7 @@ message.i: message.cxx.i
 
 # target to preprocess a source file
 message.cxx.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/message.cxx.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/message.cxx.i
 .PHONY : message.cxx.i
 
 message.s: message.cxx.s
@@ -248,7 +268,7 @@ message.s: message.cxx.s
 
 # target to generate assembly for a file
 message.cxx.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/message.cxx.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/message.cxx.s
 .PHONY : message.cxx.s
 
 server.o: server.cxx.o
@@ -256,7 +276,7 @@ server.o: server.cxx.o
 
 # target to build an object file
 server.cxx.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/server.cxx.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/server.cxx.o
 .PHONY : server.cxx.o
 
 server.i: server.cxx.i
@@ -264,7 +284,7 @@ server.i: server.cxx.i
 
 # target to preprocess a source file
 server.cxx.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/server.cxx.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/server.cxx.i
 .PHONY : server.cxx.i
 
 server.s: server.cxx.s
@@ -272,7 +292,7 @@ server.s: server.cxx.s
 
 # target to generate assembly for a file
 server.cxx.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/server.cxx.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/server.cxx.s
 .PHONY : server.cxx.s
 
 # Help Target
@@ -282,10 +302,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... package"
+	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... std_modules"
 	@echo "... chat"
-	@echo "... chat-modules"
+	@echo "... chat_modules"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"

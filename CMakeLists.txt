@@ -1,10 +1,15 @@
 cmake_minimum_required(VERSION 3.19) # Lower versions should also be supported
 project(chat)
-
+#include(InstallRequiredSystemLibraries)
+#set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set(CPACK_PACKAGE_VERSION_MAJOR "${0}")
+set(CPACK_PACKAGE_VERSION_MINOR "${14}")
+set(CPACK_SOURCE_GENERATOR "TGZ")
+include(CPack)
 # Add target to build iostream module
 add_custom_target(std_modules ALL
 	#COMMAND ${CMAKE_COMMAND} -E echo "Building standard library modules"
-    COMMAND g++ -fmodules-ts -std=c++20 -c -x c++-system-header iostream typeinfo map cstring 
+    COMMAND g++ -fmodules-ts -std=c++20 -g -c -x c++-system-header iostream typeinfo map cstring 
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
@@ -12,6 +17,7 @@ add_custom_target(std_modules ALL
 function (prepare_for_module TGT)
     target_compile_options(${TGT} PUBLIC -fmodules-ts)
     target_compile_options(${TGT} PUBLIC -fpermissive)
+    target_compile_options(${TGT} PUBLIC -g)
     set_property(TARGET ${TGT} PROPERTY CXX_STANDARD 20)
     set_property(TARGET ${TGT} PROPERTY CXX_EXTENSIONS OFF)
     add_dependencies(${TGT} std_modules)

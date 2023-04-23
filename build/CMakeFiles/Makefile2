@@ -64,7 +64,7 @@ CMAKE_BINARY_DIR = /home/programmer/chat/build
 
 # The main recursive "all" target.
 all: CMakeFiles/std_modules.dir/all
-all: CMakeFiles/chat-modules.dir/all
+all: CMakeFiles/chat_modules.dir/all
 all: CMakeFiles/chat.dir/all
 .PHONY : all
 
@@ -74,7 +74,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/std_modules.dir/clean
-clean: CMakeFiles/chat-modules.dir/clean
+clean: CMakeFiles/chat_modules.dir/clean
 clean: CMakeFiles/chat.dir/clean
 .PHONY : clean
 
@@ -105,37 +105,37 @@ CMakeFiles/std_modules.dir/clean:
 .PHONY : CMakeFiles/std_modules.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/chat-modules.dir
+# Target rules for target CMakeFiles/chat_modules.dir
 
 # All Build rule for target.
-CMakeFiles/chat-modules.dir/all: CMakeFiles/std_modules.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=3,4,5,6 "Built target chat-modules"
-.PHONY : CMakeFiles/chat-modules.dir/all
+CMakeFiles/chat_modules.dir/all: CMakeFiles/std_modules.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=3,4,5,6 "Built target chat_modules"
+.PHONY : CMakeFiles/chat_modules.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/chat-modules.dir/rule: cmake_check_build_system
+CMakeFiles/chat_modules.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/programmer/chat/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/chat-modules.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/chat_modules.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/programmer/chat/build/CMakeFiles 0
-.PHONY : CMakeFiles/chat-modules.dir/rule
+.PHONY : CMakeFiles/chat_modules.dir/rule
 
 # Convenience name for target.
-chat-modules: CMakeFiles/chat-modules.dir/rule
-.PHONY : chat-modules
+chat_modules: CMakeFiles/chat_modules.dir/rule
+.PHONY : chat_modules
 
 # clean rule for target.
-CMakeFiles/chat-modules.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat-modules.dir/build.make CMakeFiles/chat-modules.dir/clean
-.PHONY : CMakeFiles/chat-modules.dir/clean
+CMakeFiles/chat_modules.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/clean
+.PHONY : CMakeFiles/chat_modules.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/chat.dir
 
 # All Build rule for target.
 CMakeFiles/chat.dir/all: CMakeFiles/std_modules.dir/all
-CMakeFiles/chat.dir/all: CMakeFiles/chat-modules.dir/all
+CMakeFiles/chat.dir/all: CMakeFiles/chat_modules.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat.dir/build.make CMakeFiles/chat.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat.dir/build.make CMakeFiles/chat.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=1,2 "Built target chat"

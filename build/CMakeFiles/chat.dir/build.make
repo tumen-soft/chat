@@ -89,16 +89,16 @@ chat_OBJECTS = \
 
 # External object files for target chat
 chat_EXTERNAL_OBJECTS = \
-"/home/programmer/chat/build/CMakeFiles/chat-modules.dir/client.cxx.o" \
-"/home/programmer/chat/build/CMakeFiles/chat-modules.dir/server.cxx.o" \
-"/home/programmer/chat/build/CMakeFiles/chat-modules.dir/ipscan.cxx.o" \
-"/home/programmer/chat/build/CMakeFiles/chat-modules.dir/message.cxx.o"
+"/home/programmer/chat/build/CMakeFiles/chat_modules.dir/client.cxx.o" \
+"/home/programmer/chat/build/CMakeFiles/chat_modules.dir/server.cxx.o" \
+"/home/programmer/chat/build/CMakeFiles/chat_modules.dir/ipscan.cxx.o" \
+"/home/programmer/chat/build/CMakeFiles/chat_modules.dir/message.cxx.o"
 
 chat: CMakeFiles/chat.dir/main.cpp.o
-chat: CMakeFiles/chat-modules.dir/client.cxx.o
-chat: CMakeFiles/chat-modules.dir/server.cxx.o
-chat: CMakeFiles/chat-modules.dir/ipscan.cxx.o
-chat: CMakeFiles/chat-modules.dir/message.cxx.o
+chat: CMakeFiles/chat_modules.dir/client.cxx.o
+chat: CMakeFiles/chat_modules.dir/server.cxx.o
+chat: CMakeFiles/chat_modules.dir/ipscan.cxx.o
+chat: CMakeFiles/chat_modules.dir/message.cxx.o
 chat: CMakeFiles/chat.dir/build.make
 chat: CMakeFiles/chat.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable chat"

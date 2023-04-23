@@ -106,24 +106,7 @@ template<> Client *Client::sel(Client *peer){
 
 
 template <> Client *Client::conn(Client *peer){
-  //  int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
-
-    //__gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
-    //std::istream is(&filebuf); // 2
-      //  char buff[1024] = { 0 };
-
-    //char *line;
-    //getline(is, line);
-//	is >> buff;
-// read(sock, buffer, sizeof(buffer));
-	 //dprintf(0, buff);
-
-//return this;
-//#if 0
-///if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
-//if(FD_ISSET(sock, &read_fd)){
 read(peer->sock, peer->buffer, sizeof(peer->buffer));dprintf(0, peer->buffer);//}
-//#endif
 return this;
 }
 template<>Client *Client::sendmes(Client *peer){

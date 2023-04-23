@@ -1,7 +1,14 @@
+#include <arpa/inet.h>  //inet_addr define
+#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
+#include <ext/stdio_filebuf.h>
+#include <stdio.h>  //printf()
+#include <unistd.h>  //close(), fread()
+import <cstring>;
+
 import server;
 import ipscan;
 import <iostream>;
-
+//#include <cstring>
 #define MAXLINE 1024
 #define PORT 8080 
 
@@ -11,44 +18,24 @@ enum PeerType{
         _Server,
         _Client
 };
-//	Client * peer = new Server;
-
-//class run{
-//        public:
-        //int from;
-        //int to;
-        //std::string buffer;
-//        void operator()(auto *peer){  
 template<class U>
 U *run(U *peer){
-//peer->addres.sin_family = AF_INET;
-//peer->addres.sin_port = htons(PORT);
-//peer->addres.sin_addr.s_addr = htonl(INADDR_ANY);
 
-
-peer->init(peer);
-#if 0
-    int posix_handle = peer->sock;//fileno(::fopen("test.txt", "r"));
-
-    __gnu_cxx::stdio_filebuf<char> filebuf(posix_handle, std::ios::in); // 1
-    std::istream is(&filebuf); // 2
-
-    std::string line;
-    //getline(is, line);
-
-#endif
-
-
-
+//peer->init(peer);
+       peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+       std::cout << typeid(peer).name() << " fd " << peer->sock << std::endl;
 
 peer->init1(peer);
-
-//peer->conn(peer);
 
 
 for(;;)
 {
-		peer->selinit(peer);
+		//peer->selinit(peer);
+                memset(peer->buffer, 0, sizeof(peer->buffer));
+                FD_ZERO(&peer->read_fd);
+                FD_SET(0, &peer->read_fd);
+                FD_SET(peer->sock, &peer->read_fd);
+
 		peer->sel(peer);
 
 		select(300, &peer->read_fd, NULL, NULL, NULL);

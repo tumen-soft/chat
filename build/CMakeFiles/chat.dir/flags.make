@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS = -std=c++20 -fmodules-ts -fpermissive
+CXX_FLAGS = -std=c++20 -fmodules-ts -fpermissive -g
 

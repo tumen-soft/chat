@@ -24,11 +24,11 @@ Ip scanner состоит:
 План работ:
 На данном этапе проэект состоит из:
 1:Модуля main.cpp
-2:Модуля peer.cpp
-3:Модуля ipscan.cpp
-4:Модуля server.cpp
-5:Модуля client.cpp
-6:Системы сборки autotools.
+2:Модуля message.cxx
+3:Модуля ipscan.cxx
+4:Модуля server.cxx
+5:Модуля client.cxx
+6:Системы сборки CMake.
 7:Система контроля версий Git.
 
 Разработан инрерфейс модуля ipscan:
