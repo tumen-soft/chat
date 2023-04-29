@@ -1,11 +1,6 @@
 cmake_minimum_required(VERSION 3.19) # Lower versions should also be supported
 project(chat)
-#include(InstallRequiredSystemLibraries)
-#set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
-set(CPACK_PACKAGE_VERSION_MAJOR "${0}")
-set(CPACK_PACKAGE_VERSION_MINOR "${14}")
-set(CPACK_SOURCE_GENERATOR "TGZ")
-include(CPack)
+
 # Add target to build iostream module
 add_custom_target(std_modules ALL
 	#COMMAND ${CMAKE_COMMAND} -E echo "Building standard library modules"
@@ -42,3 +37,20 @@ prepare_for_module(${TARGET})
 
 # Add modules to application using object library
 target_link_libraries(${TARGET} PRIVATE ${MODULE_TARGET})
+
+# ... above cmake code for one console application creation
+# below code that I add:
+
+#install
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "bin" COMPONENT applications)
+
+# pack
+set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+set(CPACK_PACKAGE_VENDOR "MyOrg")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "CPack Component Installation Example")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+
+set(CPACK_GENERATOR "ZIP")
+
+include(CPack)
+

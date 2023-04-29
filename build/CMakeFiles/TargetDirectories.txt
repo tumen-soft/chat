@@ -1,7 +1,0 @@
-/home/programmer/chat/build/CMakeFiles/std_modules.dir
-/home/programmer/chat/build/CMakeFiles/chat_modules.dir
-/home/programmer/chat/build/CMakeFiles/chat.dir
-/home/programmer/chat/build/CMakeFiles/package.dir
-/home/programmer/chat/build/CMakeFiles/package_source.dir
-/home/programmer/chat/build/CMakeFiles/edit_cache.dir
-/home/programmer/chat/build/CMakeFiles/rebuild_cache.dir
