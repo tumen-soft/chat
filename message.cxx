@@ -21,9 +21,9 @@ enum PeerType{
 template<class U>
 U *run(U *peer){
 
-//peer->init(peer);
-       peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-       std::cout << typeid(peer).name() << " fd " << peer->sock << std::endl;
+peer->init(peer);
+//       peer->sock=socket(AF_INET, SOCK_STREAM, 0);
+  //     std::cout << typeid(peer).name() << " fd " << peer->sock << std::endl;
 
 peer->init1(peer);
 
