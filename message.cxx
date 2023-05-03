@@ -8,7 +8,6 @@ import <cstring>;
 import server;
 import ipscan;
 import <iostream>;
-//#include <cstring>
 #define MAXLINE 1024
 #define PORT 8080 
 
