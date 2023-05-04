@@ -75,12 +75,11 @@ switch(ch){
                 break;
 
         case RUN:
-		//std::cout<< "wait..."<<std::endl;
                 spawnThreads();
-                //wait();
                 check();
-		//p=check1();
+		//--------------
 		switch(check1()){
+		//--------------
 	case 0: {run((Server *)peer);break;}
         case 1: {run(peer);break;}
 		}
