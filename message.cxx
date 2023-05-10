@@ -18,7 +18,7 @@ enum PeerType{
         _Client
 };
 //template<class U>
-static void run(auto *peer){
+void run(auto *peer){
 
 peer->init(peer);
 //       peer->sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -80,8 +80,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {run((Server *)(*singleton0->get_instance()).getInst());break;}
-		case 1: {run((*singleton1->get_instance()).getInst());break;}
+		case 0: {run((Server *)((*singleton0)._instance));break;}
+		case 1: {run((*singleton1)._instance);break;}
 		}
 
         default:

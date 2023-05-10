@@ -56,32 +56,33 @@ export class Server:public Client{
         nmap nicknames;
 };
 class Singleton{
-	public:
+	protected:
 	Singleton(){};
 	~Singleton(){};
-
-	//public:
+	public:
+	Singleton(const Singleton&) = delete;
+    	Singleton(Singleton&&) = delete;
+    	Singleton& operator=(const Singleton&) = delete;
+    	Singleton& operator=(Singleton&&) = delete;
+	public:
 	static Singleton* get_instance();
 	//{//static Singleton instance;
 	//	return &instance;};
 	//void run(auto *);
-	Client* getInst(){return &_instance;};
+	Client* _instance = new Server(); 
 	private:
 	static Singleton* instance;	
-	Client _instance;
-
-
 };
 Singleton* Singleton::instance=0;
 
-Singleton* Singleton::get_instance()
+static Singleton* Singleton::get_instance()
 {//static Singleton instance;
 return instance=new Singleton;};
 
 
 //Singleton* s(new Singleton);
-export Singleton* singleton0;
-export Singleton* singleton1;
+export Singleton* singleton0(Singleton::get_instance());
+export Singleton* singleton1(Singleton::get_instance());
 
 //export singleton0;
 //export singleton1;
