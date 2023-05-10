@@ -62,6 +62,7 @@ class Singleton
 public:
    static Singleton* Instance();
    Client* instance = new Server(); 
+   int data;
 protected:
    Singleton(){};
 private:
