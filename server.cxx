@@ -55,34 +55,33 @@ export class Server:public Client{
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
         nmap nicknames;
 };
-class Singleton{
-	protected:
-	Singleton(){};
-	~Singleton(){};
-	public:
-	Singleton(const Singleton&) = delete;
-    	Singleton(Singleton&&) = delete;
-    	Singleton& operator=(const Singleton&) = delete;
-    	Singleton& operator=(Singleton&&) = delete;
-	public:
-	static Singleton* get_instance();
-	//{//static Singleton instance;
-	//	return &instance;};
-	//void run(auto *);
-	Client* _instance = new Server(); 
-	private:
-	static Singleton* instance;	
-};
-Singleton* Singleton::instance=0;
 
-static Singleton* Singleton::get_instance()
-{//static Singleton instance;
-return instance=new Singleton;};
+//Синглетон Майерса
+class Singleton
+{
+public:
+   static Singleton* Instance();
+   Client* instance = new Server(); 
+protected:
+   Singleton(){};
+private:
+   static Singleton* _instance;
+};
+
+Singleton* Singleton::_instance = 0;
+Singleton* Singleton::Instance() {
+  if(_instance == 0){
+     _instance = new Singleton;
+  }
+  return _instance;
+}
+
+
 
 
 //Singleton* s(new Singleton);
-export Singleton* singleton0(Singleton::get_instance());
-export Singleton* singleton1(Singleton::get_instance());
+export Singleton* singleton0(Singleton::Instance());
+export Singleton* singleton1(Singleton::Instance());
 
 //export singleton0;
 //export singleton1;

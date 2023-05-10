@@ -80,8 +80,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {run((Server *)((*singleton0)._instance));break;}
-		case 1: {run((*singleton1)._instance);break;}
+		case 0: {run((Server *)((*singleton0).instance));break;}
+		case 1: {run((*singleton1).instance);break;}
 		}
 
         default:
