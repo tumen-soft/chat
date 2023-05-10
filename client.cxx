@@ -58,6 +58,9 @@ export class Client{
 	template<class T> T *init1(T *);
 	auto *selinit(auto *);
 	template<class T> T *sendmes(T *);
+	int data;
+	//protected:	
+	Client()=default;
 };
 auto *Client::init(auto *peer){
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);

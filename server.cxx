@@ -11,7 +11,7 @@ import <map>;
 import client;
 #define MAXLINE 1024
 #define PORT 8080 
-export Client *peer;
+//export Client *peer(new Server);
 typedef std::map<int,char*> nmap;
 #if 0	
 		<сервер>									
@@ -50,12 +50,42 @@ typedef std::map<int,char*> nmap;
 
 #endif
 
-
 export class Server:public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
         nmap nicknames;
 };
+class Singleton{
+	public:
+	Singleton(){};
+	~Singleton(){};
+
+	//public:
+	static Singleton* get_instance();
+	//{//static Singleton instance;
+	//	return &instance;};
+	//void run(auto *);
+	Client* getInst(){return &_instance;};
+	private:
+	static Singleton* instance;	
+	Client _instance;
+
+
+};
+Singleton* Singleton::instance=0;
+
+Singleton* Singleton::get_instance()
+{//static Singleton instance;
+return instance=new Singleton;};
+
+
+//Singleton* s(new Singleton);
+export Singleton* singleton0;
+export Singleton* singleton1;
+
+//export singleton0;
+//export singleton1;
+
 
 
 template<> Server *Client::init1(Server* peer)

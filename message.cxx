@@ -17,8 +17,8 @@ enum PeerType{
         _Server,
         _Client
 };
-template<class U>
-U *run(U *peer){
+//template<class U>
+static void run(auto *peer){
 
 peer->init(peer);
 //       peer->sock=socket(AF_INET, SOCK_STREAM, 0);
@@ -64,7 +64,7 @@ st:;
 std::cout<<"0.end"<<std::endl;
 std::cout<<"1.run"<<std::endl;
 int c,p;
-peer = new Server;
+//peer = new Server;
 std::cin>>c;
 //c=1;
 ch=(int)c;
@@ -80,8 +80,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-	case 0: {run((Server *)peer);break;}
-        case 1: {run(peer);break;}
+		case 0: {run((Server *)(*singleton0->get_instance()).getInst());break;}
+		case 1: {run((*singleton1->get_instance()).getInst());break;}
 		}
 
         default:
