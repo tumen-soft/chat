@@ -57,12 +57,12 @@ export class Server:public Client{
 };
 
 //Синглетон Майерса
-class Singleton
+class Singleton:public Server
 {
 public:
    static Singleton* Instance();
-   Client* instance = new Server(); 
-   int data;
+   //Client* instance = new Server(); 
+   //int data;
 protected:
    Singleton(){};
 private:

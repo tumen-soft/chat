@@ -4,7 +4,7 @@
 #include <stdio.h>  //printf()
 #include <unistd.h>  //close(), fread()
 import <cstring>;
-
+import client;
 import server;
 import ipscan;
 import <iostream>;
@@ -80,8 +80,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-			case 0: {singleton0->data=20;std::cout<<singleton1->data<<std::endl;run((Server *)((*singleton0).instance));break;}
-		case 1: {run((*singleton1).instance);break;}
+			case 0: {run((Server *)((*singleton0).Instance()));break;}
+		case 1: {run((Client*)(*singleton1).Instance());break;}
 		}
 
         default:
