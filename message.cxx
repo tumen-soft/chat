@@ -18,36 +18,36 @@ enum PeerType{
         _Client
 };
 //template<class U>
-void run(auto *peer){
+void run(auto* singleton){
 
-peer->init(peer);
+singleton->init(singleton);
 //       peer->sock=socket(AF_INET, SOCK_STREAM, 0);
   //     std::cout << typeid(peer).name() << " fd " << peer->sock << std::endl;
 
-peer->init1(peer);
+singleton->init1(singleton);
 
 
 for(;;)
 {
-		//peer->selinit(peer);
-                memset(peer->buffer, 0, sizeof(peer->buffer));
-                FD_ZERO(&peer->read_fd);
-                FD_SET(0, &peer->read_fd);
-                FD_SET(peer->sock, &peer->read_fd);
+		singleton->selinit(singleton);
+                //memset(peer->buffer, 0, sizeof(peer->buffer));
+                //FD_ZERO(&peer->read_fd);
+                //FD_SET(0, &peer->read_fd);
+                //FD_SET(peer->sock, &peer->read_fd);
 
-		peer->sel(peer);
+		singleton->sel(singleton);
 
-		select(300, &peer->read_fd, NULL, NULL, NULL);
+		select(300, &singleton->read_fd, NULL, NULL, NULL);
 
-		if(FD_ISSET(peer->sock, &peer->read_fd))peer->conn(peer);
+		if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn(singleton);
 
-		peer->sendmes(peer);
+		singleton->sendmes(singleton);
 
 //for(;;)
 }
 
 //}//operator
- return peer;
+ return singleton;
 //run()
 };
 

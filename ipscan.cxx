@@ -12,15 +12,15 @@ module;
 //#include <queue>
 //#include <typeinfo>
 //#include <ext/stdio_filebuf.h>
-//#include <fstream>
+#include <fstream>
 //export module peer;
 //using namespace std;
 export module ipscan;
 
 //import peer;
 
-//std::ofstream out("/dev/stdout");
-//std::ifstream in("/dev/stdin");
+std::ofstream out("/dev/stdout");
+std::ifstream in("/dev/stdin");
 
 
 #define MAXLINE 1024
@@ -195,28 +195,10 @@ char a[256] = "192.168.1.";
 }
 
 
-//in >> s;
-
-//fun(peer)->funct();
-//ofstream out("/dev/stdout");
-//ifstream in("/dev/stdin");
-
-printf("0.server\n");
+std::cout<<"0.server\n";
 printf("1.client\n");
 int p;
 scanf("%i", &p);  
 
-//peer = new Server;
-
-//run((Server *)peer);
 return p;
-/*
-switch(p){
-	case 0: {}//{run((Server*)peer);break;}
-	case 1: {}//{run(peer);break;}
-}
-*/
-
-
-//run(.runn());
 }

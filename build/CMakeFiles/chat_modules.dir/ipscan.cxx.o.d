@@ -121,7 +121,14 @@ CMakeFiles/chat_modules.dir/ipscan.cxx.o gcm.cache/ipscan.gcm: \
  /usr/include/c++/13.0.1/bits/uses_allocator.h \
  /usr/include/c++/13.0.1/bits/uses_allocator_args.h \
  /usr/include/c++/13.0.1/tuple /usr/include/c++/13.0.1/bits/ranges_util.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/13.0.1/include-fixed/pthread.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.0.1/include-fixed/pthread.h \
+ /usr/include/c++/13.0.1/fstream /usr/include/c++/13.0.1/istream \
+ /usr/include/c++/13.0.1/ostream /usr/include/c++/13.0.1/bits/codecvt.h \
+ /usr/include/c++/13.0.1/bits/locale_classes.h \
+ /usr/include/c++/13.0.1/x86_64-pc-linux-gnu/bits/basic_file.h \
+ /usr/include/c++/13.0.1/x86_64-pc-linux-gnu/bits/c++io.h \
+ /usr/include/c++/13.0.1/x86_64-pc-linux-gnu/bits/gthr.h \
+ /usr/include/c++/13.0.1/ios /usr/include/c++/13.0.1/bits/fstream.tcc
 CMakeFiles/chat_modules.dir/ipscan.cxx.o gcm.cache/ipscan.gcm: \
  /usr/include/c++/13.0.1/cstring.c++m /usr/include/c++/13.0.1/map.c++m \
  /usr/include/c++/13.0.1/iostream.c++m

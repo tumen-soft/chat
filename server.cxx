@@ -7,12 +7,10 @@ module;
 export module server;
 import <iostream>;
 import <typeinfo>;
-import <map>;
+import <vector>;
 import client;
 #define MAXLINE 1024
 #define PORT 8080 
-//export Client *peer(new Server);
-typedef std::map<int,char*> nmap;
 #if 0	
 		<сервер>									
 		  |
@@ -53,7 +51,7 @@ typedef std::map<int,char*> nmap;
 export class Server:public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
-        nmap nicknames;
+	std::vector<std::pair<int, char*>> nicknames;
 };
 
 //Синглетон Майерса
@@ -101,7 +99,7 @@ template<> Server *Client::init1(Server* peer)
         //waiting for connection
         listen(peer->sock, 300);
         //std::cout <<"test" <<std::endl;
-        peer->nicknames.insert({0,"test"});
+        peer->nicknames.push_back({0,"test"});
         return peer;
 
 	}
@@ -155,7 +153,7 @@ template<> Server *Client::conn(Server *peer){
 			//char g[80]={"sos"};
 			//g="sos";
 			//read(peer->new_socket,g,1024);
-			peer->nicknames.insert({peer->new_socket,"test"});
+			peer->nicknames.push_back({peer->new_socket,"test"});
 			std::cout<< "New connection "<<peer->new_socket<<std::endl;
 			//printf("New connection %s\n", peer->new_socket);
 			dprintf(peer->new_socket,"welcome %d\n", peer->new_socket);  

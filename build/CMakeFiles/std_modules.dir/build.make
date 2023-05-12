@@ -67,7 +67,7 @@ include CMakeFiles/std_modules.dir/compiler_depend.make
 include CMakeFiles/std_modules.dir/progress.make
 
 CMakeFiles/std_modules:
-	g++ -fmodules-ts -std=c++20 -g -c -x c++-system-header iostream typeinfo map cstring
+	g++ -fmodules-ts -std=c++20 -g -c -x c++-system-header iostream typeinfo vector cstring
 
 std_modules: CMakeFiles/std_modules
 std_modules: CMakeFiles/std_modules.dir/build.make
