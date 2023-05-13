@@ -13,6 +13,7 @@ module;
 //#include <typeinfo>
 //#include <ext/stdio_filebuf.h>
 #include <fstream>
+#include <list>
 //export module peer;
 //using namespace std;
 export module ipscan;
@@ -55,6 +56,10 @@ struct sockaddr_in addr;
 	//Client * peer = new Server;
 //	void run(auto *peer);
 enum PeerType isserver=_Server;
+
+
+std::list<args> listofargs;
+
 
 struct node{
         struct node *next;

@@ -4,11 +4,12 @@ module;
 #include <unistd.h>  //close(), fread()
 #include <cstring>
 #include <ext/stdio_filebuf.h>
+import client;
 export module server;
 import <iostream>;
 import <typeinfo>;
 import <vector>;
-import client;
+//import client;
 #define MAXLINE 1024
 #define PORT 8080 
 #if 0	
@@ -48,7 +49,7 @@ import client;
 
 #endif
 
-export class Server:public Client{
+export class Server : public Client{
 	public:
         int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;

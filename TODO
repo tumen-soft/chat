@@ -1,35 +1,3 @@
-V make stdin select()
-V make multi client chat
-V make echo server to chat
-V fix error client[0]
-V make nick& connect to test
-V remove cliaddt struct
-V Peer using
-V use dprintf for to client output
-  new connection print to all client
-V make object comm
-V fix two connections error(make diff port connection to chose cli or ser)
-  in server class fix confirmation of welcome
-V fix allsend error (send not all)
-v tcp scanner for server
-  creation socket
-  run in curcle
-  get two paremetr method
-  make peer return
-  RX TX class
-  pologit kak chast celogo
-  manuvr descriptorami (chastotami)
-V opis'
-  povesit matem ogidanie na priglashenie
-V unrem cli print socket
-V client/server chat  (in one programmm)
-V addres polymorph
-V	init (peer, type)
-V client error fix (ip)
-  client connect 2 ispravit` 
-V fix echo to write client
-  privat message enum commands, typedefs nicknames
-  nicknames
 V init to ctr
   updrade ip++
   use overloading  (foo(void*arg1, int arg2)  
@@ -87,5 +55,4 @@ X dymnam cast write
   peer rename in funct
   global variable  export  module
   message to tamplate
-  https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjZlcfD1M_9AhUQuosKHWcNDcsQFnoECCcQAQ&url=http%3A%2F%2Fermak.cs.nstu.ru%2Fcprog%2Fhtml%2F034.htm&usg=AOvVaw3gf79CkX_S4SWj_jjYOFRA
-  https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiD7Ivirdb9AhUElosKHccGABIQFnoECDAQAQ&url=https%3A%2F%2Flibraryno.ru%2F7-modul-noe-programmirovanie-petrov_pyavu_part1_2010%2F&usg=AOvVaw3a2yvNawPiC8-K5vwr9K0Z
+
