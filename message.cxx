@@ -19,21 +19,11 @@ enum PeerType{
 };
 //template<class U>
 void run(auto* singleton){
-
 singleton->init(singleton);
-//       peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-  //     std::cout << typeid(peer).name() << " fd " << peer->sock << std::endl;
-
 singleton->init1(singleton);
-
-
 for(;;)
 {
 		singleton->selinit(singleton);
-                //memset(peer->buffer, 0, sizeof(peer->buffer));
-                //FD_ZERO(&peer->read_fd);
-                //FD_SET(0, &peer->read_fd);
-                //FD_SET(peer->sock, &peer->read_fd);
 
 		singleton->sel(singleton);
 
@@ -46,9 +36,6 @@ for(;;)
 //for(;;)
 }
 
-//}//operator
- return singleton;
-//run()
 };
 
 
