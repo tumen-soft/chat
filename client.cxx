@@ -48,11 +48,11 @@ import <cstring>;
 //вводим определение клиента и сервера
 export class Client{
         public:
-	Client(int _sock, struct sockaddr_in _addres, char _buffer[MAXLINE], fd_set _read_fd):sock(_sock), addres(_addres), buffer(_buffer), read_fd(_read_fd){}
+	Client(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
 	int sock;
         struct sockaddr_in addres;
-        char buffer[MAXLINE];
-        fd_set read_fd;
+        char buffer[MAXLINE]={0};
+        fd_set read_fd={0};
 	template<class T> T *conn(T *);
 	auto *init(auto *);
 	template<class T> T *sel(T *);

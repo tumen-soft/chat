@@ -51,7 +51,7 @@ import <vector>;
 
 export class Server : public Client{
 	public:
-	Server(int _sock, struct sockaddr_in _addres, char _buffer[MAXLINE], fd_set _read_fd):Client(_sock, _addres, _buffer, _read_fd){}
+	Server(int _sock, struct sockaddr_in _addres):Client(_sock, _addres){}
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
 };
@@ -64,7 +64,7 @@ public:
    //Client* instance = new Server(); 
    //int data;
 protected:
-   Singleton(int _sock, struct sockaddr_in _addres, char _buffer[MAXLINE], fd_set _read_fd):Server(_sock, _addres, _buffer, _read_fd){};
+   Singleton(int _sock, struct sockaddr_in _addres):Server(_sock, _addres){};
 private:
    static Singleton* _instance;
 };
@@ -72,7 +72,7 @@ private:
 Singleton* Singleton::_instance = 0;
 Singleton* Singleton::Instance() {
   if(_instance == 0){
-     _instance = new Singleton(socket(AF_INET, SOCK_STREAM, 0),(struct sockaddr_in)0,(char)0,(fd_set){0});
+     _instance = new Singleton(socket(AF_INET, SOCK_STREAM, 0),(struct sockaddr_in)0);
   }
   return _instance;
 }
