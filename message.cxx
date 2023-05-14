@@ -17,7 +17,9 @@ enum PeerType{
         _Server,
         _Client
 };
-//template<class U>
+
+
+
 void run(auto* singleton){
 singleton->init(singleton);
 singleton->init1(singleton);
@@ -67,8 +69,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-			case 0: {run((Server *)((*singleton0).Instance()));break;}
-		case 1: {run((Client*)(*singleton1).Instance());break;}
+		case 0: {run((Server*)(Singleton::Instance()));break;}
+		case 1: {run((Client*)(Singleton::Instance()));break;}
 		}
 
         default:

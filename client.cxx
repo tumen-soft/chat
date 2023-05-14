@@ -48,6 +48,7 @@ import <cstring>;
 //вводим определение клиента и сервера
 export class Client{
         public:
+	Client(int _sock, struct sockaddr_in _addres, char _buffer[MAXLINE], fd_set _read_fd):sock(_sock), addres(_addres), buffer(_buffer), read_fd(_read_fd){}
 	int sock;
         struct sockaddr_in addres;
         char buffer[MAXLINE];
@@ -58,9 +59,6 @@ export class Client{
 	template<class T> T *init1(T *);
 	auto *selinit(auto *);
 	template<class T> T *sendmes(T *);
-	int data;
-	//protected:	
-	Client()=default;
 };
 auto *Client::init(auto *peer){
 	peer->sock=socket(AF_INET, SOCK_STREAM, 0);

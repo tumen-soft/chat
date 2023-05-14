@@ -1,22 +1,3 @@
-V init to ctr
-  updrade ip++
-  use overloading  (foo(void*arg1, int arg2)  
-V use Ch2_4 template for switch 
-  use object factory for somthing 
-  peer to node
-  peredat` self kak parametr
-X objekt factory for self
-  zagolovok u faila
-X switch in object factory
-  joinable() threads sort -  mashina
-  zamenit` ochered` na stek
-  .join() in multithreads  (sort alternative)
-  threads scan net in c
-  template Server Client diff types
-  prijomnik i  peredatchik   (odnopositionnijy)
-  more detal commit
-  exit command
-  commits rewrite
 V abstract factory cli/ser
 X dymnam cast write
   plan:

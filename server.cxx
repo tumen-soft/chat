@@ -51,19 +51,20 @@ import <vector>;
 
 export class Server : public Client{
 	public:
-        int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
+	Server(int _sock, struct sockaddr_in _addres, char _buffer[MAXLINE], fd_set _read_fd):Client(_sock, _addres, _buffer, _read_fd){}
+	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
 };
 
 //Синглетон Майерса
-class Singleton:public Server
+export class Singleton:public Server
 {
 public:
    static Singleton* Instance();
    //Client* instance = new Server(); 
    //int data;
 protected:
-   Singleton(){};
+   Singleton(int _sock, struct sockaddr_in _addres, char _buffer[MAXLINE], fd_set _read_fd):Server(_sock, _addres, _buffer, _read_fd){};
 private:
    static Singleton* _instance;
 };
@@ -71,7 +72,7 @@ private:
 Singleton* Singleton::_instance = 0;
 Singleton* Singleton::Instance() {
   if(_instance == 0){
-     _instance = new Singleton;
+     _instance = new Singleton(0,(struct sockaddr_in)0,(char)0,(fd_set){0});
   }
   return _instance;
 }
@@ -80,8 +81,8 @@ Singleton* Singleton::Instance() {
 
 
 //Singleton* s(new Singleton);
-export Singleton* singleton0(Singleton::Instance());
-export Singleton* singleton1(Singleton::Instance());
+//export Singleton* singleton0(Singleton::Instance());
+//export Singleton* singleton1(Singleton::Instance());
 
 //export singleton0;
 //export singleton1;
