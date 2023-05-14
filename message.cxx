@@ -21,7 +21,7 @@ enum PeerType{
 
 
 void run(auto* singleton){
-singleton->init(singleton);
+//singleton->init(singleton);
 singleton->init1(singleton);
 for(;;)
 {

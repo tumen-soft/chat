@@ -72,7 +72,7 @@ private:
 Singleton* Singleton::_instance = 0;
 Singleton* Singleton::Instance() {
   if(_instance == 0){
-     _instance = new Singleton(0,(struct sockaddr_in)0,(char)0,(fd_set){0});
+     _instance = new Singleton(socket(AF_INET, SOCK_STREAM, 0),(struct sockaddr_in)0,(char)0,(fd_set){0});
   }
   return _instance;
 }
