@@ -62,7 +62,7 @@ export class Singleton:public Server
 public:
    static Singleton* Instance();
    //Client* instance = new Server(); 
-   //int data;
+   int data;
 protected:
    Singleton(int _sock, struct sockaddr_in _addres):Server(_sock, _addres){};
 private:
@@ -81,8 +81,8 @@ Singleton* Singleton::Instance() {
 
 
 //Singleton* s(new Singleton);
-//export Singleton* singleton0(Singleton::Instance());
-//export Singleton* singleton1(Singleton::Instance());
+Singleton* singleton0(Singleton::Instance());
+Singleton* singleton1(Singleton::Instance()->data = 20);
 
 //export singleton0;
 //export singleton1;

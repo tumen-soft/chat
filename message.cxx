@@ -69,7 +69,7 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {run((Server*)(Singleton::Instance()));break;}
+			case 0: {std::cout<<Singleton::Instance()->data<<std::endl;run((Server*)(Singleton::Instance()));break;}
 		case 1: {run((Client*)(Singleton::Instance()));break;}
 		}
 
