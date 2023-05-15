@@ -51,6 +51,7 @@ import <vector>;
 
 export class Server : public Client{
 	public:
+	Server(){};
 	Server(int _sock, struct sockaddr_in _addres):Client(_sock, _addres){}
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
@@ -64,6 +65,7 @@ public:
    //Client* instance = new Server(); 
    int data;
 protected:
+   Singleton(){};
    Singleton(int _sock, struct sockaddr_in _addres):Server(_sock, _addres){};
 private:
    static Singleton* _instance;
@@ -71,16 +73,14 @@ private:
 
 Singleton* Singleton::_instance = 0;
 Singleton* Singleton::Instance() {
-  if(_instance == 0){
-     _instance = new Singleton(socket(AF_INET, SOCK_STREAM, 0),(struct sockaddr_in)0);
-  }
+  if(_instance == 0)_instance = new Singleton(socket(AF_INET, SOCK_STREAM, 0),(struct sockaddr_in)0);
   return _instance;
 }
 
 
 
 
-//Singleton* s(new Singleton);
+Singleton* s(new Singleton);
 Singleton* singleton0(Singleton::Instance());
 Singleton* singleton1(Singleton::Instance()->data = 20);
 

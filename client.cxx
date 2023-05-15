@@ -48,6 +48,7 @@ import <cstring>;
 //вводим определение клиента и сервера
 export class Client{
         public:
+	Client(){};
 	Client(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
 	int sock;
         struct sockaddr_in addres;
