@@ -134,8 +134,8 @@ CMakeFiles/chat_modules.dir/clean:
 # Target rules for target CMakeFiles/chat.dir
 
 # All Build rule for target.
-CMakeFiles/chat.dir/all: CMakeFiles/std_modules.dir/all
 CMakeFiles/chat.dir/all: CMakeFiles/chat_modules.dir/all
+CMakeFiles/chat.dir/all: CMakeFiles/std_modules.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat.dir/build.make CMakeFiles/chat.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat.dir/build.make CMakeFiles/chat.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=1,2 "Built target chat"

@@ -80,7 +80,7 @@ Singleton* Singleton::Instance() {
 
 
 
-Singleton* s(new Singleton);
+//Singleton* s(new Singleton);
 Singleton* singleton0(Singleton::Instance());
 Singleton* singleton1(Singleton::Instance()->data = 20);
 

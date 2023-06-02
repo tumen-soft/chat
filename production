@@ -1,0 +1,296 @@
+* 54c42969e3e8707130dc81cbd0384533e79b0880 rm Socket
+* 925be3cf560d2ea4f311497b79fdaabe0867bb0c comm
+* 6f393202fd168fa94b14616483e1499e197099b9 AbstractPeer added  in client.cxx
+* ad4074cba432b7e7be80d5f31d54323fe7a23aa1 AbstractPeer added  in client.cxx
+* f3aa2ed3aec9640391a54e82c7a0860bc0f74ebc todo update
+* ac91027dc584a62eafd981caed0dfdccb383add4 fix warning
+* 7253341a506d98f1005ddf867d7a3d3ab34e0340 list.cpp
+* 8c810d8429bc621fe8bb3f581af3bd5594aae9ab singleton
+* 7c35346a13803dfc9003693d4220c64d62494cf0 daily commit
+* 2dbddc65345b3e3703ac5c63a902b130f9ceaad8 build
+* b3dcc1f73ed3f1ff526f70314282a43d1ed3d2b6 singletown
+* beef9f7051bf55bb2331bc6eaba7392ae261358b server client reuse
+* 5a50988e137c58f268526d6a73117eec68b959be Socket class added
+* 6aa0a2b0f309bd81fb7ede793ae90276872d6e89 cd build;make   be error singleton is private
+* c5ff5699bac4906973e34414bd325a95bd670933 singleton test for global parram
+* 6bd1a207f201e7517c46c1f43e157bdf0ddcaae9 init update
+* e1e4d0fbf8c9110fecd8b675a4d2a10013b61327 initializer first param
+* c5ff3e0dca6be47dfa20ae356b393e03bc67e63d initializer
+* c13a7b2d318914b974378b8ca31215bc84e86c1d napisat
+* bce6b54f1b6275fca438eda683a84f4407e92ef8 update
+* 83be15d355b04ca4e35b001828ba2f596c0eeb61 linked list
+* b80dc7bc3a57130dd1c94fa3a5f899ba2e0cf840 singleton inherit
+* 872ff0565430b526eb7877634217cbdc3c599adc zadanie
+* 3d6f7624311ea64f4e447243291a0a6bb5e81df4 server.cxx vnizu   ./chat, run, server (20 output)
+* ab7c657aa7d705f6a47f75ad0739f963689ec6c5 Mayers Singleton in server.cxx
+* 86c483db66868d2302f92160f5e2ce02f1ac16d5 working singleton
+* 301721c74265772852c6f32136430483a8b83892 build
+* 44f893413ae0d6239d09305ba97ac5f47d0f7b2e message.cxx
+* d224f937e0731480dc41c24e4597955e55ded4ca chat
+* e45895a681dce39f65b216269f3d1114cdd5057c chat
+* 2d8242442bc4d446faaeace5670e722d193a8533 build chat
+* dee0e65cbfc709eaba3b511040f4cd31beb29e28 pro
+* e766807c546986700a2bb8886eda2fc158fe0f11 cli/ser specialisation
+* 92c89a577a0a6ec7091a21db41bb6c497dfc06de functional decomposition susess recive transmit
+* aacd9606e21ce24058599f82550f241ee5ffef17 new
+* d5c089794840e961670e83bdea216197a96c8eab update
+* 042984d4480f36322e155e48a629b60e7d320fb2 clining
+* ddadc4054e88cc675a4223c5f3f8a6e579d89947 build like in github.io
+* abf0975de4091ed620b706d82b7e437beb6a576d auto delete in cli/ser init1
+* 7a1ba08eda227f18b806db34a727cb4de8d2595c dubble comm
+* c431f01d450afb254145cb08c506c06b5420b36a choice funct rewrite
+* 56c17f12280fe75d5c0091c7842bbf4391ef10e5 g++ Ch2_1.cpp; ./a.out
+* 8908b701cf3a3e9ba85dc3b6fcf174fda13dd8be cmake build system
+* 10c87ae300c5118d99ae45a31772726249ee9352 modulesc++ build same as prev comm
+* 99cb030aa9fa884d9275be65ef39cd7709840763 see log
+* 04818f7125983b34ed13bf78d4327076d7c0d07b see log
+* 633c0ab8a417ef358b11643137828fe376ea2963 cd modfs; make;    //see link in TODO
+* 31622731be37e5343cfa859834f5a9ce6377b1ea time make
+* 518f5e0652c6c297f01283d38a9fc5440eef0595 moduless funct from funct
+* e9fe43236a82363d115cd85f4b04b515a5e41b0b two phrases esp/eng
+* 20a9fc45c685edc80ecdd52fb992d4cbaef7ddec moduless interface
+* f04c8df799820d7fe78751c9d4887c8694825ce5 moduless
+* 919e0eff042a0bf360d828e338a2fd5ef9536a22 modules
+* bb5acbf2b11f45b015bb1dfc22374f8b81c3d145 make;./a.out
+* 3860c8cb9e95a3485d11ab222c7ee80058491df1 class vs lambda(message class message and three lambda cli ser & run)
+* 6838d81e3fa48a58c3066d447266d5af8bc3033f message - import <iostream>
+* cc49cb9c761f63acae0080e0bbe80ce5a0ca164e client::conn   stream is  (is >> buff)
+* 07587551880c0a2ce99286afa32a940b15f68cfd multimetr
+* e7ae170bc43e65120d85ee18255755ef53ccb486 message.cpp  EOF
+* 2d1977a7718b12336f6b9808ade909b3b2551a3c add lambda
+* 55d96705eba1d12a899c689a148bd36eaaa78e69 lambda2.cpp
+* d5f5f3b8ac2ede4e6cc4c837543988bd93593b71 lambda1.cpp
+* 9e55ce09093836eec9ae95426076a4d073b4ceb8 lambda.cpp
+* cd4a6813c7af8767ffe39bc37f31696f458a0f4d lambda.cpp
+* b8cea1e870374ed0604bc968c36d4cf2b2b59a07 pointer
+* ef463ccad4b68b022ce7f3a6a558e8c110db068a #if 0
+* 51507178c3fb373f83afc45884c039a2fecedcee a.out
+* 85f1092af84000ecac957e427c1a0fd452d104c3 cd lambda;make
+* d4f0420f6484e8cb2bcb3042955cc93226b26b21 make
+* 3f5cf7fca7ab6fcd0a6c286accd65037f6f04979 include streams
+* 8390de596c7e4a0d3ac00b7154180935d973eea7 segfault fix
+* f5125eba32d0229ce6e196cbf0fe4d307f945789 rm .deps/ -rv & make
+* 9bff9e6683375ddbe78b6f28f988d9aba58f030f sborka
+* b544f304096cf2e7db8c52e8a6801dd365946dc4 connection test
+* 88211ea6abb57f7a32bb8a7838db654a73ba08d5 build
+* e18e1a2ba297b6564b400e5c06de7e989d9051f1 rm .deps gcm.cache -rv
+* ecf67c12d692e104ce4a46adbdfd05dc0487b39e g++ -c -fpermissive -lpthread -std=c++20  -fmodules-ts server.cpp
+* b69c890551a47a46bef76817f3c22b3ece6c403b buildable
+* c9fa94fa3d5dd9bdca3da9a60fd1a8040213d947 interface
+* 7dcd8f0d8b64a00ef6cff28bdeb70c7e5763fbcb gcc ping.c -fpermissive
+* 1ff6d35779ce8d9965a5126a795d001ef7becb3e segfault debug
+* c87664df24fba05ba814c32d6cdb0b47eaf80fa9  build
+* 4131e96141013bcc349a22d6c491eb53f089895a working debug
+* 87450b39a5f841ed816f433e0128db072ef0ac5d ru function next step
+* 6d8dfe85b272ddde611c34ba252944ce0fd53737 work server
+* 3656445085028b936d55edfe4421f3e257b520ac checkout
+* be55020f08f3d9073e2b51a82a2833f0c1aa43b8 module prog
+* e6e0406c769df99b31b23e7f5653ed6e656b9001 work modules
+* 9525bba0f3d6d504a0bc643b62a8cb48bead828b return from module
+* 0269a429196345396a33e8e143bf2585d57172b9 build
+* ce20da56059138c39372ba7bf6dd30ef063bcd12 fix all
+* 273ac1983258690ce7a2af4493e04ace6dcc22cf test
+* 6da0782fb0f602ed5a516c607fa59d95a904df21 add server.cpp client.cpp module
+* 9062207aae44a028b414dfc31b9c37b2f4d18a5f add some fix
+* ccd5568b9b75230278fbd3ba8ea9b8c167839faf changes
+* fd454ec5e55362db8c944c9c40cb7a20abc87957 ipscan module
+* 33450b5d5b159f7738d4b741ee238ed8edd53c69 fix segfault
+* 3d58b8d19f68b307e6b955f8e0d497d9e7c7be73 Makefile
+* 6c72ab8d050d969fdd0f3b41383bc52a76d0549b add thread module in programm
+* db866e6f8d2deeb08bc51b64e6a4f98fe33a3bbe unremark main funct
+* d084fbdb6137f323147d6e5738edbce3524f2f32 main funct in module peer run
+* ffa92b619e013fc1ed9b29910a7f2ea4e2e6999b output from module
+* 136971d70b49494cef40fbb5458b809d27cfb6d6 print
+* 0d51cfb690bc9eacd68c875fa66e28c91215fdf7 module peer
+* 45c93932c84a63fc1ea77c68c45883f7141faa18 tehnicheskoe zadanie pravka
+* 95e312fc961f26d8328a5334a2e659f8925bb706 tehnicheskoe zadanie pravka
+* cbfe241fc2a827c348e532c61fa70c5386bfae10 tehnicheskoe zadanie2
+* 9d7c5db27052777566cc83917592754dce8bf9e6 tehnicheskoe zadanie
+* 1ce61cc6a9d20c2c187c357e624e3fb444c800f6 funct decompositia
+* e7e4b957a09a6f6bca345a510170edf1d934b4bf run funct processing
+* 26fd6aec4bd23f8568de5548a38eee8a42ebd40d connect & send message func
+* e7c9e784a59abe82b399454ff0d4edc4b4867734 fix wait button press
+* a80f719030c1e1630d5a79fbc1d0b39119aba3e7 auto type for peer
+* 707680c13ff394621c3e368d92c2f87e271f9185 init funct work
+* d3b9bc33f4516dec2d4fc86e926112495f2b3bff error control
+* d5c74840f80abdb905b6e325609739b73c2afc86 remove funct from Cli/Ser include out & in stream
+* 55d0b7197651918966e7bcb7ded95765998be2b9 peer.cpp funct abstract
+* 3f4a5c4aa41d5811fe4be57d93f3739f1bc306a1 extern variable(define in peer.h)
+* 7861150053bb1abc1cea66cc99fae43ed5e41681 client & server
+* 62aac51bb4216f275ce597fce63bd4e1bb761e52 some changes
+* dc7260db7502f5562002e0d68d92a7b5e9992967 night build
+* a7955ea28e9c1c60c949cdaae0669f375dd99905 using namespace fix
+* 74f93778d6f6f68ec69698aded4c506e69e4eef2 module
+* ec078f84c15686878fa91cc5622fedfd998b1980 add c client ip scaner
+* 7ead24e1ad9ad28fb6762889465a33f32dde14d7 out is output stream on /dev/stdout  to see run:   git log -p
+* fc6ed242b610d2158a9a2e93917feb6571ce1256 -cout
+* 2113b71281a836a46755233b6c5a14103072634f send commit
+* a5ef7c9c3f006d715907a85f6cb96d5b30fcd1fe send commit
+* 4a56aac9e854d283240fcb227a59dbf636557cd1 cli ser
+* a07abb5dcec5296e08fcfa4279ee161b2d3de364 cli ser stream
+* d1407706235b29303f5ab95304bffd49c41034f6 funkt polymorph
+* 783af8a807ac6792c664ca0ebde35d59c7172b8b remove stuff
+* 1a01831758135a49cf9b0257f81582041dc16cfa commit
+* edc679cb9613f9481611c5b1bc006cd26a28cecf chat cpp
+* a8a6f6b834e6b14a6c02831837b935e7fd631ddf TODO new
+* 4462f0d78ea36b326a8db3c9c6a221173db68654 switch
+* 58916bcfa84c28fc6683fbfe41a76d16f5522c86 working switch and peer deleted
+* 306eb90a11ccbdb82731f58e721749e000621d69 polimorphism
+* 7d7542321682a673b38a507b7d271404c543a4f4 adding private element
+* 3de19782dce760c9826c758d0ed495bbde282521 main funct
+* 6c0a0c08166ac236830b00053f9d49ad902e5d1f funct run()
+* 9eadd93e76547d5dc65b4afcdb95c4649471bb6e prog
+* 27826128212632dccd9e393fbd6d999a3514992c proga
+* dc0be84ea0e46b9e68e103abdf2d6ac0decb652b book
+* 4ca475005cb41d82019af98a9411374c8af386e6 threads in c
+* d72a137e177caa04de15a075433c252dd15a5196 if
+* 19ea90d62fe841b1e686dc30c19ec3247cfbacd5 object less error
+* 92c15c756d27944fc0de20ec7cd8e4b57a31b676 cli
+* cd14d8f8a14ee2ddb55e78440d453a5fc0b9b325 half ready chat
+* 2d8040740b1b0ef25407546a7af904111d642207 working chat with polymorphism
+* 9357409da767d8e188fc31b658d17707b771abcc perevod komentariev
+* 2c816b0d2fe4c010c2282f7665ad7ade1b38097e перевод коммитов на русский язык
+* 36a4eaec5c8dc6a7f673a897992b7104b8f03e02 chAt variable
+* b3a8b5fe0ea246ab720357511a1e04f9fa964910 pointers rewrite working cast from Client to Server
+* 3e5f0ea59522053f296e2c7e45d88a3af4bd36ab Server
+* 3a07a0b2072fe508dcdafa970ad0401225954c3d run
+* 6e626aeed3bb88290dcd5af79556e70223f35bd6 plan TODO
+* 08e00033a868637c5cf75a2c7f5d3b94b005c3d5 pol.cpp polimorphism
+* c2c31e04016e1c3cbe9a67c3f23c10696c487363 remove pointer
+* c0c660578ad945a71466689f273928f9463752c8 make test for Peer::client class
+* 1cc7bd25b7a9445f34ea2dac083b34335c3fda3f Chapter1_Policies   make; ./pol
+* bd03d10a2c892b10e524a37697418270308f3f2b g++ type2.cpp ; ./a.out
+* 5081daa13d10673e7dc28d6a516c3aefce2bf6f6 typelists & visitor
+* a5c185200338f452781af52d155ad0c9f14dc373 typelist
+* e2cfa971031d1e96d785681f98d185b47ed71f65 convert types of net om the fly
+* ba5d0f4e2658129c7edce5364dae8f0d75aa16ad switch
+* 7ac12e4a16c07b02fee6da949539b2b45cd40f12 abstract factory install
+* 21baee2d2838a77cf2d7145268dd1a45331cb330 init delete
+* 92faf601c9fa95943a56497dc7611b463f98a004 some comments
+* 751ef17361e4c176313c1b85acbc66872b0f0f2c rewrite main switch
+* 528493c3498ad2b817436ae7cb0f6e9d00364936 reuse
+* 04fd427f5209af49eef6ad0d300f3f84b15a1d7f test
+* 0a80369e38aa7ba619be3e2240be935142b0aec5 client server switch complete
+* 8879f743d345ecbf5ff8a046476d302fcde9d2e5 dopolneniye shema
+* 3224936fd9a93e99d33833652c0116ecacdae28f client shema
+* 73560296fc20e142c5cd7183843fd8f6a5b04e29 server edit shema & client half shema
+* 0e38c1f964a910fd0e8b30f9859907b50bd9a20e servers block shema
+* 79d446085fa01fa2ad66e1095f72f45618bb1bb3 block shema for server
+* 13313a8bec95b7b4003dac7cae6fcb915d450738 Peers container  for client and server classes run is main function
+* 5411378970504beccfbd9e45a53907bb1aafd73b Client Server types reorgonize
+* 1fe05acb9d794cb9dbc893d49ea7e461bc6eb34f peers class using run() function overload
+* dafc88a8d84222858fb7184716834305c8a6a23e work tree
+* e1920f9f2966661ba72dca2fa00c855d02af5adf type ident
+* 6ac7559c2d57499c09cf4e48840eb8212d3a9d48 peer.* edit
+* c785a3e46e9d92cbfbbb0c35340e7344f08b9c8d connect class
+* 5fd494e7f21fb51318be7bb0cd2c18862ba10123 peers class init
+* 1739c2997929c3bdd3f3059a8b67869cade5a69f peer.*  main.cpp  editing to polimorphism
+* e370788298a696970cac97961fd3b4e65f696bb9 donat
+* 18cb9c126da62f1f3b8f984daea91723c06d2084 fix missing
+*   54e3039a742ee5e32a3d455a00849b7331c0c88d Merge branch 'cpp'
+|\  
+| * 4dab2f1603bbdbdccf25c4751b221b13ebcf639d for merge
+| * c600c0b7fa8c57038a140ebba8838defbd226b9f merge to master
+| * 1f0134558fb684c0498c5f78fe43b742c6529c6c change text
+| * b0c4bdde168f618fe5c99aa69c977125b745677d remove remarks
+| * 4dbf4b4b1e88243f02f66267c86834315b9e2338 google scanner
+| * 37b7587d587891cf59bda28d441deb77e37218f1 ipscanner
+| * 03a1b3a2c25dfd7f1b4d1ecc9badacba1af9df7c debug
+| * 3e14244bce996420899744fd304405a69dc4b61c nicknames
+| * 8ba2dd01ab71dca6a025f12c39032654ea11ef18 Peers & Peer struct
+| * dd1be8acea13e1655df4064584b8ae6723a1e495 chat
+| * 4e0ad0838bcd31a1d66ecbe13549ea807fff543b chat
+| * 44daa89e3a59cb7fa6df991255dc141ee601be61 som fix
+| * 0bd1beecda22f5783f82947d8390ead47b80e69d peer.cpp
+| * 26c6175a60f6a94a5e933ba209bcf307a54995e4 reorg proj
+| * 3fe9661f237148017887e948bb528f8dac541ff4 chat files
+| * 669d4c25dc9c8a66b439b62ebde0700db92cd2c8 chat.cpp
+| * f53aec556c71d325b54ea017447096582692476f chat.cpp
+| * 557361eb69b93dba5524e5d5de77671a0b114385 chat.cpp
+| * be615ea3ce50cff1c25a72d70a8bc46c0ee0415b chat.cpp
+| * 68a7123b92c16d8ab2e0c0d3292113e411aa74eb door
+| * d1ad4e85beca477c6e8e2a0a8fdd6c3780916ccb chat.cpp
+| * 5ba8158fa4815c2d17b9d49f63000e894528ac6d chat.cpp
+| * 248ef4b1b93e4d8aa5ed081ac4b407d03b356602 chat.cpp
+| * 56d67c7e934eba13e84ff1eb6d9a342694d7c985 chat.cpp
+| * b37715cdcaeaef68458bd6114a336a185ba1f54d chat.cpp
+| * bd8567e19744e3d97aa208ad1c433ac201008638 chat.cpp
+| * a4a344aee1fca690292f15641b0fad8c3f1a665a chat.cpp
+| * b1511264a9cbcb3e700717e7b1163b2ad5b09e01 chat.cpp
+| * 2f04f1f998a23d13f9dc69296962ff1bfc3f0449 chat.cpp
+| * d75ef6f05091718fe340100846b3c8009640f16f specialisation&polymorphism
+| * a26d4d27577b64f031024233be462441fd45c0c7 chat.cpp
+| * 3773aac704214ae0b404761b46ae7d666a65735e working chat
+| * c228602f9669f6e20f74856bcc94bbc5f9a21026 working chat minus comment
+| * 0e7077173eb045b874c8c5c9c448c18acdfbc626 work tamplate
+| * c76b8c14255f26d22cb60ab1daeadae31ccebdb3 chat with work template
+| * 453ebe25246d4471c0a23fffecfca8161f1072ca work
+| * 9b8c3736a203bd7646274769d7d0044f34bca3d1 chat & template
+| * 493ed244ccf62b523af902f848e24828238dde60 chat & template
+| * 16d35ef9439ed9b3a1f2098462a09f8f44da66ac door
+| * c4685f9f83f99e4775e8ebb35ab77fe5a706536a chat without Chat::run()
+| * 180c646171c22673ab0c706ec04a89d56ba7d1e6 queue from c comented
+| * f1fd84ec573d25d531693c6a1579897f0e4168be queue from c++ library
+| * 9854e7886083614520b7b7bcc19dbb3fedaa5aee queue
+| * d633ccd8abbfeb9d44f823a4be46b1600bbcac1c chat
+| * c27f08d34da96685532155f31e934347be26b6e1 fully functional chat(debug)
+| * 81b67751f12c0208a37eba4999a4005730a43521 256 threads <>100sec.
+| * 490cdb2bc54df5bcf6607533a7eb15017288b0dd door
+| * 83ea287738300d24b5826f0cb0c2f1f38a3ed112 door
+| * d7b79446acb1d2b474c9388c9c0a1858b710f468 10 threads 274&279
+| * d8fffd79441e4f1cb3d99342cdf4a72d41867cbe 30-60sek 200threads
+| * a5a59cfe7118955dbaac5cf7038363bc03bac5cd some comments
+| * 369c54c2902604c41acae925af7f0d18e18f18da work 20 threads
+| * 83b2fb2f4ce59b7068f9a12a1a8fcc7f3fb89ae6 if unrem 238 client do not send
+| * b8b215ad4317900f3e33e487de0a85b9996aaca4 reuse3
+| * c50c47fe234413ff50db5a1569e5269c30aa87fd reuse2
+| * 86ae95c9de4bb3b51b8a39103d77140cf41e6d4d reuse
+| * c0caaf73acd5af6c754a2a1534c9a5dad63f34ae threads correct
+| * d5e449a357be8384d8946b481cdc9f813308c6d4 threads  417wq client addres seg error
+| * b8e6b10a6e0d1f4d97b0c454fa32ea5584346469 threads check
+| * 39e5dcf03f4430d659ee72cc6adf09626d880d7c chat.c  - working threads  chat.cpp default chat
+| * ed43d2255a8a422738773507db1c60aaa4170b95 working threads example
+| * f1532f2cd9e0585d39968526a2b9fd963989a87e write thread if funct
+| * 5979f8c958ef39f78cc53adc4735285e15128cd0 todo
+| * eef2ef63c4867e635ae503a8ed91b34ceeeba828 inheritance
+| * 369408636c52f0bc7642bd25fa99009f9de6d124 template
+| * 479c45c6cc6b6fac3472a318fe1fafd9426a93fa template
+| * 9463443cd8f3ca1e630da549a13e8b56f9c6ed0a first template
+| * 3ddaa131cc9a83fde5e5ca32dbe2dac6d5de5338 working cpp &c thread example
+| * 2517ef61d1e61b4a5ce1b5dcea712c1a8bcb50e8 c++ lang support
+| * 7d8a1a9429eaddaa80463255d5107155563c5bf1 Makefile.am dovodka na c++
+| * e6b50f244db273e857a85e43cc01be49c68334d4 autotools
+| * 1245cb321b08cf4dfba0119f20519b6b82b21dbb adding cpp version of chat
+| * ecac40f6893506db763e99638c6c50f0bc0ef7cd merge to cpp version
+* | 5f06345c1e27c4dc7ca7ecbfe472007cea4e3f58 t
+|/  
+* 10c422bb9eb2dba36e67217b6f0d6c8eb91cf734 client
+* 79558a56d63fe7158991875703636a1cc03dfb50 code
+* 8c46ba418982a5ae596b7ac785582c70ecb2dcb2 chat.c  obrabitchik oshibok
+* f2eb7c3d2c39e3f401be68c0ca227b9c3041563c client
+* ed1c249ca2e204a71d86bc312618178f1e9cff1f see TODO
+* b37995af3a585c5f09aa2d0d0997b6d078452eff funct high Wq& low level
+* a9134db97647c4487e86761ab2fa0ebd8eb33e83 client fucktion
+* 40c26a48b4f7bcc4c527ce801402ef74f14bc501 while
+* 67339dadda742bf47fc9e7eff1ebeec0cda0153f ip++
+* 9b244fa86d38c487ff06f05b58bed55bc34e2991 client to Client Connect
+* 04656fe144621225efaa5cbf1df72101888ec233 client in ConnectClient
+* 88e1197a0144242398c5f44c1cceae4ce97198e8 client/server check
+* 7842ed5b296f58baf5803d153431c7baf3309cf4 256 threads
+* 547a0b2acd73e4a80fd57aaca292a19d33356d6b queue use
+* cbf27e58b97c3f557e855c226b17661a17de30a6 queue threads
+* 17bd3f55f01ffbf1294e084dd845b28eca27b0d5 queue
+* 18ecfd1292d8a405289e0f29841bf9eba2da2b16 threads join making
+* 4051f3f74de9ee5d310e30ba1eb3573da61d546f check variable
+* 8a01f7a378dc8815ad2115bde0abc9e1fdede120 check add
+* cce4ee6650b8413e492d0f9cfa2b5fc5a613a42d 256 threads to connect
+* 9248c80989c9377e8ce01bf0e177802170fd28ad threaded connect
+* c33bfb0b6585a97b44f665b449a2290bb67faead threaded scan
+* 1e02a182c4105717457ee460014dd16623ae0226 some threads
+* 5c1f9591f0e6c33eac8e98e18787cba298135052 threads 100
+* 1764cc250a6cd47902fc779c9955c352361224c4 multithreads
+* e4314250d8eb63221b38df5f72f05f4a321461eb 1 thread
+* e269575a3f0ccbd0d6fc8ef5ba6506c607eaf348 potoki
+* b771d3bad6c52b9f421669f4b529470645fecc2b multi client mess(number show)
+* db37c79228a113270cab47790ae7b968d561087f deleting comments
+* 9eb9d0f33776c89d5e69dfc34430d16c81a1ace0 init commit added chat & build system

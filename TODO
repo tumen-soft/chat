@@ -1,3 +1,6 @@
+Stage: Prototype
+80+
+
 V abstract factory cli/ser
 X dymnam cast write
   plan:
@@ -37,3 +40,7 @@ X dymnam cast write
   global variable  export  module
   message to tamplate
 
+X remove Socket class
+  Questions:
+  how to make ping to ipscan and remove double accept in server?
+  how to kick client (supervisor)?
