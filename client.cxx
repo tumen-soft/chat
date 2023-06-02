@@ -41,12 +41,24 @@ import <cstring>;
 #endif
 
 
+class AbstractPeer{
+	public:
+	virtual void init()=0;
+
+
+};
+
+
+
+
+
+
 
 
 
 
 //вводим определение клиента и сервера
-export class Client{
+export class Client:public AbstractPeer{
         public:
 	Client(){};
 	Client(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
@@ -55,20 +67,20 @@ export class Client{
         char buffer[MAXLINE]={0};
         fd_set read_fd={0};
 	template<class T> T *conn(T *);
-	auto *init(auto *);
+	//auto *init(auto *);
 	template<class T> T *sel(T *);
 	template<class T> T *init1(T *);
 	auto *selinit(auto *);
 	template<class T> T *sendmes(T *);
-};
-auto *Client::init(auto *peer){
-	peer->sock=socket(AF_INET, SOCK_STREAM, 0);
-	std::cout << typeid(peer).name() << " fd " << sock << std::endl;
+
+ void init() override{
+	sock=socket(AF_INET, SOCK_STREAM, 0);
+	std::cout << typeid(this).name() << " fd " << sock << std::endl;
         
 	return this;
 }
 
-
+};
 template<> Client *Client::init1(Client *peer)
         {
 	std::cout<<"client start "  << std::endl;

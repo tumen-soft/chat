@@ -55,6 +55,20 @@ export class Server : public Client{
 	Server(int _sock, struct sockaddr_in _addres):Client(_sock, _addres){}
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
+
+
+void init() override{
+        sock=socket(AF_INET, SOCK_STREAM, 0);
+        std::cout << typeid(this).name() << " fd " << sock << std::endl;
+        
+        return this;
+}
+
+
+
+
+
+
 };
 
 //Синглетон Майерса
