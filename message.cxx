@@ -3,6 +3,7 @@
 #include <ext/stdio_filebuf.h>
 #include <stdio.h>  //printf()
 #include <unistd.h>  //close(), fread()
+#include <memory>
 import <cstring>;
 import client;
 import server;
@@ -20,7 +21,7 @@ enum PeerType{
 
 
 
-void run(auto* singleton){
+void run(std::shared_ptr<AbstractPeer> singleton){
 singleton->init();
 singleton->init1();
 for(;;)
@@ -69,8 +70,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {run((new ConcreteServer));break;}
-		case 1: {run((new ConcreteClient));break;}
+		case 0: {std::shared_ptr<AbstractPeer> a = std::make_shared<ConcreteServer>();run(a);break;}
+		case 1: {std::shared_ptr<AbstractPeer> b = std::make_shared<ConcreteClient>();run(b);break;}
 		}
 
         default:
