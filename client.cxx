@@ -41,10 +41,23 @@ import <cstring>;
 #endif
 
 
-class AbstractPeer{
+export class AbstractPeer{
 	public:
+        AbstractPeer(){};
 	virtual void init()=0;
+	void init1();
+	void selinit();
+	void sel();
+	void conn();
+	void sendmes();
+	//AbstractPeer(){};
+        AbstractPeer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
+        int sock;
+        struct sockaddr_in addres;
+        char buffer[MAXLINE]={0};
+        fd_set read_fd={0};
 
+	
 
 };
 
@@ -61,49 +74,47 @@ class AbstractPeer{
 export class Client:public AbstractPeer{
         public:
 	Client(){};
-	Client(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-	int sock;
-        struct sockaddr_in addres;
-        char buffer[MAXLINE]={0};
-        fd_set read_fd={0};
-	template<class T> T *conn(T *);
+	//Client(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
+	//int sock;
+        //struct sockaddr_in addres;
+        //char buffer[MAXLINE]={0};
+        //fd_set read_fd={0};
+	//template<class T> T *conn(T *);
 	//auto *init(auto *);
-	template<class T> T *sel(T *);
-	template<class T> T *init1(T *);
-	auto *selinit(auto *);
-	template<class T> T *sendmes(T *);
+	//template<class T> T *sel(T *);
+	//template<class T> T *init1(T *);
+	//auto *selinit(auto *);
+	//template<class T> T *sendmes(T *);
 
- void init() override{
+virtual void init() override{
 	sock=socket(AF_INET, SOCK_STREAM, 0);
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
         
 	return this;
 }
 
-};
-template<> Client *Client::init1(Client *peer)
+void init1()
         {
 	std::cout<<"client start "  << std::endl;
 
-	peer->addres.sin_family = AF_INET;
-        peer->addres.sin_port = htons(PORT);
-        peer->addres.sin_addr.s_addr = inet_addr("127.0.0.1");
+	addres.sin_family = AF_INET;
+        addres.sin_port = htons(PORT);
+        addres.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-        connect(peer->sock, (struct sockaddr*)&peer->addres, sizeof(peer->addres));
+        connect(sock, (struct sockaddr*)&addres, sizeof(addres));
         //dprintf(peer->sock, s);
 	//std::cout <<"test" <<std::endl;
-	return peer;
 
         }
 
-auto *Client::selinit(auto *peer){
 
-                memset(peer->buffer, 0, sizeof(peer->buffer));
-                FD_ZERO(&peer->read_fd);
-                FD_SET(0, &peer->read_fd);
-                FD_SET(peer->sock, &peer->read_fd);
+void selinit(){
 
-return peer;
+                memset(buffer, 0, sizeof(buffer));
+                FD_ZERO(&read_fd);
+                FD_SET(0, &read_fd);
+                FD_SET(sock, &read_fd);
+
 }
 
 
@@ -111,7 +122,7 @@ return peer;
 
 
 
-template<> Client *Client::sel(Client *peer){
+void sel(){
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
 
 	return this;
@@ -119,15 +130,15 @@ template<> Client *Client::sel(Client *peer){
 
 
 
-template <> Client *Client::conn(Client *peer){
-read(peer->sock, peer->buffer, sizeof(peer->buffer));dprintf(0, peer->buffer);//}
+void conn(){
+read(sock, buffer, sizeof(buffer));dprintf(0, buffer);//}
 return this;
 }
-template<>Client *Client::sendmes(Client *peer){
 
 
+void sendmes(){
 
-if(FD_ISSET(0, &peer->read_fd)){read(0, peer->buffer,sizeof(peer->buffer));dprintf(peer->sock, peer->buffer);}  
+if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
 //if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
 
 return this;
@@ -136,6 +147,6 @@ return this;
 
 }
 
-
+};
 
 

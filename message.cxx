@@ -21,19 +21,19 @@ enum PeerType{
 
 
 void run(auto* singleton){
-//singleton->init(singleton);
-singleton->init1(singleton);
+singleton->init();
+singleton->init1();
 for(;;)
 {
-		singleton->selinit(singleton);
+		singleton->selinit();
 
-		singleton->sel(singleton);
+		singleton->sel();
 
 		select(300, &singleton->read_fd, NULL, NULL, NULL);
 
-		if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn(singleton);
+		if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
 
-		singleton->sendmes(singleton);
+		singleton->sendmes();
 
 //for(;;)
 }
@@ -69,8 +69,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-			case 0: {std::cout<<Singleton::Instance()->data<<std::endl;run((Server*)(Singleton::Instance()));break;}
-		case 1: {run((Client*)(Singleton::Instance()));break;}
+		case 0: {run((new Server));break;}
+		case 1: {run((new Client));break;}
 		}
 
         default:
