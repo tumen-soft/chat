@@ -41,6 +41,7 @@ X dymnam cast write
   message to tamplate
 
 X remove Socket class
+  remove Singleton
   Questions:
   how to make ping to ipscan and remove double accept in server?
   how to kick client (supervisor)?

@@ -43,13 +43,13 @@ import <cstring>;
 
 export class AbstractPeer{
 	public:
-        AbstractPeer(){};
+        AbstractPeer()=default;
 	virtual void init()=0;
-	void init1();
-	void selinit();
-	void sel();
-	void conn();
-	void sendmes();
+	virtual void init1()=0;
+	virtual void selinit()=0;
+	virtual void sel()=0;
+	virtual void conn()=0;
+	virtual void sendmes()=0;
 	//AbstractPeer(){};
         AbstractPeer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
         int sock;
@@ -71,9 +71,9 @@ export class AbstractPeer{
 
 
 //вводим определение клиента и сервера
-export class Client:public AbstractPeer{
+export class ConcreteClient:public AbstractPeer{
         public:
-	Client(){};
+	ConcreteClient(){};
 	//Client(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
 	//int sock;
         //struct sockaddr_in addres;
@@ -86,14 +86,14 @@ export class Client:public AbstractPeer{
 	//auto *selinit(auto *);
 	//template<class T> T *sendmes(T *);
 
-virtual void init() override{
+void init() override{
 	sock=socket(AF_INET, SOCK_STREAM, 0);
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
         
 	return this;
 }
 
-void init1()
+void init1() override
         {
 	std::cout<<"client start "  << std::endl;
 
@@ -108,7 +108,7 @@ void init1()
         }
 
 
-void selinit(){
+void selinit() override{
 
                 memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
@@ -122,7 +122,7 @@ void selinit(){
 
 
 
-void sel(){
+void sel() override{
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
 
 	return this;
@@ -130,13 +130,13 @@ void sel(){
 
 
 
-void conn(){
+void conn() override{
 read(sock, buffer, sizeof(buffer));dprintf(0, buffer);//}
 return this;
 }
 
 
-void sendmes(){
+void sendmes() override{
 
 if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
 //if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}

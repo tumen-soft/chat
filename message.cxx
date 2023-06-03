@@ -69,8 +69,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {run((new Server));break;}
-		case 1: {run((new Client));break;}
+		case 0: {run((new ConcreteServer));break;}
+		case 1: {run((new ConcreteClient));break;}
 		}
 
         default:

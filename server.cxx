@@ -49,15 +49,15 @@ import <vector>;
 
 #endif
 
-export class Server : public AbstractPeer{
+export class ConcreteServer : public AbstractPeer{
 	public:
-	Server(){};
+	ConcreteServer(){};
 	//Server(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
 
 
-virtual void init() override{
+void init() override{
         sock=socket(AF_INET, SOCK_STREAM, 0);
         std::cout << typeid(this).name() << " fd " << sock << std::endl;
         
@@ -71,7 +71,7 @@ virtual void init() override{
 
 
 
-void init1()
+void init1() override
         {
         //char * ser = "Server fd ";
 	std::cout << "server start" << std::endl;
@@ -90,7 +90,7 @@ void init1()
 
 
 
-void selinit(){
+void selinit() override{
 
                 memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
@@ -105,7 +105,7 @@ void selinit(){
 
 
 
-void sel(){
+void sel() override{
 for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
 FD_SET(itr->first, &read_fd);
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
@@ -116,7 +116,7 @@ return this;
 
 
 
-void conn(){
+void conn() override{
                         //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
                         new_socket = accept(sock,NULL,NULL);
@@ -141,7 +141,7 @@ return this;
 
 
 
-void sendmes(){
+void sendmes() override{
 //#if 0
 	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
@@ -171,35 +171,6 @@ return this;
 }
 };
 
-//<D0><A1><D0><B8><D0><BD><D0><B3><D0><BB><D0><B5><D1><82><D0><BE><D0><BD> <D0><9C><D0><B0><D0><B9><D0><B5><D1><80><D1><81><D0><B0>
-export class Singleton
-{
-public:
-   static Singleton* Instance();
-   //Client* instance = new Server(); 
-   int data;
-protected:
-   Singleton(){};
-   //Singleton(int _sock, struct sockaddr_in _addres):Server(_sock, _addres){};
-private:
-   static Singleton* _instance;
-};
-
-Singleton* Singleton::_instance = 0;
-Singleton* Singleton::Instance() {
- if(_instance == 0)_instance = new Singleton;//(socket(AF_INET, SOCK_STREAM, 0),(struct sockaddr_in)0);
-  return _instance;
-}
-
-
-
-
-//Singleton* s(new Singleton);
-//Singleton* singleton0(Singleton::Instance());
-//Singleton* singleton1(Singleton::Instance()->data = 20);
-
-//export singleton0;
-//export singleton1;
 
 
 
