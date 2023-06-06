@@ -8,7 +8,7 @@ export module client;
 import <iostream>;
 import <typeinfo>;
 import <cstring>;
-
+import abspeer;
 #define MAXLINE 1024
 #define PORT 8080 
 
@@ -39,29 +39,6 @@ import <cstring>;
 
 
 #endif
-
-
-export class AbstractPeer{
-	public:
-        AbstractPeer()=default;
-	virtual void init()=0;
-	virtual void init1()=0;
-	virtual void selinit()=0;
-	virtual void sel()=0;
-	virtual void conn()=0;
-	virtual void sendmes()=0;
-        AbstractPeer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-        int sock;
-        struct sockaddr_in addres;
-        char buffer[MAXLINE]={0};
-        fd_set read_fd={0};
-
-	
-
-};
-
-
-
 
 
 

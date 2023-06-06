@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/chat_modules.dir/abspeer.cxx.o"
+  "CMakeFiles/chat_modules.dir/abspeer.cxx.o.d"
   "CMakeFiles/chat_modules.dir/client.cxx.o"
   "CMakeFiles/chat_modules.dir/client.cxx.o.d"
   "CMakeFiles/chat_modules.dir/ipscan.cxx.o"

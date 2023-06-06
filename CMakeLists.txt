@@ -21,7 +21,9 @@ endfunction()
 # Program name and sources
 set (TARGET chat)
 set (SOURCES main.cpp)
-set (MODULES client.cxx
+set (MODULES 
+	abspeer.cxx
+	client.cxx
 	server.cxx
 	ipscan.cxx
 	message.cxx)

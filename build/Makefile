@@ -220,6 +220,30 @@ chat/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat.dir/build.make CMakeFiles/chat.dir/build
 .PHONY : chat/fast
 
+abspeer.o: abspeer.cxx.o
+.PHONY : abspeer.o
+
+# target to build an object file
+abspeer.cxx.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/abspeer.cxx.o
+.PHONY : abspeer.cxx.o
+
+abspeer.i: abspeer.cxx.i
+.PHONY : abspeer.i
+
+# target to preprocess a source file
+abspeer.cxx.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/abspeer.cxx.i
+.PHONY : abspeer.cxx.i
+
+abspeer.s: abspeer.cxx.s
+.PHONY : abspeer.s
+
+# target to generate assembly for a file
+abspeer.cxx.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_modules.dir/build.make CMakeFiles/chat_modules.dir/abspeer.cxx.s
+.PHONY : abspeer.cxx.s
+
 client.o: client.cxx.o
 .PHONY : client.o
 
@@ -357,6 +381,9 @@ help:
 	@echo "... std_modules"
 	@echo "... chat"
 	@echo "... chat_modules"
+	@echo "... abspeer.o"
+	@echo "... abspeer.i"
+	@echo "... abspeer.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"

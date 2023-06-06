@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/programmer/chat/abspeer.cxx" "CMakeFiles/chat_modules.dir/abspeer.cxx.o" "gcc" "CMakeFiles/chat_modules.dir/abspeer.cxx.o.d"
   "/home/programmer/chat/client.cxx" "CMakeFiles/chat_modules.dir/client.cxx.o" "gcc" "CMakeFiles/chat_modules.dir/client.cxx.o.d"
   "/home/programmer/chat/ipscan.cxx" "CMakeFiles/chat_modules.dir/ipscan.cxx.o" "gcc" "CMakeFiles/chat_modules.dir/ipscan.cxx.o.d"
   "/home/programmer/chat/message.cxx" "CMakeFiles/chat_modules.dir/message.cxx.o" "gcc" "CMakeFiles/chat_modules.dir/message.cxx.o.d"

@@ -8,6 +8,7 @@ import <cstring>;
 import client;
 import server;
 import ipscan;
+import abspeer;
 import <iostream>;
 #define MAXLINE 1024
 #define PORT 8080 

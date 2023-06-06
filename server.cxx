@@ -4,7 +4,7 @@ module;
 #include <unistd.h>  //close(), fread()
 #include <cstring>
 #include <ext/stdio_filebuf.h>
-import client;
+import abspeer;
 export module server;
 import <iostream>;
 import <typeinfo>;

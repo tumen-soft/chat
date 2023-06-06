@@ -69,10 +69,24 @@ include CMakeFiles/chat_modules.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/chat_modules.dir/flags.make
 
+CMakeFiles/chat_modules.dir/abspeer.cxx.o: CMakeFiles/chat_modules.dir/flags.make
+CMakeFiles/chat_modules.dir/abspeer.cxx.o: /home/programmer/chat/abspeer.cxx
+CMakeFiles/chat_modules.dir/abspeer.cxx.o: CMakeFiles/chat_modules.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/chat_modules.dir/abspeer.cxx.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chat_modules.dir/abspeer.cxx.o -MF CMakeFiles/chat_modules.dir/abspeer.cxx.o.d -o CMakeFiles/chat_modules.dir/abspeer.cxx.o -c /home/programmer/chat/abspeer.cxx
+
+CMakeFiles/chat_modules.dir/abspeer.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chat_modules.dir/abspeer.cxx.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/programmer/chat/abspeer.cxx > CMakeFiles/chat_modules.dir/abspeer.cxx.i
+
+CMakeFiles/chat_modules.dir/abspeer.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chat_modules.dir/abspeer.cxx.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/programmer/chat/abspeer.cxx -o CMakeFiles/chat_modules.dir/abspeer.cxx.s
+
 CMakeFiles/chat_modules.dir/client.cxx.o: CMakeFiles/chat_modules.dir/flags.make
 CMakeFiles/chat_modules.dir/client.cxx.o: /home/programmer/chat/client.cxx
 CMakeFiles/chat_modules.dir/client.cxx.o: CMakeFiles/chat_modules.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/chat_modules.dir/client.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/chat_modules.dir/client.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chat_modules.dir/client.cxx.o -MF CMakeFiles/chat_modules.dir/client.cxx.o.d -o CMakeFiles/chat_modules.dir/client.cxx.o -c /home/programmer/chat/client.cxx
 
 CMakeFiles/chat_modules.dir/client.cxx.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/chat_modules.dir/client.cxx.s: cmake_force
 CMakeFiles/chat_modules.dir/server.cxx.o: CMakeFiles/chat_modules.dir/flags.make
 CMakeFiles/chat_modules.dir/server.cxx.o: /home/programmer/chat/server.cxx
 CMakeFiles/chat_modules.dir/server.cxx.o: CMakeFiles/chat_modules.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/chat_modules.dir/server.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/chat_modules.dir/server.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chat_modules.dir/server.cxx.o -MF CMakeFiles/chat_modules.dir/server.cxx.o.d -o CMakeFiles/chat_modules.dir/server.cxx.o -c /home/programmer/chat/server.cxx
 
 CMakeFiles/chat_modules.dir/server.cxx.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/chat_modules.dir/server.cxx.s: cmake_force
 CMakeFiles/chat_modules.dir/ipscan.cxx.o: CMakeFiles/chat_modules.dir/flags.make
 CMakeFiles/chat_modules.dir/ipscan.cxx.o: /home/programmer/chat/ipscan.cxx
 CMakeFiles/chat_modules.dir/ipscan.cxx.o: CMakeFiles/chat_modules.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/chat_modules.dir/ipscan.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/chat_modules.dir/ipscan.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chat_modules.dir/ipscan.cxx.o -MF CMakeFiles/chat_modules.dir/ipscan.cxx.o.d -o CMakeFiles/chat_modules.dir/ipscan.cxx.o -c /home/programmer/chat/ipscan.cxx
 
 CMakeFiles/chat_modules.dir/ipscan.cxx.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/chat_modules.dir/ipscan.cxx.s: cmake_force
 CMakeFiles/chat_modules.dir/message.cxx.o: CMakeFiles/chat_modules.dir/flags.make
 CMakeFiles/chat_modules.dir/message.cxx.o: /home/programmer/chat/message.cxx
 CMakeFiles/chat_modules.dir/message.cxx.o: CMakeFiles/chat_modules.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/chat_modules.dir/message.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/programmer/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/chat_modules.dir/message.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chat_modules.dir/message.cxx.o -MF CMakeFiles/chat_modules.dir/message.cxx.o.d -o CMakeFiles/chat_modules.dir/message.cxx.o -c /home/programmer/chat/message.cxx
 
 CMakeFiles/chat_modules.dir/message.cxx.i: cmake_force
@@ -125,6 +139,7 @@ CMakeFiles/chat_modules.dir/message.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chat_modules.dir/message.cxx.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/programmer/chat/message.cxx -o CMakeFiles/chat_modules.dir/message.cxx.s
 
+chat_modules: CMakeFiles/chat_modules.dir/abspeer.cxx.o
 chat_modules: CMakeFiles/chat_modules.dir/client.cxx.o
 chat_modules: CMakeFiles/chat_modules.dir/server.cxx.o
 chat_modules: CMakeFiles/chat_modules.dir/ipscan.cxx.o

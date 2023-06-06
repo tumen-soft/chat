@@ -89,12 +89,14 @@ chat_OBJECTS = \
 
 # External object files for target chat
 chat_EXTERNAL_OBJECTS = \
+"/home/programmer/chat/build/CMakeFiles/chat_modules.dir/abspeer.cxx.o" \
 "/home/programmer/chat/build/CMakeFiles/chat_modules.dir/client.cxx.o" \
 "/home/programmer/chat/build/CMakeFiles/chat_modules.dir/server.cxx.o" \
 "/home/programmer/chat/build/CMakeFiles/chat_modules.dir/ipscan.cxx.o" \
 "/home/programmer/chat/build/CMakeFiles/chat_modules.dir/message.cxx.o"
 
 chat: CMakeFiles/chat.dir/main.cpp.o
+chat: CMakeFiles/chat_modules.dir/abspeer.cxx.o
 chat: CMakeFiles/chat_modules.dir/client.cxx.o
 chat: CMakeFiles/chat_modules.dir/server.cxx.o
 chat: CMakeFiles/chat_modules.dir/ipscan.cxx.o
