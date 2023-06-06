@@ -50,7 +50,6 @@ export class AbstractPeer{
 	virtual void sel()=0;
 	virtual void conn()=0;
 	virtual void sendmes()=0;
-	//AbstractPeer(){};
         AbstractPeer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
         int sock;
         struct sockaddr_in addres;
