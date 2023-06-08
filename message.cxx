@@ -4,7 +4,7 @@
 #include <stdio.h>  //printf()
 #include <unistd.h>  //close(), fread()
 #include <memory>
-import <cstring>;
+#include <cstring>;
 import client;
 import server;
 import ipscan;

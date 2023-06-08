@@ -5,11 +5,11 @@ module;
 #include <cstring>
 #include <ext/stdio_filebuf.h>
 import abspeer;
-export module server;
-import <iostream>;
-import <typeinfo>;
-import <vector>;
+#include <iostream>;
+#include <typeinfo>;
+#include <vector>;
 //import client;
+export module server;
 #define MAXLINE 1024
 #define PORT 8080 
 #if 0	

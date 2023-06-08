@@ -4,11 +4,11 @@ module;
 #include <ext/stdio_filebuf.h>
 #include <stdio.h>  //printf()
 #include <unistd.h>  //close(), fread()
-export module client;
-import <iostream>;
-import <typeinfo>;
-import <cstring>;
+#include <iostream>
+#include <typeinfo>
+#include <cstring>
 import abspeer;
+export module client;
 #define MAXLINE 1024
 #define PORT 8080 
 
