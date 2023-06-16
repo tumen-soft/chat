@@ -15,10 +15,10 @@ import <iostream>;
 
 
 //typedef std::map<int,char*> nmap;
-enum PeerType{
-        _Server,
-        _Client
-};
+//enum PeerType{
+//        _Server,
+//        _Client
+//};
 
 
 

@@ -1,4 +1,4 @@
-Simple net chat
+ Asyncrous multiconnection chat
 
 cd build;
 cmake ..;

@@ -7,6 +7,12 @@ module;
 export module abspeer;
 #define MAXLINE 1024
 
+export int somefun();
+
+int somefun(){return 0;};
+
+
+
 export class AbstractPeer{
         public:
         AbstractPeer()=default;

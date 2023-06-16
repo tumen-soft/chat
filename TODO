@@ -45,3 +45,5 @@ X remove Socket class
   Questions:
   how to make ping to ipscan and remove double accept in server?
   how to kick client (supervisor)?
+  make    module :private;   and submodules    global module    module;
+  make bugs work

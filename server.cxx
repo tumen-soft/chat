@@ -12,6 +12,9 @@ import abspeer;
 export module server;
 #define MAXLINE 1024
 #define PORT 8080 
+export class ConcreteServer;
+
+
 #if 0	
 		<сервер>									
 		  |
@@ -49,7 +52,7 @@ export module server;
 
 #endif
 
-export class ConcreteServer : public AbstractPeer{
+class ConcreteServer : public AbstractPeer{
 	public:
 	ConcreteServer(){};
 	//Server(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}

@@ -11,6 +11,7 @@ import abspeer;
 export module client;
 #define MAXLINE 1024
 #define PORT 8080 
+export class ConcreteClient;
 
 #if 0
 <клиент>
@@ -47,7 +48,7 @@ export module client;
 
 
 //вводим определение клиента и сервера
-export class ConcreteClient:public AbstractPeer{
+class ConcreteClient:public AbstractPeer{
         public:
 	ConcreteClient(){};
 	//Client(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
