@@ -1,9 +1,9 @@
  Asyncrous multiconnection chat
 
-cd build;
-cmake ..;
-make;
 
+make;./chat
+
+deps: stl
 
 See    http:blueagle-so.github.io
 
