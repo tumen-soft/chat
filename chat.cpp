@@ -1,11 +1,11 @@
-module;
+//module;
 ///import message;
-#ifndef main
-#define main
+//#ifndef main
+//#define main
 //export module uno;
 
-//int main1(){
+//int main(void){
 //return wait1();
 //m();
 //}
-#endif
+//#endif
