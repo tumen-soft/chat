@@ -2,11 +2,17 @@
 \hypertarget{classAbstractPeer}{}\label{classAbstractPeer}\index{AbstractPeer@{AbstractPeer}}
 
 
+Абстрактный узел связи  
+
+
+
+
 {\ttfamily \#include $<$abspeer.\+h$>$}
 
 
 
-Граф наследования\+:Abstract\+Peer\+:\nopagebreak
+Граф наследования\+:Abstract\+Peer\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +21,8 @@
 \end{figure}
 
 
-Граф связей класса Abstract\+Peer\+:\nopagebreak
+Граф связей класса Abstract\+Peer\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -47,12 +54,15 @@ virtual void \mbox{\hyperlink{classAbstractPeer_a294287471595d945a6f5a37d63bbcf5
 int \mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}}
 \begin{DoxyCompactList}\small\item\em Переменная для хранения сокета \end{DoxyCompactList}\item 
 struct sockaddr\+\_\+in \mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}}
-\item 
+\begin{DoxyCompactList}\small\item\em Структура для хранения адреса и типа узла \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}} \mbox{[}\mbox{\hyperlink{abspeer_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}\mbox{]} =\{0\}
 \item 
 fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}{read\+\_\+fd}} =\{0\}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Подробное описание}
+Абстрактный узел связи 
 
 \doxysubsection{Конструктор(ы)}
 \Hypertarget{classAbstractPeer_a93e6be13556084978b18872ae668718d}\label{classAbstractPeer_a93e6be13556084978b18872ae668718d} 
@@ -138,6 +148,10 @@ fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f
 \index{addres@{addres}!AbstractPeer@{AbstractPeer}}
 \doxysubsubsection{\texorpdfstring{addres}{addres}}
 {\footnotesize\ttfamily struct sockaddr\+\_\+in Abstract\+Peer\+::addres}
+
+
+
+Структура для хранения адреса и типа узла 
 
 \Hypertarget{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}\label{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904} 
 \index{AbstractPeer@{AbstractPeer}!buffer@{buffer}}

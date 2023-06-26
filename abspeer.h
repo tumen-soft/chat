@@ -8,7 +8,7 @@
 #define MAXLINE 1024
 
 
-
+///Абстрактный узел связи 
 class AbstractPeer{
         public:
         AbstractPeer()=default;
@@ -19,9 +19,8 @@ class AbstractPeer{
         virtual void conn()=0;
         virtual void sendmes()=0;
         AbstractPeer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-        ///Переменная для хранения сокета
-        int sock;
-	struct sockaddr_in addres;
+        int sock;///<Переменная для хранения сокета
+	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};
         fd_set read_fd={0};
 
