@@ -1,4 +1,4 @@
-\doxysection{ipscan.\+h File Reference}
+\doxysection{Файл ipscan.\+h}
 \hypertarget{ipscan_8h}{}\label{ipscan_8h}\index{ipscan.h@{ipscan.h}}
 {\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
@@ -11,7 +11,7 @@
 {\ttfamily \#include $<$pthread.\+h$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$list$>$}\newline
-Include dependency graph for ipscan.\+h\+:
+Граф включаемых заголовочных файлов для ipscan.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -19,7 +19,7 @@ Include dependency graph for ipscan.\+h\+:
 \includegraphics[width=350pt]{ipscan_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
+Граф файлов, в которые включается этот файл\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -27,35 +27,35 @@ This graph shows which files directly or indirectly include this file\+:
 \includegraphics[width=145pt]{ipscan_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Classes}
+\doxysubsubsection*{Классы}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structarg}{arg}}
 \item 
 struct \mbox{\hyperlink{structnode}{node}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Macros}
+\doxysubsubsection*{Макросы}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{ipscan_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}~1024
 \item 
 \#define \mbox{\hyperlink{ipscan_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}}~8080
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Typedefs}
+\doxysubsubsection*{Определения типов}
 \begin{DoxyCompactItemize}
 \item 
 typedef struct \mbox{\hyperlink{structarg}{arg}} \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}}
 \item 
 typedef struct \mbox{\hyperlink{structnode}{node}} \mbox{\hyperlink{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\+\_\+t}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Enumerations}
+\doxysubsubsection*{Перечисления}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{Peer\+Type}} \{ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\+\_\+\+Server}}
 , \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}{\+\_\+\+Client}}
  \}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Functions}
+\doxysubsubsection*{Функции}
 \begin{DoxyCompactItemize}
 \item 
 std\+::ofstream \mbox{\hyperlink{ipscan_8h_a24faa53684ca537338343bd24be3b704}{out}} (\"{}/dev/stdout\"{})
@@ -74,7 +74,7 @@ export void \mbox{\hyperlink{ipscan_8h_a5bcb7955d02231d690684148724e61b9}{check}
 \item 
 export int \mbox{\hyperlink{ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370}{check1}} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
+\doxysubsubsection*{Переменные}
 \begin{DoxyCompactItemize}
 \item 
 pthread\+\_\+t \mbox{\hyperlink{ipscan_8h_a111863bdcffcaacb4ee67e5147df8632}{tid}} \mbox{[}256\mbox{]}
@@ -97,7 +97,7 @@ std\+::list$<$ \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{arg
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Macro Definition Documentation}
+\doxysubsection{Макросы}
 \Hypertarget{ipscan_8h_a3e937c42922f7601edb17b747602c471}\label{ipscan_8h_a3e937c42922f7601edb17b747602c471} 
 \index{ipscan.h@{ipscan.h}!MAXLINE@{MAXLINE}}
 \index{MAXLINE@{MAXLINE}!ipscan.h@{ipscan.h}}
@@ -112,7 +112,7 @@ std\+::list$<$ \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{arg
 
 
 
-\doxysubsection{Typedef Documentation}
+\doxysubsection{Типы}
 \Hypertarget{ipscan_8h_a6750c1ede109a5404cc493813569ab22}\label{ipscan_8h_a6750c1ede109a5404cc493813569ab22} 
 \index{ipscan.h@{ipscan.h}!args@{args}}
 \index{args@{args}!ipscan.h@{ipscan.h}}
@@ -127,14 +127,14 @@ std\+::list$<$ \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{arg
 
 
 
-\doxysubsection{Enumeration Type Documentation}
+\doxysubsection{Перечисления}
 \Hypertarget{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}\label{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687} 
 \index{ipscan.h@{ipscan.h}!PeerType@{PeerType}}
 \index{PeerType@{PeerType}!ipscan.h@{ipscan.h}}
 \doxysubsubsection{\texorpdfstring{PeerType}{PeerType}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{Peer\+Type}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}{Элементы перечислений}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{\_Server@{\_Server}!ipscan.h@{ipscan.h}}\index{ipscan.h@{ipscan.h}!\_Server@{\_Server}}}\Hypertarget{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}\label{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a} 
 \+\_\+\+Server&\\
 \hline
@@ -146,14 +146,14 @@ std\+::list$<$ \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{arg
 \end{DoxyEnumFields}
 
 
-\doxysubsection{Function Documentation}
+\doxysubsection{Функции}
 \Hypertarget{ipscan_8h_a5bcb7955d02231d690684148724e61b9}\label{ipscan_8h_a5bcb7955d02231d690684148724e61b9} 
 \index{ipscan.h@{ipscan.h}!check@{check}}
 \index{check@{check}!ipscan.h@{ipscan.h}}
 \doxysubsubsection{\texorpdfstring{check()}{check()}}
 {\footnotesize\ttfamily export void check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+Граф вызовов\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -161,7 +161,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=212pt]{ipscan_8h_a5bcb7955d02231d690684148724e61b9_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
+Граф вызова функции\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -175,7 +175,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{check1()}{check1()}}
 {\footnotesize\ttfamily export int check1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+Граф вызова функции\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -189,7 +189,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \texorpdfstring{$\ast$}{*} dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+Граф вызова функции\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -203,7 +203,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{doSomeThing()}{doSomeThing()}}
 {\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} do\+Some\+Thing (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+Граф вызова функции\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -217,7 +217,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
 {\footnotesize\ttfamily void enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \texorpdfstring{$\ast$}{*}}]{ar }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+Граф вызова функции\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -243,7 +243,7 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{spawnThreads()}{spawnThreads()}}
 {\footnotesize\ttfamily export void spawn\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-ar\mbox{[}0\mbox{]}.is\+Server=server;Here is the call graph for this function\+:
+ar\mbox{[}0\mbox{]}.is\+Server=server;Граф вызовов\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -251,7 +251,7 @@ ar\mbox{[}0\mbox{]}.is\+Server=server;Here is the call graph for this function\+
 \includegraphics[width=273pt]{ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
+Граф вызова функции\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -261,7 +261,7 @@ Here is the caller graph for this function\+:
 \end{figure}
 
 
-\doxysubsection{Variable Documentation}
+\doxysubsection{Переменные}
 \Hypertarget{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}\label{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65} 
 \index{ipscan.h@{ipscan.h}!addr@{addr}}
 \index{addr@{addr}!ipscan.h@{ipscan.h}}

@@ -1,4 +1,4 @@
-\doxysection{message.\+h File Reference}
+\doxysection{Файл message.\+h}
 \hypertarget{message_8h}{}\label{message_8h}\index{message.h@{message.h}}
 {\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
 {\ttfamily \#include $<$sys/socket.\+h$>$}\newline
@@ -12,7 +12,7 @@
 {\ttfamily \#include \"{}ipscan.\+h\"{}}\newline
 {\ttfamily \#include \"{}abspeer.\+h\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
-Include dependency graph for message.\+h\+:
+Граф включаемых заголовочных файлов для message.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -20,7 +20,7 @@ Include dependency graph for message.\+h\+:
 \includegraphics[width=350pt]{message_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
+Граф файлов, в которые включается этот файл\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -28,21 +28,21 @@ This graph shows which files directly or indirectly include this file\+:
 \includegraphics[width=145pt]{message_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Macros}
+\doxysubsubsection*{Макросы}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{message_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}~1024
 \item 
 \#define \mbox{\hyperlink{message_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}}~8080
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Enumerations}
+\doxysubsubsection*{Перечисления}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}} \{ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fadc6f24fd6915a3f2786a1b7045406924}{END}}
 , \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fa439c688a4e9ed31638d5922a50680a8e}{RUN}}
  \}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Functions}
+\doxysubsubsection*{Функции}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{message_8h_a171b555fe45f130dae770c7cd6ec0fbf}{run}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractPeer}{Abstract\+Peer}} $>$ singleton)
@@ -51,7 +51,7 @@ int \mbox{\hyperlink{message_8h_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Macro Definition Documentation}
+\doxysubsection{Макросы}
 \Hypertarget{message_8h_a3e937c42922f7601edb17b747602c471}\label{message_8h_a3e937c42922f7601edb17b747602c471} 
 \index{message.h@{message.h}!MAXLINE@{MAXLINE}}
 \index{MAXLINE@{MAXLINE}!message.h@{message.h}}
@@ -66,14 +66,14 @@ int \mbox{\hyperlink{message_8h_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 
 
 
-\doxysubsection{Enumeration Type Documentation}
+\doxysubsection{Перечисления}
 \Hypertarget{message_8h_afd05e88e13762e173d9d20fe3596216f}\label{message_8h_afd05e88e13762e173d9d20fe3596216f} 
 \index{message.h@{message.h}!choice@{choice}}
 \index{choice@{choice}!message.h@{message.h}}
 \doxysubsubsection{\texorpdfstring{choice}{choice}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}{Элементы перечислений}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{END@{END}!message.h@{message.h}}\index{message.h@{message.h}!END@{END}}}\Hypertarget{message_8h_afd05e88e13762e173d9d20fe3596216fadc6f24fd6915a3f2786a1b7045406924}\label{message_8h_afd05e88e13762e173d9d20fe3596216fadc6f24fd6915a3f2786a1b7045406924} 
 END&\\
 \hline
@@ -85,14 +85,14 @@ RUN&\\
 \end{DoxyEnumFields}
 
 
-\doxysubsection{Function Documentation}
+\doxysubsection{Функции}
 \Hypertarget{message_8h_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{message_8h_ae66f6b31b5ad750f1fe042a706a4e3d4} 
 \index{message.h@{message.h}!main@{main}}
 \index{main@{main}!message.h@{message.h}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+Граф вызовов\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -106,7 +106,7 @@ Here is the call graph for this function\+:
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
 {\footnotesize\ttfamily void run (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAbstractPeer}{Abstract\+Peer}} $>$}]{singleton }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+Граф вызова функции\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}

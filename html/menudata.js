@@ -23,13 +23,13 @@
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Main Page",url:"index.html"},
-{text:"Classes",url:"annotated.html",children:[
-{text:"Class List",url:"annotated.html"},
-{text:"Class Index",url:"classes.html"},
-{text:"Class Hierarchy",url:"inherits.html"},
-{text:"Class Members",url:"functions.html",children:[
-{text:"All",url:"functions.html",children:[
+{text:"Титульная страница",url:"index.html"},
+{text:"Классы",url:"annotated.html",children:[
+{text:"Классы",url:"annotated.html"},
+{text:"Алфавитный указатель классов",url:"classes.html"},
+{text:"Иерархия классов",url:"inherits.html"},
+{text:"Члены классов",url:"functions.html",children:[
+{text:"Указатель",url:"functions.html",children:[
 {text:"a",url:"functions.html#index_a"},
 {text:"b",url:"functions.html#index_b"},
 {text:"c",url:"functions.html#index_c"},
@@ -42,12 +42,12 @@ var menudata={children:[
 {text:"v",url:"functions.html#index_v"},
 {text:"x",url:"functions.html#index_x"},
 {text:"y",url:"functions.html#index_y"}]},
-{text:"Functions",url:"functions_func.html"},
-{text:"Variables",url:"functions_vars.html"}]}]},
-{text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"},
-{text:"File Members",url:"globals.html",children:[
-{text:"All",url:"globals.html",children:[
+{text:"Функции",url:"functions_func.html"},
+{text:"Переменные",url:"functions_vars.html"}]}]},
+{text:"Файлы",url:"files.html",children:[
+{text:"Файлы",url:"files.html"},
+{text:"Список членов всех файлов",url:"globals.html",children:[
+{text:"Указатель",url:"globals.html",children:[
 {text:"_",url:"globals.html#index__5F"},
 {text:"a",url:"globals.html#index_a"},
 {text:"c",url:"globals.html#index_c"},
@@ -63,9 +63,9 @@ var menudata={children:[
 {text:"r",url:"globals.html#index_r"},
 {text:"s",url:"globals.html#index_s"},
 {text:"t",url:"globals.html#index_t"}]},
-{text:"Functions",url:"globals_func.html"},
-{text:"Variables",url:"globals_vars.html"},
-{text:"Typedefs",url:"globals_type.html"},
-{text:"Enumerations",url:"globals_enum.html"},
-{text:"Enumerator",url:"globals_eval.html"},
-{text:"Macros",url:"globals_defs.html"}]}]}]}
+{text:"Функции",url:"globals_func.html"},
+{text:"Переменные",url:"globals_vars.html"},
+{text:"Определения типов",url:"globals_type.html"},
+{text:"Перечисления",url:"globals_enum.html"},
+{text:"Элементы перечислений",url:"globals_eval.html"},
+{text:"Макросы",url:"globals_defs.html"}]}]}]}
