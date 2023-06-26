@@ -1,4 +1,3 @@
-module;
 #include <arpa/inet.h>  //inet_addr define
 #include <stdio.h>  //printf()
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
@@ -16,7 +15,6 @@ module;
 #include <list>
 //export module peer;
 //using namespace std;
-export module ipscan;
 
 //import peer;
 

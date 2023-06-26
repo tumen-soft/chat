@@ -5,11 +5,11 @@
 #include <unistd.h>  //close(), fread()
 #include <memory>
 #include <cstring>;
-import client;
-import server;
-import ipscan;
-import abspeer;
-import <iostream>;
+#include "client.h"
+#include "server.h"
+#include "ipscan.h";
+#include "abspeer.h";
+#include <iostream>;
 #define MAXLINE 1024
 #define PORT 8080 
 
@@ -58,7 +58,7 @@ int c,p;
 //peer = new Server;
 std::cin>>c;
 //c=1;
-ch=(int)c;
+ch=(choice)c;
 switch(ch){
 
         case END:

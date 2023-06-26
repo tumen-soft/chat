@@ -1,19 +1,15 @@
-module;
+#ifndef abs
+#define abs
 #include <arpa/inet.h>  //inet_addr define
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <ext/stdio_filebuf.h>
 #include <stdio.h>  //printf()
 #include <unistd.h>  //close(), fread()
-export module abspeer;
 #define MAXLINE 1024
 
-export int somefun();
-
-int somefun(){return 0;};
 
 
-
-export class AbstractPeer{
+class AbstractPeer{
         public:
         AbstractPeer()=default;
         virtual void init()=0;
@@ -31,4 +27,4 @@ export class AbstractPeer{
         
 
 };
-
+#endif

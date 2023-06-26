@@ -1,4 +1,3 @@
-module;
 #include <arpa/inet.h>  //inet_addr define
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <ext/stdio_filebuf.h>
@@ -7,11 +6,9 @@ module;
 #include <iostream>
 #include <typeinfo>
 #include <cstring>
-import abspeer;
-export module client;
+#include "abspeer.h"
 #define MAXLINE 1024
 #define PORT 8080 
-export class ConcreteClient;
 
 #if 0
 <клиент>
