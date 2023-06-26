@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buffer_0',['buffer',['../classAbstractPeer.html#a08a4bdba86cc87e04aa721d79ca2c904',1,'AbstractPeer']]]
+  ['buffer_0',['buffer',['../classPeer.html#aeff6367e659ac6c6a649603198e56021',1,'Peer']]]
 ];

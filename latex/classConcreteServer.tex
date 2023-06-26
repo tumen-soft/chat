@@ -6,8 +6,7 @@
 
 
 
-Граф наследования\+:Concrete\+Server\+:
-\nopagebreak
+Граф наследования\+:Concrete\+Server\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,7 @@
 \end{figure}
 
 
-Граф связей класса Concrete\+Server\+:
-\nopagebreak
+Граф связей класса Concrete\+Server\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,7 +28,7 @@
 \mbox{\hyperlink{classConcreteServer_abd8c291635b2bb07dc8cb3f66d2a6b15}{Concrete\+Server}} ()
 \item 
 void \mbox{\hyperlink{classConcreteServer_a836456a10ba72c27e3f984e3299e9a2e}{init}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Прообраз функции инициализации клиента/скрвера \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classConcreteServer_a71f2f7dbcd28af9e2c85dc2f893d8911}{init1}} () override
 \item 
 void \mbox{\hyperlink{classConcreteServer_a274da02ec8de3ffe6fcbdf5f7eea0b41}{selinit}} () override
@@ -45,9 +43,9 @@ void \mbox{\hyperlink{classConcreteServer_a843555b611567f25ce1187a8d4ff5aea}{sen
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classAbstractPeer_a93e6be13556084978b18872ae668718d}{Abstract\+Peer}} ()=default
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор без параметров \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classAbstractPeer_a8a6c3cbee44c0048b7aaf3b92a480b1a}{init}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em Прообраз функции инициализации клиента/скрвера \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classAbstractPeer_a9e447922614389bcfc9515ecab4e2db9}{init1}} ()=0
 \item 
 virtual void \mbox{\hyperlink{classAbstractPeer_ae622fc9e2a08674cf05f51d38e6d1132}{selinit}} ()=0
@@ -59,7 +57,7 @@ virtual void \mbox{\hyperlink{classAbstractPeer_a3ad90a240251b712f57b9577ae771a7
 virtual void \mbox{\hyperlink{classAbstractPeer_a294287471595d945a6f5a37d63bbcf50}{sendmes}} ()=0
 \item 
 \mbox{\hyperlink{classAbstractPeer_a54b10dcf41629c01359abc21dd44783d}{Abstract\+Peer}} (int \+\_\+sock, struct sockaddr\+\_\+in \+\_\+addres)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Конструктор с параметрами \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Открытые атрибуты}
 \begin{DoxyCompactItemize}
 \item 
@@ -89,9 +87,9 @@ int \mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}}
 struct sockaddr\+\_\+in \mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}}
 \begin{DoxyCompactList}\small\item\em Структура для хранения адреса и типа узла \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}} \mbox{[}\mbox{\hyperlink{abspeer_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}\mbox{]} =\{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em Хранит сообшение \end{DoxyCompactList}\item 
 fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}{read\+\_\+fd}} =\{0\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Массив дескрапторов \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Конструктор(ы)}
@@ -119,6 +117,10 @@ fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f
 \index{init@{init}!ConcreteServer@{ConcreteServer}}
 \doxysubsubsection{\texorpdfstring{init()}{init()}}
 {\footnotesize\ttfamily void Concrete\+Server\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Прообраз функции инициализации клиента/скрвера 
 
 
 

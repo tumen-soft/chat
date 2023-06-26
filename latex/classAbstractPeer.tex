@@ -2,7 +2,7 @@
 \hypertarget{classAbstractPeer}{}\label{classAbstractPeer}\index{AbstractPeer@{AbstractPeer}}
 
 
-Абстрактный узел связи  
+Абстрактный узел связи.  
 
 
 
@@ -11,8 +11,7 @@
 
 
 
-Граф наследования\+:Abstract\+Peer\+:
-\nopagebreak
+Граф наследования\+:Abstract\+Peer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@
 \end{figure}
 
 
-Граф связей класса Abstract\+Peer\+:
-\nopagebreak
+Граф связей класса Abstract\+Peer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,9 +31,9 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classAbstractPeer_a93e6be13556084978b18872ae668718d}{Abstract\+Peer}} ()=default
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор без параметров \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classAbstractPeer_a8a6c3cbee44c0048b7aaf3b92a480b1a}{init}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em Прообраз функции инициализации клиента/скрвера \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classAbstractPeer_a9e447922614389bcfc9515ecab4e2db9}{init1}} ()=0
 \item 
 virtual void \mbox{\hyperlink{classAbstractPeer_ae622fc9e2a08674cf05f51d38e6d1132}{selinit}} ()=0
@@ -47,7 +45,7 @@ virtual void \mbox{\hyperlink{classAbstractPeer_a3ad90a240251b712f57b9577ae771a7
 virtual void \mbox{\hyperlink{classAbstractPeer_a294287471595d945a6f5a37d63bbcf50}{sendmes}} ()=0
 \item 
 \mbox{\hyperlink{classAbstractPeer_a54b10dcf41629c01359abc21dd44783d}{Abstract\+Peer}} (int \+\_\+sock, struct sockaddr\+\_\+in \+\_\+addres)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Конструктор с параметрами \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Открытые атрибуты}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,13 +54,15 @@ int \mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}}
 struct sockaddr\+\_\+in \mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}}
 \begin{DoxyCompactList}\small\item\em Структура для хранения адреса и типа узла \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}} \mbox{[}\mbox{\hyperlink{abspeer_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}\mbox{]} =\{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em Хранит сообшение \end{DoxyCompactList}\item 
 fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}{read\+\_\+fd}} =\{0\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Массив дескрапторов \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Подробное описание}
-Абстрактный узел связи 
+Абстрактный узел связи. 
+
+Создает интерфейс для наследующих классов клиета и сервера. Содержит виртуальные функции создания сокета, соединения, основного цикла. 
 
 \doxysubsection{Конструктор(ы)}
 \Hypertarget{classAbstractPeer_a93e6be13556084978b18872ae668718d}\label{classAbstractPeer_a93e6be13556084978b18872ae668718d} 
@@ -71,12 +71,32 @@ fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f
 \doxysubsubsection{\texorpdfstring{AbstractPeer()}{AbstractPeer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Abstract\+Peer\+::\+Abstract\+Peer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
+
+
+Конструктор без параметров 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em void} & \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classAbstractPeer_a54b10dcf41629c01359abc21dd44783d}\label{classAbstractPeer_a54b10dcf41629c01359abc21dd44783d} 
 \index{AbstractPeer@{AbstractPeer}!AbstractPeer@{AbstractPeer}}
 \index{AbstractPeer@{AbstractPeer}!AbstractPeer@{AbstractPeer}}
 \doxysubsubsection{\texorpdfstring{AbstractPeer()}{AbstractPeer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Abstract\+Peer\+::\+Abstract\+Peer (\begin{DoxyParamCaption}\item[{int}]{\+\_\+sock,  }\item[{struct sockaddr\+\_\+in}]{\+\_\+addres }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Конструктор с параметрами 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em \+\_\+sock} & \\
+\hline
+{\em \+\_\+addres} & \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Методы}
@@ -95,6 +115,10 @@ fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f
 \index{init@{init}!AbstractPeer@{AbstractPeer}}
 \doxysubsubsection{\texorpdfstring{init()}{init()}}
 {\footnotesize\ttfamily virtual void Abstract\+Peer\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Прообраз функции инициализации клиента/скрвера 
 
 
 
@@ -159,11 +183,19 @@ fd\+\_\+set \mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f
 \doxysubsubsection{\texorpdfstring{buffer}{buffer}}
 {\footnotesize\ttfamily char Abstract\+Peer\+::buffer\mbox{[}\mbox{\hyperlink{abspeer_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}\mbox{]} =\{0\}}
 
+
+
+Хранит сообшение 
+
 \Hypertarget{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}\label{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f} 
 \index{AbstractPeer@{AbstractPeer}!read\_fd@{read\_fd}}
 \index{read\_fd@{read\_fd}!AbstractPeer@{AbstractPeer}}
 \doxysubsubsection{\texorpdfstring{read\_fd}{read\_fd}}
 {\footnotesize\ttfamily fd\+\_\+set Abstract\+Peer\+::read\+\_\+fd =\{0\}}
+
+
+
+Массив дескрапторов 
 
 \Hypertarget{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}\label{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091} 
 \index{AbstractPeer@{AbstractPeer}!sock@{sock}}

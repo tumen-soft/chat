@@ -1,0 +1,5 @@
+<map id="Server" name="Server">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,319,116,664"/>
+<area shape="rect" id="Node000002" href="$classPeer.html" title="Абстрактный узел связи." alt="" coords="5,5,116,271"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,284,63,318,58,318,58,284"/>
+</map>

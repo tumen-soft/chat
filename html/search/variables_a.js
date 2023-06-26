@@ -1,6 +1,6 @@
 var searchData=
 [
   ['s_0',['s',['../ipscan_8h.html#aa4552517be507d79e286a47269c216fa',1,'ipscan.h']]],
-  ['sd_1',['sd',['../classConcreteServer.html#acffe2e4e732a546b5c544968d4ae8fad',1,'ConcreteServer']]],
-  ['sock_2',['sock',['../classAbstractPeer.html#ab7b3e18a6b0dc4659bb3946bab8eb091',1,'AbstractPeer']]]
+  ['sd_1',['sd',['../classServer.html#a0806beaf535f0bfaff2276b3e7156cbe',1,'Server']]],
+  ['sock_2',['sock',['../classPeer.html#a925963413d249aec471b34561070610c',1,'Peer']]]
 ];

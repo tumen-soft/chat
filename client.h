@@ -45,9 +45,9 @@
 
 
 //вводим определение клиента и сервера
-class ConcreteClient:public AbstractPeer{
+class Client:public Peer{
         public:
-	ConcreteClient(){};
+	Client(){};
 	//Client(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
 	//int sock;
         //struct sockaddr_in addres;
@@ -60,11 +60,9 @@ class ConcreteClient:public AbstractPeer{
 	//auto *selinit(auto *);
 	//template<class T> T *sendmes(T *);
 
-void init() override{
+void createSocket() override{
 	sock=socket(AF_INET, SOCK_STREAM, 0);
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
-        
-	return this;
 }
 
 void init1() override

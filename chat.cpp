@@ -1,4 +1,10 @@
 #include "message.h"
+/**
+ *@mainpage Приложения для обмена сообщениями по сети
+ *
+ *
+ *
+ */
 //module;
 ///import message;
 //#ifndef main

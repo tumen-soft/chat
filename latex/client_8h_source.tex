@@ -48,9 +48,9 @@
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00046\ }
 \DoxyCodeLine{00047\ \textcolor{comment}{//вводим\ определение\ клиента\ и\ сервера}}
-\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConcreteClient}{ConcreteClient}}:\textcolor{keyword}{public}\ \mbox{\hyperlink{classAbstractPeer}{AbstractPeer}}\{}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classClient}{Client}}:\textcolor{keyword}{public}\ \mbox{\hyperlink{classPeer}{Peer}}\{}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classConcreteClient_a29fbca9daa3b17f9e425a7f45fab1097}{ConcreteClient}}()\{\};}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classClient_ae51af7aa6b8f591496a8f6a4a87a14bf}{Client}}()\{\};}
 \DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//Client(int\ \_sock,\ struct\ sockaddr\_in\ \_addres):AbstractPeer(\_sock,\ \_addres)\{\}}}
 \DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//int\ sock;}}
 \DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//struct\ sockaddr\_in\ addres;}}
@@ -63,69 +63,67 @@
 \DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//auto\ *selinit(auto\ *);}}
 \DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//template<class\ T>\ T\ *sendmes(T\ *);}}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcreteClient_a3273856cbdf5a4035053a02572853a4d}{init}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}}=socket(AF\_INET,\ SOCK\_STREAM,\ 0);}
-\DoxyCodeLine{00065\ \ \ \ \ std::cout\ <<\ \textcolor{keyword}{typeid}(\textcolor{keyword}{this}).name()\ <<\ \textcolor{stringliteral}{"{}\ fd\ "{}}\ <<\ \mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}}\ <<\ std::endl;}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
-\DoxyCodeLine{00068\ \}}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcreteClient_a631189fac7eef569066f18776aa177e1}{init1}}()\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00071\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00072\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}client\ start\ "{}}\ \ <<\ std::endl;}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}}.sin\_family\ =\ AF\_INET;}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}}.sin\_port\ =\ htons(\mbox{\hyperlink{client_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}});}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}}.sin\_addr.s\_addr\ =\ inet\_addr(\textcolor{stringliteral}{"{}127.0.0.1"{}});}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ connect(\mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}},\ (\textcolor{keyword}{struct}\ sockaddr*)\&\mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classAbstractPeer_a115afffee11f94131732b973908d989f}{addres}}));}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//dprintf(peer-\/>sock,\ s);}}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//std::cout\ <<"{}test"{}\ <<std::endl;}}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_ab6e28571c7e03c08a7215d819b5724c1}{createSocket}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}}=socket(AF\_INET,\ SOCK\_STREAM,\ 0);}
+\DoxyCodeLine{00065\ \ \ \ \ std::cout\ <<\ \textcolor{keyword}{typeid}(\textcolor{keyword}{this}).name()\ <<\ \textcolor{stringliteral}{"{}\ fd\ "{}}\ <<\ \mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}}\ <<\ std::endl;}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a5eb8c4788652add25b823a88c9c712ef}{init1}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}client\ start\ "{}}\ \ <<\ std::endl;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_port\ =\ htons(\mbox{\hyperlink{client_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_addr.s\_addr\ =\ inet\_addr(\textcolor{stringliteral}{"{}127.0.0.1"{}});}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ connect(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ (\textcolor{keyword}{struct}\ sockaddr*)\&\mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}));}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//dprintf(peer-\/>sock,\ s);}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//std::cout\ <<"{}test"{}\ <<std::endl;}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_aebf9b314550b1b959bd407c76bbda8da}{selinit}}()\textcolor{keyword}{\ override}\{}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcreteClient_a0cc4bf8a1613f9c9d55c7b38319c24a4}{selinit}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(\mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}},\ 0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}}));}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_ZERO(\&\mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}{read\_fd}});}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(0,\ \&\mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}{read\_fd}});}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(\mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}},\ \&\mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}{read\_fd}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}},\ 0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}));}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_ZERO(\&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(0,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \}}
 \DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00092\ }
 \DoxyCodeLine{00093\ }
 \DoxyCodeLine{00094\ }
 \DoxyCodeLine{00095\ }
 \DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcreteClient_a61159ff8fc211d454bcdb299447745bb}{sel}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00100\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ select(300,\ \&peer-\/>read\_fd,\ NULL,\ NULL,\ NULL);}}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
-\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_af563c26b27356624c6c7bb2a51452dac}{sel}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ select(300,\ \&peer-\/>read\_fd,\ NULL,\ NULL,\ NULL);}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00101\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
 \DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcreteClient_a6fecba49bc938e7c4e3ec850ebda2e95}{conn}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00108\ read(\mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}},\ \mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}}));dprintf(0,\ \mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}});\textcolor{comment}{//\}}}
-\DoxyCodeLine{00109\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
-\DoxyCodeLine{00110\ \}}
-\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_acc7125848be8c7872f5c8a94eb01f88d}{conn}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00106\ read(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}));dprintf(0,\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}});\textcolor{comment}{//\}}}
+\DoxyCodeLine{00107\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a8088c82969a26911550ccf13ca89c587}{sendmes}}()\textcolor{keyword}{\ override}\{}
 \DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcreteClient_a86c48189cf80e7bd18b698e64924fa46}{sendmes}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \textcolor{keywordflow}{if}(FD\_ISSET(0,\ \&\mbox{\hyperlink{classAbstractPeer_a9beb7080532de3bcb5ec0b9a5a438e0f}{read\_fd}}))\{read(0,\ \mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}},\textcolor{keyword}{sizeof}(\mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}}));dprintf(\mbox{\hyperlink{classAbstractPeer_ab7b3e18a6b0dc4659bb3946bab8eb091}{sock}},\ \mbox{\hyperlink{classAbstractPeer_a08a4bdba86cc87e04aa721d79ca2c904}{buffer}});\}\ \ }
-\DoxyCodeLine{00116\ \textcolor{comment}{//if(FD\_ISSET(sock,\ \&read\_fd))\{read(sock,\ buffer,\ sizeof(buffer));dprintf(0,\ buffer);\}}}
+\DoxyCodeLine{00113\ \textcolor{keywordflow}{if}(FD\_ISSET(0,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}}))\{read(0,\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}},\textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}));dprintf(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}});\}\ \ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//if(FD\_ISSET(sock,\ \&read\_fd))\{read(sock,\ buffer,\ sizeof(buffer));dprintf(0,\ buffer);\}}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
 \DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00118\ }
 \DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00120\ \}}
 \DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00122\ \};}
 \DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \};}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00124\ }
 
 \end{DoxyCode}

@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Абстрактный узел связи  
+<p>Абстрактный узел связи.  
  <a href="classAbstractPeer.html#details">Подробнее...</a></p>
 
 <p><code>#include &lt;<a class="el" href="abspeer_8h_source.html">abspeer.h</a>&gt;</code></p>
@@ -86,7 +86,7 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classAbstractPeer__inherit__graph.png" border="0" usemap="#aAbstractPeer_inherit__map" alt="Inheritance graph"/></div>
 <map name="aAbstractPeer_inherit__map" id="aAbstractPeer_inherit__map">
-<area shape="rect" title="Абстрактный узел связи" alt="" coords="84,5,195,271"/>
+<area shape="rect" title="Абстрактный узел связи." alt="" coords="84,5,195,271"/>
 <area shape="rect" href="classConcreteClient.html" title=" " alt="" coords="5,399,127,584"/>
 <area shape="poly" title=" " alt="" coords="112,285,88,399,83,398,106,284"/>
 <area shape="rect" href="classConcreteServer.html" title=" " alt="" coords="151,319,277,664"/>
@@ -98,15 +98,17 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classAbstractPeer__coll__graph.png" border="0" usemap="#aAbstractPeer_coll__map" alt="Collaboration graph"/></div>
 <map name="aAbstractPeer_coll__map" id="aAbstractPeer_coll__map">
-<area shape="rect" title="Абстрактный узел связи" alt="" coords="5,5,116,271"/>
+<area shape="rect" title="Абстрактный узел связи." alt="" coords="5,5,116,271"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a93e6be13556084978b18872ae668718d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractPeer.html#a93e6be13556084978b18872ae668718d">AbstractPeer</a> ()=default</td></tr>
+<tr class="memdesc:a93e6be13556084978b18872ae668718d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор без параметров  <br /></td></tr>
 <tr class="separator:a93e6be13556084978b18872ae668718d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a6c3cbee44c0048b7aaf3b92a480b1a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractPeer.html#a8a6c3cbee44c0048b7aaf3b92a480b1a">init</a> ()=0</td></tr>
+<tr class="memdesc:a8a6c3cbee44c0048b7aaf3b92a480b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прообраз функции инициализации клиента/скрвера  <br /></td></tr>
 <tr class="separator:a8a6c3cbee44c0048b7aaf3b92a480b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e447922614389bcfc9515ecab4e2db9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractPeer.html#a9e447922614389bcfc9515ecab4e2db9">init1</a> ()=0</td></tr>
 <tr class="separator:a9e447922614389bcfc9515ecab4e2db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,6 +121,7 @@ $(function() {
 <tr class="memitem:a294287471595d945a6f5a37d63bbcf50"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractPeer.html#a294287471595d945a6f5a37d63bbcf50">sendmes</a> ()=0</td></tr>
 <tr class="separator:a294287471595d945a6f5a37d63bbcf50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54b10dcf41629c01359abc21dd44783d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractPeer.html#a54b10dcf41629c01359abc21dd44783d">AbstractPeer</a> (int _sock, struct sockaddr_in _addres)</td></tr>
+<tr class="memdesc:a54b10dcf41629c01359abc21dd44783d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор с параметрами  <br /></td></tr>
 <tr class="separator:a54b10dcf41629c01359abc21dd44783d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -130,12 +133,15 @@ $(function() {
 <tr class="memdesc:a115afffee11f94131732b973908d989f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура для хранения адреса и типа узла  <br /></td></tr>
 <tr class="separator:a115afffee11f94131732b973908d989f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08a4bdba86cc87e04aa721d79ca2c904"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractPeer.html#a08a4bdba86cc87e04aa721d79ca2c904">buffer</a> [<a class="el" href="abspeer_8h.html#a3e937c42922f7601edb17b747602c471">MAXLINE</a>] ={0}</td></tr>
+<tr class="memdesc:a08a4bdba86cc87e04aa721d79ca2c904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранит сообшение  <br /></td></tr>
 <tr class="separator:a08a4bdba86cc87e04aa721d79ca2c904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9beb7080532de3bcb5ec0b9a5a438e0f"><td class="memItemLeft" align="right" valign="top">fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractPeer.html#a9beb7080532de3bcb5ec0b9a5a438e0f">read_fd</a> ={0}</td></tr>
+<tr class="memdesc:a9beb7080532de3bcb5ec0b9a5a438e0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Массив дескрапторов  <br /></td></tr>
 <tr class="separator:a9beb7080532de3bcb5ec0b9a5a438e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><p>Абстрактный узел связи </p>
+<div class="textblock"><p>Абстрактный узел связи. </p>
+<p>Создает интерфейс для наследующих классов клиета и сервера. Содержит виртуальные функции создания сокета, соединения, основного цикла. </p>
 </div><h2 class="groupheader">Конструктор(ы)</h2>
 <a id="a93e6be13556084978b18872ae668718d" name="a93e6be13556084978b18872ae668718d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93e6be13556084978b18872ae668718d">&#9670;&#160;</a></span>AbstractPeer() <span class="overload">[1/2]</span></h2>
@@ -159,6 +165,14 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Конструктор без параметров </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -195,6 +209,15 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Конструктор с параметрами </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_sock</td><td></td></tr>
+    <tr><td class="paramname">_addres</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -248,6 +271,8 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Прообраз функции инициализации клиента/скрвера </p>
 
 <p>Замещается в <a class="el" href="classConcreteClient.html#a3273856cbdf5a4035053a02572853a4d">ConcreteClient</a> и <a class="el" href="classConcreteServer.html#a836456a10ba72c27e3f984e3299e9a2e">ConcreteServer</a>.</p>
 
@@ -390,6 +415,8 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
+<p>Хранит сообшение </p>
+
 </div>
 </div>
 <a id="a9beb7080532de3bcb5ec0b9a5a438e0f" name="a9beb7080532de3bcb5ec0b9a5a438e0f"></a>
@@ -403,6 +430,8 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Массив дескрапторов </p>
 
 </div>
 </div>

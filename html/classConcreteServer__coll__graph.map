@@ -1,5 +1,5 @@
 <map id="ConcreteServer" name="ConcreteServer">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,319,132,664"/>
-<area shape="rect" id="Node000002" href="$classAbstractPeer.html" title="Абстрактный узел связи" alt="" coords="13,5,124,271"/>
+<area shape="rect" id="Node000002" href="$classAbstractPeer.html" title="Абстрактный узел связи." alt="" coords="13,5,124,271"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,284,71,318,66,318,66,284"/>
 </map>

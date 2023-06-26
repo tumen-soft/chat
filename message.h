@@ -1,3 +1,10 @@
+/**
+ *@mainpage Приложение для обмена сообшениями по сети. 
+ *
+ *
+ *
+ */
+
 #include <arpa/inet.h>  //inet_addr define
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <ext/stdio_filebuf.h>
@@ -22,8 +29,8 @@
 
 
 
-void run(std::shared_ptr<AbstractPeer> singleton){
-singleton->init();
+void run(std::shared_ptr<Peer> singleton){
+singleton->createSocket();
 singleton->init1();
 for(;;)
 {
@@ -71,8 +78,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {std::shared_ptr<AbstractPeer> a = std::make_shared<ConcreteServer>();run(a);break;}
-		case 1: {std::shared_ptr<AbstractPeer> b = std::make_shared<ConcreteClient>();run(b);break;}
+		case 0: {std::shared_ptr<Peer> a = std::make_shared<Server>();run(a);break;}
+		case 1: {std::shared_ptr<Peer> b = std::make_shared<Client>();run(b);break;}
 		}
 
         default:

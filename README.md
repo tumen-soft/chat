@@ -1,6 +1,6 @@
-Asyncrous multiconnection chat
+Приложение для обмена сообшениями по сети.
 
-
+использование:
 make;./chat
 
 

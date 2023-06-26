@@ -1,0 +1,7 @@
+<map id="Peer" name="Peer">
+<area shape="rect" id="Node000001" title="Абстрактный узел связи." alt="" coords="72,5,183,271"/>
+<area shape="rect" id="Node000002" href="$classClient.html" title=" " alt="" coords="5,399,116,584"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,285,81,399,76,398,97,284"/>
+<area shape="rect" id="Node000003" href="$classServer.html" title=" " alt="" coords="140,319,251,664"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,284,165,318,159,319,153,285"/>
+</map>
