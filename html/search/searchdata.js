@@ -2,13 +2,14 @@ var indexSectionsWithContent =
 {
   0: "_abcdehilmnoprstvxy",
   1: "acn",
-  2: "acims",
+  2: "acimrs",
   3: "acdeimors",
   4: "abchilmnprstvxy",
   5: "an",
   6: "cp",
   7: "_er",
-  8: "mp"
+  8: "mp",
+  9: "c"
 };
 
 var indexSectionNames =
@@ -21,7 +22,8 @@ var indexSectionNames =
   5: "typedefs",
   6: "enums",
   7: "enumvalues",
-  8: "defines"
+  8: "defines",
+  9: "pages"
 };
 
 var indexSectionLabels =
@@ -34,6 +36,7 @@ var indexSectionLabels =
   5: "Определения типов",
   6: "Перечисления",
   7: "Элементы перечислений",
-  8: "Макросы"
+  8: "Макросы",
+  9: "Страницы"
 };
 

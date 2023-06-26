@@ -1,16 +1,16 @@
 CC=gcc
 CXX=g++
-CFLAGS= -fmodules-ts -std=c++20 -fpermissive 
+CFLAGS= -fpermissive 
 LDFLAGS= 
-OBJECTS=abspeer.o ipscan.o client.o server.o message.o chat.o
-MODULES= $(CFLAGS) -x c++-system-header iostream 
+OBJECTS=chat.o
+MODULES= $(CFLAGS) 
 
 default:chat
 
 chat:$(OBJECTS)
 	$(CXX) $(OBJECTS) $(MODULES) -o chat
 
-%.o:%.cxx
+%.o:%.cpp
 	$(CXX) $(CFLAGS) $< -c -o $@
 clean:
 	rm *.o chat

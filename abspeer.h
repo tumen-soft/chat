@@ -19,8 +19,9 @@ class AbstractPeer{
         virtual void conn()=0;
         virtual void sendmes()=0;
         AbstractPeer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
+        ///Переменная для хранения сокета
         int sock;
-        struct sockaddr_in addres;
+	struct sockaddr_in addres;
         char buffer[MAXLINE]={0};
         fd_set read_fd={0};
 
