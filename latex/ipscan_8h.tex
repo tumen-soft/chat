@@ -1,0 +1,252 @@
+\doxysection{ipscan.\+h File Reference}
+\hypertarget{ipscan_8h}{}\label{ipscan_8h}\index{ipscan.h@{ipscan.h}}
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+Include dependency graph for ipscan.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ipscan_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{ipscan_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structarg}{arg}}
+\item 
+struct \mbox{\hyperlink{structnode}{node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ipscan_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}~1024
+\item 
+\#define \mbox{\hyperlink{ipscan_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}}~8080
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structarg}{arg}} \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}}
+\item 
+typedef struct \mbox{\hyperlink{structnode}{node}} \mbox{\hyperlink{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{Peer\+Type}} \{ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\+\_\+\+Server}}
+, \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}{\+\_\+\+Client}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream \mbox{\hyperlink{ipscan_8h_a24faa53684ca537338343bd24be3b704}{out}} (\"{}/dev/stdout\"{})
+\item 
+std\+::ifstream \mbox{\hyperlink{ipscan_8h_a5626cd53d9fc44653f0cbbf1c751a726}{in}} (\"{}/dev/stdin\"{})
+\item 
+void \mbox{\hyperlink{ipscan_8h_a5a3ec7db7659e2ab075973ac327e134f}{enqueue}} (\mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}})
+\item 
+\mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ipscan_8h_a8635fd75d9ec89144634578ff256fc65}{dequeue}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ipscan_8h_a30cf397be31be31a7c4202ecf4e149a2}{do\+Some\+Thing}} (void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structarg}{arg}})
+\item 
+export void \mbox{\hyperlink{ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc}{spawn\+Threads}} ()
+\item 
+export void \mbox{\hyperlink{ipscan_8h_a5bcb7955d02231d690684148724e61b9}{check}} ()
+\item 
+export int \mbox{\hyperlink{ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370}{check1}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+t \mbox{\hyperlink{ipscan_8h_a111863bdcffcaacb4ee67e5147df8632}{tid}} \mbox{[}256\mbox{]}
+\item 
+char \mbox{\hyperlink{ipscan_8h_aa4552517be507d79e286a47269c216fa}{s}} \mbox{[}80\mbox{]}
+\item 
+\mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}} \mbox{[}256\mbox{]} =\{\}
+\item 
+\mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}
+\item 
+struct sockaddr\+\_\+in \mbox{\hyperlink{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}{addr}}
+\item 
+enum \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{Peer\+Type}} \mbox{\hyperlink{ipscan_8h_a029ca55987256d78b46339c9b04d6384}{isserver}} =\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\+\_\+\+Server}}
+\item 
+std\+::list$<$ \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} $>$ \mbox{\hyperlink{ipscan_8h_afdb2dee9a6c42f59c5ba558b502b8066}{listofargs}}
+\item 
+\mbox{\hyperlink{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}} = NULL
+\item 
+\mbox{\hyperlink{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ipscan_8h_a2957fcd791ee37435c6ccb727b957584}{tail}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ipscan_8h_a3e937c42922f7601edb17b747602c471}\label{ipscan_8h_a3e937c42922f7601edb17b747602c471} 
+\index{ipscan.h@{ipscan.h}!MAXLINE@{MAXLINE}}
+\index{MAXLINE@{MAXLINE}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{MAXLINE}{MAXLINE}}
+{\footnotesize\ttfamily \#define MAXLINE~1024}
+
+\Hypertarget{ipscan_8h_a614217d263be1fb1a5f76e2ff7be19a2}\label{ipscan_8h_a614217d263be1fb1a5f76e2ff7be19a2} 
+\index{ipscan.h@{ipscan.h}!PORT@{PORT}}
+\index{PORT@{PORT}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{PORT}{PORT}}
+{\footnotesize\ttfamily \#define PORT~8080}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{ipscan_8h_a6750c1ede109a5404cc493813569ab22}\label{ipscan_8h_a6750c1ede109a5404cc493813569ab22} 
+\index{ipscan.h@{ipscan.h}!args@{args}}
+\index{args@{args}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structarg}{arg}} \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}}}
+
+\Hypertarget{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}\label{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9} 
+\index{ipscan.h@{ipscan.h}!node\_t@{node\_t}}
+\index{node\_t@{node\_t}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{node\_t}{node\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structnode}{node}} \mbox{\hyperlink{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}\label{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687} 
+\index{ipscan.h@{ipscan.h}!PeerType@{PeerType}}
+\index{PeerType@{PeerType}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{PeerType}{PeerType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{Peer\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_Server@{\_Server}!ipscan.h@{ipscan.h}}\index{ipscan.h@{ipscan.h}!\_Server@{\_Server}}}\Hypertarget{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}\label{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a} 
+\+\_\+\+Server&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_Client@{\_Client}!ipscan.h@{ipscan.h}}\index{ipscan.h@{ipscan.h}!\_Client@{\_Client}}}\Hypertarget{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}\label{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9} 
+\+\_\+\+Client&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ipscan_8h_a5bcb7955d02231d690684148724e61b9}\label{ipscan_8h_a5bcb7955d02231d690684148724e61b9} 
+\index{ipscan.h@{ipscan.h}!check@{check}}
+\index{check@{check}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily export void check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370}\label{ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370} 
+\index{ipscan.h@{ipscan.h}!check1@{check1}}
+\index{check1@{check1}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{check1()}{check1()}}
+{\footnotesize\ttfamily export int check1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{ipscan_8h_a8635fd75d9ec89144634578ff256fc65}\label{ipscan_8h_a8635fd75d9ec89144634578ff256fc65} 
+\index{ipscan.h@{ipscan.h}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \texorpdfstring{$\ast$}{*} dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{ipscan_8h_a30cf397be31be31a7c4202ecf4e149a2}\label{ipscan_8h_a30cf397be31be31a7c4202ecf4e149a2} 
+\index{ipscan.h@{ipscan.h}!doSomeThing@{doSomeThing}}
+\index{doSomeThing@{doSomeThing}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{doSomeThing()}{doSomeThing()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} do\+Some\+Thing (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+\Hypertarget{ipscan_8h_a5a3ec7db7659e2ab075973ac327e134f}\label{ipscan_8h_a5a3ec7db7659e2ab075973ac327e134f} 
+\index{ipscan.h@{ipscan.h}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily void enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} \texorpdfstring{$\ast$}{*}}]{ar }\end{DoxyParamCaption})}
+
+\Hypertarget{ipscan_8h_a5626cd53d9fc44653f0cbbf1c751a726}\label{ipscan_8h_a5626cd53d9fc44653f0cbbf1c751a726} 
+\index{ipscan.h@{ipscan.h}!in@{in}}
+\index{in@{in}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{in()}{in()}}
+{\footnotesize\ttfamily std\+::ifstream in (\begin{DoxyParamCaption}\item[{\"{}/dev/stdin\"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{ipscan_8h_a24faa53684ca537338343bd24be3b704}\label{ipscan_8h_a24faa53684ca537338343bd24be3b704} 
+\index{ipscan.h@{ipscan.h}!out@{out}}
+\index{out@{out}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{out()}{out()}}
+{\footnotesize\ttfamily std\+::ofstream out (\begin{DoxyParamCaption}\item[{\"{}/dev/stdout\"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc}\label{ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc} 
+\index{ipscan.h@{ipscan.h}!spawnThreads@{spawnThreads}}
+\index{spawnThreads@{spawnThreads}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{spawnThreads()}{spawnThreads()}}
+{\footnotesize\ttfamily export void spawn\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ar\mbox{[}0\mbox{]}.is\+Server=server;
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}\label{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65} 
+\index{ipscan.h@{ipscan.h}!addr@{addr}}
+\index{addr@{addr}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{addr}{addr}}
+{\footnotesize\ttfamily struct sockaddr\+\_\+in addr}
+
+\Hypertarget{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}\label{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d} 
+\index{ipscan.h@{ipscan.h}!ar@{ar}}
+\index{ar@{ar}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{ar}{ar}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}} ar\mbox{[}256\mbox{]} =\{\}}
+
+\Hypertarget{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}\label{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6} 
+\index{ipscan.h@{ipscan.h}!head@{head}}
+\index{head@{head}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\+\_\+t}}\texorpdfstring{$\ast$}{*} head = NULL}
+
+\Hypertarget{ipscan_8h_a029ca55987256d78b46339c9b04d6384}\label{ipscan_8h_a029ca55987256d78b46339c9b04d6384} 
+\index{ipscan.h@{ipscan.h}!isserver@{isserver}}
+\index{isserver@{isserver}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{isserver}{isserver}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{Peer\+Type}} isserver =\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\+\_\+\+Server}}}
+
+\Hypertarget{ipscan_8h_afdb2dee9a6c42f59c5ba558b502b8066}\label{ipscan_8h_afdb2dee9a6c42f59c5ba558b502b8066} 
+\index{ipscan.h@{ipscan.h}!listofargs@{listofargs}}
+\index{listofargs@{listofargs}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{listofargs}{listofargs}}
+{\footnotesize\ttfamily std\+::list$<$\mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}}$>$ listofargs}
+
+\Hypertarget{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}\label{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704} 
+\index{ipscan.h@{ipscan.h}!pclient@{pclient}}
+\index{pclient@{pclient}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{pclient}{pclient}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ipscan_8h_a6750c1ede109a5404cc493813569ab22}{args}}\texorpdfstring{$\ast$}{*} pclient}
+
+\Hypertarget{ipscan_8h_aa4552517be507d79e286a47269c216fa}\label{ipscan_8h_aa4552517be507d79e286a47269c216fa} 
+\index{ipscan.h@{ipscan.h}!s@{s}}
+\index{s@{s}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily char s\mbox{[}80\mbox{]}}
+
+\Hypertarget{ipscan_8h_a2957fcd791ee37435c6ccb727b957584}\label{ipscan_8h_a2957fcd791ee37435c6ccb727b957584} 
+\index{ipscan.h@{ipscan.h}!tail@{tail}}
+\index{tail@{tail}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{tail}{tail}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ipscan_8h_a7c02633e18d6aa5f58539b75f08753d9}{node\+\_\+t}}\texorpdfstring{$\ast$}{*} tail = NULL}
+
+\Hypertarget{ipscan_8h_a111863bdcffcaacb4ee67e5147df8632}\label{ipscan_8h_a111863bdcffcaacb4ee67e5147df8632} 
+\index{ipscan.h@{ipscan.h}!tid@{tid}}
+\index{tid@{tid}!ipscan.h@{ipscan.h}}
+\doxysubsubsection{\texorpdfstring{tid}{tid}}
+{\footnotesize\ttfamily pthread\+\_\+t tid\mbox{[}256\mbox{]}}
+

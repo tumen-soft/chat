@@ -1,0 +1,211 @@
+\doxysection{ipscan.\+h}
+\hypertarget{ipscan_8h_source}{}\label{ipscan_8h_source}\mbox{\hyperlink{ipscan_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}\ \ \textcolor{comment}{//inet\_addr\ define}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdio.h>}\ \ \textcolor{comment}{//printf()}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}\ \textcolor{comment}{//socket(),\ connect(),\ bind(),\ listen(),\ accept(),\ select();\ }}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unistd.h>}\ \ \textcolor{comment}{//close(),\ fread()}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}\ \ \textcolor{comment}{//string\ type}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\#include\ <queue>}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\#include\ <typeinfo>}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\#include\ <ext/stdio\_filebuf.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//export\ module\ peer;}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//using\ namespace\ std;}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//import\ peer;}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ std::ofstream\ \mbox{\hyperlink{ipscan_8h_a24faa53684ca537338343bd24be3b704}{out}}(\textcolor{stringliteral}{"{}/dev/stdout"{}});}
+\DoxyCodeLine{00022\ std::ifstream\ \mbox{\hyperlink{ipscan_8h_a5626cd53d9fc44653f0cbbf1c751a726}{in}}(\textcolor{stringliteral}{"{}/dev/stdin"{}});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ MAXLINE\ 1024}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ PORT\ 8080\ }}
+\DoxyCodeLine{00027\ pthread\_t\ \mbox{\hyperlink{ipscan_8h_a111863bdcffcaacb4ee67e5147df8632}{tid}}[256];}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//typedef\ std::map<int,char*>\ nmap;}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{PeerType}}\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\_Server}},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}{\_Client}}}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{ipscan_8h_aa4552517be507d79e286a47269c216fa}{s}}[80];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structarg}{arg}}\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ pthread\_t\ \mbox{\hyperlink{structarg_a96e7aca9d164ee77ff32a9747356a8dd}{tid}};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structarg_a776145fbffcb94361d2aed8a8ce8944d}{x}};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structarg_a2516aeabca5d547c72424eb7bca30ebd}{y}}[256];}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{PeerType}}\ \mbox{\hyperlink{structarg_adeaac7834041c702196ee22b206c675f}{isServer}};}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structarg}{arg}}\ \mbox{\hyperlink{structarg}{args}};}
+\DoxyCodeLine{00046\ \mbox{\hyperlink{structarg}{args}}\ \mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}}[256]=\{\};}
+\DoxyCodeLine{00047\ \mbox{\hyperlink{structarg}{args}}\ *\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}};}
+\DoxyCodeLine{00048\ \textcolor{comment}{//std::queue<args*>\ qq;}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{struct\ }sockaddr\_in\ \mbox{\hyperlink{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}{addr}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//Client\ *\ peer\ =\ new\ Server;}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ void\ run(auto\ *peer);}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{PeerType}}\ \mbox{\hyperlink{ipscan_8h_a029ca55987256d78b46339c9b04d6384}{isserver}}=\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\_Server}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ std::list<args>\ \mbox{\hyperlink{ipscan_8h_afdb2dee9a6c42f59c5ba558b502b8066}{listofargs}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *\mbox{\hyperlink{structnode_aa3e8aa83f864292b5a01210f4453fcc0}{next}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structarg}{args}}\ *\mbox{\hyperlink{structnode_aae2bd69db5ae0a0298147452091ce689}{ar}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ \mbox{\hyperlink{structnode}{node\_t}};}
+\DoxyCodeLine{00069\ \textcolor{comment}{//typedef\ struct\ arg\ args;}}
+\DoxyCodeLine{00070\ \mbox{\hyperlink{structnode}{node\_t}}\ *\ \mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}}\ =\ NULL;}
+\DoxyCodeLine{00071\ \mbox{\hyperlink{structnode}{node\_t}}\ *\ \mbox{\hyperlink{ipscan_8h_a2957fcd791ee37435c6ccb727b957584}{tail}}\ =\ NULL;}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ipscan_8h_a5a3ec7db7659e2ab075973ac327e134f}{enqueue}}(\mbox{\hyperlink{structarg}{args}}\ *\ \mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}})\{}
+\DoxyCodeLine{00073\ \mbox{\hyperlink{structnode}{node\_t}}\ *\ newnode\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structnode}{node\_t}}));}
+\DoxyCodeLine{00074\ newnode-\/>\mbox{\hyperlink{structnode_aae2bd69db5ae0a0298147452091ce689}{ar}}\ =\ \mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}};}
+\DoxyCodeLine{00075\ newnode-\/>\mbox{\hyperlink{structnode_aa3e8aa83f864292b5a01210f4453fcc0}{next}}=NULL;}
+\DoxyCodeLine{00076\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{ipscan_8h_a2957fcd791ee37435c6ccb727b957584}{tail}}==NULL)\{}
+\DoxyCodeLine{00077\ \mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}}=newnode;}
+\DoxyCodeLine{00078\ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00079\ \mbox{\hyperlink{ipscan_8h_a2957fcd791ee37435c6ccb727b957584}{tail}}-\/>\mbox{\hyperlink{structnode_aa3e8aa83f864292b5a01210f4453fcc0}{next}}\ =\ newnode;}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ \mbox{\hyperlink{ipscan_8h_a2957fcd791ee37435c6ccb727b957584}{tail}}=newnode;}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \mbox{\hyperlink{structarg}{args}}\ *\ \mbox{\hyperlink{ipscan_8h_a8635fd75d9ec89144634578ff256fc65}{dequeue}}()\{}
+\DoxyCodeLine{00086\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}}==NULL)\{}
+\DoxyCodeLine{00087\ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00088\ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00089\ \mbox{\hyperlink{structarg}{args}}\ *result\ =\ \mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}}-\/>\mbox{\hyperlink{structnode_aae2bd69db5ae0a0298147452091ce689}{ar}};}
+\DoxyCodeLine{00090\ \mbox{\hyperlink{structnode}{node\_t}}\ *temp\ =\ \mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}};}
+\DoxyCodeLine{00091\ \mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}}=\mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}}-\/>\mbox{\hyperlink{structnode_aa3e8aa83f864292b5a01210f4453fcc0}{next}};}
+\DoxyCodeLine{00092\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{ipscan_8h_ad9513cdd45a8c7a0435f6fb6cb8a3fd6}{head}}==NULL)\{\mbox{\hyperlink{ipscan_8h_a2957fcd791ee37435c6ccb727b957584}{tail}}==NULL;\};}
+\DoxyCodeLine{00093\ free(temp);}
+\DoxyCodeLine{00094\ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{ipscan_8h_a30cf397be31be31a7c4202ecf4e149a2}{doSomeThing}}(\textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structarg}{arg}})}
+\DoxyCodeLine{00114\ \{}
+\DoxyCodeLine{00115\ \textcolor{comment}{//ar.y="{}test"{};}}
+\DoxyCodeLine{00116\ \mbox{\hyperlink{structarg}{args}}*\ q=(\mbox{\hyperlink{structarg}{args}}*)\mbox{\hyperlink{structarg}{arg}};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{comment}{//sprintf(q-\/>y,"{}\%s"{},"{}test"{});}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//q-\/>y="{}test"{};}}
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ struct\ sockaddr\_in\ addr;}}
+\DoxyCodeLine{00121\ \ \textcolor{keywordtype}{int}\ socke\ =\ socket(AF\_INET,\ SOCK\_STREAM,\ 0);}
+\DoxyCodeLine{00122\ \ \mbox{\hyperlink{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}{addr}}.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{00123\ \ \mbox{\hyperlink{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}{addr}}.sin\_port\ =\ htons(\mbox{\hyperlink{ipscan_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}});}
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ pthread\_create(\&(tid[0]),\ NULL,\ \&doSomeThing,\ NULL);}}
+\DoxyCodeLine{00125\ \ \textcolor{comment}{//for(int\ i=202;i<204;i++)\{}}
+\DoxyCodeLine{00126\ \ \textcolor{keywordtype}{char}\ a[256]\ =\ \textcolor{stringliteral}{"{}192.168.1."{}};}
+\DoxyCodeLine{00127\ \ \textcolor{keywordtype}{char}\ b[10];}
+\DoxyCodeLine{00128\ \ \textcolor{comment}{//int\ c\ =\ i;}}
+\DoxyCodeLine{00129\ \ sprintf(b,\textcolor{stringliteral}{"{}\%d"{}},q-\/>\mbox{\hyperlink{structarg_a776145fbffcb94361d2aed8a8ce8944d}{x}});}
+\DoxyCodeLine{00130\ \ \textcolor{comment}{//a="{}192.168.1."{}}}
+\DoxyCodeLine{00131\ \ strcat(a,b);}
+\DoxyCodeLine{00132\ \ \textcolor{comment}{//puts(a);}}
+\DoxyCodeLine{00133\ \ \mbox{\hyperlink{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}{addr}}.sin\_addr.s\_addr\ =\ \ inet\_addr(a);}
+\DoxyCodeLine{00134\ \ }
+\DoxyCodeLine{00135\ \ \textcolor{keywordflow}{if}(connect(socke,\ (\textcolor{keyword}{struct}\ sockaddr*)\&\mbox{\hyperlink{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}{addr}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{ipscan_8h_afdf3b1ca80400cc6bd5bfe2bb1cb7e65}{addr}}))==0)\{sprintf(q-\/>\mbox{\hyperlink{structarg_a2516aeabca5d547c72424eb7bca30ebd}{y}},\textcolor{stringliteral}{"{}\%s"{}},a);q-\/>\mbox{\hyperlink{structarg_adeaac7834041c702196ee22b206c675f}{isServer}}=\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}{\_Client}};\textcolor{keywordflow}{return}\ 0;\}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00137\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ export\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc}{spawnThreads}}()}
+\DoxyCodeLine{00141\ \{}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \mbox{\hyperlink{structarg}{args}}\ \mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}}[256]=\{NULL,0,\textcolor{stringliteral}{"{}127.0.0.1"{}},\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\_Server}}\};}
+\DoxyCodeLine{00146\ \textcolor{comment}{//args\ ar;}}
+\DoxyCodeLine{00147\ \textcolor{comment}{//printf("{}waiting\ for\ connection..."{});}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{int}\ j=0;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;i<1;i++)\{}
+\DoxyCodeLine{00152\ \mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}}[j].\mbox{\hyperlink{structarg_a776145fbffcb94361d2aed8a8ce8944d}{x}}=i;}
+\DoxyCodeLine{00153\ \ \ pthread\_create(\&(\mbox{\hyperlink{ipscan_8h_a111863bdcffcaacb4ee67e5147df8632}{tid}}[j]),\ NULL,\ \&\mbox{\hyperlink{ipscan_8h_a30cf397be31be31a7c4202ecf4e149a2}{doSomeThing}},\ \&\mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}}[j]);}
+\DoxyCodeLine{00154\ \ \ \mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}}-\/>\mbox{\hyperlink{structarg_a96e7aca9d164ee77ff32a9747356a8dd}{tid}}=\mbox{\hyperlink{ipscan_8h_a111863bdcffcaacb4ee67e5147df8632}{tid}}[j];}
+\DoxyCodeLine{00155\ \ \ \mbox{\hyperlink{ipscan_8h_a5a3ec7db7659e2ab075973ac327e134f}{enqueue}}(\&\mbox{\hyperlink{ipscan_8h_a9d442d3807ccd9acd2271e3d3d4d8e4d}{ar}}[j]);\ }
+\DoxyCodeLine{00156\ j++;}
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ export\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ipscan_8h_a5bcb7955d02231d690684148724e61b9}{check}}()\{}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687}{PeerType}}\ \mbox{\hyperlink{ipscan_8h_a029ca55987256d78b46339c9b04d6384}{isserver}}=\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a}{\_Server}};}
+\DoxyCodeLine{00167\ \mbox{\hyperlink{structarg}{args}}\ *\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}};}
+\DoxyCodeLine{00168\ \mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}=\mbox{\hyperlink{ipscan_8h_a8635fd75d9ec89144634578ff256fc65}{dequeue}}();}
+\DoxyCodeLine{00169\ \textcolor{keywordflow}{while}(\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}})\{}
+\DoxyCodeLine{00170\ \mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}=\mbox{\hyperlink{ipscan_8h_a8635fd75d9ec89144634578ff256fc65}{dequeue}}();}
+\DoxyCodeLine{00171\ \textcolor{keywordflow}{if}((\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}!=NULL)\&\&(\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}-\/>\mbox{\hyperlink{structarg_a96e7aca9d164ee77ff32a9747356a8dd}{tid}}!=NULL))\{}
+\DoxyCodeLine{00172\ \textcolor{comment}{//if(tid[s]!=NULL)}}
+\DoxyCodeLine{00173\ pthread\_join(\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}-\/>\mbox{\hyperlink{structarg_a96e7aca9d164ee77ff32a9747356a8dd}{tid}},NULL);\}}
+\DoxyCodeLine{00174\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}})\textcolor{keywordflow}{if}(\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}-\/>\mbox{\hyperlink{structarg_adeaac7834041c702196ee22b206c675f}{isServer}}==\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}{\_Client}})\{\mbox{\hyperlink{ipscan_8h_a029ca55987256d78b46339c9b04d6384}{isserver}}=\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}{\_Client}};\textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{00175\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ export\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370}{check1}}()\{}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{ipscan_8h_a029ca55987256d78b46339c9b04d6384}{isserver}}==\mbox{\hyperlink{ipscan_8h_a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9}{\_Client}})\{}
+\DoxyCodeLine{00193\ \textcolor{keywordtype}{char}\ a[256]\ =\ \textcolor{stringliteral}{"{}192.168.1."{}};}
+\DoxyCodeLine{00194\ \ \textcolor{keywordtype}{char}\ b[10];}
+\DoxyCodeLine{00195\ \ sprintf(b,\textcolor{stringliteral}{"{}\%d"{}},\mbox{\hyperlink{ipscan_8h_a579a752147b6ee659613c5a9fcc1a704}{pclient}}-\/>\mbox{\hyperlink{structarg_a776145fbffcb94361d2aed8a8ce8944d}{x}});}
+\DoxyCodeLine{00196\ \ \ strcat(a,b);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ std::cout<<\textcolor{stringliteral}{"{}0.server\(\backslash\)n"{}};}
+\DoxyCodeLine{00202\ printf(\textcolor{stringliteral}{"{}1.client\(\backslash\)n"{}});}
+\DoxyCodeLine{00203\ \textcolor{keywordtype}{int}\ p;}
+\DoxyCodeLine{00204\ scanf(\textcolor{stringliteral}{"{}\%i"{}},\ \&p);\ \ }
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00207\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,97 @@
+\doxysection{ping.\+c File Reference}
+\hypertarget{ping_8c}{}\label{ping_8c}\index{ping.c@{ping.c}}
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$resolv.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/ip\+\_\+icmp.\+h$>$}\newline
+{\ttfamily \#include $<$strings.\+h$>$}\newline
+Include dependency graph for ping.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ping_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpacket}{packet}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ping_8c_a177e4581349927b04d81ac62ed804377}{PACKETSIZE}}~64
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \mbox{\hyperlink{ping_8c_a176b3721a0a9c470e2e57394078e0ea1}{checksum}} (void \texorpdfstring{$\ast$}{*}b, int len)
+\item 
+int \mbox{\hyperlink{ping_8c_a5364ef336fa53d6d3fdccbe8debaaff1}{ping}} (char \texorpdfstring{$\ast$}{*}adress)
+\item 
+int \mbox{\hyperlink{ping_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ping_8c_af500917c052066b40cf47f96b43c607b}{pid}} =-\/1
+\item 
+struct protoent \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ping_8c_ae4aad7f634eec61740515d45299db703}{proto}} =NULL
+\item 
+int \mbox{\hyperlink{ping_8c_a9cfbb269728dc4185236d28be58d9eab}{cnt}} =1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ping_8c_a177e4581349927b04d81ac62ed804377}\label{ping_8c_a177e4581349927b04d81ac62ed804377} 
+\index{ping.c@{ping.c}!PACKETSIZE@{PACKETSIZE}}
+\index{PACKETSIZE@{PACKETSIZE}!ping.c@{ping.c}}
+\doxysubsubsection{\texorpdfstring{PACKETSIZE}{PACKETSIZE}}
+{\footnotesize\ttfamily \#define PACKETSIZE~64}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ping_8c_a176b3721a0a9c470e2e57394078e0ea1}\label{ping_8c_a176b3721a0a9c470e2e57394078e0ea1} 
+\index{ping.c@{ping.c}!checksum@{checksum}}
+\index{checksum@{checksum}!ping.c@{ping.c}}
+\doxysubsubsection{\texorpdfstring{checksum()}{checksum()}}
+{\footnotesize\ttfamily unsigned short checksum (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{b,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{ping_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{ping_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{ping.c@{ping.c}!main@{main}}
+\index{main@{main}!ping.c@{ping.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{ping_8c_a5364ef336fa53d6d3fdccbe8debaaff1}\label{ping_8c_a5364ef336fa53d6d3fdccbe8debaaff1} 
+\index{ping.c@{ping.c}!ping@{ping}}
+\index{ping@{ping}!ping.c@{ping.c}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily int ping (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{adress }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{ping_8c_a9cfbb269728dc4185236d28be58d9eab}\label{ping_8c_a9cfbb269728dc4185236d28be58d9eab} 
+\index{ping.c@{ping.c}!cnt@{cnt}}
+\index{cnt@{cnt}!ping.c@{ping.c}}
+\doxysubsubsection{\texorpdfstring{cnt}{cnt}}
+{\footnotesize\ttfamily int cnt =1}
+
+\Hypertarget{ping_8c_af500917c052066b40cf47f96b43c607b}\label{ping_8c_af500917c052066b40cf47f96b43c607b} 
+\index{ping.c@{ping.c}!pid@{pid}}
+\index{pid@{pid}!ping.c@{ping.c}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily int pid =-\/1}
+
+\Hypertarget{ping_8c_ae4aad7f634eec61740515d45299db703}\label{ping_8c_ae4aad7f634eec61740515d45299db703} 
+\index{ping.c@{ping.c}!proto@{proto}}
+\index{proto@{proto}!ping.c@{ping.c}}
+\doxysubsubsection{\texorpdfstring{proto}{proto}}
+{\footnotesize\ttfamily struct protoent\texorpdfstring{$\ast$}{*} proto =NULL}
+
