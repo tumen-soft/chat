@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.71])
 AC_INIT([Chat], [0.80], [blu.eagle@mail.ru])
-AC_CONFIG_SRCDIR([server.h])
+AC_CONFIG_SRCDIR([chat.cpp])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
