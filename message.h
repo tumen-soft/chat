@@ -1,6 +1,9 @@
 /**
- *@mainpage Приложение для обмена сообшениями по сети. 
- *
+ *\file message.h
+ *\author Денис Вергун 
+ *\brief  
+ *\version
+ *\date 27-06-2023
  *
  *
  */
@@ -31,7 +34,7 @@
 
 void run(std::shared_ptr<Peer> singleton){
 singleton->createSocket();
-singleton->init1();
+singleton->connectInit();
 for(;;)
 {
 		singleton->selinit();

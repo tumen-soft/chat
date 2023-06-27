@@ -72,65 +72,65 @@
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ }
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_abbe9b59d62d3ca74679b154b7ad16bd1}{init1}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_a2fcb137aa03bb5db70386d67b148974d}{connectInit}}()\textcolor{keyword}{\ override}}
 \DoxyCodeLine{00073\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//char\ *\ ser\ =\ "{}Server\ fd\ "{};}}
-\DoxyCodeLine{00075\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}server\ start"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_family\ =\ AF\_INET;}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_port\ =\ htons(\mbox{\hyperlink{server_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}});}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_addr.s\_addr\ =\ htonl(INADDR\_ANY);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ bind(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ (\textcolor{keyword}{struct}\ sockaddr*)\&\mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}));}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//waiting\ for\ connection}}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ listen(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ 300);}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<"{}test"{}\ <<std::endl;}}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.push\_back(\{0,\textcolor{stringliteral}{"{}test"{}}\});}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_port\ =\ htons(\mbox{\hyperlink{server_8h_a614217d263be1fb1a5f76e2ff7be19a2}{PORT}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}.sin\_addr.s\_addr\ =\ htonl(INADDR\_ANY);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ bind(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ (\textcolor{keyword}{struct}\ sockaddr*)\&\mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}));}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//waiting\ for\ connection}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ listen(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ 300);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<"{}test"{}\ <<std::endl;}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.push\_back(\{0,\textcolor{stringliteral}{"{}test"{}}\});}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \}}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_a364cc3671338d2d426f078b6ed8f21c0}{selinit}}()\textcolor{keyword}{\ override}\{}
 \DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_a364cc3671338d2d426f078b6ed8f21c0}{selinit}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}},\ 0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}));}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_ZERO(\&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(0,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}},\ 0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}));}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_ZERO(\&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(0,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FD\_SET(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \}}
 \DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \}}
+\DoxyCodeLine{00098\ }
 \DoxyCodeLine{00099\ }
 \DoxyCodeLine{00100\ }
 \DoxyCodeLine{00101\ }
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_a7722ad8909289fd3f7b53c72673bcbd3}{sel}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00107\ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr\ =\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.begin();\ itr\ !=\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.end();\ ++itr)}
-\DoxyCodeLine{00108\ FD\_SET(itr-\/>first,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
-\DoxyCodeLine{00109\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ select(300,\ \&peer-\/>read\_fd,\ NULL,\ NULL,\ NULL);}}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
-\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_a7722ad8909289fd3f7b53c72673bcbd3}{sel}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00105\ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr\ =\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.begin();\ itr\ !=\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.end();\ ++itr)}
+\DoxyCodeLine{00106\ FD\_SET(itr-\/>first,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}});}
+\DoxyCodeLine{00107\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ select(300,\ \&peer-\/>read\_fd,\ NULL,\ NULL,\ NULL);}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
 \DoxyCodeLine{00113\ }
 \DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_ad3820fa8247aff8a7ccfc24ae6333f75}{conn}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//peer-\/>new\_socket\ =\ accept(peer-\/>sock,NULL,NULL);}}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//accepting\ connection}}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}}\ =\ accept(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},NULL,NULL);}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//char\ g[80]=\{"{}sos"{}\};}}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//g="{}sos"{};}}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//read(peer-\/>new\_socket,g,1024);}}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.push\_back(\{\mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}},\textcolor{stringliteral}{"{}test"{}}\});}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout<<\ \textcolor{stringliteral}{"{}New\ connection\ "{}}<<\mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}}<<std::endl;}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}New\ connection\ \%s\(\backslash\)n"{},\ peer-\/>new\_socket);}}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dprintf(\mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}},\textcolor{stringliteral}{"{}welcome\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}});\ \ }
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
-\DoxyCodeLine{00130\ \}}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_ad3820fa8247aff8a7ccfc24ae6333f75}{conn}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//peer-\/>new\_socket\ =\ accept(peer-\/>sock,NULL,NULL);}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//accepting\ connection}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}}\ =\ accept(\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}},NULL,NULL);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//char\ g[80]=\{"{}sos"{}\};}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//g="{}sos"{};}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//read(peer-\/>new\_socket,g,1024);}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.push\_back(\{\mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}},\textcolor{stringliteral}{"{}test"{}}\});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout<<\ \textcolor{stringliteral}{"{}New\ connection\ "{}}<<\mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}}<<std::endl;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}New\ connection\ \%s\(\backslash\)n"{},\ peer-\/>new\_socket);}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dprintf(\mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}},\textcolor{stringliteral}{"{}welcome\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{classServer_a6504e40ca4dd0fa36c6daf5e941477ca}{new\_socket}});\ \ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00128\ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
 \DoxyCodeLine{00131\ }
 \DoxyCodeLine{00132\ }
 \DoxyCodeLine{00133\ }
@@ -140,40 +140,38 @@
 \DoxyCodeLine{00137\ }
 \DoxyCodeLine{00138\ }
 \DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_ae782bc399bc3549450e3755b5effe557}{sendmes}}()\textcolor{keyword}{\ override}\{}
-\DoxyCodeLine{00143\ \textcolor{comment}{//\#if\ 0}}
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr2\ =\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.begin();\ itr2\ !=\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.end();\ ++itr2)}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a0806beaf535f0bfaff2276b3e7156cbe}{sd}}\ =\ itr2-\/>first;\ }
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (FD\_ISSET(\mbox{\hyperlink{classServer_a0806beaf535f0bfaff2276b3e7156cbe}{sd}}\ ,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}}))\ }
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{classServer_a97172fe0c07ccee4b28afec4b43f19e5}{valread}}\ =\ read(\mbox{\hyperlink{classServer_a0806beaf535f0bfaff2276b3e7156cbe}{sd}},\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}},\ 1024)))\ }
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\{\ }}
-\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf("{}Host\ disconnected\ \%s\ \(\backslash\)n"{}\ ,itr2-\/>second);\ }}
-\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ close(peer-\/>sd);\ }}
-\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ peer-\/>nicknames.erase(itr2);\ }}
-\DoxyCodeLine{00154\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00155\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }}
-\DoxyCodeLine{00156\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else}}
-\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}[\mbox{\hyperlink{classServer_a97172fe0c07ccee4b28afec4b43f19e5}{valread}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr1\ =\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.begin();\ itr1\ !=\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.end();\ ++itr1)}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dprintf(itr1-\/>first,\textcolor{stringliteral}{"{}\%s\ says:\ \%s\(\backslash\)n"{}},itr2-\/>second,\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}});}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ }
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00167\ \textcolor{comment}{//\#endif}}
-\DoxyCodeLine{00168\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
-\DoxyCodeLine{00169\ \}}
-\DoxyCodeLine{00170\ \};}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServer_ae782bc399bc3549450e3755b5effe557}{sendmes}}()\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00141\ \textcolor{comment}{//\#if\ 0}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr2\ =\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.begin();\ itr2\ !=\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.end();\ ++itr2)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classServer_a0806beaf535f0bfaff2276b3e7156cbe}{sd}}\ =\ itr2-\/>first;\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (FD\_ISSET(\mbox{\hyperlink{classServer_a0806beaf535f0bfaff2276b3e7156cbe}{sd}}\ ,\ \&\mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}}))\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{classServer_a97172fe0c07ccee4b28afec4b43f19e5}{valread}}\ =\ read(\mbox{\hyperlink{classServer_a0806beaf535f0bfaff2276b3e7156cbe}{sd}},\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}},\ 1024)))\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\{\ }}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf("{}Host\ disconnected\ \%s\ \(\backslash\)n"{}\ ,itr2-\/>second);\ }}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ close(peer-\/>sd);\ }}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ peer-\/>nicknames.erase(itr2);\ }}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}[\mbox{\hyperlink{classServer_a97172fe0c07ccee4b28afec4b43f19e5}{valread}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ itr1\ =\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.begin();\ itr1\ !=\ \mbox{\hyperlink{classServer_a2f35cbd487ea1572f851821364bb54ad}{nicknames}}.end();\ ++itr1)}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dprintf(itr1-\/>first,\textcolor{stringliteral}{"{}\%s\ says:\ \%s\(\backslash\)n"{}},itr2-\/>second,\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}});}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{00166\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00167\ \}}
+\DoxyCodeLine{00168\ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ }
 \DoxyCodeLine{00171\ }
 \DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ }
 
 \end{DoxyCode}

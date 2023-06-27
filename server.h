@@ -69,10 +69,8 @@ void createSocket() override{
 
 
 
-void init1() override
+void connectInit() override
         {
-        //char * ser = "Server fd ";
-	std::cout << "server start" << std::endl;
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
         addres.sin_addr.s_addr = htonl(INADDR_ANY);

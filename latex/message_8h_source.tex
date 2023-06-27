@@ -2,88 +2,88 @@
 \hypertarget{message_8h_source}{}\label{message_8h_source}\mbox{\hyperlink{message_8h}{См. документацию.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}\ \ \textcolor{comment}{//inet\_addr\ define}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}\ \textcolor{comment}{//socket(),\ connect(),\ bind(),\ listen(),\ accept(),\ select();\ }}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <ext/stdio\_filebuf.h>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}\ \ \textcolor{comment}{//printf()}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unistd.h>}\ \ \textcolor{comment}{//close(),\ fread()}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cstring>};}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client.h}}"{}}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{server_8h}{server.h}}"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ipscan_8h}{ipscan.h}}"{}};}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{abspeer_8h}{abspeer.h}}"{}};}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <iostream>};}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MAXLINE\ 1024}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PORT\ 8080\ }}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{comment}{//typedef\ std::map<int,char*>\ nmap;}}
-\DoxyCodeLine{00025\ \textcolor{comment}{//enum\ PeerType\{}}
-\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \_Server,}}
-\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \_Client}}
-\DoxyCodeLine{00028\ \textcolor{comment}{//\};}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{message_8h_adc93476eadab1806cb5eed24affad303}{run}}(std::shared\_ptr<Peer>\ singleton)\{}
-\DoxyCodeLine{00033\ singleton-\/>createSocket();}
-\DoxyCodeLine{00034\ singleton-\/>init1();}
-\DoxyCodeLine{00035\ \textcolor{keywordflow}{for}(;;)}
-\DoxyCodeLine{00036\ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ singleton-\/>selinit();}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ singleton-\/>sel();}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ select(300,\ \&singleton-\/>read\_fd,\ NULL,\ NULL,\ NULL);}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(FD\_ISSET(singleton-\/>sock,\ \&singleton-\/>read\_fd))singleton-\/>conn();}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ singleton-\/>sendmes();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{comment}{//for(;;)}}
-\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}\ \ \textcolor{comment}{//inet\_addr\ define}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}\ \textcolor{comment}{//socket(),\ connect(),\ bind(),\ listen(),\ accept(),\ select();\ }}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <ext/stdio\_filebuf.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}\ \ \textcolor{comment}{//printf()}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <unistd.h>}\ \ \textcolor{comment}{//close(),\ fread()}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <cstring>};}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{server_8h}{server.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ipscan_8h}{ipscan.h}}"{}};}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{abspeer_8h}{abspeer.h}}"{}};}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <iostream>};}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MAXLINE\ 1024}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PORT\ 8080\ }}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//typedef\ std::map<int,char*>\ nmap;}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//enum\ PeerType\{}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \_Server,}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \_Client}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{message_8h_adc93476eadab1806cb5eed24affad303}{run}}(std::shared\_ptr<Peer>\ singleton)\{}
+\DoxyCodeLine{00036\ singleton-\/>createSocket();}
+\DoxyCodeLine{00037\ singleton-\/>connectInit();}
+\DoxyCodeLine{00038\ \textcolor{keywordflow}{for}(;;)}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ singleton-\/>selinit();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ singleton-\/>sel();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ select(300,\ \&singleton-\/>read\_fd,\ NULL,\ NULL,\ NULL);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(FD\_ISSET(singleton-\/>sock,\ \&singleton-\/>read\_fd))singleton-\/>conn();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ singleton-\/>sendmes();}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \};}
-\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//for(;;)}}
+\DoxyCodeLine{00051\ \}}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}}\ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fadc6f24fd6915a3f2786a1b7045406924}{END}},\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fa439c688a4e9ed31638d5922a50680a8e}{RUN}}}
-\DoxyCodeLine{00056\ \};}
-\DoxyCodeLine{00057\ \textcolor{comment}{//std::ostream\&\ os\ =\ std::cout;}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{message_8h_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\{}
-\DoxyCodeLine{00060\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}}\ ch;}
-\DoxyCodeLine{00061\ st:;}
-\DoxyCodeLine{00062\ std::cout<<\textcolor{stringliteral}{"{}0.end"{}}<<std::endl;}
-\DoxyCodeLine{00063\ std::cout<<\textcolor{stringliteral}{"{}1.run"{}}<<std::endl;}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{int}\ c,p;}
-\DoxyCodeLine{00065\ \textcolor{comment}{//peer\ =\ new\ Server;}}
-\DoxyCodeLine{00066\ std::cin>>c;}
-\DoxyCodeLine{00067\ \textcolor{comment}{//c=1;}}
-\DoxyCodeLine{00068\ ch=(\mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}})c;}
-\DoxyCodeLine{00069\ \textcolor{keywordflow}{switch}(ch)\{}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fadc6f24fd6915a3f2786a1b7045406924}{END}}:}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fa439c688a4e9ed31638d5922a50680a8e}{RUN}}:}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc}{spawnThreads}}();}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ipscan_8h_a5bcb7955d02231d690684148724e61b9}{check}}();}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370}{check1}}())\{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:\ \{std::shared\_ptr<Peer>\ a\ =\ std::make\_shared<Server>();\mbox{\hyperlink{message_8h_adc93476eadab1806cb5eed24affad303}{run}}(a);\textcolor{keywordflow}{break};\}}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \{std::shared\_ptr<Peer>\ b\ =\ std::make\_shared<Client>();\mbox{\hyperlink{message_8h_adc93476eadab1806cb5eed24affad303}{run}}(b);\textcolor{keywordflow}{break};\}}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ st;}
-\DoxyCodeLine{00087\ \}}
-\DoxyCodeLine{00088\ \}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fadc6f24fd6915a3f2786a1b7045406924}{END}},\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fa439c688a4e9ed31638d5922a50680a8e}{RUN}}}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ \textcolor{comment}{//std::ostream\&\ os\ =\ std::cout;}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{message_8h_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\{}
+\DoxyCodeLine{00063\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}}\ ch;}
+\DoxyCodeLine{00064\ st:;}
+\DoxyCodeLine{00065\ std::cout<<\textcolor{stringliteral}{"{}0.end"{}}<<std::endl;}
+\DoxyCodeLine{00066\ std::cout<<\textcolor{stringliteral}{"{}1.run"{}}<<std::endl;}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{int}\ c,p;}
+\DoxyCodeLine{00068\ \textcolor{comment}{//peer\ =\ new\ Server;}}
+\DoxyCodeLine{00069\ std::cin>>c;}
+\DoxyCodeLine{00070\ \textcolor{comment}{//c=1;}}
+\DoxyCodeLine{00071\ ch=(\mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216f}{choice}})c;}
+\DoxyCodeLine{00072\ \textcolor{keywordflow}{switch}(ch)\{}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fadc6f24fd6915a3f2786a1b7045406924}{END}}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{message_8h_afd05e88e13762e173d9d20fe3596216fa439c688a4e9ed31638d5922a50680a8e}{RUN}}:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc}{spawnThreads}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ipscan_8h_a5bcb7955d02231d690684148724e61b9}{check}}();}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370}{check1}}())\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:\ \{std::shared\_ptr<Peer>\ a\ =\ std::make\_shared<Server>();\mbox{\hyperlink{message_8h_adc93476eadab1806cb5eed24affad303}{run}}(a);\textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \{std::shared\_ptr<Peer>\ b\ =\ std::make\_shared<Client>();\mbox{\hyperlink{message_8h_adc93476eadab1806cb5eed24affad303}{run}}(b);\textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ st;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
 
 \end{DoxyCode}

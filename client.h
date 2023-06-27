@@ -65,9 +65,8 @@ void createSocket() override{
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
 }
 
-void init1() override
+void connectInit() override ///<клиентская часть
         {
-	std::cout<<"client start "  << std::endl;
 
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);

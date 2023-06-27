@@ -2,10 +2,10 @@ CC=gcc
 CXX=g++
 CFLAGS= -fpermissive 
 LDFLAGS= 
-OBJECTS=chat.o
+OBJECTS= chat.o
 MODULES= $(CFLAGS) 
 
-default:chat
+default:chat docs
 
 chat:$(OBJECTS)
 	$(CXX) $(OBJECTS) $(MODULES) -o chat
@@ -14,3 +14,6 @@ chat:$(OBJECTS)
 	$(CXX) $(CFLAGS) $< -c -o $@
 clean:
 	rm *.o chat
+
+docs:
+	doxygen

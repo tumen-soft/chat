@@ -103,10 +103,11 @@ $(function() {
 <tr class="memitem:ae51af7aa6b8f591496a8f6a4a87a14bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">Client</a> ()</td></tr>
 <tr class="separator:ae51af7aa6b8f591496a8f6a4a87a14bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6e28571c7e03c08a7215d819b5724c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#ab6e28571c7e03c08a7215d819b5724c1">createSocket</a> () override</td></tr>
-<tr class="memdesc:ab6e28571c7e03c08a7215d819b5724c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прообраз функции создания сокета для инициализации клиента/сервера  <br /></td></tr>
+<tr class="memdesc:ab6e28571c7e03c08a7215d819b5724c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock.  <br /></td></tr>
 <tr class="separator:ab6e28571c7e03c08a7215d819b5724c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eb8c4788652add25b823a88c9c712ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a5eb8c4788652add25b823a88c9c712ef">init1</a> () override</td></tr>
-<tr class="separator:a5eb8c4788652add25b823a88c9c712ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab545746cd6506829340ad8ec9441889c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#ab545746cd6506829340ad8ec9441889c">connectInit</a> () override</td></tr>
+<tr class="memdesc:ab545746cd6506829340ad8ec9441889c"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt;клиентская часть  <br /></td></tr>
+<tr class="separator:ab545746cd6506829340ad8ec9441889c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebf9b314550b1b959bd407c76bbda8da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#aebf9b314550b1b959bd407c76bbda8da">selinit</a> () override</td></tr>
 <tr class="separator:aebf9b314550b1b959bd407c76bbda8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af563c26b27356624c6c7bb2a51452dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#af563c26b27356624c6c7bb2a51452dac">sel</a> () override</td></tr>
@@ -120,10 +121,11 @@ $(function() {
 <tr class="memdesc:abe3d48f8f3af74e1827b023d10371756 inherit pub_methods_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор без параметров  <br /></td></tr>
 <tr class="separator:abe3d48f8f3af74e1827b023d10371756 inherit pub_methods_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d0a6cc84e9253a0484cebec717aecd inherit pub_methods_classPeer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeer.html#a40d0a6cc84e9253a0484cebec717aecd">createSocket</a> ()=0</td></tr>
-<tr class="memdesc:a40d0a6cc84e9253a0484cebec717aecd inherit pub_methods_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прообраз функции создания сокета для инициализации клиента/сервера  <br /></td></tr>
+<tr class="memdesc:a40d0a6cc84e9253a0484cebec717aecd inherit pub_methods_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock.  <br /></td></tr>
 <tr class="separator:a40d0a6cc84e9253a0484cebec717aecd inherit pub_methods_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a827d8324dd1cde3afebf3cfa1fdf21b5 inherit pub_methods_classPeer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeer.html#a827d8324dd1cde3afebf3cfa1fdf21b5">init1</a> ()=0</td></tr>
-<tr class="separator:a827d8324dd1cde3afebf3cfa1fdf21b5 inherit pub_methods_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f64a870355f2421572756ce3580554b inherit pub_methods_classPeer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeer.html#a1f64a870355f2421572756ce3580554b">connectInit</a> ()=0</td></tr>
+<tr class="memdesc:a1f64a870355f2421572756ce3580554b inherit pub_methods_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись в переменную addres и подготовка соединения  <br /></td></tr>
+<tr class="separator:a1f64a870355f2421572756ce3580554b inherit pub_methods_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebb9db83f1bb7c65278c6fe3c72fa627 inherit pub_methods_classPeer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeer.html#aebb9db83f1bb7c65278c6fe3c72fa627">selinit</a> ()=0</td></tr>
 <tr class="separator:aebb9db83f1bb7c65278c6fe3c72fa627 inherit pub_methods_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40ab35135ecb957e59f7417bc14f111a inherit pub_methods_classPeer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeer.html#a40ab35135ecb957e59f7417bc14f111a">sel</a> ()=0</td></tr>
@@ -146,10 +148,10 @@ $(function() {
 <tr class="memdesc:a6095fc5a3aa90625e70276cd3790060e inherit pub_attribs_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура для хранения адреса и типа узла  <br /></td></tr>
 <tr class="separator:a6095fc5a3aa90625e70276cd3790060e inherit pub_attribs_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeff6367e659ac6c6a649603198e56021 inherit pub_attribs_classPeer"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeer.html#aeff6367e659ac6c6a649603198e56021">buffer</a> [<a class="el" href="abspeer_8h.html#a3e937c42922f7601edb17b747602c471">MAXLINE</a>] ={0}</td></tr>
-<tr class="memdesc:aeff6367e659ac6c6a649603198e56021 inherit pub_attribs_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранит сообшение  <br /></td></tr>
+<tr class="memdesc:aeff6367e659ac6c6a649603198e56021 inherit pub_attribs_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранит сообщение  <br /></td></tr>
 <tr class="separator:aeff6367e659ac6c6a649603198e56021 inherit pub_attribs_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a456be0991e60ae9d77c52ef647410cc6 inherit pub_attribs_classPeer"><td class="memItemLeft" align="right" valign="top">fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeer.html#a456be0991e60ae9d77c52ef647410cc6">read_fd</a> ={0}</td></tr>
-<tr class="memdesc:a456be0991e60ae9d77c52ef647410cc6 inherit pub_attribs_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Массив дескрапторов  <br /></td></tr>
+<tr class="memdesc:a456be0991e60ae9d77c52ef647410cc6 inherit pub_attribs_classPeer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Массив дескрапторов для храненния сокета  <br /></td></tr>
 <tr class="separator:a456be0991e60ae9d77c52ef647410cc6 inherit pub_attribs_classPeer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Конструктор(ы)</h2>
@@ -201,8 +203,44 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
 
 <p>Замещает <a class="el" href="classPeer.html#aadc8a92cdfa976b01ce0bed0ef418e5f">Peer</a>.</p>
+
+</div>
+</div>
+<a id="ab545746cd6506829340ad8ec9441889c" name="ab545746cd6506829340ad8ec9441889c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab545746cd6506829340ad8ec9441889c">&#9670;&#160;</a></span>connectInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::connectInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>&lt;клиентская часть </p>
+
+<p>Замещает <a class="el" href="classPeer.html#a1f64a870355f2421572756ce3580554b">Peer</a>.</p>
 
 </div>
 </div>
@@ -229,36 +267,16 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Прообраз функции создания сокета для инициализации клиента/сервера </p>
+<p>Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
 
 <p>Замещает <a class="el" href="classPeer.html#a40d0a6cc84e9253a0484cebec717aecd">Peer</a>.</p>
-
-</div>
-</div>
-<a id="a5eb8c4788652add25b823a88c9c712ef" name="a5eb8c4788652add25b823a88c9c712ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eb8c4788652add25b823a88c9c712ef">&#9670;&#160;</a></span>init1()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::init1 </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Замещает <a class="el" href="classPeer.html#a827d8324dd1cde3afebf3cfa1fdf21b5">Peer</a>.</p>
 
 </div>
 </div>
@@ -284,6 +302,13 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
 
 <p>Замещает <a class="el" href="classPeer.html#a40ab35135ecb957e59f7417bc14f111a">Peer</a>.</p>
 
@@ -311,6 +336,13 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
 
 <p>Замещает <a class="el" href="classPeer.html#aebb9db83f1bb7c65278c6fe3c72fa627">Peer</a>.</p>
 
@@ -338,6 +370,13 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>void </dd></dl>
 
 <p>Замещает <a class="el" href="classPeer.html#a70b9a8fd599999c29afc51d6d5283422">Peer</a>.</p>
 
