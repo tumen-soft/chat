@@ -10,24 +10,25 @@
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <unistd.h>}\ \ \textcolor{comment}{//close(),\ fread()}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ MAXLINE\ 1024}}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPeer}{Peer}}\{}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_abe3d48f8f3af74e1827b023d10371756}{Peer}}()=\textcolor{keywordflow}{default};}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a40d0a6cc84e9253a0484cebec717aecd}{createSocket}}()=0;}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a827d8324dd1cde3afebf3cfa1fdf21b5}{init1}}()=0;}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_aebb9db83f1bb7c65278c6fe3c72fa627}{selinit}}()=0;}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a40ab35135ecb957e59f7417bc14f111a}{sel}}()=0;}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_aadc8a92cdfa976b01ce0bed0ef418e5f}{conn}}()=0;}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a70b9a8fd599999c29afc51d6d5283422}{sendmes}}()=0;}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classPeer_a7333fa19ffcc2324750a6f0134a597d5}{Peer}}(\textcolor{keywordtype}{int}\ \_sock,\ \textcolor{keyword}{struct}\ sockaddr\_in\ \_addres):\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}}(\_sock),\ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}(\_addres)\{\}}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}};}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}};}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}[\mbox{\hyperlink{abspeer_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}]=\{0\};}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ fd\_set\ \mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}}=\{0\};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \};}
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPeer}{Peer}}\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPeer_abe3d48f8f3af74e1827b023d10371756}{Peer}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a40d0a6cc84e9253a0484cebec717aecd}{createSocket}}()=0;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a827d8324dd1cde3afebf3cfa1fdf21b5}{init1}}()=0;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_aebb9db83f1bb7c65278c6fe3c72fa627}{selinit}}()=0;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a40ab35135ecb957e59f7417bc14f111a}{sel}}()=0;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_aadc8a92cdfa976b01ce0bed0ef418e5f}{conn}}()=0;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPeer_a70b9a8fd599999c29afc51d6d5283422}{sendmes}}()=0;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classPeer_a7333fa19ffcc2324750a6f0134a597d5}{Peer}}(\textcolor{keywordtype}{int}\ \_sock,\ \textcolor{keyword}{struct}\ sockaddr\_in\ \_addres):\mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}}(\_sock),\ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}}(\_addres)\{\}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPeer_a925963413d249aec471b34561070610c}{sock}};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ \mbox{\hyperlink{classPeer_a6095fc5a3aa90625e70276cd3790060e}{addres}};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classPeer_aeff6367e659ac6c6a649603198e56021}{buffer}}[\mbox{\hyperlink{abspeer_8h_a3e937c42922f7601edb17b747602c471}{MAXLINE}}]=\{0\};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ fd\_set\ \mbox{\hyperlink{classPeer_a456be0991e60ae9d77c52ef647410cc6}{read\_fd}}=\{0\};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
