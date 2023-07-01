@@ -1,3 +1,14 @@
+/**
+ *\file message.h
+ *\author Вергун Денис 
+ *\brief  Вводит определение класса сервера.
+ *\version
+ *\date 30-06-2023
+ *
+ *
+ */
+
+
 #include <arpa/inet.h>  //inet_addr define
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <unistd.h>  //close(), fread()

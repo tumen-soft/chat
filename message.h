@@ -32,7 +32,7 @@
 
 
 
-void run(std::shared_ptr<Peer> singleton){
+void run(Peer* singleton){
 singleton->createSocket();
 singleton->connectInit();
 for(;;)
@@ -81,8 +81,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {std::shared_ptr<Peer> a = std::make_shared<Server>();run(a);break;}
-		case 1: {std::shared_ptr<Peer> b = std::make_shared<Client>();run(b);break;}
+		case 0: {/*std::shared_ptr<Peer> a*/ Peer* a = new Server();run(a);break;}
+		case 1: {Peer* b = new Client();run(b);break;}
 		}
 
         default:
