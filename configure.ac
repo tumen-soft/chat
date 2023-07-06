@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.71])
 AC_INIT([Chat], [0.80], [blu.eagle@mail.ru])
-AC_CONFIG_SRCDIR([chat.cpp])
+AC_CONFIG_SRCDIR([src/chat.cpp])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
@@ -23,5 +23,10 @@ AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h strings.h sys/socket.
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([bzero gethostbyname memset select socket])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile
+                 include/Makefile
+                 src/Makefile])
+
+
+
 AC_OUTPUT

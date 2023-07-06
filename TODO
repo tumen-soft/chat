@@ -1,7 +1,7 @@
 Stage: Prototype
 80+
 
-
+* speech
 V abstract factory cli/ser
 X dymnam cast write
   plan:

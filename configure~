@@ -615,7 +615,7 @@ PACKAGE_STRING='Chat 0.80'
 PACKAGE_BUGREPORT='blu.eagle@mail.ru'
 PACKAGE_URL=''
 
-ac_unique_file="chat.cpp"
+ac_unique_file="src/chat.cpp"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stddef.h>
