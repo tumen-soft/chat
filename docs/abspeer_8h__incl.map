@@ -1,5 +1,5 @@
-<map id="abspeer.h" name="abspeer.h">
-<area shape="rect" id="Node000001" title="Файл содержит описание наследуемого класса" alt="" coords="255,5,334,31"/>
+<map id="include/abspeer.h" name="include/abspeer.h">
+<area shape="rect" id="Node000001" title="Файл содержит описание наследуемого класса" alt="" coords="233,5,356,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,88,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,33,101,77,99,72,254,28"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="112,79,208,104"/>

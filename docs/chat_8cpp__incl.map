@@ -1,5 +1,5 @@
-<map id="chat.cpp" name="chat.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="771,5,843,31"/>
+<map id="src/chat.cpp" name="src/chat.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="760,5,854,31"/>
 <area shape="rect" id="Node000002" href="$message_8h.html" title=" " alt="" coords="764,79,850,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="810,31,810,65,804,65,804,31"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="534,299,616,324"/>
