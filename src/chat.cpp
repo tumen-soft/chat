@@ -5,12 +5,14 @@
  *
  * 5.3.7 Анализ ПО при верификации системы
  * Скрипт configure осуществляет проверку системы на предмет зависимостей приложения. 
- * Использование: 
- * git clone https://github.com/blueagle-so/chat
+ * 
+ * Использование:  
+ *
+ * git clone https://github.com/blueagle-so/chat 
+ *
  * cd  chat
+ *
  * mkdir build;cd build;../configure --prefix=/usr 
- *
- *
  */
 //module;
 ///import message;
