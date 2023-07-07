@@ -12,7 +12,9 @@
  *
  * cd  chat
  *
- * mkdir build;cd build;../configure --prefix=/usr 
+ * mkdir build;cd build;../configure --prefix=/usr;make;make install
+ *
+ * chat
  */
 //module;
 ///import message;
