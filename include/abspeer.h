@@ -1,5 +1,5 @@
-#ifndef abs
-#define abs
+#ifndef absp
+#define absp
 #include <arpa/inet.h>  //inet_addr define
 #include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <ext/stdio_filebuf.h>

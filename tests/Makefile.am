@@ -1,4 +1,4 @@
-AM_CXXFLAGS = -std=c99 -Wall -Wextra -fpermissive
+AM_CXXFLAGS = -fpermissive
 
 check_PROGRAMS = test1 test2
 test1_SOURCES = test1.cpp 

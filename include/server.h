@@ -10,7 +10,6 @@
 
 
 #include <arpa/inet.h>  //inet_addr define
-#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <unistd.h>  //close(), fread()
 #include <cstring>
 #include <ext/stdio_filebuf.h>

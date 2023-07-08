@@ -1,10 +1,10 @@
 #include <arpa/inet.h>  
-//#include <sys/socket.h> 
+#include "../include/client.h" 
 
 int main(void){
 
+Client cli;
 
-int sock=socket(AF_INET, SOCK_STREAM, 0);
 
-return 4;
+return 0;
 }

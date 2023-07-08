@@ -1,6 +1,5 @@
 #include <arpa/inet.h>  //inet_addr define
 #include <stdio.h>  //printf()
-#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
 #include <unistd.h>  //close(), fread()
 #include <string>  //string type
 #include <map>
