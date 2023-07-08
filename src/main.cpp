@@ -14,6 +14,8 @@
  *
  * mkdir build;cd build;../configure --prefix=/usr;make;make install
  *
+ * make check
+ *
  * chat
  */
 //module;
