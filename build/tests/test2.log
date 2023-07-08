@@ -1,1 +1,1 @@
-PASS test2 (exit status: 0)
+FAIL test2 (exit status: 4)
