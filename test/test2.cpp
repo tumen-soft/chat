@@ -1,13 +1,9 @@
 #include <arpa/inet.h>  
-#include <sys/socket.h> 
+//#include <sys/socket.h> 
 
 int main(void){
 
 
-int sock=socket(AF_INET, SOCK_STREAM, 0);
-
-
-
-
-return 0;
+if(int sock=socket(AF_INET, SOCK_STREAM, 0))return 0;
+else return 4;
 }
