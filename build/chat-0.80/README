@@ -1,0 +1,8 @@
+ Asyncrous multiconnection chat
+
+
+./configure
+make
+./chat
+
+

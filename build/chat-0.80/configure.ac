@@ -22,6 +22,7 @@ AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h strings.h sys/socket.
 # Checks for library functions.
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([bzero gethostbyname memset select socket])
+
 AC_CONFIG_FILES([Makefile
                  include/Makefile
                  src/Makefile
