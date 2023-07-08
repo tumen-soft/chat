@@ -1,5 +1,5 @@
 AM_CXXFLAGS = -std=c99 -Wall -Wextra -fpermissive
 
-SUBDIRS = include src test
+SUBDIRS = include src tests
 CPPFLAGS="-Iinclude"
 

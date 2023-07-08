@@ -25,7 +25,7 @@ AC_CHECK_FUNCS([bzero gethostbyname memset select socket])
 AC_CONFIG_FILES([Makefile
                  include/Makefile
                  src/Makefile
-		 test/Makefile
+		 tests/Makefile
 		 ])
 
 
