@@ -1,26 +1,25 @@
 <map id="include/client.h" name="include/client.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="337,5,447,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="357,5,467,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,152,88,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="354,33,289,54,217,81,143,115,80,148,78,143,141,111,215,76,288,49,353,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="112,152,208,177"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="358,33,308,53,255,81,214,112,182,144,178,140,211,108,252,76,305,48,356,28"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="232,152,357,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="338,32,297,50,279,63,265,80,260,94,262,110,278,140,273,142,257,111,255,94,260,77,276,60,294,46,336,28"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="381,152,443,177"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="396,31,411,138,406,139,391,31"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="467,152,535,177"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="403,30,486,139,482,142,399,33"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="480,79,552,104"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="413,28,485,69,483,74,411,33"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="577,79,645,104"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="428,28,564,72,562,77,426,33"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="669,79,731,104"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="447,28,656,76,655,81,445,33"/>
-<area shape="rect" id="Node000010" href="$abspeer_8h.html" title="Файл содержит описание наследуемого класса" alt="" coords="275,79,354,104"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="381,33,339,71,336,67,378,29"/>
-<area shape="poly" id="edge10_Node000010_Node000002" title=" " alt="" coords="276,106,102,151,101,146,274,101"/>
-<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="291,106,199,149,197,144,289,102"/>
-<area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="314,105,304,140,299,138,309,104"/>
-<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="332,102,386,141,383,146,329,106"/>
-<area shape="poly" id="edge14_Node000010_Node000006" title=" " alt="" coords="346,102,459,145,457,149,344,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="370,33,301,54,224,81,146,115,81,148,79,143,144,110,222,76,299,49,369,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="112,152,237,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="369,33,314,52,259,81,222,111,193,143,190,140,219,108,256,76,312,47,367,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="381,152,443,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="415,31,415,138,409,138,409,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="467,152,535,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="421,30,465,103,488,139,484,142,460,105,416,32"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="475,79,547,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="429,29,485,68,482,73,426,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="571,79,639,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="444,28,562,71,560,76,442,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="664,79,725,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="460,28,652,76,650,81,458,33"/>
+<area shape="rect" id="Node000009" href="$abspeer_8h.html" title="Файл содержит описание наследуемого класса" alt="" coords="270,79,349,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="397,33,339,73,336,68,394,28"/>
+<area shape="poly" id="edge9_Node000009_Node000002" title=" " alt="" coords="270,106,102,151,101,146,269,101"/>
+<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="289,106,210,148,208,143,286,102"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="327,102,385,142,382,146,324,106"/>
+<area shape="poly" id="edge13_Node000009_Node000005" title=" " alt="" coords="341,102,458,144,456,149,339,107"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="261,152,357,177"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="312,104,312,138,307,138,307,104"/>
 </map>
