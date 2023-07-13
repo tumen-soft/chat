@@ -29,7 +29,7 @@
 //        _Client
 //};
 
-
+//extern int main_(void);
 
 void run(Peer* singleton){
 singleton->createSocket();
@@ -58,7 +58,7 @@ enum choice {
 };
 //std::ostream& os = std::cout;
 
-int main(){
+int main_(){
 choice ch;
 st:;
 std::cout<<"0.end"<<std::endl;

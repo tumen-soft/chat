@@ -1,10 +1,9 @@
 #ifndef absp
 #define absp
 #include <arpa/inet.h>  //inet_addr define
-#include <sys/socket.h> //socket(), connect(), bind(), listen(), accept(), select(); 
-#include <ext/stdio_filebuf.h>
-#include <stdio.h>  //printf()
-#include <unistd.h>  //close(), fread()
+//#include <ext/stdio_filebuf.h>
+//#include <stdio.h>  //printf()
+//#include <unistd.h>  //close(), fread()
 #define MAXLINE 1024
 
 /**
