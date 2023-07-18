@@ -200,7 +200,7 @@ char a[256] = "192.168.1.";
 std::cout<<"0.server\n";
 printf("1.client\n");
 int p;
-scanf("%i", &p);  
-
+//scanf("%i", &p);  
+std::cin>>p;
 return p;
 }
