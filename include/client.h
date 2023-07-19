@@ -9,34 +9,15 @@
 #define MAXLINE 1024
 #define PORT 8080 
 
-#if 0
-<клиент>
-		  |
-		  |
-	connect() to server
-		 \|/
-	 send nick to server 
-		 \|/
- _____________\	loop(infinite)
- |	      /	  |
- |		  |
- |		 \|/
- |	set sockets to listen(stdin and self (client))
- |		  |
- |		  |
- |		 \|/
- |	select() wait for messages(0 fd is stdin, and other fd is connection descriptor)
- |					|				|
- |					|				|
- |		      		       \|/			       \|/
- |				stdin - send messg to server	  recive mess from server
- |					|				|
- |______________________________________|_______________________________|
-
-
-
-#endif
-
+/**
+ *\file client.h
+ *\author Денис Вергун
+ *\brief  Файл содержит описание конкретного клиента
+ *\version
+ *\date 20-07-2023
+ *
+ *
+ */
 
 
 

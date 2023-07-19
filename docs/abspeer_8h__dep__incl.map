@@ -1,6 +1,6 @@
 <map id="include/abspeer.h" name="include/abspeer.h">
-<area shape="rect" id="Node000001" title="Файл содержит описание наследуемого класса" alt="" coords="91,5,213,31"/>
-<area shape="rect" id="Node000002" href="$client_8h.html" title=" " alt="" coords="5,79,115,104"/>
+<area shape="rect" id="Node000001" title="Файл содержит описание наследуемого абстрактного класса" alt="" coords="91,5,213,31"/>
+<area shape="rect" id="Node000002" href="$client_8h.html" title="Файл содержит описание конкретного клиента" alt="" coords="5,79,115,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,41,77,81,73,76,125,37"/>
 <area shape="rect" id="Node000003" href="$message_8h.html" title=" " alt="" coords="87,152,217,177"/>
 <area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="155,45,155,152,149,152,149,45"/>
