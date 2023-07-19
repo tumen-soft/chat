@@ -23,6 +23,7 @@ std::ifstream in("/dev/stdin");
 
 #define MAXLINE 1024
 #define PORT 8080 
+#define MAXCLI 256
 pthread_t tid[256];
 
 
