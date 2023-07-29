@@ -30,16 +30,6 @@ class Client:public Peer{
         public:
 	Client(){};
 	//Client(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
-	//int sock;
-        //struct sockaddr_in addres;
-        //char buffer[MAXLINE]={0};
-        //fd_set read_fd={0};
-	//template<class T> T *conn(T *);
-	//auto *init(auto *);
-	//template<class T> T *sel(T *);
-	//template<class T> T *init1(T *);
-	//auto *selinit(auto *);
-	//template<class T> T *sendmes(T *);
 
 void createSocket() override{
 	sock=socket(AF_INET, SOCK_STREAM, 0);
