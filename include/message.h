@@ -80,7 +80,7 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {/*std::shared_ptr<Peer> a*/ Peer* a = new Server();run(a);break;}
+		case 0: {Peer* a = new Server();run(a);break;}
 		case 1: {Peer* b = new Client();run(b);break;}
 		}
 
