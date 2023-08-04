@@ -18,6 +18,7 @@
  *
  * mkdir build;cd build;../configure --prefix=/usr;make;make install
  *
+ * 8.5.1 модульное тестирование ПО.
  * make check
  *
  * chat
