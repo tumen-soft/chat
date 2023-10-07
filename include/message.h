@@ -32,7 +32,7 @@
 //extern int main_(void);
 
 void run(Peer* singleton){
-//singleton->createSocket();
+singleton->createSocket_();
 //singleton->connectInit();
 for(;;)
 {
@@ -81,7 +81,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0: {Peer* a = new ser();run(a);break;}
-		case 1: {Peer* b = new cli();run(b);break;}
+		case 1: {}//{Peer* b = new cli();run(b);break;}
 		}
 
         default:

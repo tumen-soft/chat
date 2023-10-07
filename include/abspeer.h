@@ -30,12 +30,12 @@
 class Peer{
         public:
         Peer()=default;///<Конструктор без параметров  \param void
-	void createSocket();///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
-        void connectInit();///<Запись в переменную addres и подготовка соединения \param void  \return void
-        void selinit();///<\param void  \return void
-        void sel();///<\param void  \return void
-        void conn();///<\param void  \return void
-        void sendmes();///<\param void  \return void
+	virtual void createSocket_()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
+        //void connectInit();///<Запись в переменную addres и подготовка соединения \param void  \return void
+        //void selinit();///<\param void  \return void
+        //void sel();///<\param void  \return void
+        //void conn();///<\param void  \return void
+        //void sendmes();///<\param void  \return void
         /**
 	 \brief Конструктор с параметрами
 	 

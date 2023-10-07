@@ -74,7 +74,7 @@ class Server{
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 
 
-void createSocket() {
+void createSocket(){
         sock=socket(AF_INET, SOCK_STREAM, 0);
         std::cout << typeid(this).name() << " fd " << sock << std::endl;
         
@@ -186,6 +186,17 @@ return this;
 };
 
 
-class ser:public Server, public Peer{public:  ser(){}};
+class ser:public Peer, public Server{
+	public:  
+	ser(){};
+        void createSocket_()override{createSocket();};
+        void connectInit();
+        void selinit();///<\param void  \return void
+        void sel();///<\param void  \return void
+        void conn();///<\param void  \return void
+        void sendmes();///<\param void  \return void
 
+
+
+};
 
