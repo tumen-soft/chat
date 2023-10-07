@@ -30,12 +30,12 @@
 class Peer{
         public:
         Peer()=default;///<Конструктор без параметров  \param void
-	virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
-        virtual void connectInit()=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
-        virtual void selinit()=0;///<\param void  \return void
-        virtual void sel()=0;///<\param void  \return void
-        virtual void conn()=0;///<\param void  \return void
-        virtual void sendmes()=0;///<\param void  \return void
+	void createSocket();///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
+        void connectInit();///<Запись в переменную addres и подготовка соединения \param void  \return void
+        void selinit();///<\param void  \return void
+        void sel();///<\param void  \return void
+        void conn();///<\param void  \return void
+        void sendmes();///<\param void  \return void
         /**
 	 \brief Конструктор с параметрами
 	 
@@ -44,13 +44,23 @@ class Peer{
 	 \return конструкторы ничего не возвращают
 	 */
 
-	Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-        int sock;///<Переменная для хранения сокета
-	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        char buffer[MAXLINE]={0};///<Хранит сообщение
-        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
+	//Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
+        //int sock;///<Переменная для хранения сокета
+	//struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        //char buffer[MAXLINE]={0};///<Хранит сообщение
+        //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 
         
 
 };
+
+//class cli:public Client, public Peer{}
+
+
+//class ser:public Server, public Peer{}
+
+
+
+
+
 #endif

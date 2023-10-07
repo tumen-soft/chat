@@ -32,19 +32,19 @@
 //extern int main_(void);
 
 void run(Peer* singleton){
-singleton->createSocket();
-singleton->connectInit();
+//singleton->createSocket();
+//singleton->connectInit();
 for(;;)
 {
-		singleton->selinit();
+		//singleton->selinit();
 
-		singleton->sel();
+		//singleton->sel();
 
-		select(300, &singleton->read_fd, NULL, NULL, NULL);
+		//select(300, &singleton->read_fd, NULL, NULL, NULL);
 
-		if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
+		//if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
 
-		singleton->sendmes();
+		//singleton->sendmes();
 
 //for(;;)
 }
@@ -80,8 +80,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {Peer* a = new Server();run(a);break;}
-		case 1: {Peer* b = new Client();run(b);break;}
+		case 0: {Peer* a = new ser();run(a);break;}
+		case 1: {Peer* b = new cli();run(b);break;}
 		}
 
         default:

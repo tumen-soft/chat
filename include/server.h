@@ -58,7 +58,7 @@
 
 #endif
 
-class Server : public Peer{
+class Server{
 	public:
 	Server(){};
 	//Server(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
@@ -66,7 +66,15 @@ class Server : public Peer{
 	std::vector<std::pair<int, char*>> nicknames;
 
 
-void createSocket() override{
+
+
+       int sock;///<Переменная для хранения сокета
+        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        char buffer[MAXLINE]={0};///<Хранит сообщение
+        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
+
+
+void createSocket() {
         sock=socket(AF_INET, SOCK_STREAM, 0);
         std::cout << typeid(this).name() << " fd " << sock << std::endl;
         
@@ -79,7 +87,7 @@ void createSocket() override{
 
 
 
-void connectInit() override
+void connectInit() 
         {
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
@@ -96,7 +104,7 @@ void connectInit() override
 
 
 
-void selinit() override{
+void selinit() {
 
                 memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
@@ -111,7 +119,7 @@ void selinit() override{
 
 
 
-void sel() override{
+void sel() {
 for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
 FD_SET(itr->first, &read_fd);
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
@@ -122,7 +130,7 @@ return this;
 
 
 
-void conn() override{
+void conn() {
                         //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
                         new_socket = accept(sock,NULL,NULL);
@@ -147,7 +155,7 @@ return this;
 
 
 
-void sendmes() override{
+void sendmes(){
 //#if 0
 	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
@@ -178,5 +186,6 @@ return this;
 };
 
 
+class ser:public Server, public Peer{public:  ser(){}};
 
 

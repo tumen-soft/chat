@@ -26,17 +26,27 @@
 
 
 //вводим определение клиента и сервера
-class Client:public Peer{
+class Client{
         public:
 	Client(){};
 	//Client(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
 
-void createSocket() override{
+
+       int sock;///<Переменная для хранения сокета
+        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        char buffer[MAXLINE]={0};///<Хранит сообщение
+        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
+
+
+
+
+
+void createSocket() {
 	sock=socket(AF_INET, SOCK_STREAM, 0);
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
 }
 
-void connectInit() override ///<клиентская часть
+void connectInit()  ///<клиентская часть
         {
 
 	addres.sin_family = AF_INET;
@@ -50,7 +60,7 @@ void connectInit() override ///<клиентская часть
         }
 
 
-void selinit() override{
+void selinit() {
 
                 memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
@@ -64,7 +74,7 @@ void selinit() override{
 
 
 
-void sel() override{
+void sel() {
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
 
 	return this;
@@ -72,13 +82,13 @@ void sel() override{
 
 
 
-void conn() override{
+void conn() {
 read(sock, buffer, sizeof(buffer));dprintf(0, buffer);//}
 return this;
 }
 
 
-void sendmes() override{
+void sendmes(){
 
 if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
 //if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
@@ -91,4 +101,5 @@ return this;
 
 };
 
+class cli:public Client, public Peer{public: cli(){}};
 
