@@ -14,8 +14,8 @@
 #include <unistd.h>  //close(), fread()
 #include <memory>
 #include <cstring>;
-#include "client.h"
-#include "server.h"
+//#include "client.h"
+//#include "server.h"
 #include "ipscan.h";
 #include "abspeer.h";
 #include <iostream>;
@@ -80,8 +80,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {Peer* a = new ser();run(a);break;}
-		case 1: {}//{Peer* b = new cli();run(b);break;}
+		case 0: {/*Peer* a = new Server_();run(a);*/break;}
+		case 1: {Peer* b = new Client_();run(b);break;}
 		}
 
         default:

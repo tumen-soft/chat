@@ -5,7 +5,7 @@
 #include <iostream>
 #include <typeinfo>
 #include <cstring>
-#include "abspeer.h"
+//#include "abspeer.h"
 
 #define MAXLINE 1024
 #define PORT 8080 
@@ -29,7 +29,7 @@
 class Client{
         public:
 	Client(){};
-	//Client(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
+	Client(const char* addr){}
 
 
        int sock;///<Переменная для хранения сокета
@@ -46,12 +46,12 @@ void createSocket() {
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
 }
 
-void connectInit()  ///<клиентская часть
+void connectInit(const char* addr)  ///<клиентская часть
         {
 
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
-        addres.sin_addr.s_addr = inet_addr("127.0.0.1");
+        addres.sin_addr.s_addr = inet_addr(addr);
 
         connect(sock, (struct sockaddr*)&addres, sizeof(addres));
         //dprintf(peer->sock, s);
@@ -101,5 +101,4 @@ return this;
 
 };
 
-class cli:public Client, public Peer{public: cli(){}};
 

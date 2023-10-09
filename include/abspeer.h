@@ -4,6 +4,8 @@
 //#include <ext/stdio_filebuf.h>
 //#include <stdio.h>  //printf()
 //#include <unistd.h>  //close(), fread()
+#include "client.h"
+#include "server.h"
 #define MAXLINE 1024
 
 /**
@@ -31,7 +33,7 @@ class Peer{
         public:
         Peer()=default;///<Конструктор без параметров  \param void
 	virtual void createSocket_()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
-        //void connectInit();///<Запись в переменную addres и подготовка соединения \param void  \return void
+        virtual void connectInit_(const char* addr)=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
         //void selinit();///<\param void  \return void
         //void sel();///<\param void  \return void
         //void conn();///<\param void  \return void
@@ -54,10 +56,33 @@ class Peer{
 
 };
 
-//class cli:public Client, public Peer{}
+class Client_:public Peer, public Client{
+        public:  
+        Client_(){};
+        void createSocket_()override{createSocket();};
+        void connectInit_(const char* addr)override{connectInit(addr);};
+        void selinit();///<\param void  \return void
+        void sel();///<\param void  \return void
+        void conn();///<\param void  \return void
+        void sendmes();///<\param void  \return void
 
 
-//class ser:public Server, public Peer{}
+
+};
+
+class Server_:public Peer, public Server{
+        public:  
+        Server_(){};
+        void createSocket_()override{createSocket();};
+        void connectInit();
+        void selinit();///<\param void  \return void
+        void sel();///<\param void  \return void
+        void conn();///<\param void  \return void
+        void sendmes();///<\param void  \return void
+
+
+
+};
 
 
 

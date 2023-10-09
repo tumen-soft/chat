@@ -13,7 +13,7 @@
 #include <unistd.h>  //close(), fread()
 #include <cstring>
 #include <ext/stdio_filebuf.h>
-#include "abspeer.h"
+//#include "abspeer.h"
 #include <iostream>;
 #include <typeinfo>;
 #include <vector>
@@ -185,18 +185,4 @@ return this;
 }
 };
 
-
-class ser:public Peer, public Server{
-	public:  
-	ser(){};
-        void createSocket_()override{createSocket();};
-        void connectInit();
-        void selinit();///<\param void  \return void
-        void sel();///<\param void  \return void
-        void conn();///<\param void  \return void
-        void sendmes();///<\param void  \return void
-
-
-
-};
 
