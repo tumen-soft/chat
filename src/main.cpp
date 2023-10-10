@@ -1,4 +1,3 @@
-#include <message.h>
 /**
  *@mainpage Постовляемое ПО: Приложение для обмена сообщениями по сети: сетевой асинхронный мультиклиентский чат.
  * ГОСТ Р 51904-2002
@@ -29,6 +28,8 @@
 //#define main
 //export module uno;
 //int main_(void);
+#include "message.h"
+#include "client.h"
 int main(void){
 main_();
 }

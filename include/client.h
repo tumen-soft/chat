@@ -8,6 +8,9 @@
  *
  */
 
+#ifndef cli
+#define cli
+
 #define MAXLINE 1024
 #define PORT 8080 
 
@@ -32,4 +35,4 @@ class Client{
 
 };
 
-
+#endif

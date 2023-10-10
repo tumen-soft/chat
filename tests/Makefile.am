@@ -5,5 +5,4 @@ test1_SOURCES = test1.cpp
 test2_SOURCES = test2.cpp
 test3_SOURCES = test3.cpp
 test4_SOURCES = test4.cpp
-
 TESTS = $(check_PROGRAMS)

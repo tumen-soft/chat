@@ -11,7 +11,11 @@ AC_PROG_CXX
 AC_PROG_CC
 AM_INIT_AUTOMAKE
 AC_PROG_MAKE_SET
+
 # Checks for libraries.
+AC_ENABLE_SHARED
+AC_DISABLE_STATIC
+AC_PROG_LIBTOOL(libtool)
 
 # Checks for header files.
 AC_HEADER_RESOLV
@@ -23,10 +27,11 @@ AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h strings.h sys/socket.
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([bzero gethostbyname memset select socket])
 AC_CONFIG_FILES([Makefile
-                 include/Makefile
-                 src/Makefile
-		 tests/Makefile
-		 ])
+                include/Makefile
+                lib/Makefile 
+		src/Makefile
+		tests/Makefile
+		])
 
 
 
