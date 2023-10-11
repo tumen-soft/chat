@@ -3,8 +3,9 @@
 
 int main(void){
 
-Client cli;
+Client *cli_ = new Client();
 
+cli_->createSocket();
 
 return 0;
 }
