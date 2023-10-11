@@ -74,7 +74,7 @@ class Server_:public Peer, public Server{
         public:  
         Server_(){};
         void createSocket_()override{createSocket();};
-        void connectInit();
+	void connectInit_(const char* addr)override{connectInit(addr);};
         void selinit();///<\param void  \return void
         void sel();///<\param void  \return void
         void conn();///<\param void  \return void

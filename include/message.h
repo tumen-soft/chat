@@ -80,7 +80,7 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {/*Peer* a = new Server_();run(a);*/break;}
+		case 0: {Peer* a = new Server_();run(a);break;}
 		case 1: {Peer* b = new Client_();run(b);break;}
 		}
 
