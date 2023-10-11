@@ -28,7 +28,7 @@
 
 
 Client::Client(){};
-Client::Client(const char* addr){}
+Client::Client(const char* addr){};
 
 
 void Client::createSocket(){
