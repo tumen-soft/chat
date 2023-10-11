@@ -1,10 +1,8 @@
 AUTOMAKE_OPTIONS=subdir-objects
 
-#noinst_LIBRARIES        = libclient.a
-#libjupcommon_a_SOURCES  = client.h client.cpp
-lib_LTLIBRARIES=libtest.la
-libtest_la_SOURCES=client.cpp #client.h
-libtest_la_CFLAGS=-fPIC
-libtest_la_CPPFLAGS=-fPIC
-libtest_la_CXXFLAGS=-fPIC -I$(top_srcdir)/include -fpermissive
+lib_LTLIBRARIES=libclient.la
+libclient_la_SOURCES=client.cpp
+libclient_la_CFLAGS=-fPIC
+libclient_la_CPPFLAGS=-fPIC
+libclient_la_CXXFLAGS=-fPIC -I$(top_srcdir)/include -fpermissive
 

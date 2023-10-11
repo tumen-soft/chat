@@ -13,4 +13,4 @@ AM_CPPFLAGS = -I$(top_srcdir)/include  -fpermissive
 bin_PROGRAMS=chat
 chat_SOURCES=main.cpp #client.cpp
 chat_CXXFLAGS= -I$(top_srcdir)/lib
-chat_LDADD= -ltest -L../lib
+chat_LDADD= -lclient -L../lib
