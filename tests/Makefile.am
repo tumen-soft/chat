@@ -1,10 +1,12 @@
 AM_CXXFLAGS = -fpermissive
 
-check_PROGRAMS = test1 client_test test3 test4
+check_PROGRAMS = test1 client_test server_test test4
 test1_SOURCES = test1.cpp 
 client_test_SOURCES = client_test.cpp
 client_test_CXXFLAGS= -I$(top_srcdir)/lib  -fpermissive
 client_test_LDADD= -lclient -L../lib
-test3_SOURCES = test3.cpp
+server_test_SOURCES = server_test.cpp
+server_test_CXXFLAGS= -I$(top_srcdir)/lib  -fpermissive
+server_test_LDADD= -lserver -L../lib
 test4_SOURCES = test4.cpp
 TESTS = $(check_PROGRAMS)
