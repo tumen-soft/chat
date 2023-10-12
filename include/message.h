@@ -33,7 +33,7 @@
 
 void run(Peer* singleton){
 singleton->createSocket_();
-//singleton->connectInit();
+singleton->connectInit_('127.0.0.1');
 for(;;)
 {
 		//singleton->selinit();

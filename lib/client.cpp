@@ -44,8 +44,9 @@ void Client::connectInit(const char* addr){
         addres.sin_port = htons(PORT);
         addres.sin_addr.s_addr = inet_addr(addr);
         connect(sock, (struct sockaddr*)&addres, sizeof(addres));
-        //dprintf(peer->sock, s);
-	//std::cout <<"test" <<std::endl;
+}
+void Client::connectInit(){
+	std::cout << "no ip addres" << std::endl;
 }
 void Client::selinit(){
 	memset(buffer, 0, sizeof(buffer));
