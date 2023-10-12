@@ -33,7 +33,10 @@ Client::Client(const char* addr){}
 
 void Client::createSocket(){
 	sock=socket(AF_INET, SOCK_STREAM, 0);
+	if(sock)
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
+	else
+	std::cout << "error creation socket" << std::endl;
 }
 
 void Client::connectInit(const char* addr){

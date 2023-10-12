@@ -3,6 +3,8 @@
 
 int main(void){
 
-	Server ser;
+	Server *ser_=new Server();
+	ser_->createSocket();
+
 return 0;
 }

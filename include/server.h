@@ -61,25 +61,20 @@
 class Server{
 	public:
 	Server();
-	//Server(int _sock, struct sockaddr_in _addres):AbstractPeer(_sock, _addres){}
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
-
-
-
-
-       int sock;///<Переменная для хранения сокета
+	int sock;///<Переменная для хранения сокета
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 
 
-void createSocket();
-void connectInit(const char* addr);
-void selinit();
-void sel();
-void conn(); 
-void sendmes();
+	void createSocket();
+	void connectInit(const char* addr);
+	void selinit();
+	void sel();
+	void conn(); 
+	void sendmes();
 };
 
 
