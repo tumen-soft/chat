@@ -22,3 +22,5 @@ config.status
 stamp-h1
 build
 docs
+autom4te.cache
+codelib
