@@ -36,7 +36,7 @@ void Client::createSocket(){
 	if(sock)
 	std::cout << typeid(this).name() << " fd " << sock << std::endl;
 	else
-	std::cout << "error creation socket" << std::endl;
+	std::cout << "creation socket error" << std::endl;
 }
 
 void Client::connectInit(const char* addr){
@@ -46,7 +46,7 @@ void Client::connectInit(const char* addr){
         connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 }
 void Client::connectInit(){
-	std::cout << "no ip addres" << std::endl;
+	std::cout << "no ip addres specified" << std::endl;
 }
 void Client::selinit(){
 	memset(buffer, 0, sizeof(buffer));
