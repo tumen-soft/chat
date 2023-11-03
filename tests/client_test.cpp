@@ -8,7 +8,7 @@ Client *cli_ = new Client();
 
 cli_->createSocket();
 
-cli_->connectInit();
+cli_->connectInit("127.0.0.1");
 
 std::cout<<argv[1]<<std::endl;
 
