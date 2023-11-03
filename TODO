@@ -1,5 +1,9 @@
 Stage: Proto
 *pobel
+DRY  dont repeat yourself
+Strategy of client and server
+
+
 
 сдклать параметры в клиент и сервер чтоб конвеер (cli 127.0.0.1 "mess text")
 
