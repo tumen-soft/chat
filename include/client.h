@@ -25,6 +25,7 @@ class Client{
 	void createSocket(); 
 	void connectInit(const char* addr);
         void connectInit();
+	private:
 	void selinit(); 
 	void sel();
 	void conn();
