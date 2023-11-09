@@ -32,8 +32,8 @@
 //extern int main_(void);
 
 void run(Peer* singleton){
-singleton->createSocket_();
-singleton->connectInit_("127.0.0.1");
+//singleton->createSocket_();
+//singleton->connectInit_("127.0.0.1");
 for(;;)
 {
 		//singleton->selinit();
@@ -80,8 +80,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0: {Peer* a = new Server_();run(a);break;}
-		case 1: {Peer* b = new Client_();run(b);break;}
+		case 0:{} //{Peer* a = new Server_();run(a);break;}
+		case 1:{TestClient a;}//{Peer* b = new Client_();run(b);break;}
 		}
 
         default:

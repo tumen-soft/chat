@@ -10,30 +10,11 @@
 
 #ifndef cli
 #define cli
-
+#include <memory>
+#include "../include/abspeer.h"
 #define MAXLINE 1024
 #define PORT 8080 
 
 
-
-
-
-class Client{
-        public:
-	Client();
-	Client(const char* addr);
-	void createSocket(); 
-	void connectInit(const char* addr);
-        void connectInit();
-	private:
-	void selinit(); 
-	void sel();
-	void conn();
-	void sendmes();
-	int sock;///<Переменная для хранения сокета
-        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        char buffer[MAXLINE]={0};///<Хранит сообщение
-        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
-};
 
 #endif
