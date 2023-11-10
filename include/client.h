@@ -11,7 +11,6 @@
 #ifndef cli
 #define cli
 #include <memory>
-#include "../include/abspeer.h"
 #define MAXLINE 1024
 #define PORT 8080 
 

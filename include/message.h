@@ -8,12 +8,12 @@
  *
  */
 
-#include <arpa/inet.h>  //inet_addr define
-#include <ext/stdio_filebuf.h>
-#include <stdio.h>  //printf()
-#include <unistd.h>  //close(), fread()
-#include <memory>
-#include <cstring>;
+//#include <arpa/inet.h>  //inet_addr define
+//#include <ext/stdio_filebuf.h>
+//#include <stdio.h>  //printf()
+//#include <unistd.h>  //close(), fread()
+//#include <memory>
+//#include <cstring>;
 //#include "client.h"
 //#include "server.h"
 #include "ipscan.h";
@@ -22,20 +22,20 @@
 #define MAXLINE 1024
 #define PORT 8080 
 
-
 //typedef std::map<int,char*> nmap;
 //enum PeerType{
 //        _Server,
 //        _Client
 //};
-
 //extern int main_(void);
-
-void run(Peer* singleton){
-//singleton->createSocket_();
+void run(Peer *singleton){
+std::cout<<"test\n";
+//Client *t=new Client();
+//t->createSocket();
+singleton->createSocket();
 //singleton->connectInit_("127.0.0.1");
-for(;;)
-{
+//for(;;)
+//{
 		//singleton->selinit();
 
 		//singleton->sel();
@@ -47,7 +47,7 @@ for(;;)
 		//singleton->sendmes();
 
 //for(;;)
-}
+//}
 
 };
 
@@ -81,7 +81,12 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{} //{Peer* a = new Server_();run(a);break;}
-		case 1:{TestClient a;}//{Peer* b = new Client_();run(b);break;}
+		case 1:{Peer *b=new Client();run(b);break;}
+		
+
+
+
+
 		}
 
         default:

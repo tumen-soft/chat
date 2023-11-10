@@ -6,7 +6,7 @@
 #include <typeinfo>
 #include <cstring>
 //#include "abspeer.h"
-#include "client.h"
+//#include "client.h"
 
 
 #define MAXLINE 1024
@@ -40,10 +40,10 @@ void TestClient::createSocket(Client const& client)const override
 
 */
 
-/*
-Client(){};
-//Client::Client(const char* addr){}
 
+//Client::Client(){};
+//Client::Client(const char* addr){}
+/*
 
 void createSocket(){
 	sock=socket(AF_INET, SOCK_STREAM, 0);

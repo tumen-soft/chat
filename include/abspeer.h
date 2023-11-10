@@ -34,7 +34,7 @@ class Client;
 class Peer{
         public:
         Peer()=default;///<Конструктор без параметров  \param void
-        virtual void createSocket(Client& client)=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
+        virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
         //virtual void connectInit_(const char* addr)=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
         //virtual void connectInit_()=0;///\param void  \return void
         //void selinit();///<\param void  \return void
@@ -65,11 +65,11 @@ class Peer{
 class ClientStrategy;
 class Client:public Peer{
         public:
-        //Client();
+        Client(){};
         //Client(const char* addr);
         Client(std::unique_ptr<ClientStrategy> strategy):clie(std::move(strategy)){}
-        void createSocket(Client &client) override{
-        
+        void createSocket() override{
+       	std::cout<<"end"; 
         //clie->createSocket(*this);
 
         }; 
