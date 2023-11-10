@@ -85,7 +85,7 @@ class TestClient:public ClientStrategy{
 
 public:        
 TestClient(){}
-void createSocket(Client const& client)const override{};
+void createSocket(Client const& client)const override{std::cout<<"endline\n";};
 //void createSocket(Client const& client)const override
 //{}
 /*
