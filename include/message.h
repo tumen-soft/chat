@@ -28,11 +28,12 @@
 //        _Client
 //};
 //extern int main_(void);
-void run(std::unique_ptr<Peer> *singleton){
+void run(){//(std::unique_ptr<Peer> singleton){
 std::cout<<"test\n";
+
 //Client *t=new Client();
 //t->createSocket();
-singleton->createSocket();
+//singleton->createSocket();
 //singleton->connectInit_("127.0.0.1");
 //for(;;)
 //{
@@ -81,7 +82,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{} //{Peer* a = new Server_();run(a);break;}
-		case 1:{run(std::make_unique<Client>(std::make_unique<ClientStrategy>());break;}
+		case 1:{run();break;}//(std::make_unique<Client>(std::make_unique<TestClient>());break;}
 		
 
 

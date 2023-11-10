@@ -34,7 +34,7 @@ class Client;
 class Peer{
         public:
         Peer()=default;///<Конструктор без параметров  \param void
-        virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
+        virtual void createSocket()const=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
         //virtual void connectInit_(const char* addr)=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
         //virtual void connectInit_()=0;///\param void  \return void
         //void selinit();///<\param void  \return void
@@ -60,17 +60,61 @@ class Peer{
 };
 
 
+class ClientStrategy{
+        public:  
+        ClientStrategy(){};
+        virtual void createSocket(Client const& client)const = 0;
+        //void connectInit_(const char* addr)override{connectInit(addr);};
+        //void connectInit_()override{connectInit();};
+        //void selinit();///<\param void  \return void
+        ///void sel();///<\param void  \return void
+        //void conn();///<\param void  \return void
+        //void sendmes();///<\param void  \return void
+
+};
 
 
-class ClientStrategy;
+
+
+
+
+
+
+
+class TestClient:public ClientStrategy{
+
+public:        
+TestClient(){}
+void createSocket(Client const& client)const override{};
+//void createSocket(Client const& client)const override
+//{}
+/*
+        client.sock=socket(AF_INET, SOCK_STREAM, 0);
+        if(client.sock)
+        std::cout << typeid(client).name() << " fd " << client.sock << std::endl;
+        else
+        std::cout << "creation socket error" << std::endl;
+
+
+
+
+
+}
+*/
+
+};
+
+
+
 class Client:public Peer{
         public:
         Client(){};
         //Client(const char* addr);
-        Client(std::unique_ptr<ClientStrategy> strategy):clie(std::move(strategy)){}
-        void createSocket() override{
+        Client(std::unique_ptr<TestClient> strategy):clie(std::move(strategy)){}
+        void createSocket()const override{
        	std::cout<<"end"; 
-        //clie->createSocket(*this);
+        //const Client &clien=Client();
+	clie->createSocket(*this);
 
         }; 
         //void connectInit(const char* addr);
@@ -80,7 +124,7 @@ class Client:public Peer{
         //void sel();
         //void conn();
         //void sendmes();
-        std::unique_ptr<ClientStrategy> clie;
+        std::unique_ptr<TestClient> clie;
         int sock;///<Переменная для хранения сокета
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
@@ -93,11 +137,11 @@ class Client:public Peer{
 
 
 
-
+/*
 class ClientStrategy{
         public:  
         //virtual ClientStrategy(){};
-        virtual void createSocket(Client &client) = 0;
+        virtual void createSocket(Client const& client) = 0;
         //void connectInit_(const char* addr)override{connectInit(addr);};
         //void connectInit_()override{connectInit();};
 	//void selinit();///<\param void  \return void
@@ -106,6 +150,12 @@ class ClientStrategy{
         //void sendmes();///<\param void  \return void
 
 };
+*/
+
+
+
+
+
 
 class Server_:public Peer, public Server{
         public:  
@@ -121,13 +171,13 @@ class Server_:public Peer, public Server{
 
 
 };
-
+/*
 class TestClient:public ClientStrategy{
 
         
 //void createSocket(Client const& client)const override;
-void createSocket(Client &client)override
-{
+void createSocket(Client const& client)const override
+{}
 
         client.sock=socket(AF_INET, SOCK_STREAM, 0);
         if(client.sock)
@@ -143,7 +193,7 @@ void createSocket(Client &client)override
 
 
 };
-
+*/
 
 
 #endif
