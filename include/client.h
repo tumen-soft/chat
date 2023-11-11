@@ -16,12 +16,13 @@
 #include "abspeer.h"
 #include <iostream>
 //#include "strategy.h"
-class TestClient;
+class TestClientStrategy;
+class ClientStrategy;
 class Client:public Peer{
         public:
         Client(){}
         //Client(const char* addr);
-        Client(TestClient *strategy):clie((strategy)){}
+        Client(ClientStrategy *strategy):clie((strategy)){}
         void foo();
 	void createSocket()const override{
         //std::cout<<"end"; 
@@ -36,7 +37,7 @@ class Client:public Peer{
         //void sel();
         //void conn();
         //void sendmes();
-        TestClient *clie;
+        ClientStrategy *clie;
         int sock;///<Переменная для хранения сокета
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
