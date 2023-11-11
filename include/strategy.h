@@ -18,10 +18,10 @@ class ClientStrategy{
 
 
 
-class TestClientStrategy:public ClientStrategy{
+class TCPClientStrategy:public ClientStrategy{
 
 public:        
-TestClientStrategy(){}
+TCPClientStrategy(){}
 void createSocket(Client const& client)const override{
 //Client *clien=new Client();
 

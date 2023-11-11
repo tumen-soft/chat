@@ -84,7 +84,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{} //{Peer* a = new Server_();run(a);break;}
-		case 1:{run(new Client(new TestClientStrategy()));break;}
+		case 1:{run(new Client(new TCPClientStrategy()));break;}
 		
 
 

@@ -16,7 +16,7 @@
 #include "abspeer.h"
 #include <iostream>
 //#include "strategy.h"
-class TestClientStrategy;
+class TCPClientStrategy;
 class ClientStrategy;
 class Client:public Peer{
         public:
