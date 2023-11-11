@@ -17,23 +17,26 @@
 //#include "client.h"
 //#include "server.h"
 #include "ipscan.h";
+#include <memory>
+
 #include "abspeer.h";
 #include <iostream>;
 #define MAXLINE 1024
 #define PORT 8080 
-
+class Client;
+class TestClient;
 //typedef std::map<int,char*> nmap;
 //enum PeerType{
 //        _Server,
 //        _Client
 //};
 //extern int main_(void);
-void run(std::unique_ptr<Peer> singleton){
+void run(){///std::unique_ptr<Peer> singleton){
 std::cout<<"test\n";
 
 //Client *t=new Client();
 //t->createSocket();
-singleton->createSocket();
+//singleton->createSocket();
 //singleton->connectInit_("127.0.0.1");
 //for(;;)
 //{
@@ -82,7 +85,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{} //{Peer* a = new Server_();run(a);break;}
-		case 1:{run(std::make_unique<Client>(std::make_unique<TestClient>()));break;}
+		case 1:{run();}//run(std::make_unique<Client>(std::make_unique<TestClient>()));break;}
 		
 
 

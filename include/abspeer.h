@@ -4,8 +4,6 @@
 //#include <ext/stdio_filebuf.h>
 //#include <stdio.h>  //printf()
 //#include <unistd.h>  //close(), fread()
-#include "client.h"
-#include "server.h"
 #define MAXLINE 1024
 
 /**
@@ -30,7 +28,6 @@
 Содержит виртуальные функции создания сокета, соединения, основного цикла.
 */
 
-class Client;
 class Peer{
         public:
         Peer()=default;///<Конструктор без параметров  \param void
@@ -60,103 +57,10 @@ class Peer{
 };
 
 
-class ClientStrategy{
-        public:  
-        ClientStrategy(){};
-        virtual void createSocket(Client const& client)const = 0;
-        //void connectInit_(const char* addr)override{connectInit(addr);};
-        //void connectInit_()override{connectInit();};
-        //void selinit();///<\param void  \return void
-        ///void sel();///<\param void  \return void
-        //void conn();///<\param void  \return void
-        //void sendmes();///<\param void  \return void
-
-};
-
-
-
-
-
-
-
-
-
-class TestClient:public ClientStrategy{
-
-public:        
-TestClient(){}
-void createSocket(Client const& client)const override{std::cout<<"endline\n";};
-//void createSocket(Client const& client)const override
-//{}
-/*
-        client.sock=socket(AF_INET, SOCK_STREAM, 0);
-        if(client.sock)
-        std::cout << typeid(client).name() << " fd " << client.sock << std::endl;
-        else
-        std::cout << "creation socket error" << std::endl;
-
-
-
-
-
-}
-*/
-
-};
-
-
-
-class Client:public Peer{
-        public:
-        Client(){};
-        //Client(const char* addr);
-        Client(std::unique_ptr<TestClient> strategy):clie(std::move(strategy)){}
-        void createSocket()const override{
-       	std::cout<<"end"; 
-        //const Client &clien=Client();
-	clie->createSocket(*this);
-
-        }; 
-        //void connectInit(const char* addr);
-        //void connectInit();
-        //private:
-        //void selinit(); 
-        //void sel();
-        //void conn();
-        //void sendmes();
-        std::unique_ptr<TestClient> clie;
-        int sock;///<Переменная для хранения сокета
-        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        char buffer[MAXLINE]={0};///<Хранит сообщение
-        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
-};
-
-
-
-
 
 
 
 /*
-class ClientStrategy{
-        public:  
-        //virtual ClientStrategy(){};
-        virtual void createSocket(Client const& client) = 0;
-        //void connectInit_(const char* addr)override{connectInit(addr);};
-        //void connectInit_()override{connectInit();};
-	//void selinit();///<\param void  \return void
-        ///void sel();///<\param void  \return void
-        //void conn();///<\param void  \return void
-        //void sendmes();///<\param void  \return void
-
-};
-*/
-
-
-
-
-
-
 class Server_:public Peer, public Server{
         public:  
         Server_(){};
@@ -171,29 +75,6 @@ class Server_:public Peer, public Server{
 
 
 };
-/*
-class TestClient:public ClientStrategy{
 
-        
-//void createSocket(Client const& client)const override;
-void createSocket(Client const& client)const override
-{}
-
-        client.sock=socket(AF_INET, SOCK_STREAM, 0);
-        if(client.sock)
-        std::cout << typeid(client).name() << " fd " << client.sock << std::endl;
-        else
-        std::cout << "creation socket error" << std::endl;
-
-
-
-
-
-}
-
-
-};
 */
-
-
 #endif
