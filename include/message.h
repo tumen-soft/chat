@@ -18,7 +18,7 @@
 //#include "server.h"
 #include "ipscan.h";
 #include <memory>
-#include "strategy.h"
+#include "policy.h"
 #include "abspeer.h";
 #include <iostream>;
 #define MAXLINE 1024
@@ -84,7 +84,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{} //{Peer* a = new Server_();run(a);break;}
-		case 1:{run(new Client(new TCPClientStrategy()));break;}
+		case 1:{run(new Client(new TCPClientPolicy()));break;}
 		
 
 

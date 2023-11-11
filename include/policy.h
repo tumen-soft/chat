@@ -2,9 +2,9 @@
 //class Client;
 #include <iostream>
 
-class ClientStrategy{
+class ClientPolicy{
         public:  
-        ClientStrategy(){};
+        ClientPolicy(){};
         virtual void createSocket(Client const& client)const = 0;
         //void connectInit_(const char* addr)override{connectInit(addr);};
         //void connectInit_()override{connectInit();};
@@ -18,10 +18,10 @@ class ClientStrategy{
 
 
 
-class TCPClientStrategy:public ClientStrategy{
+class TCPClientPolicy:public ClientPolicy{
 
 public:        
-TCPClientStrategy(){}
+TCPClientPolicy(){}
 void createSocket(Client const& client)const override{
 //Client *clien=new Client();
 
