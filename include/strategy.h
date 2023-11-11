@@ -22,14 +22,14 @@ class TestClient:public ClientStrategy{
 
 public:        
 TestClient(){}
-void createSocket(Client const& client)const override{
+void createSocket(Client const& client)const override;//{
 
-Client *clien=new Client();
+//Client *clien=new Client();
 
 
 
 //std::cout<<client.sock;
-};
+//};
 //void createSocket(Client const& client)const override
 //{}
 /*

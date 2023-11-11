@@ -6,8 +6,8 @@
 #include <typeinfo>
 #include <cstring>
 //#include "abspeer.h"
-//#include "client.h"
-
+#include "client.h"
+#include "strategy.h"
 
 #define MAXLINE 1024
 #define PORT 8080 
@@ -21,6 +21,9 @@
  *
  *
  */
+
+
+
 
 /*
 void TestClient::createSocket(Client const& client)const override
@@ -41,7 +44,7 @@ void TestClient::createSocket(Client const& client)const override
 */
 
 
-//Client::Client(){};
+void Client::foo(){clie->createSocket(*this);};
 //Client::Client(const char* addr){}
 /*
 

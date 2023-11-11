@@ -8,8 +8,8 @@
  *
  */
 
-//#ifndef cli
-//#define cli
+#ifndef cli
+#define cli
 #include <memory>
 #define MAXLINE 1024
 #define PORT 8080 
@@ -21,12 +21,13 @@ class Client:public Peer{
         public:
         Client(){}
         //Client(const char* addr);
-        Client(std::unique_ptr<TestClient> strategy):clie(std::move(strategy)){}
-        void createSocket()const override{
-        std::cout<<"end"; 
+        Client(TestClient *strategy):clie((strategy)){}
+        void foo();
+	void createSocket()const override{
+        //std::cout<<"end"; 
         //const Client &clien=Client();
-        clie->createSocket(*this);
-
+        //clie->createSocket(*this);
+	foo();
         }; 
         //void connectInit(const char* addr);
         //void connectInit();
@@ -35,7 +36,7 @@ class Client:public Peer{
         //void sel();
         //void conn();
         //void sendmes();
-        std::unique_ptr<TestClient> clie;
+        TestClient *clie;
         int sock;///<Переменная для хранения сокета
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
@@ -43,4 +44,4 @@ class Client:public Peer{
 };
 
 
-//#endif
+#endif
