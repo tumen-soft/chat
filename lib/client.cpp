@@ -44,7 +44,7 @@ void TestClient::createSocket(Client const& client)const override
 */
 
 
-void Client::foo(){clie->createSocket(*this);};
+void Client::foo(){clie->createSocket(this);};
 //Client::Client(const char* addr){}
 /*
 

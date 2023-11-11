@@ -5,7 +5,7 @@
 class ClientPolicy{
         public:  
         ClientPolicy(){};
-        virtual void createSocket(Client const& client)const = 0;
+        virtual void createSocket(Client *client)const = 0;
         //void connectInit_(const char* addr)override{connectInit(addr);};
         //void connectInit_()override{connectInit();};
         //void selinit();///<\param void  \return void
@@ -22,19 +22,15 @@ class TCPClientPolicy:public ClientPolicy{
 
 public:        
 TCPClientPolicy(){}
-void createSocket(Client const& client)const override{
+void createSocket(Client *client)const override{
 //Client *clien=new Client();
 
 
 
-std::cout<<client.sock;
-};
-//void createSocket(Client const& client)const override
-//{}
-/*
-        client.sock=socket(AF_INET, SOCK_STREAM, 0);
-        if(client.sock)
-        std::cout << typeid(client).name() << " fd " << client.sock << std::endl;
+//std::cout<<client.sock;
+        client->sock=socket(AF_INET, SOCK_STREAM, 0);
+        if(client->sock)
+        std::cout << typeid(client).name() << " fd " << client->sock << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
@@ -43,7 +39,7 @@ std::cout<<client.sock;
 
 
 }
-*/
+
 
 };
 

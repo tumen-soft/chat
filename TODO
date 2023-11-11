@@ -26,6 +26,8 @@ fix addr error
 
 
 Client/Server  Udp/Tcp раскрывает суть исследователь
+конкретная политика абстрактная политика
+
 Stage: Proto
 *pobel
 DRY  dont repeat yourself
