@@ -37,8 +37,8 @@ std::cout<<"test\n";
 //t->createSocket();
 singleton->createSocket();
 //singleton->connectInit_("127.0.0.1");
-//for(;;)
-//{
+for(;;)
+{
 		//singleton->selinit();
 
 		//singleton->sel();
@@ -50,7 +50,7 @@ singleton->createSocket();
 		//singleton->sendmes();
 
 //for(;;)
-//}
+}
 
 };
 
@@ -84,7 +84,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{} //{Peer* a = new Server_();run(a);break;}
-		case 1:{run(new Client(new TCPClientPolicy()));break;}
+		case 1:{run(new Client(new UDPClientPolicy()));break;}
 		
 
 
