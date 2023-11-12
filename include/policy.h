@@ -1,5 +1,5 @@
 #include "client.h"
-//class Client;
+#include "server.h"
 #include <iostream>
 
 class ClientPolicy{
@@ -15,6 +15,18 @@ class ClientPolicy{
 
 };
 
+class ServerPolicy{
+        public:  
+        ServerPolicy();
+        virtual void createSocket(Server *server)const = 0;
+        //void connectInit_(const char* addr)override{connectInit(addr);};
+        //void connectInit_()override{connectInit();};
+        //void selinit();///<\param void  \return void
+        ///void sel();///<\param void  \return void
+        //void conn();///<\param void  \return void
+        //void sendmes();///<\param void  \return void
+
+};
 
 
 
