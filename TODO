@@ -21,7 +21,7 @@ fix addr error
 
 занятся описательной и файлораспределительной 
 поместить политики в client.h и server.h
-
+ThreadPool
 Lifetime Constructor Destructor
 https://www.geeksforgeeks.org/tcp-and-udp-server-using-select/
 ipscan  return value from thread  stuff/future

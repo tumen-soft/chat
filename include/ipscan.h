@@ -35,14 +35,15 @@ enum PeerType{
 };
 char s[80];
 
-struct arg{
+
+struct ThreadPool{
         pthread_t tid;
         int x;
         char y[256];
         enum PeerType isServer;
 };
 
-typedef struct arg args;
+typedef struct ThreadPool args;
 args ar[256]={};
 args *pclient;
 //std::queue<args*> qq;
