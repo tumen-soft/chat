@@ -9,7 +9,7 @@ ClientPolicy *pol= new TCPClientPolicy();
 
 Client *cli_ = new Client(pol);
 
-//cli_->createSocket();
+cli_->createSocket();
 
 //if(argv[1])cli_->connectInit(argv[1]);
 //else cli_->connectInit();
