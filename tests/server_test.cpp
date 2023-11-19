@@ -1,5 +1,5 @@
 #include <arpa/inet.h>  
-#include "../include/server.h" 
+#include "server.h" 
 
 int main(void){
 
