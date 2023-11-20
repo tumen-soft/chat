@@ -16,7 +16,7 @@
 
 
 
-занятся описательной и файлораспределительной 
+*занятся описательной и файлораспределительной 
 поместить политики в client.h и server.h
 ThreadPool
 Lifetime Constructor Destructor
