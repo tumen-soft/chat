@@ -31,10 +31,6 @@
 //};
 //extern int main_(void);
 void run(Peer *singleton){
-std::cout<<"test\n";
-
-//Client *t=new Client();
-//t->createSocket();
 singleton->createSocket();
 //singleton->connectInit_("127.0.0.1");
 for(;;)
@@ -61,6 +57,12 @@ enum choice {
 };
 //std::ostream& os = std::cout;
 
+Peer *getPolicy(){
+
+return new Client(new TCPClientPolicy());
+
+}
+
 int main_(){
 choice ch;
 st:;
@@ -84,7 +86,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{} //{Peer* a = new Server_();run(a);break;}
-		case 1:{run(new Client(new TCPClientPolicy()));break;}
+		case 1:{run(getPolicy());break;}
 		
 
 
