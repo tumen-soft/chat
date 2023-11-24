@@ -30,8 +30,8 @@ class Client:public Peer{
         //clie->createSocket(*this);
 	foo();
         }; 
-        //void connectInit(const char* addr);
-        //void connectInit();
+        void connectInit(const char* addr)const override{};
+        void connectInit()const override{};
         //private:
         //void selinit(); 
         //void sel();
@@ -48,8 +48,8 @@ class ClientPolicy{
         public:  
         ClientPolicy(){};
         virtual void createSocket(Client *client)const = 0;
-        //void connectInit_(const char* addr)override{connectInit(addr);};
-        //void connectInit_()override{connectInit();};
+        virtual void connectInit(const char* addr)const = 0;
+        virtual void connectInit()const = 0;
         //void selinit();///<\param void  \return void
         ///void sel();///<\param void  \return void
         //void conn();///<\param void  \return void
@@ -68,17 +68,17 @@ void createSocket(Client *client)const override{
         else
         std::cout << "creation socket error" << std::endl;
 }
-/*
-void connectInit(const char* addr){
-        addres.sin_family = AF_INET;
-        addres.sin_port = htons(PORT);
-        addres.sin_addr.s_addr = inet_addr(addr);
-        connect(sock, (struct sockaddr*)&addres, sizeof(addres));
-}
-void connectInit(){
-        std::cout << "no ip addres specified" << std::endl;
-}
 
+void connectInit(const char* addr)const override{
+        //addres.sin_family = AF_INET;
+        //addres.sin_port = htons(PORT);
+        //addres.sin_addr.s_addr = inet_addr(addr);
+        //connect(sock, (struct sockaddr*)&addres, sizeof(addres));
+}
+void connectInit()const override{
+        //std::cout << "no ip addres specified" << std::endl;
+}
+/*
 void selinit(){
         memset(buffer, 0, sizeof(buffer));
         FD_ZERO(&read_fd);

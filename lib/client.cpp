@@ -56,13 +56,13 @@ void createSocket(){
 	std::cout << "creation socket error" << std::endl;
 }
 
-void connectInit(const char* addr){
+void Client::connectInit(const char* addr){
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
         addres.sin_addr.s_addr = inet_addr(addr);
         connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 }
-void connectInit(){
+void Client::connectInit(){
 	std::cout << "no ip addres specified" << std::endl;
 }
 
