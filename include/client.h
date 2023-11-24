@@ -24,6 +24,7 @@ class Client:public Peer{
         //Client(const char* addr);
         Client(ClientPolicy *policy):clie((policy)){}
         void foo();
+	void foo1();
 	void createSocket()const override{
         //std::cout<<"end"; 
         //const Client &clien=Client();
@@ -31,7 +32,9 @@ class Client:public Peer{
 	foo();
         }; 
         void connectInit(const char* addr)const override{};
-        void connectInit()const override{};
+        void connectInit()const override{
+	foo1();
+	};
         //private:
         //void selinit(); 
         //void sel();
@@ -76,7 +79,7 @@ void connectInit(const char* addr)const override{
         //connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 }
 void connectInit()const override{
-        //std::cout << "no ip addres specified" << std::endl;
+        std::cout << "no ip addres specified" << std::endl;
 }
 /*
 void selinit(){

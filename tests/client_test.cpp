@@ -10,9 +10,9 @@ ClientPolicy *pol= new TCPClientPolicy();
 Client *cli_ = new Client(pol);
 
 cli_->createSocket();
-
-//if(argv[1])cli_->connectInit(argv[1]);
-//else cli_->connectInit();
+//cli_->connectInit(argv[1]);
+if(argv[1])cli_->connectInit(argv[1]);
+else cli_->connectInit();
 ///std::cout<<argv[1]<<std::endl;
 
 return 0;
