@@ -7,7 +7,7 @@
 #include <cstring>
 //#include "abspeer.h"
 #include "client.h"
-#include "policy.h"
+//#include "policy.h"
 
 #define MAXLINE 1024
 #define PORT 8080 

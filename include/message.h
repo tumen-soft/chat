@@ -18,7 +18,9 @@
 //#include "server.h"
 #include "ipscan.h";
 #include <memory>
-#include "policy.h"
+//#include "policy.h"
+#include "client.h"
+#include "server.h"
 #include "abspeer.h";
 #include <iostream>;
 #define MAXLINE 1024

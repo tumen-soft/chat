@@ -1,6 +1,6 @@
 #include <arpa/inet.h>  
 #include "client.h" 
-#include "policy.h"
+//#include "policy.h"
 #include <iostream>
 
 int main(int argc, char* argv[]){
