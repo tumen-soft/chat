@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.71])
-AC_INIT([Chat], [0.80], [blu.eagle@mail.ru])
+AC_INIT([Chat], [0.88], [blu.eagle@mail.ru])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([config.h])
 
