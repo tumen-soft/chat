@@ -3,6 +3,7 @@
 
 ./configure
 make
-./chat
+make check
+./src/chat
 
 
