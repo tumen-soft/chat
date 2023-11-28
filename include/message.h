@@ -75,6 +75,7 @@ int c,p;
 std::cin>>c;
 //c=1;
 ch=(choice)c;
+Peer *peer;
 switch(ch){
 
         case END:
@@ -87,8 +88,8 @@ switch(ch){
 		//--------------
 		switch(check1()){
 		//--------------
-		case 0:{break;} //{Peer* a = new Server_();run(a);break;}
-		case 1:{run(getPolicy());break;}
+		case 0:{peer = getPolicy();break;}
+		case 1:{peer=getPolicy();run(peer);break;}
 		
 
 
@@ -98,7 +99,10 @@ switch(ch){
 
         default:
                 goto st;
-}
+	}
+
+//run(peer);
+//std::cout<<f;
 }
 
 
