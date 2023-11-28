@@ -49,7 +49,7 @@ void Client::foo(){clie->createSocket(this);};
 
 void Client::foo1(){clie->connectInit();};
 
-
+void Client::foo2(){clie->selinit(this);};
 
 
 

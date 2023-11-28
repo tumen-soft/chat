@@ -15,6 +15,8 @@
 #define PORT 8080 
 #include "abspeer.h"
 #include <iostream>
+#include <cstring>
+
 
 class TCPClientPolicy;
 class ClientPolicy;
@@ -25,6 +27,7 @@ class Client:public Peer{
         Client(ClientPolicy *policy):clie((policy)){}
         void foo();
 	void foo1();
+	void foo2();
 	void createSocket()const override{
         //std::cout<<"end"; 
         //const Client &clien=Client();
@@ -36,7 +39,9 @@ class Client:public Peer{
 	foo1();
 	};
         //private:
-        //void selinit(); 
+        void selinit()const override{
+	foo2();
+	}; 
         //void sel();
         //void conn();
         //void sendmes();
@@ -53,7 +58,7 @@ class ClientPolicy{
         virtual void createSocket(Client *client)const = 0;
         virtual void connectInit(const char* addr)const = 0;
         virtual void connectInit()const = 0;
-        //void selinit();///<\param void  \return void
+        virtual void selinit(Client *client)const = 0;///<\param void  \return void
         ///void sel();///<\param void  \return void
         //void conn();///<\param void  \return void
         //void sendmes();///<\param void  \return void
@@ -81,13 +86,14 @@ void connectInit(const char* addr)const override{
 void connectInit()const override{
         std::cout << "no ip addres specified" << std::endl;
 }
-/*
-void selinit(){
-        memset(buffer, 0, sizeof(buffer));
-        FD_ZERO(&read_fd);
-        FD_SET(0, &read_fd);
-        FD_SET(sock, &read_fd);
+
+void selinit(Client *client)const override{
+        memset(client->buffer, 0, sizeof(client->buffer));
+        FD_ZERO(&client->read_fd);
+        FD_SET(0, &client->read_fd);
+        FD_SET(client->sock, &client->read_fd);
 }
+/*
 void sel(){
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
         return this;
