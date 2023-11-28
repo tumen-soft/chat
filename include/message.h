@@ -89,7 +89,7 @@ switch(ch){
 		switch(check1()){
 		//--------------
 		case 0:{peer = getPolicy();break;}
-		case 1:{peer=getPolicy();run(peer);break;}
+		case 1:{peer=getPolicy();break;}
 		
 
 
@@ -97,11 +97,12 @@ switch(ch){
 
 		}
 
-        default:
-                goto st;
+        //default:
+         //       goto st;
+	//	break;
 	}
 
-//run(peer);
+run(peer);
 //std::cout<<f;
 }
 
