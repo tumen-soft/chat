@@ -59,7 +59,7 @@
 #endif
 
 	Server::Server(){};
-
+#if 0
 void Server::createSocket(){
         sock=socket(AF_INET, SOCK_STREAM, 0);
         std::cout << typeid(this).name() << " fd " << sock << std::endl;
@@ -166,8 +166,7 @@ void Server::sendmes(){
                         } 
              
         	}
-//#endif
 return this;
 }
-
+#endif
 
