@@ -21,11 +21,16 @@
 #define PORT 8080 
 
 
+class TCPServerPolicy;
+class ServerPolicy;
 
 class Server:virtual public Peer{
 	public:
-	Server();
-	void createSocket();
+	Server(){};
+        void createSocket()const;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
+        void connectInit(const char* addr)const;///<Запись в переменную addres и подготовка соединения \param void  \return void
+        void connectInit()const;///\param void  \return void
+        void selinit()const;///<\param void  \return void
         void connectInit(const char* addr);
         int *getSock(){return *sock;}
 	void setSock(int _sock){sock=_sock;}

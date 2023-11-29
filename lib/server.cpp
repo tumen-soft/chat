@@ -58,7 +58,7 @@
 
 #endif
 
-	Server::Server(){};
+//	Server::Server(){};
 #if 0
 void Server::createSocket(){
         sock=socket(AF_INET, SOCK_STREAM, 0);
