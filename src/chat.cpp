@@ -1,5 +1,5 @@
 /**
- *\file message.h
+ *\file chat.cpp 
  *\author Денис Вергун 
  *\brief  
  *\version
