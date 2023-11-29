@@ -1,7 +1,6 @@
 *.o
 chat
 autom4te.cache/requests
-Makefile.in  
 autom4te.cache/  
 config.h.in
 autoscan.log	  
