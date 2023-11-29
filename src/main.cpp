@@ -27,8 +27,8 @@
 //#ifndef main
 //#define main
 //export module uno;
-//int main_(void);
-#include "message.h"
+int main_(void);
+//#include "message.h"
 #include "client.h"
 int main(void){
 main_();

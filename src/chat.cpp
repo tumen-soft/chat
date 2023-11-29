@@ -14,7 +14,7 @@
 //#include <unistd.h>  //close(), fread()
 //#include <memory>
 //#include <cstring>;
-#include "client.h"
+//#include "client.h"
 //#include "server.h"
 #include "ipscan.h";
 #include <memory>
@@ -26,6 +26,9 @@
 #define MAXLINE 1024
 #define PORT 8080 
 
+void spawnThreads();
+void check();
+int check1();
 //typedef std::map<int,char*> nmap;
 //enum PeerType{
 //        _Server,
