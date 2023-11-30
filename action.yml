@@ -1,4 +1,4 @@
-name: SimpleChat
-description: Simple net chat example with threaded ipscaner.
+name: UDP/TCP Chat
+description: Simple net chat example with threaded ipscanner and socket policy.
 author: Denis Vergun
 
