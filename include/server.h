@@ -28,13 +28,14 @@ class Server:virtual public Peer{
 	public:
 	Server();
 	void foo();
+	void foo1();
 	Server(ServerPolicy *policy):serv(policy){}
         void createSocket()const override{
         foo();
         }; 
         void connectInit(const char* addr)const override{};
         void connectInit()const override{
-        //foo1();
+        foo1();
         };
         //private:
         void selinit()const override{
@@ -43,8 +44,8 @@ class Server:virtual public Peer{
 	int getSock(){return sock;}
 	void setSock(int _sock){sock=_sock;}
 	ServerPolicy *serv;
-	private:
         void selinit();
+	private:
         void sel();
         void conn(); 
         void sendmes();
@@ -60,10 +61,10 @@ class ServerPolicy{
         public:  
         ServerPolicy(){};
         virtual void createSocket(Server *server)const = 0;
-        //void connectInit_(const char* addr)override{connectInit(addr);};
-        //void connectInit_()override{connectInit();};
-        //void selinit();///<\param void  \return void
-        ///void sel();///<\param void  \return void
+        //virtual void connectInit(const char* addr)const = 0;
+        virtual void connectInit()const = 0;
+        //virtual void selinit(Server *server)const = 0;///<\param void  \return void
+	///void sel();///<\param void  \return void
         //void conn();///<\param void  \return void
         //void sendmes();///<\param void  \return void
 
@@ -79,4 +80,10 @@ void createSocket(Server *server)const override{
         else
         std::cout << "creation socket error" << std::endl;
 }
+void connectInit()const override{
+        std::cout << "no ip addres specified" << std::endl;
+}
+
+
+
 };
