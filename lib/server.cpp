@@ -58,7 +58,12 @@
 
 #endif
 
-//	Server::Server(){};
+Server::Server(){};
+
+void Server::foo(){serv->createSocket(this);};
+
+
+
 #if 0
 void Server::createSocket(){
         sock=socket(AF_INET, SOCK_STREAM, 0);

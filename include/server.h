@@ -26,14 +26,23 @@ class ServerPolicy;
 
 class Server:virtual public Peer{
 	public:
-	Server(){};
-        void createSocket()const;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
-        void connectInit(const char* addr)const;///<Запись в переменную addres и подготовка соединения \param void  \return void
-        void connectInit()const;///\param void  \return void
-        void selinit()const;///<\param void  \return void
-        void connectInit(const char* addr);
-        int *getSock(){return *sock;}
+	Server();
+	void foo();
+	Server(ServerPolicy *policy):serv(policy){}
+        void createSocket()const override{
+        foo();
+        }; 
+        void connectInit(const char* addr)const override{};
+        void connectInit()const override{
+        //foo1();
+        };
+        //private:
+        void selinit()const override{
+        //foo2();
+        }; 
+	int getSock(){return sock;}
 	void setSock(int _sock){sock=_sock;}
+	ServerPolicy *serv;
 	private:
         void selinit();
         void sel();
@@ -49,7 +58,7 @@ class Server:virtual public Peer{
 
 class ServerPolicy{
         public:  
-        ServerPolicy();
+        ServerPolicy(){};
         virtual void createSocket(Server *server)const = 0;
         //void connectInit_(const char* addr)override{connectInit(addr);};
         //void connectInit_()override{connectInit();};
@@ -63,11 +72,11 @@ class TCPServerPolicy:public ServerPolicy{
 
 public:        
 TCPServerPolicy(){};
-void createSocket(Server *client)const override{
-        client->setSock(socket(AF_INET, SOCK_STREAM, 0));
-        //if(client->sock)
-        //std::cout <<"TCP " <<typeid(client).name() << " fd " << client->sock << std::endl;
-        //else
-        //std::cout << "creation socket error" << std::endl;
+void createSocket(Server *server)const override{
+        server->setSock(socket(AF_INET, SOCK_STREAM, 0));
+        if(server->getSock())
+        std::cout <<"TCP " <<typeid(server).name() << " fd " << server->getSock() << std::endl;
+        else
+        std::cout << "creation socket error" << std::endl;
 }
 };

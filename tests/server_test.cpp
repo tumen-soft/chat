@@ -3,10 +3,9 @@
 
 int main(void){
 
-	//ServerPolicy *pol= new TCPServerPolicy();
-	//Client *cli_ = new Client(pol);
-	Server *ser_=new Server();
-	//ser_->createSocket();
+	ServerPolicy *pol= new TCPServerPolicy();
+	Server *ser_=new Server(pol);
+	ser_->createSocket();
 
 return 0;
 }
