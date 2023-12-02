@@ -14,6 +14,9 @@ if(argv[1])cli_->connectInit(argv[1]);
 else cli_->connectInit();
 
 cli_->selinit();
+cli_->sel();///<\param void  \return void
+cli_->conn();///<\param void  \return void
+cli_->sendmes();///<\param void  \return void
 
 return 0;
 }
