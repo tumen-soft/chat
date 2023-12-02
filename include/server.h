@@ -44,7 +44,7 @@ class Server:virtual public AbstractPeer{
 	int getSock(){return sock;}
 	void setSock(int _sock){sock=_sock;}
 	ServerPolicy *serv;
-        void selinit();
+        //void selinit();
 	private:
         void sel();
         void conn(); 
@@ -61,9 +61,9 @@ class ServerPolicy{
         public:  
         ServerPolicy(){};
         virtual void createSocket(Server *server)const = 0;
-        //virtual void connectInit(const char* addr)const = 0;
+        virtual void connectInit(const char* addr)const = 0;
         virtual void connectInit()const = 0;
-        //virtual void selinit(Server *server)const = 0;///<\param void  \return void
+        virtual void selinit(Server *server)const = 0;///<\param void  \return void
 	///void sel();///<\param void  \return void
         //void conn();///<\param void  \return void
         //void sendmes();///<\param void  \return void
@@ -83,7 +83,8 @@ void createSocket(Server *server)const override{
 void connectInit()const override{
         std::cout << "no ip addres specified" << std::endl;
 }
-
+void connectInit(const char* addr)const override{}
+void selinit(Server *server)const override{}
 
 
 };

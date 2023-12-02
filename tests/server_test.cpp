@@ -7,5 +7,7 @@ int main(void){
 	Server *ser_=new Server(pol);
 	ser_->createSocket();
 	ser_->connectInit();
+	ser_->connectInit("123");
+	ser_->selinit();
 return 0;
 }
