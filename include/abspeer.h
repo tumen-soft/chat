@@ -47,10 +47,10 @@ class AbstractPeer{
          */
 
         //Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-        //int sock;///<Переменная для хранения сокета
-        //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        //char buffer[MAXLINE]={0};///<Хранит сообщение
-        //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
+        int sock;///<Переменная для хранения сокета
+        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        char buffer[MAXLINE]={0};///<Хранит сообщение
+        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 
         
 

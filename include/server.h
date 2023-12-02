@@ -52,10 +52,10 @@ class Server:virtual public AbstractPeer{
 	private:
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
-	int *sock;///<Переменная для хранения сокета
-        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        char buffer[MAXLINE]={0};///<Хранит сообщение
-        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
+	//int sock;///<Переменная для хранения сокета
+        //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        //char buffer[MAXLINE]={0};///<Хранит сообщение
+        //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
 
 class ServerPolicy{

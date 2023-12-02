@@ -46,10 +46,10 @@ class Client:virtual public AbstractPeer{
         void conn()const override{};
         void sendmes()const override{};
         ClientPolicy *clie;
-        int sock;///<Переменная для хранения сокета
-        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        char buffer[MAXLINE]={0};///<Хранит сообщение
-        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
+        //int sock;///<Переменная для хранения сокета
+        //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        //char buffer[MAXLINE]={0};///<Хранит сообщение
+        //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
 
 class ClientPolicy{
