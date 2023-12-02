@@ -45,10 +45,11 @@ class Server:virtual public AbstractPeer{
 	void setSock(int _sock){sock=_sock;}
 	ServerPolicy *serv;
         //void selinit();
+	//private:
+        void sel()const override{};
+        void conn()const override{}; 
+        void sendmes()const override{};
 	private:
-        void sel();
-        void conn(); 
-        void sendmes();
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
 	int *sock;///<Переменная для хранения сокета
@@ -64,9 +65,9 @@ class ServerPolicy{
         virtual void connectInit(const char* addr)const = 0;
         virtual void connectInit()const = 0;
         virtual void selinit(Server *server)const = 0;///<\param void  \return void
-	///void sel();///<\param void  \return void
-        //void conn();///<\param void  \return void
-        //void sendmes();///<\param void  \return void
+	virtual void sel()const=0;///<\param void  \return void
+        virtual void conn()const=0;///<\param void  \return void
+        virtual void sendmes()const=0;///<\param void  \return void
 
 };
 class TCPServerPolicy:public ServerPolicy{
@@ -85,6 +86,9 @@ void connectInit()const override{
 }
 void connectInit(const char* addr)const override{}
 void selinit(Server *server)const override{}
+        void sel()const override{};///<\param void  \return void
+        void conn()const override{};///<\param void  \return void
+        void sendmes()const override{};///<\param void  \return void
 
 
 };

@@ -35,9 +35,9 @@ class AbstractPeer{
         virtual void connectInit(const char* addr)const=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
         virtual void connectInit()const=0;///\param void  \return void
         virtual void selinit()const=0;///<\param void  \return void
-        //void sel();///<\param void  \return void
-        //void conn();///<\param void  \return void
-        //void sendmes();///<\param void  \return void
+        virtual void sel()const=0;///<\param void  \return void
+        virtual void conn()const=0;///<\param void  \return void
+        virtual void sendmes()const=0;///<\param void  \return void
         /**
          \brief Конструктор с параметрами
          

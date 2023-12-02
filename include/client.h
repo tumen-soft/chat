@@ -42,9 +42,9 @@ class Client:virtual public AbstractPeer{
         void selinit()const override{
 	foo2();
 	}; 
-        //void sel();
-        //void conn();
-        //void sendmes();
+        void sel()const override{};
+        void conn()const override{};
+        void sendmes()const override{};
         ClientPolicy *clie;
         int sock;///<Переменная для хранения сокета
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
@@ -59,9 +59,9 @@ class ClientPolicy{
         virtual void connectInit(const char* addr)const = 0;
         virtual void connectInit()const = 0;
         virtual void selinit(Client *client)const = 0;///<\param void  \return void
-        ///void sel();///<\param void  \return void
-        //void conn();///<\param void  \return void
-        //void sendmes();///<\param void  \return void
+        virtual void sel()const=0;///<\param void  \return void
+        virtual void conn()const=0;///<\param void  \return void
+        virtual void sendmes()const=0;///<\param void  \return void
 
 };
 
@@ -93,24 +93,23 @@ void selinit(Client *client)const override{
         FD_SET(0, &client->read_fd);
         FD_SET(client->sock, &client->read_fd);
 }
-/*
-void sel(){
+
+void sel()const override{
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
-        return this;
+//        return this;
 }
 
 
 
-void conn(){
-        read(sock, buffer, sizeof(buffer));dprintf(0, buffer);
-        return this;
+void conn()const override{
+       // read(sock, buffer, sizeof(buffer));dprintf(0, buffer);
+        //return this;
 }
-void sendmes(){
-        if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+void sendmes()const override{
+        ////if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
         //if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
-        return this;
+ //       return this;
 }
-*/
 
 
 };
