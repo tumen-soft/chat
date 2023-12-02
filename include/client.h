@@ -20,7 +20,7 @@
 
 class TCPClientPolicy;
 class ClientPolicy;
-class Client:virtual public Peer{
+class Client:virtual public AbstractPeer{
         public:
         Client(){}
         //Client(const char* addr);

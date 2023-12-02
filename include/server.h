@@ -24,7 +24,7 @@
 class TCPServerPolicy;
 class ServerPolicy;
 
-class Server:virtual public Peer{
+class Server:virtual public AbstractPeer{
 	public:
 	Server();
 	void foo();
