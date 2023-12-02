@@ -9,5 +9,9 @@ int main(void){
 	ser_->connectInit();
 	ser_->connectInit("123");
 	ser_->selinit();
+	ser_->sel();///<\param void  \return void
+	ser_->conn();///<\param void  \return void
+	ser_->sendmes();///<\param void  \return void
+
 return 0;
 }
