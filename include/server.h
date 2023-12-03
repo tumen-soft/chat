@@ -23,15 +23,16 @@
 
 class TCPServerPolicy;
 class ServerPolicy;
-
+class Server;
+typedef void (Server::*func)();
 class Server:virtual public AbstractPeer{
 	public:
 	Server();
-	void foo();
+	void foo(func);
 	void foo1();
 	Server(ServerPolicy *policy):serv(policy){}
-        void createSocket()const override{
-        foo();
+        void createSocket()override{
+        foo(&Server::createSocket);
         }; 
         void connectInit(const char* addr)const override{};
         void connectInit()const override{
@@ -85,7 +86,7 @@ void connectInit()const override{
         std::cout << "no ip addres specified" << std::endl;
 }
 void connectInit(const char* addr)const override{
-
+/*
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
         addres.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -96,25 +97,26 @@ void connectInit(const char* addr)const override{
         //std::cout <<"test" <<std::endl;
         nicknames.push_back({0,"test"});
         return this;
+*/
 }
 
 void selinit(Server *server)const override{
-              memset(buffer, 0, sizeof(buffer));
+/*              memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
                 FD_SET(0, &read_fd);
                 FD_SET(sock, &read_fd);
-
+*/
 }
         void sel()const override{
-for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
+/*for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
 FD_SET(itr->first, &read_fd);
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
 
 return this;
-
+*/
 };///<\param void  \return void
         void conn()const override{
-                        //peer->new_socket = accept(peer->sock,NULL,NULL);
+ /*                       //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
                         new_socket = accept(sock,NULL,NULL);
                         //char g[80]={"sos"};
@@ -124,11 +126,11 @@ return this;
                         std::cout<< "New connection "<<new_socket<<std::endl;
                         //printf("New connection %s\n", peer->new_socket);
                         dprintf(new_socket,"welcome %d\n", new_socket);  
-
+*/
 };///<\param void  \return void
         void sendmes()const override{
 
-
+#if 0
 
 	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
@@ -155,7 +157,7 @@ return this;
         	}
 
 
-
+#endif
 };///<\param void  \return void
 
 

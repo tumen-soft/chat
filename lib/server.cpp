@@ -59,8 +59,8 @@
 #endif
 
 Server::Server(){};
-
-void Server::foo(){serv->createSocket(this);};
+typedef void (Server::*func)();
+void Server::foo(func f){}//serv->createSocket(this);};
 void Server::foo1(){serv->connectInit();};
 
 
