@@ -89,15 +89,13 @@ switch(ch){
                 spawnThreads();
                 check();
 		//--------------
-		switch(check1()){
+		switch(check1())
+		//выбор между клиетном и сервером
+		//абстрактный класс Peer  (if)
+		{
 		//--------------
 		case 0:{peer = getPolicy();break;}
 		case 1:{peer=getPolicy();break;}
-		
-
-
-
-
 		}
 
         //default:
