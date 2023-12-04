@@ -30,10 +30,10 @@ class ServerPolicy{
         virtual void createSocket(Server *server) = 0;
         virtual void connectInit(const char* addr) = 0;
         virtual void connectInit(Server *server) = 0;
-        virtual void selinit(Server *server)const = 0;///<\param void  \return void
-        virtual void sel()const=0;///<\param void  \return void
-        virtual void conn()const=0;///<\param void  \return void
-        virtual void sendmes()const=0;///<\param void  \return void
+        virtual void selinit(Server *server) = 0;///<\param void  \return void
+        virtual void sel()=0;///<\param void  \return void
+        virtual void conn()=0;///<\param void  \return void
+        virtual void sendmes()=0;///<\param void  \return void
 
 };
 
@@ -54,16 +54,16 @@ class Server:virtual public AbstractPeer{
         void connectInit() override{
         foo(&ServerPolicy::connectInit);
         };
-        void selinit()const override{
+        void selinit() override{
         //foo(&Server::createSocket);
         }; 
-        void sel()const override{
+        void sel() override{
 	//foo(&Server::createSocket);
 	};
-        void conn()const override{
+        void conn() override{
 	//foo(&Server::createSocket);
 	}; 
-        void sendmes()const override{
+        void sendmes() override{
 	//foo(&Server::createSocket);
 	};
 	int getSock(){return sock;}
@@ -106,14 +106,14 @@ void connectInit(const char* addr) override{
 */
 }
 
-void selinit(Server *server)const override{
+void selinit(Server *server) override{
 /*              memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
                 FD_SET(0, &read_fd);
                 FD_SET(sock, &read_fd);
 */
 }
-        void sel()const override{
+        void sel() override{
 /*for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
 FD_SET(itr->first, &read_fd);
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
@@ -121,7 +121,7 @@ FD_SET(itr->first, &read_fd);
 return this;
 */
 };///<\param void  \return void
-        void conn()const override{
+        void conn() override{
  /*                       //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
                         new_socket = accept(sock,NULL,NULL);
@@ -134,7 +134,7 @@ return this;
                         dprintf(new_socket,"welcome %d\n", new_socket);  
 */
 };///<\param void  \return void
-        void sendmes()const override{
+        void sendmes() override{
 
 #if 0
 
@@ -165,39 +165,5 @@ return this;
 
 #endif
 };///<\param void  \return void
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 };

@@ -39,12 +39,12 @@ class Client:virtual public AbstractPeer{
 	foo1();
 	};
         //private:
-        void selinit()const override{
+        void selinit() override{
 	foo2();
 	}; 
-        void sel()const override{};
-        void conn()const override{};
-        void sendmes()const override{};
+        void sel() override{};
+        void conn() override{};
+        void sendmes() override{};
         ClientPolicy *clie;
         //int sock;///<Переменная для хранения сокета
         //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
@@ -58,10 +58,10 @@ class ClientPolicy{
         virtual void createSocket(Client *client) = 0;
         virtual void connectInit(const char* addr) = 0;
         virtual void connectInit() = 0;
-        virtual void selinit(Client *client)const = 0;///<\param void  \return void
-        virtual void sel()const=0;///<\param void  \return void
-        virtual void conn()const=0;///<\param void  \return void
-        virtual void sendmes()const=0;///<\param void  \return void
+        virtual void selinit(Client *client) = 0;///<\param void  \return void
+        virtual void sel()=0;///<\param void  \return void
+        virtual void conn()=0;///<\param void  \return void
+        virtual void sendmes()=0;///<\param void  \return void
 
 };
 
@@ -87,25 +87,25 @@ void connectInit() override{
         std::cout << "no ip addres specified" << std::endl;
 }
 
-void selinit(Client *client)const override{
+void selinit(Client *client) override{
         memset(client->buffer, 0, sizeof(client->buffer));
         FD_ZERO(&client->read_fd);
         FD_SET(0, &client->read_fd);
         FD_SET(client->sock, &client->read_fd);
 }
 
-void sel()const override{
+void sel() override{
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
 //        return this;
 }
 
 
 
-void conn()const override{
+void conn() override{
        // read(sock, buffer, sizeof(buffer));dprintf(0, buffer);
         //return this;
 }
-void sendmes()const override{
+void sendmes() override{
         ////if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
         //if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
  //       return this;
