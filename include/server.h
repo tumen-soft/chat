@@ -30,28 +30,32 @@ class Server:virtual public AbstractPeer{
 	public:
 	Server();
 	void foo(func);
-	void foo1();
 	Server(ServerPolicy *policy):serv(policy){}
         void createSocket()override{
         foo(&Server::createSocket);
         }; 
-        void connectInit(const char* addr)const override{};
+        void connectInit(const char* addr)const override{
+	foo(&Server::createSocket);
+	};
         void connectInit()const override{
-        foo1();
+        foo(&Server::createSocket);
         };
-        //private:
         void selinit()const override{
-        //foo2();
+        foo(&Server::createSocket);
         }; 
+        void sel()const override{
+	foo(&Server::createSocket);
+	};
+        void conn()const override{
+	foo(&Server::createSocket);
+	}; 
+        void sendmes()const override{
+	foo(&Server::createSocket);
+	};
 	int getSock(){return sock;}
-	void setSock(int _sock){sock=_sock;}
+        void setSock(int _sock){sock=_sock;}
+        private:
 	ServerPolicy *serv;
-        //void selinit();
-	//private:
-        void sel()const override{};
-        void conn()const override{}; 
-        void sendmes()const override{};
-	private:
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
 	//int sock;///<Переменная для хранения сокета
