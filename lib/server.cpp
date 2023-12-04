@@ -59,8 +59,8 @@
 #endif
 
 Server::Server(){};
-typedef void (Server::*func)();
-void Server::foo(func f){}//serv->createSocket(this);};
+typedef void (ServerPolicy::*func)(Server*);
+void Server::foo(func f){ServerPolicy *SP=serv;(SP->*f)(this);};
 //void Server::foo1(){serv->connectInit();};
 
 

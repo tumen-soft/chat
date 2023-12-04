@@ -24,33 +24,48 @@
 class TCPServerPolicy;
 class ServerPolicy;
 class Server;
+class ServerPolicy{
+        public:  
+        ServerPolicy(){};
+        virtual void createSocket(Server *server) = 0;
+        virtual void connectInit(const char* addr)const = 0;
+        virtual void connectInit()const = 0;
+        virtual void selinit(Server *server)const = 0;///<\param void  \return void
+        virtual void sel()const=0;///<\param void  \return void
+        virtual void conn()const=0;///<\param void  \return void
+        virtual void sendmes()const=0;///<\param void  \return void
+
+};
+
+
+
 //сделать во всех func параметр this
-typedef void (Server::*func)();
+typedef void (ServerPolicy::*func)(Server*);
 class Server:virtual public AbstractPeer{
 	public:
 	Server();
 	void foo(func);
 	Server(ServerPolicy *policy):serv(policy){}
         void createSocket()override{
-        foo(&Server::createSocket);
+        foo(&ServerPolicy::createSocket);
         }; 
         void connectInit(const char* addr)const override{
-	foo(&Server::createSocket);
+	//foo(&Server::createSocket);
 	};
         void connectInit()const override{
-        foo(&Server::createSocket);
+        //foo(&Server::createSocket);
         };
         void selinit()const override{
-        foo(&Server::createSocket);
+        //foo(&Server::createSocket);
         }; 
         void sel()const override{
-	foo(&Server::createSocket);
+	//foo(&Server::createSocket);
 	};
         void conn()const override{
-	foo(&Server::createSocket);
+	//foo(&Server::createSocket);
 	}; 
         void sendmes()const override{
-	foo(&Server::createSocket);
+	//foo(&Server::createSocket);
 	};
 	int getSock(){return sock;}
         void setSock(int _sock){sock=_sock;}
@@ -63,7 +78,7 @@ class Server:virtual public AbstractPeer{
         //char buffer[MAXLINE]={0};///<Хранит сообщение
         //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
-
+/*
 class ServerPolicy{
         public:  
         ServerPolicy(){};
@@ -76,11 +91,12 @@ class ServerPolicy{
         virtual void sendmes()const=0;///<\param void  \return void
 
 };
+*/
 class TCPServerPolicy:public ServerPolicy{
 
 public:        
 TCPServerPolicy(){};
-void createSocket(Server *server)const override{
+void createSocket(Server *server) override{
         server->setSock(socket(AF_INET, SOCK_STREAM, 0));
         if(server->getSock())
         std::cout <<"TCP " <<typeid(server).name() << " fd " << server->getSock() << std::endl;
