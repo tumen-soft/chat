@@ -1,9 +1,9 @@
- Asyncrous multiconnection chat
+ Asyncrous multiconnection multiprotocol net chat
 
 
 ./configure
 make
 make check
 ./src/chat
-
+make distclean
 

@@ -24,6 +24,7 @@
 class TCPServerPolicy;
 class ServerPolicy;
 class Server;
+//сделать во всех func параметр this
 typedef void (Server::*func)();
 class Server:virtual public AbstractPeer{
 	public:
