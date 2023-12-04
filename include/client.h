@@ -34,8 +34,8 @@ class Client:virtual public AbstractPeer{
         //clie->createSocket(*this);
 	foo();
         }; 
-        void connectInit(const char* addr)const override{};
-        void connectInit()const override{
+        void connectInit(const char* addr) override{};
+        void connectInit() override{
 	foo1();
 	};
         //private:
@@ -55,9 +55,9 @@ class Client:virtual public AbstractPeer{
 class ClientPolicy{
         public:  
         ClientPolicy(){};
-        virtual void createSocket(Client *client)const = 0;
-        virtual void connectInit(const char* addr)const = 0;
-        virtual void connectInit()const = 0;
+        virtual void createSocket(Client *client) = 0;
+        virtual void connectInit(const char* addr) = 0;
+        virtual void connectInit() = 0;
         virtual void selinit(Client *client)const = 0;///<\param void  \return void
         virtual void sel()const=0;///<\param void  \return void
         virtual void conn()const=0;///<\param void  \return void
@@ -69,7 +69,7 @@ class TCPClientPolicy:public ClientPolicy{
 
 public:        
 TCPClientPolicy(){};
-void createSocket(Client *client)const override{
+void createSocket(Client *client) override{
         client->sock=socket(AF_INET, SOCK_STREAM, 0);
         if(client->sock)
         std::cout <<"TCP " <<typeid(client).name() << " fd " << client->sock << std::endl;
@@ -77,13 +77,13 @@ void createSocket(Client *client)const override{
         std::cout << "creation socket error" << std::endl;
 }
 
-void connectInit(const char* addr)const override{
+void connectInit(const char* addr) override{
         //addres.sin_family = AF_INET;
         //addres.sin_port = htons(PORT);
         //addres.sin_addr.s_addr = inet_addr(addr);
         //connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 }
-void connectInit()const override{
+void connectInit() override{
         std::cout << "no ip addres specified" << std::endl;
 }
 
@@ -119,7 +119,7 @@ class UDPClientPolicy:public ClientPolicy{
 
 public:        
 UDPClientPolicy();
-void createSocket(Client *client)const override{ 
+void createSocket(Client *client) override{ 
 	client->sock=socket(AF_INET, SOCK_DGRAM, 0);
         if(client->sock)
         std::cout <<"UDP " <<typeid(client).name() << " fd " << client->sock << std::endl;

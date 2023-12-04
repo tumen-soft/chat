@@ -28,8 +28,8 @@ class ServerPolicy{
         public:  
         ServerPolicy(){};
         virtual void createSocket(Server *server) = 0;
-        virtual void connectInit(const char* addr)const = 0;
-        virtual void connectInit()const = 0;
+        virtual void connectInit(const char* addr) = 0;
+        virtual void connectInit(Server *server) = 0;
         virtual void selinit(Server *server)const = 0;///<\param void  \return void
         virtual void sel()const=0;///<\param void  \return void
         virtual void conn()const=0;///<\param void  \return void
@@ -39,7 +39,6 @@ class ServerPolicy{
 
 
 
-//сделать во всех func параметр this
 typedef void (ServerPolicy::*func)(Server*);
 class Server:virtual public AbstractPeer{
 	public:
@@ -49,11 +48,11 @@ class Server:virtual public AbstractPeer{
         void createSocket()override{
         foo(&ServerPolicy::createSocket);
         }; 
-        void connectInit(const char* addr)const override{
-	//foo(&Server::createSocket);
+        void connectInit(const char* addr) override{
+	//foo(&Server::connectInit);
 	};
-        void connectInit()const override{
-        //foo(&Server::createSocket);
+        void connectInit() override{
+        foo(&ServerPolicy::connectInit);
         };
         void selinit()const override{
         //foo(&Server::createSocket);
@@ -78,20 +77,6 @@ class Server:virtual public AbstractPeer{
         //char buffer[MAXLINE]={0};///<Хранит сообщение
         //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
-/*
-class ServerPolicy{
-        public:  
-        ServerPolicy(){};
-        virtual void createSocket(Server *server)const = 0;
-        virtual void connectInit(const char* addr)const = 0;
-        virtual void connectInit()const = 0;
-        virtual void selinit(Server *server)const = 0;///<\param void  \return void
-	virtual void sel()const=0;///<\param void  \return void
-        virtual void conn()const=0;///<\param void  \return void
-        virtual void sendmes()const=0;///<\param void  \return void
-
-};
-*/
 class TCPServerPolicy:public ServerPolicy{
 
 public:        
@@ -103,10 +88,10 @@ void createSocket(Server *server) override{
         else
         std::cout << "creation socket error" << std::endl;
 }
-void connectInit()const override{
+void connectInit(Server *server) override{
         std::cout << "no ip addres specified" << std::endl;
 }
-void connectInit(const char* addr)const override{
+void connectInit(const char* addr) override{
 /*
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);

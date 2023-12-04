@@ -32,8 +32,8 @@ class AbstractPeer{
         public:
         AbstractPeer()=default;///<Конструктор без параметров  \param void
         virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
-        virtual void connectInit(const char* addr)const=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
-        virtual void connectInit()const=0;///\param void  \return void
+        virtual void connectInit(const char* addr)=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
+        virtual void connectInit()=0;///\param void  \return void
         virtual void selinit()const=0;///<\param void  \return void
         virtual void sel()const=0;///<\param void  \return void
         virtual void conn()const=0;///<\param void  \return void
