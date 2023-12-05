@@ -53,15 +53,21 @@ class Client:virtual public AbstractPeer{
         }; 
         void connectInit(const char* addr) override{};
         void connectInit() override{
-	foo1();
+        foo(&ClientPolicy::connectInit);
 	};
         //private:
         void selinit() override{
-	foo2();
+	foo(&ClientPolicy::createSocket);
 	}; 
-        void sel() override{};
-        void conn() override{};
-        void sendmes() override{};
+        void sel() override{
+        foo(&ClientPolicy::createSocket);
+	};
+        void conn() override{
+        foo(&ClientPolicy::createSocket);
+	};
+        void sendmes() override{
+        foo(&ClientPolicy::createSocket);
+	};
         ClientPolicy *clie;
         //int sock;///<Переменная для хранения сокета
         //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
