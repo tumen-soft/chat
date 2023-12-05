@@ -31,9 +31,9 @@ class ServerPolicy{
         virtual void connectInit(const char* addr) = 0;
         virtual void connectInit(Server *server) = 0;
         virtual void selinit(Server *server) = 0;///<\param void  \return void
-        virtual void sel()=0;///<\param void  \return void
-        virtual void conn()=0;///<\param void  \return void
-        virtual void sendmes()=0;///<\param void  \return void
+        virtual void sel(Server *server)=0;///<\param void  \return void
+        virtual void conn(Server *server)=0;///<\param void  \return void
+        virtual void sendmes(Server *server)=0;///<\param void  \return void
 
 };
 
@@ -113,7 +113,7 @@ void selinit(Server *server) override{
                 FD_SET(sock, &read_fd);
 */
 }
-        void sel() override{
+        void sel(Server *server) override{
 /*for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
 FD_SET(itr->first, &read_fd);
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
@@ -121,7 +121,7 @@ FD_SET(itr->first, &read_fd);
 return this;
 */
 };///<\param void  \return void
-        void conn() override{
+        void conn(Server *server) override{
  /*                       //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
                         new_socket = accept(sock,NULL,NULL);
@@ -134,7 +134,7 @@ return this;
                         dprintf(new_socket,"welcome %d\n", new_socket);  
 */
 };///<\param void  \return void
-        void sendmes() override{
+        void sendmes(Server *server) override{
 
 #if 0
 

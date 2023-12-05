@@ -47,10 +47,12 @@ void TestClient::createSocket(Client const& client)const override
 void Client::foo(){clie->createSocket(this);};
 //Client::Client(const char* addr){}
 
-void Client::foo1(){clie->connectInit();};
+void Client::foo1(){/*clie->connectInit()*/;};
 
 void Client::foo2(){clie->selinit(this);};
 
+typedef void (ClientPolicy::*func)(Client*);
+void Client::foo(func f){ClientPolicy *CP=clie;(CP->*f)(this);};
 
 
 
