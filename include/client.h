@@ -21,6 +21,19 @@
 class TCPClientPolicy;
 class ClientPolicy;
 class Client;
+class ClientPolicy{
+        public:  
+        ClientPolicy(){};
+        virtual void createSocket(Client *client) = 0;
+        virtual void connectInit(const char* addr) = 0;
+        virtual void connectInit(Client *client) = 0;
+        virtual void selinit(Client *client) = 0;///<\param void  \return void
+        virtual void sel(Client *client)=0;///<\param void  \return void
+        virtual void conn(Client *client)=0;///<\param void  \return void
+        virtual void sendmes(Client *client)=0;///<\param void  \return void
+
+};
+
 typedef void (ClientPolicy::*funcC)(Client*);
 
 class Client:virtual public AbstractPeer{
@@ -36,7 +49,7 @@ class Client:virtual public AbstractPeer{
         //std::cout<<"end"; 
         //const Client &clien=Client();
         //clie->createSocket(*this);
-	foo();
+	foo(&ClientPolicy::createSocket);
         }; 
         void connectInit(const char* addr) override{};
         void connectInit() override{
@@ -55,7 +68,7 @@ class Client:virtual public AbstractPeer{
         //char buffer[MAXLINE]={0};///<Хранит сообщение
         //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
-
+/*
 class ClientPolicy{
         public:  
         ClientPolicy(){};
@@ -68,7 +81,7 @@ class ClientPolicy{
         virtual void sendmes(Client *client)=0;///<\param void  \return void
 
 };
-
+*/
 class TCPClientPolicy:public ClientPolicy{
 
 public:        
