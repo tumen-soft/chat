@@ -55,16 +55,16 @@ class Server:virtual public AbstractPeer{
         foo(&ServerPolicy::connectInit);
         };
         void selinit() override{
-        //foo(&Server::createSocket);
+        foo(&ServerPolicy::selinit);
         }; 
         void sel() override{
-	//foo(&Server::createSocket);
+	foo(&ServerPolicy::sel);
 	};
         void conn() override{
-	//foo(&Server::createSocket);
+	foo(&ServerPolicy::conn);
 	}; 
         void sendmes() override{
-	//foo(&Server::createSocket);
+	foo(&ServerPolicy::sendmes);
 	};
 	int getSock(){return sock;}
         void setSock(int _sock){sock=_sock;}
@@ -82,14 +82,19 @@ class TCPServerPolicy:public ServerPolicy{
 public:        
 TCPServerPolicy(){};
 void createSocket(Server *server) override{
-        server->setSock(socket(AF_INET, SOCK_STREAM, 0));
+/*        server->setSock(socket(AF_INET, SOCK_STREAM, 0));
         if(server->getSock())
         std::cout <<"TCP " <<typeid(server).name() << " fd " << server->getSock() << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
+*/
+std::cout<<__FUNCTION__<<std::endl;
+
 }
 void connectInit(Server *server) override{
-        std::cout << "no ip addres specified" << std::endl;
+//        std::cout << "no ip addres specified" << std::endl;
+std::cout<<__FUNCTION__<<std::endl;
+
 }
 void connectInit(const char* addr) override{
 /*
@@ -107,6 +112,7 @@ void connectInit(const char* addr) override{
 }
 
 void selinit(Server *server) override{
+std::cout<<__FUNCTION__<<std::endl;
 /*              memset(buffer, 0, sizeof(buffer));
                 FD_ZERO(&read_fd);
                 FD_SET(0, &read_fd);
@@ -114,6 +120,7 @@ void selinit(Server *server) override{
 */
 }
         void sel(Server *server) override{
+std::cout<<__FUNCTION__<<std::endl;
 /*for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
 FD_SET(itr->first, &read_fd);
 //                select(300, &peer->read_fd, NULL, NULL, NULL);
@@ -122,6 +129,7 @@ return this;
 */
 };///<\param void  \return void
         void conn(Server *server) override{
+std::cout<<__FUNCTION__<<std::endl;
  /*                       //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
                         new_socket = accept(sock,NULL,NULL);
@@ -135,6 +143,7 @@ return this;
 */
 };///<\param void  \return void
         void sendmes(Server *server) override{
+std::cout<<__FUNCTION__<<std::endl;
 
 #if 0
 
