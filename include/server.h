@@ -121,12 +121,12 @@ void connectInit(Server *server) override{
 //}
 
 void selinit(Server *server) override{
-std::cout<<__FUNCTION__<<std::endl;
-/*              memset(buffer, 0, sizeof(buffer));
-                FD_ZERO(&read_fd);
-                FD_SET(0, &read_fd);
-                FD_SET(sock, &read_fd);
-*/
+//std::cout<<__FUNCTION__<<std::endl;
+	memset(server->buffer, 0, sizeof(server->buffer));
+        FD_ZERO(&server->read_fd);
+        FD_SET(0, &server->read_fd);
+        FD_SET(server->sock, &server->read_fd);
+
 }
         void sel(Server *server) override{
 std::cout<<__FUNCTION__<<std::endl;

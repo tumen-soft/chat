@@ -104,7 +104,13 @@ void createSocket(Client *client) override{
 //}
 void connectInit(Client *client) override{
 //        std::cout << "no ip addres specified" << std::endl;
-std::cout<<__FUNCTION__<<std::endl;
+//std::cout<<__FUNCTION__<<std::endl;
+
+	client->addres.sin_family = AF_INET;
+        client->addres.sin_port = htons(PORT);
+        client->addres.sin_addr.s_addr = inet_addr("127.0.0.1");
+	connect(3, (struct sockaddr*)&client->addres, sizeof(client->addres));
+
 }
 
 void selinit(Client *client) override{
