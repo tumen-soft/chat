@@ -28,7 +28,7 @@ class ServerPolicy{
         public:  
         ServerPolicy(){};
         virtual void createSocket(Server *server) = 0;
-        virtual void connectInit(const char* addr) = 0;
+        //virtual void connectInit(const char* addr) = 0;
         virtual void connectInit(Server *server) = 0;
         virtual void selinit(Server *server) = 0;///<\param void  \return void
         virtual void sel(Server *server)=0;///<\param void  \return void
@@ -48,9 +48,9 @@ class Server:virtual public AbstractPeer{
         void createSocket()override{
         foo(&ServerPolicy::createSocket);
         }; 
-        void connectInit(const char* addr) override{
+        //void connectInit(const char* addr) override{
 	//foo(&Server::connectInit);
-	};
+	//};
         void connectInit() override{
         foo(&ServerPolicy::connectInit);
         };
@@ -68,7 +68,7 @@ class Server:virtual public AbstractPeer{
 	};
 	int getSock(){return sock;}
         void setSock(int _sock){sock=_sock;}
-        private:
+        //private:
 	ServerPolicy *serv;
 	int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	std::vector<std::pair<int, char*>> nicknames;
@@ -82,21 +82,30 @@ class TCPServerPolicy:public ServerPolicy{
 public:        
 TCPServerPolicy(){};
 void createSocket(Server *server) override{
-/*        server->setSock(socket(AF_INET, SOCK_STREAM, 0));
+        server->setSock(socket(AF_INET, SOCK_STREAM, 0));
         if(server->getSock())
         std::cout <<"TCP " <<typeid(server).name() << " fd " << server->getSock() << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
-*/
-std::cout<<__FUNCTION__<<std::endl;
+
+//std::cout<<__FUNCTION__<<std::endl;
 
 }
 void connectInit(Server *server) override{
 //        std::cout << "no ip addres specified" << std::endl;
-std::cout<<__FUNCTION__<<std::endl;
+//std::cout<<__FUNCTION__<<std::endl;
 
+        server->addres.sin_family = AF_INET;
+        server->addres.sin_port = htons(PORT);
+        server->addres.sin_addr.s_addr = htonl(INADDR_ANY);
+
+        bind(server->sock, (struct sockaddr*)&server->addres, sizeof(server->addres));
+        //waiting for connection
+        listen(server->sock, 300);
+        //std::cout <<"test" <<std::endl;
+        server->nicknames.push_back({0,"test"});
 }
-void connectInit(const char* addr) override{
+//void connectInit(const char* addr) override{
 /*
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
@@ -109,7 +118,7 @@ void connectInit(const char* addr) override{
         nicknames.push_back({0,"test"});
         return this;
 */
-}
+//}
 
 void selinit(Server *server) override{
 std::cout<<__FUNCTION__<<std::endl;

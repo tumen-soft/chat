@@ -25,7 +25,7 @@ class ClientPolicy{
         public:  
         ClientPolicy(){};
         virtual void createSocket(Client *client) = 0;
-        virtual void connectInit(const char* addr) = 0;
+        //virtual void connectInit(const char* addr) = 0;
         virtual void connectInit(Client *client) = 0;
         virtual void selinit(Client *client) = 0;///<\param void  \return void
         virtual void sel(Client *client)=0;///<\param void  \return void
@@ -45,7 +45,7 @@ class Client:virtual public AbstractPeer{
 	void createSocket() override{
 	foo(&ClientPolicy::createSocket);
         }; 
-        void connectInit(const char* addr) override{};
+        //void connectInit(const char* addr) override{};
         void connectInit() override{
         foo(&ClientPolicy::connectInit);
 	};
@@ -86,22 +86,22 @@ class TCPClientPolicy:public ClientPolicy{
 public:        
 TCPClientPolicy(){};
 void createSocket(Client *client) override{
-/*        client->sock=socket(AF_INET, SOCK_STREAM, 0);
+        client->sock=socket(AF_INET, SOCK_STREAM, 0);
         if(client->sock)
         std::cout <<"TCP " <<typeid(client).name() << " fd " << client->sock << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
-*/
-std::cout<<__FUNCTION__<<std::endl;
+
+//std::cout<<__FUNCTION__<<std::endl;
 
 }
 
-void connectInit(const char* addr) override{
+///void connectInit(const char* addr) override{
         //addres.sin_family = AF_INET;
         //addres.sin_port = htons(PORT);
         //addres.sin_addr.s_addr = inet_addr(addr);
         //connect(sock, (struct sockaddr*)&addres, sizeof(addres));
-}
+//}
 void connectInit(Client *client) override{
 //        std::cout << "no ip addres specified" << std::endl;
 std::cout<<__FUNCTION__<<std::endl;
