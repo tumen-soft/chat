@@ -103,7 +103,11 @@ void connectInit(Server *server) override{
         //waiting for connection
         listen(server->sock, 300);
         //std::cout <<"test" <<std::endl;
-        server->nicknames.push_back({0,"test"});
+        //server->nicknames.push_back({0,"test"});
+	//server->new_socket = accept(server->sock,NULL,NULL);
+	//read(server->new_socket, server->buffer, 1024);
+        //std::cout<<server->buffer<<std::endl;;  
+
 }
 //void connectInit(const char* addr) override{
 /*
@@ -129,27 +133,25 @@ void selinit(Server *server) override{
 
 }
         void sel(Server *server) override{
-std::cout<<__FUNCTION__<<std::endl;
-/*for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
-FD_SET(itr->first, &read_fd);
-//                select(300, &peer->read_fd, NULL, NULL, NULL);
+//std::cout<<__FUNCTION__<<std::endl;
+//for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
+FD_SET(server->sock, &server->read_fd);
+                select(300, &server->read_fd, NULL, NULL, NULL);
 
-return this;
-*/
 };///<\param void  \return void
         void conn(Server *server) override{
-std::cout<<__FUNCTION__<<std::endl;
- /*                       //peer->new_socket = accept(peer->sock,NULL,NULL);
+//std::cout<<__FUNCTION__<<std::endl;
+			server->new_socket = accept(server->sock,NULL,NULL);
                         //accepting connection
-                        new_socket = accept(sock,NULL,NULL);
+                        //new_socket = accept(sock,NULL,NULL);
                         //char g[80]={"sos"};
                         //g="sos";
                         //read(peer->new_socket,g,1024);
-                        nicknames.push_back({new_socket,"test"});
-                        std::cout<< "New connection "<<new_socket<<std::endl;
+                        //nicknames.push_back({new_socket,"test"});
+                        std::cout<< "New connection "<<server->new_socket<<std::endl;
                         //printf("New connection %s\n", peer->new_socket);
-                        dprintf(new_socket,"welcome %d\n", new_socket);  
-*/
+                        dprintf(server->new_socket,"welcome %d\n", server->new_socket);  
+
 };///<\param void  \return void
         void sendmes(Server *server) override{
 std::cout<<__FUNCTION__<<std::endl;

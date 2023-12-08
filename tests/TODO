@@ -1,3 +1,4 @@
 V make client_test with param and without
   make udp socket creation
 V make server_test connectInit();
+V make connect cli to ser

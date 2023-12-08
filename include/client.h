@@ -16,6 +16,7 @@
 #include "abspeer.h"
 #include <iostream>
 #include <cstring>
+#include <unistd.h>  //close(), fread()
 
 
 class TCPClientPolicy;
@@ -109,31 +110,30 @@ void connectInit(Client *client) override{
 	client->addres.sin_family = AF_INET;
         client->addres.sin_port = htons(PORT);
         client->addres.sin_addr.s_addr = inet_addr("127.0.0.1");
-	connect(3, (struct sockaddr*)&client->addres, sizeof(client->addres));
-
+	connect(client->sock, (struct sockaddr*)&client->addres, sizeof(client->addres));
+	//dprintf(0, "test");
 }
 
 void selinit(Client *client) override{
-std::cout<<__FUNCTION__<<std::endl;
-/*        memset(client->buffer, 0, sizeof(client->buffer));
+//std::cout<<__FUNCTION__<<std::endl;
+        memset(client->buffer, 0, sizeof(client->buffer));
         FD_ZERO(&client->read_fd);
         FD_SET(0, &client->read_fd);
         FD_SET(client->sock, &client->read_fd);
-*/
 }
 
 void sel(Client *client) override{
-std::cout<<__FUNCTION__<<std::endl;
+//std::cout<<__FUNCTION__<<std::endl;
 
-//                select(300, &peer->read_fd, NULL, NULL, NULL);
+           select(300, &client->read_fd, NULL, NULL, NULL);
 //        return this;
 }
 
 
 
 void conn(Client *client) override{
-std::cout<<__FUNCTION__<<std::endl;
-       // read(sock, buffer, sizeof(buffer));dprintf(0, buffer);
+//std::cout<<__FUNCTION__<<std::endl;
+	read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);
         //return this;
 }
 void sendmes(Client *client) override{
