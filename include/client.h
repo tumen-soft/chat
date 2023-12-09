@@ -137,9 +137,9 @@ void conn(Client *client) override{
         //return this;
 }
 void sendmes(Client *client) override{
-std::cout<<__FUNCTION__<<std::endl;
-        ////if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
-        //if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
+//std::cout<<__FUNCTION__<<std::endl;
+        if(FD_ISSET(0, &client->read_fd)){read(0, client->buffer,sizeof(client->buffer));dprintf(client->sock, client->buffer);}  
+        if(FD_ISSET(client->sock, &client->read_fd)){read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);}
  //       return this;
 }
 
