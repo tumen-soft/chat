@@ -125,7 +125,7 @@ void selinit(Client *client) override{
 void sel(Client *client) override{
 //std::cout<<__FUNCTION__<<std::endl;
 
-           select(300, &client->read_fd, NULL, NULL, NULL);
+           //select(300, &client->read_fd, NULL, NULL, NULL);
 //        return this;
 }
 

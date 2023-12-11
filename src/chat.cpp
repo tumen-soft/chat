@@ -37,18 +37,18 @@ int check1();
 //extern int main_(void);
 void run(AbstractPeer *singleton){
 singleton->createSocket();
-//singleton->connectInit_("127.0.0.1");
+singleton->connectInit();
 for(;;)
 {
-		//singleton->selinit();
+		singleton->selinit();
 
-		//singleton->sel();
+		singleton->sel();
 
-		//select(300, &singleton->read_fd, NULL, NULL, NULL);
+		select(300, &singleton->read_fd, NULL, NULL, NULL);
 
-		//if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
+		if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
 
-		//singleton->sendmes();
+		singleton->sendmes();
 
 //for(;;)
 }
@@ -63,6 +63,14 @@ enum choice {
 //std::ostream& os = std::cout;
 
 AbstractPeer *getPolicy(){
+
+return new Server(new TCPServerPolicy());
+
+}
+
+
+
+AbstractPeer *getPolicy1(){
 
 return new Client(new TCPClientPolicy());
 
@@ -94,8 +102,8 @@ switch(ch){
 		//абстрактный класс Peer  (if)
 		{
 		//--------------
-		case 0:{peer = getPolicy();break;}
-		case 1:{peer=getPolicy();break;}
+		case 0:{peer=getPolicy();break;}
+		case 1:{peer=getPolicy1();break;}
 		}
 
         //default:
