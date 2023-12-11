@@ -134,8 +134,8 @@ void selinit(Server *server) override{
 }
         void sel(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
-for (auto itr = server->nicknames.begin(); itr != server->nicknames.end(); ++itr)
-FD_SET(server->sock, &server->read_fd);
+///for (auto itr = server->nicknames.begin(); itr != server->nicknames.end(); ++itr)
+//FD_SET(server->sock, &server->read_fd);
                // select(300, &server->read_fd, NULL, NULL, NULL);
 
 };///<\param void  \return void
@@ -144,11 +144,11 @@ FD_SET(server->sock, &server->read_fd);
 			server->new_socket = accept(server->sock,NULL,NULL);
                         //accepting connection
                         //new_socket = accept(sock,NULL,NULL);
-                        char g[80]={"sos"};
+                        //char g[80]={"sos"};
                         //g="sos";
                         //read(peer->new_socket,g,1024);
                         server->nicknames.push_back({server->new_socket,"test"});
-                        //std::cout<< "New connection "<<server->new_socket<<std::endl;
+                        std::cout<< "New connection "<<server->new_socket<<std::endl;
                         //printf("New connection %s\n", server->new_socket);
                         dprintf(server->new_socket,"welcome %d\n", server->new_socket);  
 
