@@ -128,14 +128,16 @@ void selinit(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
 	memset(server->buffer, 0, sizeof(server->buffer));
         FD_ZERO(&server->read_fd);
-        FD_SET(0, &server->read_fd);
+        //FD_SET(0, &server->read_fd);
         FD_SET(server->sock, &server->read_fd);
 
 }
         void sel(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
-///for (auto itr = server->nicknames.begin(); itr != server->nicknames.end(); ++itr)
-//FD_SET(server->sock, &server->read_fd);
+server->nicknames.push_back({0,"me"});
+
+for (auto itr = server->nicknames.begin(); itr != server->nicknames.end(); ++itr)
+FD_SET(itr->first, &server->read_fd);
                // select(300, &server->read_fd, NULL, NULL, NULL);
 
 };///<\param void  \return void
@@ -158,10 +160,11 @@ void selinit(Server *server) override{
 
 
 	for (auto itr2 = server->nicknames.begin(); itr2 != server->nicknames.end(); ++itr2)
-                { 
-			server->sd = itr2->first; 
+                {//std::cout<<itr2->first; 
+			server->sd = itr2->first;
+			//std::cout<<itr2->first<<std::endl; 
 			if (FD_ISSET(server->sd , &server->read_fd)) 
-                        { 
+                        {//std::cout<<"test"; 
 				if ((server->valread = read(server->sd, server->buffer, 1024))) 
 				/*{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
