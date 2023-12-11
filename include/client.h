@@ -133,7 +133,7 @@ void sel(Client *client) override{
 
 void conn(Client *client) override{
 //std::cout<<__FUNCTION__<<std::endl;
-	read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);
+//	read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);
         //return this;
 }
 void sendmes(Client *client) override{
