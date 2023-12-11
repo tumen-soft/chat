@@ -154,16 +154,15 @@ FD_SET(server->sock, &server->read_fd);
 
 };///<\param void  \return void
         void sendmes(Server *server) override{
-std::cout<<__FUNCTION__<<std::endl;
+//std::cout<<__FUNCTION__<<std::endl;
 
-#if 0
 
-	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+	for (auto itr2 = server->nicknames.begin(); itr2 != server->nicknames.end(); ++itr2)
                 { 
-			sd = itr2->first; 
-			if (FD_ISSET(sd , &read_fd)) 
+			server->sd = itr2->first; 
+			if (FD_ISSET(server->sd , &server->read_fd)) 
                         { 
-				if ((valread = read(sd, buffer, 1024))) 
+				if ((server->valread = read(server->sd, server->buffer, 1024))) 
 				/*{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
                                         close(peer->sd); 
@@ -173,9 +172,9 @@ std::cout<<__FUNCTION__<<std::endl;
                                 else
 					*/
 				{ 
-	  				buffer[valread] = '\0';
-					for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
-					dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
+	  				server->buffer[server->valread] = '\0';
+					for (auto itr1 = server->nicknames.begin(); itr1 != server->nicknames.end(); ++itr1)
+					dprintf(itr1->first,"%s says: %s\n",itr2->second, server->buffer);
 					
                                  }  
                         } 
@@ -183,7 +182,6 @@ std::cout<<__FUNCTION__<<std::endl;
         	}
 
 
-#endif
 };///<\param void  \return void
 
 };

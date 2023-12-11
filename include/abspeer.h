@@ -57,24 +57,4 @@ class AbstractPeer{
 };
 
 
-
-
-
-/*
-class Server_:public Peer, public Server{
-        public:  
-        Server_(){};
-        //void createSocket_()override{createSocket();};
-	//void connectInit_(const char* addr)override{connectInit(addr);};
-	//void connectInit_()override{};
-	void selinit();///<\param void  \return void
-        void sel();///<\param void  \return void
-        void conn();///<\param void  \return void
-        void sendmes();///<\param void  \return void
-
-
-
-};
-
-*/
 #endif
