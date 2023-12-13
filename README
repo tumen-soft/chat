@@ -1,5 +1,6 @@
  Asyncrous multiconnection multiprotocol net chat
 
+https://github.com/apps/tcp-udp-chat
 
 ./configure
 make
