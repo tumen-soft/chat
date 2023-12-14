@@ -64,7 +64,7 @@ enum choice {
 
 AbstractPeer *getPolicy(){
 
-return new Server(new TCPServerPolicy());
+return Server(new TCPServerPolicy());
 
 }
 
@@ -72,7 +72,7 @@ return new Server(new TCPServerPolicy());
 
 AbstractPeer *getPolicy1(){
 
-return new Client(new TCPClientPolicy());
+return Client(new TCPClientPolicy());
 
 }
 
