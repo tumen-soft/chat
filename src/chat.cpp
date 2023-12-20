@@ -23,9 +23,12 @@
 #include "server.h"
 #include "abspeer.h";
 #include <iostream>;
+#define DEBUG_BUILD
 #define MAXLINE 1024
 #define PORT 8080 
-
+#ifdef DEBUG_BUILD
+#define DEBUG(x) std::cerr << x <<std::endl;
+#endif
 void spawnThreads();
 void check();
 int check1();
@@ -35,6 +38,7 @@ int check1();
 //        _Client
 //};
 //extern int main_(void);
+//#define DEBUG_BUILD 1
 void run(AbstractPeer *singleton){
 singleton->createSocket();
 singleton->connectInit();
@@ -102,7 +106,7 @@ switch(ch){
 		//абстрактный класс Peer  (if)
 		{
 		//--------------
-		case 0:{peer=getPolicy();break;}
+		case 0:{DEBUG("server define");peer=getPolicy();break;}
 		case 1:{peer=getPolicy1();break;}
 		}
 
