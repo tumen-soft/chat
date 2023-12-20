@@ -27,7 +27,7 @@
 #define MAXLINE 1024
 #define PORT 8080 
 #ifdef DEBUG_BUILD
-#define DEBUG(x) std::cerr << x <<std::endl;
+#define DEBUG std::cerr << __FILE__ << __LINE__ << __func__ <<std::endl;
 #endif
 void spawnThreads();
 void check();
@@ -106,7 +106,7 @@ switch(ch){
 		//абстрактный класс Peer  (if)
 		{
 		//--------------
-		case 0:{DEBUG("server define");peer=getPolicy();break;}
+		case 0:{DEBUG;peer=getPolicy();break;}
 		case 1:{peer=getPolicy1();break;}
 		}
 
