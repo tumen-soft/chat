@@ -15,6 +15,11 @@
  *
  *
  */
+#ifdef DEBUG
+#  define Trace(x)  {fprintf x ; fflush(stderr); fflush(stdout);}
+#else
+#  define Trace(x)  ;
+#endif
 
 
 

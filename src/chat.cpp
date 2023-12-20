@@ -16,6 +16,7 @@
 //#include <cstring>;
 //#include "client.h"
 //#include "server.h"
+#define DEBUG
 #include "ipscan.h";
 #include <memory>
 //#include "policy.h"
@@ -23,12 +24,10 @@
 #include "server.h"
 #include "abspeer.h";
 #include <iostream>;
-#define DEBUG_BUILD
+//#define DEBUG
 #define MAXLINE 1024
 #define PORT 8080 
-#ifdef DEBUG_BUILD
-#define DEBUG std::cerr << __FILE__ << __LINE__ << __func__ <<std::endl;
-#endif
+
 void spawnThreads();
 void check();
 int check1();
@@ -106,7 +105,7 @@ switch(ch){
 		//абстрактный класс Peer  (if)
 		{
 		//--------------
-		case 0:{DEBUG;peer=getPolicy();break;}
+		case 0:{Trace((stderr, "calling run()\n"));peer=getPolicy();break;}
 		case 1:{peer=getPolicy1();break;}
 		}
 
