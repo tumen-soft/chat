@@ -43,7 +43,7 @@ class Switch{
 public:
 AbstractPeer *getPolicy(Server *s){
 
-return s= new Server(new TCPServerPolicy());
+return new Server(new TCPServerPolicy());
 
 }
 
@@ -51,7 +51,7 @@ return s= new Server(new TCPServerPolicy());
 
 AbstractPeer *getPolicy(Client *c){
 
-return  c=new Client(new TCPClientPolicy());
+return new Client(new TCPClientPolicy());
 
 }
 
