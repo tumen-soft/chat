@@ -100,22 +100,14 @@ switch(ch){
                 spawnThreads();
                 check();
 		//--------------
-		switch(check1())
-		//выбор между клиетном и сервером
-		//абстрактный класс Peer  (if)
-		{
-		//--------------
-		case 0:{Trace((stderr, "calling run()\n"));peer=getPolicy();break;}
-		case 1:{peer=getPolicy1();break;}
-		}
+		run((check1()<1)?getPolicy():getPolicy1());
 
         //default:
          //       goto st;
 	//	break;
 	}
 
-run(peer);
+//run(peer);
 //std::cout<<f;
 }
-
 
