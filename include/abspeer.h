@@ -52,13 +52,16 @@ class AbstractPeer{
          */
 
         //Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-        int sock;///<Переменная для хранения сокета
+       int virtual getsock()=0;
+	void virtual setsock(int x)=0;	
+
+	int sock;///<Переменная для хранения сокета
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 	int get(){return valread;}
 	void set(int m){valread=m;}
-	private:
+	protected:
  	int valread;
 	public:
 	int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;

@@ -37,7 +37,7 @@ class ClientPolicy{
 
 typedef void (ClientPolicy::*funcC)(Client*);
 
-class Client:virtual public AbstractPeer{
+class Client: protected AbstractPeer{
         public:
         Client(){}
         //Client(const char* addr);
@@ -63,7 +63,11 @@ class Client:virtual public AbstractPeer{
         foo(&ClientPolicy::sendmes);
 	};
         ClientPolicy *clie;
-        //int sock;///<Переменная для хранения сокета
+	int getsock()override{return sock;};
+	void setsock(int x)override{sock=x;};   
+
+
+	//int sock;///<Переменная для хранения сокета
         //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         //char buffer[MAXLINE]={0};///<Хранит сообщение
         //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
@@ -87,9 +91,9 @@ class TCPClientPolicy:public ClientPolicy{
 public:        
 TCPClientPolicy(){};
 void createSocket(Client *client) override{
-        client->sock=socket(AF_INET, SOCK_STREAM, 0);
-        if(client->sock)
-        std::cout <<"TCP " <<typeid(client).name() << " fd " << client->sock << std::endl;
+	client->setsock(socket(AF_INET, SOCK_STREAM, 0));
+        if(client->getsock())
+        std::cout <<"TCP " <<typeid(client).name() << " fd " << client->getsock() << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
@@ -107,19 +111,19 @@ void connectInit(Client *client) override{
 //        std::cout << "no ip addres specified" << std::endl;
 //std::cout<<__FUNCTION__<<std::endl;
 
-	client->addres.sin_family = AF_INET;
-        client->addres.sin_port = htons(PORT);
-        client->addres.sin_addr.s_addr = inet_addr("127.0.0.1");
-	connect(client->sock, (struct sockaddr*)&client->addres, sizeof(client->addres));
+	///client->addres.sin_family = AF_INET;
+        ///client->addres.sin_port = htons(PORT);
+        ///client->addres.sin_addr.s_addr = inet_addr("127.0.0.1");
+	///connect(client->sock, (struct sockaddr*)&client->addres, sizeof(client->addres));
 	//dprintf(0, "test");
 }
 
 void selinit(Client *client) override{
 //std::cout<<__FUNCTION__<<std::endl;
-        memset(client->buffer, 0, sizeof(client->buffer));
-        FD_ZERO(&client->read_fd);
-        FD_SET(0, &client->read_fd);
-        FD_SET(client->sock, &client->read_fd);
+        ///memset(client->buffer, 0, sizeof(client->buffer));
+        ///FD_ZERO(&client->read_fd);
+        ///FD_SET(0, &client->read_fd);
+        ///FD_SET(client->sock, &client->read_fd);
 }
 
 void sel(Client *client) override{
@@ -138,8 +142,8 @@ void conn(Client *client) override{
 }
 void sendmes(Client *client) override{
 //std::cout<<__FUNCTION__<<std::endl;
-        if(FD_ISSET(0, &client->read_fd)){read(0, client->buffer,sizeof(client->buffer));dprintf(client->sock, client->buffer);}  
-        if(FD_ISSET(client->sock, &client->read_fd)){read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);}
+        ///if(FD_ISSET(0, &client->read_fd)){read(0, client->buffer,sizeof(client->buffer));dprintf(client->sock, client->buffer);}  
+        ///if(FD_ISSET(client->sock, &client->read_fd)){read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);}
  //       return this;
 }
 
@@ -152,9 +156,9 @@ class UDPClientPolicy:public ClientPolicy{
 public:        
 UDPClientPolicy();
 void createSocket(Client *client) override{ 
-	client->sock=socket(AF_INET, SOCK_DGRAM, 0);
-        if(client->sock)
-        std::cout <<"UDP " <<typeid(client).name() << " fd " << client->sock << std::endl;
+	client->setsock(socket(AF_INET, SOCK_DGRAM, 0));
+        if(client->getsock())
+        std::cout <<"UDP " <<typeid(client).name() << " fd " << client->getsock() << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
