@@ -38,6 +38,23 @@ int check1();
 //};
 //extern int main_(void);
 //#define DEBUG_BUILD 1
+
+class Switch{
+public:
+AbstractPeer *getPolicy(Server *s){
+
+return s= new Server(new TCPServerPolicy());
+
+}
+
+
+
+AbstractPeer *getPolicy(Client *c){
+
+return  c=new Client(new TCPClientPolicy());
+
+}
+
 void run(AbstractPeer *singleton){
 singleton->createSocket();
 singleton->connectInit();
@@ -55,7 +72,7 @@ for(;;)
 
 //for(;;)
 }
-
+}
 };
 
 
@@ -90,6 +107,7 @@ std::cin>>c;
 //c=1;
 ch=(choice)c;
 AbstractPeer *peer;
+Switch *sw= new Switch();
 switch(ch){
 
         case END:
@@ -100,7 +118,7 @@ switch(ch){
                 spawnThreads();
                 check();
 		//--------------
-		run((check1()<1)?getPolicy():getPolicy1());
+		sw->run((check1()<1)?sw->getPolicy(new Server):sw->getPolicy(new Client));
 
         //default:
          //       goto st;
