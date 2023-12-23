@@ -5,7 +5,7 @@
 //#include <stdio.h>  //printf()
 //#include <unistd.h>  //close(), fread()
 #define MAXLINE 1024
-
+#include <vector>
 /**
  *\file abspeer.h
  *\author Денис Вергун
@@ -56,8 +56,13 @@ class AbstractPeer{
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
-
-        
+	int get(){return valread;}
+	void set(int m){valread=m;}
+	private:
+ 	int valread;
+	public:
+	int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;
+        std::vector<std::pair<int, char*>> nicknames;       
 
 };
 
