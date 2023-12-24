@@ -63,8 +63,6 @@ class Client: protected AbstractPeer{
         foo(&ClientPolicy::sendmes);
 	};
         ClientPolicy *clie;
-	//int getsock()override{return sock;};
-	//void setsock(int x)override{sock=x;};   
 	auto x()->int&  override{return sock;}
 
 	//int sock;///<Переменная для хранения сокета
@@ -156,10 +154,10 @@ class UDPClientPolicy:public ClientPolicy{
 public:        
 UDPClientPolicy();
 void createSocket(Client *client) override{ 
-	//client->setsock(socket(AF_INET, SOCK_DGRAM, 0));
-        //if(client->getsock())
-        //std::cout <<"UDP " <<typeid(client).name() << " fd " << client->getsock() << std::endl;
-        //else
+	client->x()=(socket(AF_INET, SOCK_DGRAM, 0));
+        if(client->x())
+        std::cout <<"UDP " <<typeid(client).name() << " fd " << client->x() << std::endl;
+        else
         std::cout << "creation socket error" << std::endl;
 
 }
