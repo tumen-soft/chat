@@ -64,7 +64,7 @@ class Client: protected AbstractPeer{
 	};
         ClientPolicy *clie;
 	auto x()->int&  override{return sock;}
-
+	OVER(int, sock1);
 	//int sock;///<Переменная для хранения сокета
         //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         //char buffer[MAXLINE]={0};///<Хранит сообщение

@@ -21,9 +21,8 @@
 #  define Trace(x)  ;
 #endif
 
-
-
-
+#define DEF(type, var) protected:  int var; public:  virtual auto _##var() -> int& =0;
+#define OVER(type, var)  auto _##var()->int&  override{return var;}
 
 
 ///\brief Абстрактный узел связи. 
@@ -56,7 +55,8 @@ class AbstractPeer{
 	//void virtual setsock(int x)=0;	
         virtual auto x() -> int& =0;//{return sock;}
 	int sock;///<Переменная для хранения сокета
-        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        DEF(int, sock1)
+	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 	int get(){return valread;}
