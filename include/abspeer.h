@@ -18,7 +18,7 @@
 #ifdef DEBUG
 #  define Trace(x)  {fprintf x ; fflush(stderr); fflush(stdout);}
 #else
-#  define Trace(x)  ;
+#  define Trace(x);
 #endif
 
 #define DEF(type, var) protected:  int var; public:  virtual auto _##var() -> int& =0;

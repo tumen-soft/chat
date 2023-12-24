@@ -92,8 +92,8 @@ void createSocket(Server *server) override{
         else
         std::cout << "creation socket error" << std::endl;
 
-//std::cout<<__FUNCTION__<<std::endl;
-
+	Trace((stderr, __FUNCTION__));
+	std::cout<<std::endl;
 }
 void connectInit(Server *server) override{
 //        std::cout << "no ip addres specified" << std::endl;
@@ -112,6 +112,8 @@ void connectInit(Server *server) override{
 	//read(server->new_socket, server->buffer, 1024);
         //std::cout<<server->buffer<<std::endl;;  
 
+	 Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
 }
 //void connectInit(const char* addr) override{
 /*
@@ -135,6 +137,8 @@ void selinit(Server *server) override{
         //FD_SET(0, &server->read_fd);
         ///FD_SET(server->sock, &server->read_fd);
 
+	 Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
 }
         void sel(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
@@ -157,7 +161,7 @@ FD_SET(itr->first, &server->read_fd);
                         std::cout<< "New connection "<<server->new_socket<<std::endl;
                         //printf("New connection %s\n", server->new_socket);
                         dprintf(server->new_socket,"welcome %d\n", server->new_socket);  
-
+        std::cout<<std::endl;
 };///<\param void  \return void
         void sendmes(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
@@ -189,7 +193,8 @@ FD_SET(itr->first, &server->read_fd);
              
         	}
 
-
+ Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
 };///<\param void  \return void
 
 };
