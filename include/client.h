@@ -63,8 +63,8 @@ class Client: protected AbstractPeer{
         foo(&ClientPolicy::sendmes);
 	};
         ClientPolicy *clie;
-	auto x()->int&  override{return sock;}
-	OVER(int, sock1);
+	//auto _sock()->int&  override{return sock;}
+	OVER(int, sock);
 	//int sock;///<Переменная для хранения сокета
         //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         //char buffer[MAXLINE]={0};///<Хранит сообщение
@@ -89,9 +89,9 @@ class TCPClientPolicy:public ClientPolicy{
 public:        
 TCPClientPolicy(){};
 void createSocket(Client *client) override{
-	client->x()=(socket(AF_INET, SOCK_STREAM, 0));
-        if(client->x())
-        std::cout <<"TCP " <<typeid(client).name() << " fd " << client->x() << std::endl;
+	client->_sock()=(socket(AF_INET, SOCK_STREAM, 0));
+        if(client->_sock())
+        std::cout <<"TCP " <<typeid(client).name() << " fd " << client->_sock() << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
@@ -154,9 +154,9 @@ class UDPClientPolicy:public ClientPolicy{
 public:        
 UDPClientPolicy();
 void createSocket(Client *client) override{ 
-	client->x()=(socket(AF_INET, SOCK_DGRAM, 0));
-        if(client->x())
-        std::cout <<"UDP " <<typeid(client).name() << " fd " << client->x() << std::endl;
+	client->_sock()=(socket(AF_INET, SOCK_DGRAM, 0));
+        if(client->_sock())
+        std::cout <<"UDP " <<typeid(client).name() << " fd " << client->_sock() << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 

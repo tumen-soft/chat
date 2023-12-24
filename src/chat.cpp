@@ -66,7 +66,7 @@ for(;;)
 
 		select(300, &singleton->read_fd, NULL, NULL, NULL);
 
-		if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
+		///if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
 
 		singleton->sendmes();
 

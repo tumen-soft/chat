@@ -22,7 +22,7 @@
 #endif
 
 #define DEF(type, var) protected:  int var; public:  virtual auto _##var() -> int& =0;
-#define OVER(type, var)  auto _##var()->int&  override{return var;}
+#define OVER(type, var) public: auto _##var()->int&  override{return var;}
 
 
 ///\brief Абстрактный узел связи. 
@@ -53,9 +53,9 @@ class AbstractPeer{
         //Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
        //int virtual getsock()=0;
 	//void virtual setsock(int x)=0;	
-        virtual auto x() -> int& =0;//{return sock;}
-	int sock;///<Переменная для хранения сокета
-        DEF(int, sock1)
+        //virtual auto x() -> int& =0;//{return sock;}
+	//int sock;///<Переменная для хранения сокета
+        DEF(int, sock)
 	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета

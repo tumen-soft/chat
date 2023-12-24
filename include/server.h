@@ -70,8 +70,8 @@ class Server: public AbstractPeer{
         void setSock(int _sock){sock=_sock;}
         //private:
 	ServerPolicy *serv;
-	        auto x()->int&  override{return sock;}	
-        OVER(int, sock1);
+	//        auto x()->int&  override{return sock;}	
+        OVER(int, sock);
 	///int getsock()override{return sock;};
         //void setsock(int x)override{sock=x;};   
 	//int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
@@ -103,9 +103,9 @@ void connectInit(Server *server) override{
         server->addres.sin_port = htons(PORT);
         server->addres.sin_addr.s_addr = htonl(INADDR_ANY);
 
-        bind(server->sock, (struct sockaddr*)&server->addres, sizeof(server->addres));
+        ///bind(server->sock, (struct sockaddr*)&server->addres, sizeof(server->addres));
         //waiting for connection
-        listen(server->sock, 300);
+        ///listen(server->sock, 300);
         //std::cout <<"test" <<std::endl;
         //server->nicknames.push_back({0,"test"});
 	//server->new_socket = accept(server->sock,NULL,NULL);
@@ -133,7 +133,7 @@ void selinit(Server *server) override{
 	memset(server->buffer, 0, sizeof(server->buffer));
         FD_ZERO(&server->read_fd);
         //FD_SET(0, &server->read_fd);
-        FD_SET(server->sock, &server->read_fd);
+        ///FD_SET(server->sock, &server->read_fd);
 
 }
         void sel(Server *server) override{
@@ -147,7 +147,7 @@ FD_SET(itr->first, &server->read_fd);
 };///<\param void  \return void
         void conn(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
-			server->new_socket = accept(server->sock,NULL,NULL);
+			///server->new_socket = accept(server->sock,NULL,NULL);
                         //accepting connection
                         //new_socket = accept(sock,NULL,NULL);
                         //char g[80]={"sos"};
