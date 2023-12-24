@@ -70,9 +70,9 @@ class Server: public AbstractPeer{
         void setSock(int _sock){sock=_sock;}
         //private:
 	ServerPolicy *serv;
-	
-        int getsock()override{return sock;};
-        void setsock(int x)override{sock=x;};   
+	        auto x()->int&  override{return sock;}	
+        ///int getsock()override{return sock;};
+        //void setsock(int x)override{sock=x;};   
 	//int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
 	//std::vector<std::pair<int, char*>> nicknames;
 	//int sock;///<Переменная для хранения сокета

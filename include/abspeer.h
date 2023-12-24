@@ -52,9 +52,9 @@ class AbstractPeer{
          */
 
         //Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-       int virtual getsock()=0;
-	void virtual setsock(int x)=0;	
-
+       //int virtual getsock()=0;
+	//void virtual setsock(int x)=0;	
+        virtual auto x() -> int& =0;//{return sock;}
 	int sock;///<Переменная для хранения сокета
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение

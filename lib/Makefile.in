@@ -344,7 +344,7 @@ libchat_la_SOURCES = client.cpp server.cpp
 libchat_la_CFLAGS = -fPIC
 libchat_la_CPPFLAGS = -fPIC
 libchat_la_CXXFLAGS = -fPIC -I$(top_srcdir)/include -fpermissive
-libchat_a_CXXFLAGS = -fPIC -I$(top_srcdir)/include -fpermissive
+libchat_a_CXXFLAGS = -fPIC -I$(top_srcdir)/include -fpermissive 
 all: all-am
 
 .SUFFIXES:
