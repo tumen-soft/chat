@@ -36,7 +36,6 @@ class ClientPolicy{
 };
 
 typedef void (ClientPolicy::*funcC)(Client*);
-
 class Client: protected AbstractPeer{
         public:
         Client(){}
@@ -70,6 +69,9 @@ class Client: protected AbstractPeer{
         //char buffer[MAXLINE]={0};///<Хранит сообщение
         //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
+
+#define sock _sock()
+
 /*
 class ClientPolicy{
         public:  
@@ -89,7 +91,7 @@ class TCPClientPolicy:public ClientPolicy{
 public:        
 TCPClientPolicy(){};
 void createSocket(Client *client) override{
-	client->_sock()=(socket(AF_INET, SOCK_STREAM, 0));
+	client->sock=(socket(AF_INET, SOCK_STREAM, 0));
         if(client->_sock())
         std::cout <<"TCP " <<typeid(client).name() << " fd " << client->_sock() << std::endl;
         else

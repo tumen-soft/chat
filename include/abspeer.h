@@ -21,9 +21,8 @@
 #  define Trace(x);
 #endif
 
-#define DEF(type, var) protected:  int var; public:  virtual auto _##var() -> int& =0;
-#define OVER(type, var) public: auto _##var()->int&  override{return var;}
-
+#define DEF(type, var) protected:  int __var; public:  virtual auto _##var() -> int& =0; 
+#define OVER(type, var) public: auto _##var()->int&  override{return __var;}
 
 ///\brief Абстрактный узел связи. 
 /**
@@ -59,7 +58,8 @@ class AbstractPeer{
 	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
-	DEF(int, valread)
+	//DEF(int, valread)
+	int valresd;
 	public:
 	int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;
         std::vector<std::pair<int, char*>> nicknames;       
