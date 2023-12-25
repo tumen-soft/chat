@@ -66,13 +66,13 @@ class Server: public AbstractPeer{
         void sendmes() override{
 	foo(&ServerPolicy::sendmes);
 	};
-	int getSock(){return sock;}
-        void setSock(int _sock){sock=_sock;}
+	//int getSock(){return sock;}
+        //void setSock(int _sock){sock=_sock;}
         //private:
 	ServerPolicy *serv;
 	//        auto x()->int&  override{return sock;}	
-        OVER(int, sock);
-	OVER(int, valerad);
+        //OVER(int, sock);
+	//OVER(int, valread);
 	///int getsock()override{return sock;};
         //void setsock(int x)override{sock=x;};   
 	//int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
@@ -87,9 +87,9 @@ class TCPServerPolicy:public ServerPolicy{
 public:        
 TCPServerPolicy(){};
 void createSocket(Server *server) override{
-        server->setSock(socket(AF_INET, SOCK_STREAM, 0));
-        if(server->getSock())
-        std::cout <<"TCP " <<typeid(server).name() << " fd " << server->getSock() << std::endl;
+        server->_sock()=(socket(AF_INET, SOCK_STREAM, 0));
+        if(server->_sock())
+        std::cout <<"TCP " <<typeid(server).name() << " fd " << server->_sock() << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
@@ -174,7 +174,7 @@ FD_SET(itr->first, &server->read_fd);
 			//std::cout<<itr2->first<<std::endl; 
 			if (FD_ISSET(server->sd , &server->read_fd)) 
                         {//std::cout<<"test"; 
-				(server->_valresd()=(read(server->sd, server->buffer, 1024)); 
+				(server->_valread())=(read(server->sd, server->buffer, 1024)); 
 				if (server->_valread())
 				/*{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 

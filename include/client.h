@@ -36,7 +36,7 @@ class ClientPolicy{
 };
 
 typedef void (ClientPolicy::*funcC)(Client*);
-class Client: protected AbstractPeer{
+class Client: public AbstractPeer{
         public:
         Client(){}
         //Client(const char* addr);
@@ -63,14 +63,14 @@ class Client: protected AbstractPeer{
 	};
         ClientPolicy *clie;
 	//auto _sock()->int&  override{return sock;}
-	OVER(int, sock);
+	//OVER(int, sock);
+	//OVER(int, valread);
 	//int sock;///<Переменная для хранения сокета
         //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         //char buffer[MAXLINE]={0};///<Хранит сообщение
         //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
 
-#define sock _sock()
 
 /*
 class ClientPolicy{
@@ -91,7 +91,7 @@ class TCPClientPolicy:public ClientPolicy{
 public:        
 TCPClientPolicy(){};
 void createSocket(Client *client) override{
-	client->sock=(socket(AF_INET, SOCK_STREAM, 0));
+	client->_sock()=(socket(AF_INET, SOCK_STREAM, 0));
         if(client->_sock())
         std::cout <<"TCP " <<typeid(client).name() << " fd " << client->_sock() << std::endl;
         else
