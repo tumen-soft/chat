@@ -46,7 +46,7 @@ class AbsPar{
         std::vector<std::pair<int, char*>> nicknames;       
 };
 
-class AbstractPeer:public AbsPar{
+class AbstractPeer{
         public:
         AbstractPeer()=default;///<Конструктор без параметров  \param void
         virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void

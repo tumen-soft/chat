@@ -22,7 +22,7 @@
 class TCPClientPolicy;
 class ClientPolicy;
 class Client;
-class ClientPolicy{
+class ClientPolicy: public AbsPar{
         public:  
         ClientPolicy(){};
         virtual void createSocket(Client *client) = 0;
@@ -92,9 +92,9 @@ class TCPClientPolicy:public ClientPolicy{
 public:        
 TCPClientPolicy(){};
 void createSocket(Client *client) override{
-	client->sock=(socket(AF_INET, SOCK_STREAM, 0));
-        if(client->sock)
-        std::cout <<"TCP " <<typeid(client).name() << " fd " << client->sock << std::endl;
+	sock=(socket(AF_INET, SOCK_STREAM, 0));
+	if(sock)
+        std::cout <<"TCP " <<typeid(client).name() << " fd " << sock << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 

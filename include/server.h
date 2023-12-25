@@ -24,7 +24,7 @@
 class TCPServerPolicy;
 class ServerPolicy;
 class Server;
-class ServerPolicy{
+class ServerPolicy:public AbsPar{
         public:  
         ServerPolicy(){};
         virtual void createSocket(Server *server) = 0;
@@ -87,9 +87,9 @@ class TCPServerPolicy:public ServerPolicy{
 public:        
 TCPServerPolicy(){};
 void createSocket(Server *server) override{
-        server->sock=(socket(AF_INET, SOCK_STREAM, 0));
-        if(server->sock)
-        std::cout <<"TCP " <<typeid(server).name() << " fd " << server->sock << std::endl;
+        sock=(socket(AF_INET, SOCK_STREAM, 0));
+        if(sock)
+        std::cout <<"TCP " <<typeid(server).name() << " fd " << sock << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
@@ -100,9 +100,9 @@ void connectInit(Server *server) override{
 //        std::cout << "no ip addres specified" << std::endl;
 //std::cout<<__FUNCTION__<<std::endl;
 
-        server->addres.sin_family = AF_INET;
-        server->addres.sin_port = htons(PORT);
-        server->addres.sin_addr.s_addr = htonl(INADDR_ANY);
+        ///server->addres.sin_family = AF_INET;
+        ///server->addres.sin_port = htons(PORT);
+        ///server->addres.sin_addr.s_addr = htonl(INADDR_ANY);
 
         ///bind(server->sock, (struct sockaddr*)&server->addres, sizeof(server->addres));
         //waiting for connection
@@ -133,20 +133,20 @@ void connectInit(Server *server) override{
 
 void selinit(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
-	memset(server->buffer, 0, sizeof(server->buffer));
-        FD_ZERO(&server->read_fd);
+	/////memset(server->buffer, 0, sizeof(server->buffer));
+        /////FD_ZERO(&server->read_fd);
         //FD_SET(0, &server->read_fd);
-        ///FD_SET(server->sock, &server->read_fd);
+        //FD_SET(server->sock, &server->read_fd);
 
 	 Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
 }
         void sel(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
-server->nicknames.push_back({0,"me"});
+////server->nicknames.push_back({0,"me"});
 
-for (auto itr = server->nicknames.begin(); itr != server->nicknames.end(); ++itr)
-FD_SET(itr->first, &server->read_fd);
+///for (auto itr = server->nicknames.begin(); itr != server->nicknames.end(); ++itr)
+///FD_SET(itr->first, &server->read_fd);
                // select(300, &server->read_fd, NULL, NULL, NULL);
 
 };///<\param void  \return void
@@ -158,16 +158,19 @@ FD_SET(itr->first, &server->read_fd);
                         //char g[80]={"sos"};
                         //g="sos";
                         //read(peer->new_socket,g,1024);
-                        server->nicknames.push_back({server->new_socket,"test"});
-                        std::cout<< "New connection "<<server->new_socket<<std::endl;
+                        ////server->nicknames.push_back({server->new_socket,"test"});
+                        ////std::cout<< "New connection "<<server->new_socket<<std::endl;
                         //printf("New connection %s\n", server->new_socket);
-                        dprintf(server->new_socket,"welcome %d\n", server->new_socket);  
+                        ////dprintf(server->new_socket,"welcome %d\n", server->new_socket);  
         std::cout<<std::endl;
 };///<\param void  \return void
-        void sendmes(Server *server) override{
+
+
+
+void sendmes(Server *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
 
-
+/*
 	for (auto itr2 = server->nicknames.begin(); itr2 != server->nicknames.end(); ++itr2)
                 {//std::cout<<itr2->first; 
 			server->sd = itr2->first;
@@ -176,14 +179,14 @@ FD_SET(itr->first, &server->read_fd);
                         {//std::cout<<"test"; 
 				(server->valread)=(read(server->sd, server->buffer, 1024)); 
 				if (server->valread)
-				/*{ 
+				//{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
                                         close(peer->sd); 
 					peer->nicknames.erase(itr2); 
                                 	break;				
 				} 
                                 else
-					*/
+					//
 				{ 
 	  				server->buffer[server->valread] = '\0';
 					for (auto itr1 = server->nicknames.begin(); itr1 != server->nicknames.end(); ++itr1)
@@ -191,11 +194,11 @@ FD_SET(itr->first, &server->read_fd);
 					
                                  }  
                         } 
-             
+            
         	}
 
  Trace((stderr, __FUNCTION__));
-        std::cout<<std::endl;
+        std::cout<<std::endl;*/
 };///<\param void  \return void
 
 };

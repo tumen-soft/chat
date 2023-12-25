@@ -64,7 +64,7 @@ for(;;)
 
 		singleton->sel();
 
-		select(300, &singleton->read_fd, NULL, NULL, NULL);
+		///select(300, &singleton->read_fd, NULL, NULL, NULL);
 
 		///if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
 
