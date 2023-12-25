@@ -36,7 +36,7 @@ class ClientPolicy{
 };
 
 typedef void (ClientPolicy::*funcC)(Client*);
-class Client: public AbstractPeer{
+class Client: protected AbstractPeer{
         public:
         Client(){}
         //Client(const char* addr);
@@ -63,7 +63,7 @@ class Client: public AbstractPeer{
 	};
         ClientPolicy *clie;
 	//auto _sock()->int&  override{return sock;}
-	//OVER(int, sock);
+	OVER(int, sock);
 	//OVER(int, valread);
 	//int sock;///<Переменная для хранения сокета
         //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла

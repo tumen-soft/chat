@@ -71,7 +71,7 @@ class Server: public AbstractPeer{
         //private:
 	ServerPolicy *serv;
 	//        auto x()->int&  override{return sock;}	
-        //OVER(int, sock);
+        OVER(int, sock);
 	//OVER(int, valread);
 	///int getsock()override{return sock;};
         //void setsock(int x)override{sock=x;};   

@@ -21,8 +21,10 @@
 #  define Trace(x);
 #endif
 
-#define DEF(type, var) protected:  int __##var; public:  virtual auto _##var() -> int& {return __##var;}; 
-//#define OVER(type, var) public: auto _##var()->int&  override{return __##var;}
+#define DEF(type, var) public:  int __##var; public:  virtual auto _##var() -> int& =0;//{return __##var;}; 
+#define OVER(type, var) public: auto _##var()->int&  override{return __##var;}
+#define DEFpro(type, var) protected:  int __##var; public:  auto _##var() -> int& {return __##var;}; 
+
 
 ///\brief Абстрактный узел связи. 
 /**
@@ -58,8 +60,7 @@ class AbstractPeer{
 	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
-	protected:
-	DEF(int, valread)
+	DEFpro(int, valread)
 	//int valread;
 	public:
 	int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;
