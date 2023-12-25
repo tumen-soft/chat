@@ -33,7 +33,20 @@
 Содержит виртуальные функции создания сокета, соединения, основного цикла.
 */
 
-class AbstractPeer{
+class AbsPar{
+	public:
+        int sock;
+        struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
+        char buffer[MAXLINE]={0};///<Хранит сообщение
+        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
+        //DEFpro(int, valread)
+        int valread;
+        public:
+        int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;
+        std::vector<std::pair<int, char*>> nicknames;       
+};
+
+class AbstractPeer:public AbsPar{
         public:
         AbstractPeer()=default;///<Конструктор без параметров  \param void
         virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
@@ -56,7 +69,7 @@ class AbstractPeer{
 	//void virtual setsock(int x)=0;	
         //virtual auto x() -> int& =0;//{return sock;}
 	//int sock;///<Переменная для хранения сокета
-        DEF(int, sock)
+        /*DEF(int, sock)
 	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
@@ -64,7 +77,7 @@ class AbstractPeer{
 	//int valread;
 	public:
 	int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;
-        std::vector<std::pair<int, char*>> nicknames;       
+        std::vector<std::pair<int, char*>> nicknames;*/       
 
 };
 

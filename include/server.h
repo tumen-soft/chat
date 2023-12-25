@@ -71,7 +71,7 @@ class Server: public AbstractPeer{
         //private:
 	ServerPolicy *serv;
 	//        auto x()->int&  override{return sock;}	
-        OVER(int, sock);
+        //OVER(int, sock);
 	//OVER(int, valread);
 	///int getsock()override{return sock;};
         //void setsock(int x)override{sock=x;};   
@@ -87,9 +87,9 @@ class TCPServerPolicy:public ServerPolicy{
 public:        
 TCPServerPolicy(){};
 void createSocket(Server *server) override{
-        server->_sock()=(socket(AF_INET, SOCK_STREAM, 0));
-        if(server->_sock())
-        std::cout <<"TCP " <<typeid(server).name() << " fd " << server->_sock() << std::endl;
+        server->sock=(socket(AF_INET, SOCK_STREAM, 0));
+        if(server->sock)
+        std::cout <<"TCP " <<typeid(server).name() << " fd " << server->sock << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
@@ -174,8 +174,8 @@ FD_SET(itr->first, &server->read_fd);
 			//std::cout<<itr2->first<<std::endl; 
 			if (FD_ISSET(server->sd , &server->read_fd)) 
                         {//std::cout<<"test"; 
-				(server->_valread())=(read(server->sd, server->buffer, 1024)); 
-				if (server->_valread())
+				(server->valread)=(read(server->sd, server->buffer, 1024)); 
+				if (server->valread)
 				/*{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
                                         close(peer->sd); 
@@ -185,7 +185,7 @@ FD_SET(itr->first, &server->read_fd);
                                 else
 					*/
 				{ 
-	  				server->buffer[server->_valread()] = '\0';
+	  				server->buffer[server->valread] = '\0';
 					for (auto itr1 = server->nicknames.begin(); itr1 != server->nicknames.end(); ++itr1)
 					dprintf(itr1->first,"%s says: %s\n",itr2->second, server->buffer);
 					
