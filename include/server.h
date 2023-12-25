@@ -72,6 +72,7 @@ class Server: public AbstractPeer{
 	ServerPolicy *serv;
 	//        auto x()->int&  override{return sock;}	
         OVER(int, sock);
+	OVER(int, valerad);
 	///int getsock()override{return sock;};
         //void setsock(int x)override{sock=x;};   
 	//int sd,new_socket, client_socket[30], max_clients=30, activity, i, max_sd, valread;
@@ -173,8 +174,8 @@ FD_SET(itr->first, &server->read_fd);
 			//std::cout<<itr2->first<<std::endl; 
 			if (FD_ISSET(server->sd , &server->read_fd)) 
                         {//std::cout<<"test"; 
-				(server->set(read(server->sd, server->buffer, 1024))); 
-				if (server->get())
+				(server->_valresd()=(read(server->sd, server->buffer, 1024)); 
+				if (server->_valread())
 				/*{ 
                                         printf("Host disconnected %s \n" ,itr2->second); 
                                         close(peer->sd); 
@@ -184,7 +185,7 @@ FD_SET(itr->first, &server->read_fd);
                                 else
 					*/
 				{ 
-	  				server->buffer[server->get()] = '\0';
+	  				server->buffer[server->_valread()] = '\0';
 					for (auto itr1 = server->nicknames.begin(); itr1 != server->nicknames.end(); ++itr1)
 					dprintf(itr1->first,"%s says: %s\n",itr2->second, server->buffer);
 					
