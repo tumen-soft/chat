@@ -22,7 +22,7 @@
 class TCPClientPolicy;
 class ClientPolicy;
 class Client;
-class ClientPolicy: public AbsPar{
+class ClientPolicy: protected AbsPar{
         public:  
         ClientPolicy(){};
         virtual void createSocket(Client *client) = 0;
