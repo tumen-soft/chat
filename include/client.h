@@ -17,7 +17,7 @@
 #include <iostream>
 #include <cstring>
 #include <unistd.h>  //close(), fread()
-
+#define DEBUG
 
 class TCPClientPolicy;
 class ClientPolicy;
@@ -62,43 +62,22 @@ class Client: public AbstractPeer{
         foo(&ClientPolicy::sendmes);
 	};
         ClientPolicy *clie;
-	//AbsPar param;
-	//auto _sock()->int&  override{return sock;}
-	//OVER(int, sock);
-	//OVER(int, valread);
-	//int sock;///<Переменная для хранения сокета
-        //struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        //char buffer[MAXLINE]={0};///<Хранит сообщение
-        //fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
 };
 
 
-/*
-class ClientPolicy{
-        public:  
-        ClientPolicy(){};
-        virtual void createSocket(Client *client) = 0;
-        virtual void connectInit(const char* addr) = 0;
-        virtual void connectInit(Client *client) = 0;
-        virtual void selinit(Client *client) = 0;///<\param void  \return void
-        virtual void sel(Client *client)=0;///<\param void  \return void
-        virtual void conn(Client *client)=0;///<\param void  \return void
-        virtual void sendmes(Client *client)=0;///<\param void  \return void
-
-};
-*/
 class TCPClientPolicy:public ClientPolicy{
 
 public:        
 TCPClientPolicy(){};
 void createSocket(Client *client) override{
+	Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
 	sock=(socket(AF_INET, SOCK_STREAM, 0));
 	if(sock)
         std::cout <<"TCP " <<typeid(client).name() << " fd " << sock << std::endl;
         else
         std::cout << "creation socket error" << std::endl;
 
-//std::cout<<__FUNCTION__<<std::endl;
 
 }
 
@@ -109,27 +88,27 @@ void createSocket(Client *client) override{
         //connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 //}
 void connectInit(Client *client) override{
-//        std::cout << "no ip addres specified" << std::endl;
-//std::cout<<__FUNCTION__<<std::endl;
-
-	///client->addres.sin_family = AF_INET;
-        ///client->addres.sin_port = htons(PORT);
-        ///client->addres.sin_addr.s_addr = inet_addr("127.0.0.1");
-	///connect(client->sock, (struct sockaddr*)&client->addres, sizeof(client->addres));
+        Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
+	addres.sin_family = AF_INET;
+        addres.sin_port = htons(PORT);
+        addres.sin_addr.s_addr = inet_addr("127.0.0.1");
+	///connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 	//dprintf(0, "test");
 }
 
 void selinit(Client *client) override{
-//std::cout<<__FUNCTION__<<std::endl;
-        ///memset(client->buffer, 0, sizeof(client->buffer));
-        ///FD_ZERO(&client->read_fd);
-        ///FD_SET(0, &client->read_fd);
-        ///FD_SET(client->sock, &client->read_fd);
+        Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
+        memset(buffer, 0, sizeof(buffer));
+        FD_ZERO(&read_fd);
+        FD_SET(0, &read_fd);
+        FD_SET(sock, &read_fd);
 }
 
 void sel(Client *client) override{
-//std::cout<<__FUNCTION__<<std::endl;
-
+        Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
            //select(300, &client->read_fd, NULL, NULL, NULL);
 //        return this;
 }
@@ -137,14 +116,16 @@ void sel(Client *client) override{
 
 
 void conn(Client *client) override{
-//std::cout<<__FUNCTION__<<std::endl;
+        Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
 //	read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);
         //return this;
 }
 void sendmes(Client *client) override{
-//std::cout<<__FUNCTION__<<std::endl;
-        ///if(FD_ISSET(0, &client->read_fd)){read(0, client->buffer,sizeof(client->buffer));dprintf(client->sock, client->buffer);}  
-        ///if(FD_ISSET(client->sock, &client->read_fd)){read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);}
+        Trace((stderr, __FUNCTION__));
+        std::cout<<std::endl;
+        ///if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+        ///if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
  //       return this;
 }
 

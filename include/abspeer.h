@@ -21,10 +21,6 @@
 #  define Trace(x);
 #endif
 
-#define DEF(type, var) public:  int __##var; public:  virtual auto _##var() -> int& =0;//{return __##var;}; 
-#define OVER(type, var) public: auto _##var()->int&  override{return __##var;}
-#define DEFpro(type, var) protected:  int __##var; public:  auto _##var() -> int& {return __##var;}; 
-
 
 ///\brief Абстрактный узел связи. 
 /**
@@ -39,9 +35,9 @@ class AbsPar{
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
-        //DEFpro(int, valread)
-        int valread;
-        public:
+        auto _valread() -> int& {return valread;}; 
+	private:
+	int valread;
         int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;
         std::vector<std::pair<int, char*>> nicknames;       
 };
@@ -65,19 +61,6 @@ class AbstractPeer{
          */
 
         //Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
-       //int virtual getsock()=0;
-	//void virtual setsock(int x)=0;	
-        //virtual auto x() -> int& =0;//{return sock;}
-	//int sock;///<Переменная для хранения сокета
-        /*DEF(int, sock)
-	struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
-        char buffer[MAXLINE]={0};///<Хранит сообщение
-        fd_set read_fd={0};///<Массив дескрапторов для храненния сокета
-	DEFpro(int, valread)
-	//int valread;
-	public:
-	int new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;
-        std::vector<std::pair<int, char*>> nicknames;*/       
 
 };
 

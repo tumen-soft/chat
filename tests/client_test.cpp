@@ -1,8 +1,8 @@
 #include <arpa/inet.h>  
+#define DEBUG
 #include "client.h" 
 //#include "policy.h"
 #include <iostream>
-
 int main(int argc, char* argv[]){
 
 ClientPolicy *pol= new TCPClientPolicy();
