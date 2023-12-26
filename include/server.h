@@ -154,7 +154,7 @@ void selinit(Server *server) override{
 
 
 void sendmes(Server *server) override{
-//std::cout<<__FUNCTION__<<std::endl;
+std::cout<<_valread()<<std::endl;
 
 /*
 	for (auto itr2 = server->nicknames.begin(); itr2 != server->nicknames.end(); ++itr2)
