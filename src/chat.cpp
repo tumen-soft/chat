@@ -51,7 +51,7 @@ return new Server(new TCPServerPolicy());
 
 AbstractPeer *getPolicy(Client *c){
 
-return (AbstractPeer*)(new Client(new TCPClientPolicy()));
+return (new Client(new TCPClientPolicy()));
 
 }
 

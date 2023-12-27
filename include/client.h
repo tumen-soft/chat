@@ -32,7 +32,8 @@ class ClientPolicy: protected AbsPar{
         virtual void sel(Client *client)=0;///<\param void  \return void
         virtual void conn(Client *client)=0;///<\param void  \return void
         virtual void sendmes(Client *client)=0;///<\param void  \return void
-
+	private:
+	auto _valread()->int&{};
 };
 
 typedef void (ClientPolicy::*funcC)(Client*);
