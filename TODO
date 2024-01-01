@@ -5,6 +5,9 @@ make private protected AbsPar  FALSE
 
 ThreadPool    FALSE
 
+сделать функции на c а обертку на с++   FALSE
+
+
 Lifetime Constructor Destructor
 https://www.geeksforgeeks.org/tcp-and-udp-server-using-select/
 ipscan  return value from thread  stuff/future
