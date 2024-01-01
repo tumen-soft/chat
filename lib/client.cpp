@@ -59,16 +59,17 @@ void Client::foo(func f){ClientPolicy *CP=clie;(CP->*f)(this);};
 
 
 
-/*
 
-void createSocket(){
-	sock=socket(AF_INET, SOCK_STREAM, 0);
+
+int createSocket(){
+	int sock=socket(AF_INET, SOCK_STREAM, 0);
 	if(sock)
-	std::cout << typeid(this).name() << " fd " << sock << std::endl;
+	std::cout <<  " fd " << sock << std::endl;
 	else
 	std::cout << "creation socket error" << std::endl;
+	return sock;
 }
-
+/*
 void Client::connectInit(const char* addr){
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
