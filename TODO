@@ -1,3 +1,6 @@
+УДОВЛЕТВОРИТЬ ПОТРЕБНОСТЬ КЛИЕНТА В UDP СОКЕТАХ
+
+
 make private protected AbsPar
 
 -------------------------------------------------------------------------
@@ -94,16 +97,8 @@ X dymnam cast write
   make select 0 and functs() for cli end serv
   posle select sdelat` class for processing serv  messages  class message
   remove sd, sd2 from server
-  make f2run funct
-  f(run,cli,peer)    make dy=f(x)dx   logik
-  peer rename in funct
-  global variable  export  module
-  message to tamplate
 
-X remove Socket class
-  remove Singleton
   Questions:
   how to make ping to ipscan and remove double accept in server?
   how to kick client (supervisor)?
   make    module :private;   and submodules    global module    module;
-  make bugs work
