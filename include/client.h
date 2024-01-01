@@ -54,7 +54,7 @@ class Client: public AbstractPeer{
         Client(ClientPolicy *policy):clie((policy)){}
 	void foo(funcC);
 	void createSocket() override{
-	//foo(&ClientPolicy::createSocket);
+	clie->_createSocket();
         }; 
         //void connectInit(const char* addr) override{};
         void connectInit() override{
