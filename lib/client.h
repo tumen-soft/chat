@@ -19,34 +19,24 @@
 #include <unistd.h>  //close(), fread()
 #define DEBUG
 
-int createSocket(void);
-
-
-
-
-
-
-
-
-
 class TCPClientPolicy;
 class ClientPolicy;
 class Client;
 class ClientPolicy: protected AbsPar{
         public:  
         ClientPolicy(){};
-        virtual void _createSocket() = 0;
+        virtual void createSocket(Client *client) = 0;
         //virtual void connectInit(const char* addr) = 0;
-        virtual void connectInit() = 0;
-        virtual void selinit() = 0;///<\param void  \return void
-        virtual void sel()=0;///<\param void  \return void
-        virtual void conn()=0;///<\param void  \return void
-        virtual void sendmes()=0;///<\param void  \return void
+        virtual void connectInit(Client *client) = 0;
+        virtual void selinit(Client *client) = 0;///<\param void  \return void
+        virtual void sel(Client *client)=0;///<\param void  \return void
+        virtual void conn(Client *client)=0;///<\param void  \return void
+        virtual void sendmes(Client *client)=0;///<\param void  \return void
 	private:
 	auto _valread()->int&{};
 };
 
-typedef void (ClientPolicy::*funcC)();
+typedef void (ClientPolicy::*funcC)(Client*);
 class Client: public AbstractPeer{
         public:
         Client(){}
@@ -54,23 +44,23 @@ class Client: public AbstractPeer{
         Client(ClientPolicy *policy):clie((policy)){}
 	void foo(funcC);
 	void createSocket() override{
-	//foo(&ClientPolicy::createSocket);
+	foo(&ClientPolicy::createSocket);
         }; 
         //void connectInit(const char* addr) override{};
         void connectInit() override{
-        //foo(&ClientPolicy::connectInit);
+        foo(&ClientPolicy::connectInit);
 	};
         void selinit() override{
-	//foo(&ClientPolicy::selinit);
+	foo(&ClientPolicy::selinit);
 	}; 
         void sel() override{
-        //foo(&ClientPolicy::sel);
+        foo(&ClientPolicy::sel);
 	};
         void conn() override{
-        //foo(&ClientPolicy::conn);
+        foo(&ClientPolicy::conn);
 	};
         void sendmes() override{
-        //foo(&ClientPolicy::sendmes);
+        foo(&ClientPolicy::sendmes);
 	};
         ClientPolicy *clie;
 };
@@ -80,10 +70,16 @@ class TCPClientPolicy:public ClientPolicy{
 
 public:        
 TCPClientPolicy(){};
-void _createSocket() override{
+void createSocket(Client *client) override{
 	Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
-	sock=createSocket();
+	sock=(socket(AF_INET, SOCK_STREAM, 0));
+	if(sock)
+        std::cout <<"TCP " <<typeid(client).name() << " fd " << sock << std::endl;
+        else
+        std::cout << "creation socket error" << std::endl;
+
+
 }
 
 ///void connectInit(const char* addr) override{
@@ -92,7 +88,7 @@ void _createSocket() override{
         //addres.sin_addr.s_addr = inet_addr(addr);
         //connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 //}
-void connectInit() override{
+void connectInit(Client *client) override{
         Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
 	addres.sin_family = AF_INET;
@@ -102,7 +98,7 @@ void connectInit() override{
 	//dprintf(0, "test");
 }
 
-void selinit() override{
+void selinit(Client *client) override{
         Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
         memset(buffer, 0, sizeof(buffer));
@@ -111,7 +107,7 @@ void selinit() override{
         FD_SET(sock, &read_fd);
 }
 
-void sel() override{
+void sel(Client *client) override{
         Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
            //select(300, &client->read_fd, NULL, NULL, NULL);
@@ -120,13 +116,13 @@ void sel() override{
 
 
 
-void conn() override{
+void conn(Client *client) override{
         Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
 //	read(client->sock, client->buffer, sizeof(client->buffer));dprintf(0, client->buffer);
         //return this;
 }
-void sendmes() override{
+void sendmes(Client *client) override{
         Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
         ///if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  

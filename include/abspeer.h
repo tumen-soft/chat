@@ -31,7 +31,8 @@
 
 class AbsPar{
 	public:
-        int sock;
+        AbsPar(){};
+	int sock;
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
         fd_set read_fd={0};///<Массив дескрапторов для храненния сокета

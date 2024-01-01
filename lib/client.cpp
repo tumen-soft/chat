@@ -51,8 +51,8 @@ void TestClient::createSocket(Client const& client)const override
 
 //void Client::foo2(){clie->selinit(this);};
 
-typedef void (ClientPolicy::*func)(Client*);
-void Client::foo(func f){ClientPolicy *CP=clie;(CP->*f)(this);};
+typedef void (ClientPolicy::*func)();
+//void Client::foo(func f){ClientPolicy *CP=clie;(CP->*f)();};
 
 
 
