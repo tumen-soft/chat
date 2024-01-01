@@ -1,3 +1,5 @@
+СОСТАВИТЬ ПЛАН РАБОТ  FALSE
+
 УДОВЛЕТВОРИТЬ ПОТРЕБНОСТЬ КЛИЕНТА В UDP СОКЕТАХ   FALSE
 
 
@@ -6,6 +8,7 @@ make private protected AbsPar  FALSE
 ThreadPool    FALSE
 
 сделать функции на c а обертку на с++   FALSE
+
 
 
 Lifetime Constructor Destructor
