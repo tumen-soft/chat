@@ -1,8 +1,8 @@
 AUTOMAKE_OPTIONS=subdir-objects
 lib_LIBRARIES=libchat.a
 lib_LTLIBRARIES=libchat.la
-libchat_a_SOURCES=client.cpp server.cpp
-libchat_la_SOURCES=client.cpp server.cpp
+libchat_a_SOURCES=client.c server.cpp
+libchat_la_SOURCES=client.c server.cpp
 libchat_la_CFLAGS=-fPIC
 libchat_la_CPPFLAGS=-fPIC
 libchat_la_CXXFLAGS=-fPIC -I$(top_srcdir)/include -fpermissive

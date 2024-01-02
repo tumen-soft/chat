@@ -19,8 +19,11 @@
 #include <unistd.h>  //close(), fread()
 #define DEBUG
 
-int createSocket(void);
 
+
+extern "C"{
+int createSocket(void);
+}
 
 
 

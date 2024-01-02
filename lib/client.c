@@ -1,12 +1,12 @@
 #include <arpa/inet.h>  //inet_addr define
-#include <ext/stdio_filebuf.h>
+//#include <ext/stdio_filebuf.h>
 #include <stdio.h>  //printf()
 #include <unistd.h>  //close(), fread()
-#include <iostream>
-#include <typeinfo>
-#include <cstring>
+//#include <iostream>
+//#include <typeinfo>
+//#include <cstring>
 //#include "abspeer.h"
-#include "client.h"
+//#include "client.h"
 //#include "policy.h"
 
 #define MAXLINE 1024
@@ -51,7 +51,7 @@ void TestClient::createSocket(Client const& client)const override
 
 //void Client::foo2(){clie->selinit(this);};
 
-typedef void (ClientPolicy::*func)();
+//typedef void (ClientPolicy::*func)();
 //void Client::foo(func f){ClientPolicy *CP=clie;(CP->*f)();};
 
 
@@ -63,10 +63,10 @@ typedef void (ClientPolicy::*func)();
 
 int createSocket(){
 	int sock=socket(AF_INET, SOCK_STREAM, 0);
-	if(sock)
-	std::cout <<  " fd " << sock << std::endl;
-	else
-	std::cout << "creation socket error" << std::endl;
+	//if(sock)
+	//std::cout <<  " fd " << sock << std::endl;
+	//else
+	//std::cout << "creation socket error" << std::endl;
 	return sock;
 }
 /*
