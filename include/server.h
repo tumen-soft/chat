@@ -20,6 +20,10 @@
 #define MAXLINE 1024
 #define PORT 8080 
 
+extern "C"{
+int createSocket(void);
+}
+
 
 class TCPServerPolicy;
 class ServerPolicy;
@@ -27,7 +31,7 @@ class Server;
 class ServerPolicy:public AbsPar{
         public:  
         ServerPolicy(){};
-        virtual void createSocket(Server *server) = 0;
+        virtual void _createSocket() = 0;
         //virtual void connectInit(const char* addr) = 0;
         virtual void connectInit(Server *server) = 0;
         virtual void selinit(Server *server) = 0;///<\param void  \return void
@@ -46,8 +50,9 @@ class Server: public AbstractPeer{
 	void foo(func);
 	Server(ServerPolicy *policy):serv(policy){}
         void createSocket()override{
-        foo(&ServerPolicy::createSocket);
-        }; 
+        //foo(&ServerPolicy::createSocket);
+        serv->_createSocket();
+	}; 
         //void connectInit(const char* addr) override{
 	//foo(&Server::connectInit);
 	//};
@@ -72,15 +77,17 @@ class TCPServerPolicy:public ServerPolicy{
 
 public:        
 TCPServerPolicy(){};
-void createSocket(Server *server) override{
-        sock=(socket(AF_INET, SOCK_STREAM, 0));
-        if(sock)
-        std::cout <<"TCP " <<typeid(server).name() << " fd " << sock << std::endl;
-        else
-        std::cout << "creation socket error" << std::endl;
+void _createSocket() override{
+        //sock=(socket(AF_INET, SOCK_STREAM, 0));
+        //if(sock)
+        //std::cout <<"TCP " <<typeid(server).name() << " fd " << sock << std::endl;
+        //else
+        //std::cout << "creation socket error" << std::endl;
 
 	Trace((stderr, __FUNCTION__));
 	std::cout<<std::endl;
+	sock=createSocket();
+
 }
 void connectInit(Server *server) override{
 //        std::cout << "no ip addres specified" << std::endl;
