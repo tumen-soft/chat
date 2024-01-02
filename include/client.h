@@ -49,13 +49,11 @@ class ClientPolicy: protected AbsPar{
 	auto _valread()->int&{};
 };
 
-typedef void (ClientPolicy::*funcC)();
 class Client: public AbstractPeer{
         public:
         Client(){}
         //Client(const char* addr);
         Client(ClientPolicy *policy):clie((policy)){}
-	void foo(funcC);
 	void createSocket() override{
 	clie->_createSocket();
         }; 

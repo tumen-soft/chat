@@ -11,12 +11,12 @@
 
 #include <arpa/inet.h>  //inet_addr define
 #include <unistd.h>  //close(), fread()
-#include <cstring>
-#include <ext/stdio_filebuf.h>
-#include "server.h"
-#include <iostream>;
-#include <typeinfo>;
-#include <vector>
+//#include <cstring>
+//#include <ext/stdio_filebuf.h>
+//#include "server.h"
+//#include <iostream>;
+//#include <typeinfo>;
+//#include <vector>
 #define MAXLINE 1024
 #define PORT 8080 
 
@@ -58,9 +58,9 @@
 
 #endif
 
-Server::Server(){};
-typedef void (ServerPolicy::*func)(Server*);
-void Server::foo(func f){ServerPolicy *SP=serv;(SP->*f)(this);};
+//Server::Server(){};
+//typedef void (ServerPolicy::*func)(Server*);
+//void Server::foo(func f){ServerPolicy *SP=serv;(SP->*f)(this);};
 //void Server::foo1(){serv->connectInit();};
 
 

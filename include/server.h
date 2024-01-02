@@ -43,11 +43,11 @@ class ServerPolicy:public AbsPar{
 
 
 
-typedef void (ServerPolicy::*func)(Server*);
+//typedef void (ServerPolicy::*func)(Server*);
 class Server: public AbstractPeer{
 	public:
-	Server();
-	void foo(func);
+	Server(){};
+	//void foo(func);
 	Server(ServerPolicy *policy):serv(policy){}
         void createSocket()override{
         //foo(&ServerPolicy::createSocket);
@@ -57,19 +57,19 @@ class Server: public AbstractPeer{
 	//foo(&Server::connectInit);
 	//};
         void connectInit() override{
-        foo(&ServerPolicy::connectInit);
+        //foo(&ServerPolicy::connectInit);
         };
         void selinit() override{
-        foo(&ServerPolicy::selinit);
+        //foo(&ServerPolicy::selinit);
         }; 
         void sel() override{
-	foo(&ServerPolicy::sel);
+	//foo(&ServerPolicy::sel);
 	};
         void conn() override{
-	foo(&ServerPolicy::conn);
+	//foo(&ServerPolicy::conn);
 	}; 
         void sendmes() override{
-	foo(&ServerPolicy::sendmes);
+	//foo(&ServerPolicy::sendmes);
 	};
 	ServerPolicy *serv;
 };
