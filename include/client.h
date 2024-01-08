@@ -23,6 +23,8 @@
 
 extern "C"{
 int createSocket(void);
+struct sockaddr_in connectInit(const char* addr);
+
 }
 
 

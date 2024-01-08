@@ -69,14 +69,17 @@ int createSocket(){
 	//std::cout << "creation socket error" << std::endl;
 	return sock;
 }
-/*
-void Client::connectInit(const char* addr){
+
+struct sockaddr_in connectInit(const char* addr){
+	struct sockaddr_in addres;
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
         addres.sin_addr.s_addr = inet_addr(addr);
-        connect(sock, (struct sockaddr*)&addres, sizeof(addres));
+        return addres;
+	//connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 }
-void Client::connectInit(){
+/*
+void connectInit(){
 	std::cout << "no ip addres specified" << std::endl;
 }
 

@@ -3,8 +3,12 @@
 #include "client.h" 
 //#include "policy.h"
 #include <iostream>
-int main(int argc, char* argv[]){
 
+
+
+
+int main(int argc, char* argv[]){
+/*
 ClientPolicy *pol= new TCPClientPolicy();
 
 Client *cli_ = new Client(pol);
@@ -18,6 +22,15 @@ cli_->selinit();
 cli_->sel();///<\param void  \return void
 cli_->conn();///<\param void  \return void
 cli_->sendmes();///<\param void  \return void
+*/
+
+
+
+//low level funct
+std::cout<<createSocket()<<std::endl;
+struct sockaddr_in addr=connectInit("127.0.0.1");
+
+
 
 return 0;
 }
