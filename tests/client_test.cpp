@@ -8,6 +8,9 @@
 
 
 int main(int argc, char* argv[]){
+
+
+//high level funct
 /*
 ClientPolicy *pol= new TCPClientPolicy();
 
@@ -29,6 +32,11 @@ cli_->sendmes();///<\param void  \return void
 //low level funct
 std::cout<<createSocket()<<std::endl;
 struct sockaddr_in addr=connectInit("127.0.0.1");
+fd_set s=selinit(3);
+void sel();
+void conn();
+void sendmes();
+
 
 
 

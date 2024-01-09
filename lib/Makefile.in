@@ -334,7 +334,7 @@ libchat_a_SOURCES = client.c server.c
 #libchat_la_CFLAGS=-fPIC
 #libchat_la_CPPFLAGS=-fPIC
 #libchat_la_CXXFLAGS=-fPIC -I$(top_srcdir)/include -fpermissive
-libchat_a_CFLAGS = -fPIC -I$(top_srcdir)/include -fpermissive -static 
+libchat_a_CFLAGS = -fPIC -I$(top_srcdir)/include -static 
 all: all-am
 
 .SUFFIXES:
