@@ -30,9 +30,11 @@ cli_->sendmes();///<\param void  \return void
 
 
 //low level funct
-std::cout<<createSocket()<<std::endl;
-struct sockaddr_in addr=connectInit("127.0.0.1");
-fd_set s=selinit(3);
+int sock=createSocket();
+struct sockaddr_in addres=connectInit(argv[1]);
+//fd_set s=selinit(3);
+std::cout<< connect_(sock, addres)<<std::endl;
+fd_set s=selinit(sock);
 void sel();
 void conn();
 void sendmes();

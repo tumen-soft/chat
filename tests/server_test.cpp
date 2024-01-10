@@ -13,6 +13,12 @@ int main(void){
 	//ser_->sel();///<\param void  \return void
 	//ser_->conn();///<\param void  \return void
 	//ser_->sendmes();///<\param void  \return void
+	
+	int sock=createSocket();
+	connectInit_(sock); 
+	fd_set read_fd = selinit(sock);
+	sel_(read_fd);
+
 
 return 0;
 }

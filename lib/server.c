@@ -65,12 +65,13 @@
 
 
 
-#if 0
+/*
 void Server::createSocket(){
         sock=socket(AF_INET, SOCK_STREAM, 0);
         std::cout << typeid(this).name() << " fd " << sock << std::endl;
         
 }
+*/
 
 
 
@@ -78,9 +79,9 @@ void Server::createSocket(){
 
 
 
-
-void Server::connectInit(const char* addr) 
+void connectInit_(int sock) 
         {
+	struct sockaddr_in addres;
 	addres.sin_family = AF_INET;
         addres.sin_port = htons(PORT);
         addres.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -89,20 +90,20 @@ void Server::connectInit(const char* addr)
         //waiting for connection
         listen(sock, 300);
         //std::cout <<"test" <<std::endl;
-        nicknames.push_back({0,"test"});
-        return this;
+        //nicknames.push_back({0,"test"});
+        //return this;
 
 	}
 
 
 
-void Server::selinit() {
-
-                memset(buffer, 0, sizeof(buffer));
-                FD_ZERO(&read_fd);
-                FD_SET(0, &read_fd);
-                FD_SET(sock, &read_fd);
-
+fd_set selinit_(int sock) {
+	//memset(buffer, 0, sizeof(buffer));
+	fd_set read_fd;
+        FD_ZERO(&read_fd);
+        FD_SET(0, &read_fd);
+        FD_SET(sock, &read_fd);
+	return read_fd;
 }
 
 
@@ -111,15 +112,13 @@ void Server::selinit() {
 
 
 
-void Server::sel() {
-for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
-FD_SET(itr->first, &read_fd);
-//                select(300, &peer->read_fd, NULL, NULL, NULL);
-
-return this;
+void sel_(fd_set read_fd) {
+//for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
+//FD_SET(itr->first, &read_fd);
+return select(300, &read_fd, NULL, NULL, NULL);
 }
 
-
+#if 0
 
 
 void Server::conn() {

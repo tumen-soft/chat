@@ -14,14 +14,17 @@
 #include <cstring>
 #include <ext/stdio_filebuf.h>
 #include "abspeer.h"
-#include <iostream>;
-#include <typeinfo>;
+#include <iostream>
+#include <typeinfo>
 #include <vector>
 #define MAXLINE 1024
 #define PORT 8080 
 
 extern "C"{
 int createSocket(void);
+void connectInit_(int sock);
+fd_set selinit(int sock);
+void sel_(fd_set read_fd);
 }
 
 

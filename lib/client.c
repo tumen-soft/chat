@@ -79,9 +79,10 @@ struct sockaddr_in connectInit(const char* addr){
 	//connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 }
 
-//void connectInit(){
-//	std::cout << "no ip addres specified" << std::endl;
-//}
+int connect_(int sock, struct sockaddr_in addres){
+return connect(sock, (struct sockaddr*)&addres, sizeof(addres));	
+//std::cout << "no ip addres specified" << std::endl;
+}
 
 fd_set selinit(int sock){
 	//memset(buffer, 0, sizeof(buffer));

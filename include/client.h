@@ -25,6 +25,7 @@ extern "C"{
 int createSocket(void);
 struct sockaddr_in connectInit(const char* addr);
 fd_set selinit(int sock);
+int connect_(int sock, struct sockaddr_in addres);
 void sel();
 void conn();
 void sendmes();
