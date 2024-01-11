@@ -25,6 +25,7 @@ int createSocket(void);
 void connectInit_(int sock);
 fd_set selinit(int sock);
 void sel_(fd_set read_fd);
+void conn_(int sock);
 }
 
 

@@ -115,27 +115,27 @@ fd_set selinit_(int sock) {
 void sel_(fd_set read_fd) {
 //for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
 //FD_SET(itr->first, &read_fd);
-return select(300, &read_fd, NULL, NULL, NULL);
+select(300, &read_fd, NULL, NULL, NULL);
 }
 
-#if 0
 
 
-void Server::conn() {
+
+void conn_(int sock) {
                         //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
-                        new_socket = accept(sock,NULL,NULL);
+                        int new_socket = accept(sock,NULL,NULL);
                         //char g[80]={"sos"};
                         //g="sos";
                         //read(peer->new_socket,g,1024);
-                        nicknames.push_back({new_socket,"test"});
-                        std::cout<< "New connection "<<new_socket<<std::endl;
+                        ///nicknames.push_back({new_socket,"test"});
+                        ///printf("New connection %s",new_socket);
                         //printf("New connection %s\n", peer->new_socket);
                         dprintf(new_socket,"welcome %d\n", new_socket);  
 
-return this;
+//return this;
 }
-
+#if 0
 
 
 

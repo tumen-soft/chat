@@ -17,8 +17,9 @@ int main(void){
 	int sock=createSocket();
 	connectInit_(sock); 
 	fd_set read_fd = selinit(sock);
+	//перенести селект суда
 	sel_(read_fd);
-
+	conn_(sock);
 
 return 0;
 }
