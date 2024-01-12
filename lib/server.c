@@ -129,7 +129,7 @@ void conn_(int sock) {
                         //g="sos";
                         //read(peer->new_socket,g,1024);
                         ///nicknames.push_back({new_socket,"test"});
-                        ///printf("New connection %s",new_socket);
+                        printf("New connection %i\n",new_socket);
                         //printf("New connection %s\n", peer->new_socket);
                         dprintf(new_socket,"welcome %d\n", new_socket);  
 

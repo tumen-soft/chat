@@ -93,9 +93,10 @@ fd_set selinit(int sock){
 	return read_fd;
 }
 
-void sel(fd_set read_fd){
+fd_set sel(fd_set read_fd){
 	select(300, &read_fd, NULL, NULL, NULL);
 	//return this;
+	return read_fd;
 }
 
 
@@ -106,9 +107,10 @@ void conn(int sock){
 	printf("%s\n",buffer);
 	//return this;
 }
-void sendmes(){
-	//if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
-	//if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
+void sendmes(fd_set read_fd, int sock){
+        char buffer[1024]={0};
+	if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
+	if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
 }
 
 
