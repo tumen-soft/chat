@@ -1,62 +1,17 @@
 #include <arpa/inet.h>  //inet_addr define
-//#include <ext/stdio_filebuf.h>
 #include <stdio.h>  //printf()
 #include <unistd.h>  //close(), fread()
-//#include <iostream>
-//#include <typeinfo>
-//#include <cstring>
-//#include "abspeer.h"
-//#include "client.h"
-//#include "policy.h"
-//#include <unistd.h>  //close(), fread()
-//#include <string.h>
 #define MAXLINE 1024
 #define PORT 8080 
 /**
- *\file client.cpp
+ *\file client.c
  *\author Денис Вергун
- *\brief  Файл содержит описание конкретного клиента
+ *\brief  низкоуровневые функции для класса клиента
  *\version
  *\date 20-07-2023
  *
  *
  */
-
-
-
-
-/*
-void TestClient::createSocket(Client const& client)const override
-{
-
-        client.sock=socket(AF_INET, SOCK_STREAM, 0);
-        if(client.sock)
-        std::cout << typeid(client).name() << " fd " << client.sock << std::endl;
-        else
-        std::cout << "creation socket error" << std::endl;
-
-
-
-
-
-}
-
-*/
-
-
-//void Client::foo(){clie->createSocket(this);};
-//Client::Client(const char* addr){}
-
-//void Client::foo1(){/*clie->connectInit()*/;};
-
-//void Client::foo2(){clie->selinit(this);};
-
-//typedef void (ClientPolicy::*func)();
-//void Client::foo(func f){ClientPolicy *CP=clie;(CP->*f)();};
-
-
-
-
 
 
 

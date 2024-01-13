@@ -1,5 +1,5 @@
 /**
- *\file message.h
+ *\file server.h
  *\author Вергун Денис 
  *\brief  Вводит определение класса сервера.
  *\version
@@ -25,8 +25,8 @@ int createSocket(void);
 void connectInit_(int sock);
 fd_set selinit(int sock);
 fd_set sel_(fd_set read_fd);
-void conn_(int sock);
-//void sendmes(fd_set read_fd, int sock);
+int conn_(int sock);
+void sendmes_();
 }
 
 

@@ -1,82 +1,17 @@
 /**
- *\file message.h
+ *\file server.c 
  *\author Вергун Денис 
- *\brief  Вводит определение класса сервера.
+ *\brief  низкоуровневые функции для  класса сервера.
  *\version
  *\date 30-06-2023
  *
  *
  */
 
-
-#include <arpa/inet.h>  //inet_addr define
+#include <arpa/inet.h>  //inet_addr 
 #include <unistd.h>  //close(), fread()
-//#include <cstring>
-//#include <ext/stdio_filebuf.h>
-//#include "server.h"
-//#include <iostream>;
-//#include <typeinfo>;
-//#include <vector>
 #define MAXLINE 1024
 #define PORT 8080 
-
-
-#if 0	
-		<сервер>									
-		  |
-	инициализация соединения функции bind(), listen()
-		  |
-		цикл (бесконечный)
-	     	  |
-     ________\	 \|/ 
-    |	     / установка сокетов для прослушивания. /______________________________________|
-    |		поток вывода, свой и клиентские     \                                      |
-    |		  |                                                                        |
-    |		 \|/                                                                       |
-    |	<select() возврыщает массив дескрипторов     режим ожидания>  		           |
-    |	  |	при записи вних		   	   	|                                  |
-    |	  |				    		|                                  |
-    |	 \|/			                       \|/                                 |
-    |	если select возвращает 	     			|				   |	
-    |	сокет сервера:  				|                                  |
-    |	accept() нового соединения			|                                  |
-    |		|		       		       \|/                                 |
-    |		|		если select() возвращает дескрипторы  read() из них        |
-    |___________|			|			|                          |
-					|			|                          |
-				       \|/	      	       \|/                         |
-				сообшение отсутствует: 	 сообшение присутствует:           |
-				send Host Disconnect	 send message to                   |
-				erase from socket	 other sockets                     |
-				from sockets massive		|			   |
-					|_______________________|__________________________|
-
-
-(stdin (поток ввода) на дескрипторе 0) 
-
-
-
-#endif
-
-//Server::Server(){};
-//typedef void (ServerPolicy::*func)(Server*);
-//void Server::foo(func f){ServerPolicy *SP=serv;(SP->*f)(this);};
-//void Server::foo1(){serv->connectInit();};
-
-
-
-/*
-void Server::createSocket(){
-        sock=socket(AF_INET, SOCK_STREAM, 0);
-        std::cout << typeid(this).name() << " fd " << sock << std::endl;
-        
-}
-*/
-
-
-
-
-
 
 
 void connectInit_(int sock) 
@@ -121,7 +56,7 @@ select(300, &read_fd, NULL, NULL, NULL);
 
 
 
-void conn_(int sock) {
+int conn_(int sock) {
                         //peer->new_socket = accept(peer->sock,NULL,NULL);
                         //accepting connection
                         int new_socket = accept(sock,NULL,NULL);
@@ -133,21 +68,12 @@ void conn_(int sock) {
                         //printf("New connection %s\n", peer->new_socket);
                         dprintf(new_socket,"welcome %d\n", new_socket);  
 
-//return this;
+		return new_socket;
 }
+
+
+void sendmes_(){
 #if 0
-
-
-
-
-
-
-
-
-
-
-void Server::sendmes(){
-//#if 0
 	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 { 
 			sd = itr2->first; 
@@ -171,7 +97,6 @@ void Server::sendmes(){
                         } 
              
         	}
-return this;
-}
 #endif
-
+}
+//с и с++  (один с)  разница между с и с++
