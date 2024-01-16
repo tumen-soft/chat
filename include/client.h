@@ -57,7 +57,7 @@ class ClientPolicy: protected AbsPar{
 	auto _valread()->int&{};
 };
 
-class Client: public AbstractPeer{
+class Client: public Chat{
         public:
         Client(){}
         //Client(const char* addr);

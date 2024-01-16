@@ -49,7 +49,7 @@ class ServerPolicy:public AbsPar{
 
 
 //typedef void (ServerPolicy::*func)(Server*);
-class Server: public AbstractPeer{
+class Server: public Chat{
 	public:
 	Server(){};
 	//void foo(func);

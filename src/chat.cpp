@@ -41,7 +41,7 @@ int check1();
 
 class Switch{
 public:
-AbstractPeer *getPolicy(Server *s){
+Chat *getPolicy(Server *s){
 
 return new Server(new TCPServerPolicy());
 
@@ -49,26 +49,26 @@ return new Server(new TCPServerPolicy());
 
 
 
-AbstractPeer *getPolicy(Client *c){
+Chat *getPolicy(Client *c){
 
 return (new Client(new TCPClientPolicy()));
 
 }
 
-void run(AbstractPeer *singleton){
-singleton->createSocket();
-singleton->connectInit();
+void run(Chat *chat){
+chat->createSocket();
+chat->connectInit();
 for(;;)
 {
-		singleton->selinit();
+		chat->selinit();
 
-		singleton->sel();
+		chat->sel();
 
 		///select(300, &singleton->read_fd, NULL, NULL, NULL);
 
 		///if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
 
-		singleton->sendmes();
+		chat->sendmes();
 
 //for(;;)
 }
@@ -82,7 +82,7 @@ enum choice {
 };
 //std::ostream& os = std::cout;
 
-AbstractPeer *getPolicy(){
+Chat *getPolicy(){
 
 return new Server(new TCPServerPolicy());
 
@@ -90,7 +90,7 @@ return new Server(new TCPServerPolicy());
 
 
 
-AbstractPeer *getPolicy1(){
+Chat *getPolicy1(){
 
 //return new Client(new TCPClientPolicy());
 
@@ -106,7 +106,7 @@ int c,p;
 std::cin>>c;
 //c=1;
 ch=(choice)c;
-AbstractPeer *peer;
+Chat *peer;
 Switch *sw= new Switch();
 switch(ch){
 
