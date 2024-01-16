@@ -41,7 +41,7 @@ return connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 
 fd_set selinit(int sock){
 	//memset(buffer, 0, sizeof(buffer));
-	fd_set read_fd;	
+	fd_set read_fd={0};	
 	FD_ZERO(&read_fd);
 	FD_SET(0, &read_fd);
 	FD_SET(sock, &read_fd);
@@ -64,6 +64,7 @@ void conn(int sock){
 }
 void sendmes(fd_set read_fd, int sock){
         char buffer[1024]={0};
+	//printf("trst1111");
 	if(FD_ISSET(0, &read_fd)){read(0, buffer,sizeof(buffer));dprintf(sock, buffer);}  
 	if(FD_ISSET(sock, &read_fd)){read(sock, buffer, sizeof(buffer));dprintf(0, buffer);}
 }

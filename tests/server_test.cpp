@@ -20,11 +20,42 @@ int main(void){
 	for(;;){
 	fd_set read_fd = selinit(sock);
 	//перенести селект суда
-	for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
-	FD_SET(itr->first, &read_fd);
-	read_fd=sel_(read_fd);
+        for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
+        FD_SET(itr->first, &read_fd);
+        select(300, &read_fd, NULL, NULL, NULL);	
+
+        if (FD_ISSET(sock , &read_fd)) {    
 	int new_socket= conn_(sock);
-	nicknames.push_back({new_socket,"test"});
+	nicknames.push_back({new_socket,"test"});}
+	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
+                {
+			std::cout<<itr2->first<<std::endl; 
+                        
+			int sd = itr2->first;
+		        char buffer[MAXLINE]={0};///<Хранит сообщение 
+                        if (FD_ISSET(sd , &read_fd)) 	
+				{
+				int valread; 
+                                if ((valread = read(sd, buffer, 1024))) 
+                               /*{ 
+                                        printf("Host disconnected %s \n" ,itr2->second); 
+                                        close(peer->sd); 
+                                        peer->nicknames.erase(itr2); 
+                                        break;                          
+                                } 
+                                else
+                                  */      
+                                { 
+                                        buffer[valread] = '\0';
+                                        for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
+                                        dprintf(itr1->first,"%s says: %s\n",itr2->second, buffer);
+                                        
+                                 }  
+                        } 
+            			 
+                }
+
+
 	}
 return 0;
 }

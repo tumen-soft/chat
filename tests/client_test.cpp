@@ -34,12 +34,15 @@ int sock=createSocket();
 struct sockaddr_in addres=connectInit(argv[1]);
 //fd_set s=selinit(3);
 std::cout<< connect_(sock, addres)<<std::endl;
+conn(sock);
+for(;;){
 fd_set read_fd=selinit(sock);
-read_fd=sel(read_fd);
+fd_set read_fd1=sel(read_fd);
+
 //conn(sock);
 //std::cout<<"test"<<std::endl;
-sendmes(read_fd, sock);
-
+sendmes(read_fd1, sock);
+}
 
 return 0;
 }

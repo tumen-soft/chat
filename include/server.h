@@ -24,7 +24,7 @@ extern "C"{
 int createSocket(void);
 void connectInit_(int sock);
 fd_set selinit(int sock);
-fd_set sel_(fd_set read_fd);
+fd_set sel(fd_set read_fd);
 int conn_(int sock);
 void sendmes_();
 }
