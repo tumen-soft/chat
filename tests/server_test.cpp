@@ -16,35 +16,35 @@ int main(void){
         std::vector<std::pair<int, char*>> nicknames;       	
 	int sock=createSocket();
 	connectInit_(sock); 
-	nicknames.push_back({0,"test"});
+	nicknames.push_back({0,"server"});
 	for(;;){
 	fd_set read_fd = selinit(sock);
 	//перенести селект суда
         for (auto itr = nicknames.begin(); itr != nicknames.end(); ++itr)
         FD_SET(itr->first, &read_fd);
-        select(300, &read_fd, NULL, NULL, NULL);	
-
+        //select(300, &read_fd, NULL, NULL, NULL);	
+	read_fd=sel(read_fd);
         if (FD_ISSET(sock , &read_fd)) {    
 	int new_socket= conn_(sock);
-	nicknames.push_back({new_socket,"test"});}
+	nicknames.push_back({new_socket,"client"});}
 	for (auto itr2 = nicknames.begin(); itr2 != nicknames.end(); ++itr2)
                 {
-			std::cout<<itr2->first<<std::endl; 
+			//std::cout<<itr2->first<<std::endl; 
                         
 			int sd = itr2->first;
 		        char buffer[MAXLINE]={0};///<Хранит сообщение 
                         if (FD_ISSET(sd , &read_fd)) 	
 				{
 				int valread; 
-                                if ((valread = read(sd, buffer, 1024))) 
-                               /*{ 
+                                if (!(valread = read(sd, buffer, 1024))) 
+                               { 
                                         printf("Host disconnected %s \n" ,itr2->second); 
-                                        close(peer->sd); 
-                                        peer->nicknames.erase(itr2); 
+                                        close(sd); 
+                                        nicknames.erase(itr2); 
                                         break;                          
                                 } 
                                 else
-                                  */      
+                                       
                                 { 
                                         buffer[valread] = '\0';
                                         for (auto itr1 = nicknames.begin(); itr1 != nicknames.end(); ++itr1)
