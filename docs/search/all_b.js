@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['out_0',['out',['../ipscan_8h.html#a24faa53684ca537338343bd24be3b704',1,'ipscan.h']]]
+  ['next_0',['next',['../structnode.html#aa3e8aa83f864292b5a01210f4453fcc0',1,'node']]],
+  ['node_1',['node',['../structnode.html',1,'']]],
+  ['node_5ft_2',['node_t',['../ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9',1,'ipscan.h']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['arg_0',['arg',['../structarg.html',1,'']]]
+  ['abspar_0',['AbsPar',['../classAbsPar.html',1,'']]]
 ];

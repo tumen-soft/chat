@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['port_0',['PORT',['../client_8h.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT:&#160;client.h'],['../ipscan_8h.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT:&#160;ipscan.h'],['../message_8h.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT:&#160;message.h'],['../server_8h.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT:&#160;server.h']]]
+  ['maxcli_0',['MAXCLI',['../ipscan_8h.html#ae139b823aa6048353fa6261aaec4514b',1,'ipscan.h']]],
+  ['maxline_1',['MAXLINE',['../chat_8cpp.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;chat.cpp'],['../abspeer_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;abspeer.h'],['../client_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;client.h'],['../ipscan_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;ipscan.h'],['../server_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;server.h']]]
 ];

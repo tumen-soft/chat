@@ -3,12 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Chat: Файл include/client.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.7 -->
+<!-- Создано системой Doxygen 1.10.0 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -41,7 +43,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
   initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
@@ -75,79 +77,87 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Классы</a> &#124;
-<a href="#define-members">Макросы</a>  </div>
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
   <div class="headertitle"><div class="title">Файл client.h</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Файл содержит описание конкретного клиента  
+<p>Файл содержит описание класса клиента  
 <a href="#details">Подробнее...</a></p>
-<div class="textblock"><code>#include &lt;arpa/inet.h&gt;</code><br />
-<code>#include &lt;ext/stdio_filebuf.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;typeinfo&gt;</code><br />
-<code>#include &lt;cstring&gt;</code><br />
+<div class="textblock"><code>#include &lt;memory&gt;</code><br />
 <code>#include &quot;<a class="el" href="abspeer_8h_source.html">abspeer.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Граф включаемых заголовочных файлов для client.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="client_8h__incl.png" border="0" usemap="#ainclude_2client_8h" alt=""/></div>
-<map name="ainclude_2client_8h" id="ainclude_2client_8h">
-<area shape="rect" title="Файл содержит описание конкретного клиента" alt="" coords="284,5,393,31"/>
-<area shape="rect" title=" " alt="" coords="284,152,367,177"/>
-<area shape="poly" title=" " alt="" coords="284,24,211,29,129,39,57,55,30,67,13,80,8,91,13,102,29,115,54,126,123,143,200,153,271,158,270,164,200,158,122,148,53,131,26,120,9,106,3,91,9,77,27,62,55,50,128,33,210,23,284,18"/>
-<area shape="rect" title=" " alt="" coords="23,79,148,104"/>
-<area shape="poly" title=" " alt="" coords="299,33,141,77,139,72,297,28"/>
-<area shape="rect" title=" " alt="" coords="172,79,233,104"/>
-<area shape="poly" title=" " alt="" coords="318,33,238,75,236,70,316,28"/>
-<area shape="rect" title=" " alt="" coords="258,79,326,104"/>
-<area shape="poly" title=" " alt="" coords="333,32,309,69,305,66,329,30"/>
-<area shape="rect" title=" " alt="" coords="351,79,423,104"/>
-<area shape="poly" title=" " alt="" coords="349,30,374,66,369,69,344,33"/>
-<area shape="rect" title=" " alt="" coords="447,79,515,104"/>
-<area shape="poly" title=" " alt="" coords="363,28,447,70,445,75,360,33"/>
-<area shape="rect" title=" " alt="" coords="540,79,601,104"/>
-<area shape="poly" title=" " alt="" coords="377,28,527,74,526,79,375,33"/>
-<area shape="rect" href="abspeer_8h.html" title="Файл содержит описание наследуемого абстрактного класса" alt="" coords="626,79,705,104"/>
-<area shape="poly" title=" " alt="" coords="392,28,613,76,612,81,391,33"/>
-<area shape="poly" title=" " alt="" coords="626,104,614,107,381,155,380,150,613,101,625,99"/>
-</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Граф файлов, в которые включается этот файл:</div>
 <div class="dyncontent">
 <div class="center"><img src="client_8h__dep__incl.png" border="0" usemap="#ainclude_2client_8hdep" alt=""/></div>
-<map name="ainclude_2client_8hdep" id="ainclude_2client_8hdep">
-<area shape="rect" title="Файл содержит описание конкретного клиента" alt="" coords="16,5,125,31"/>
-<area shape="rect" href="message_8h.html" title=" " alt="" coords="5,79,136,104"/>
-<area shape="poly" title=" " alt="" coords="73,44,73,79,68,79,68,44"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="22,152,119,177"/>
-<area shape="poly" title=" " alt="" coords="73,118,73,152,68,152,68,118"/>
-</map>
 </div>
 </div>
 <p><a href="client_8h_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClientPolicy.html">ClientPolicy</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html">Client</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTCPClientPolicy.html">TCPClientPolicy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Макросы</h2></td></tr>
-<tr class="memitem:a3e937c42922f7601edb17b747602c471"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8h.html#a3e937c42922f7601edb17b747602c471">MAXLINE</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memitem:a3e937c42922f7601edb17b747602c471" id="r_a3e937c42922f7601edb17b747602c471"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e937c42922f7601edb17b747602c471">MAXLINE</a>&#160;&#160;&#160;1024</td></tr>
 <tr class="separator:a3e937c42922f7601edb17b747602c471"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a614217d263be1fb1a5f76e2ff7be19a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8h.html#a614217d263be1fb1a5f76e2ff7be19a2">PORT</a>&#160;&#160;&#160;8080</td></tr>
+<tr class="memitem:a614217d263be1fb1a5f76e2ff7be19a2" id="r_a614217d263be1fb1a5f76e2ff7be19a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a614217d263be1fb1a5f76e2ff7be19a2">PORT</a>&#160;&#160;&#160;8080</td></tr>
 <tr class="separator:a614217d263be1fb1a5f76e2ff7be19a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83" id="r_ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a106ae4f576ef35e9c4f017859906288e" id="r_a106ae4f576ef35e9c4f017859906288e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106ae4f576ef35e9c4f017859906288e">createSocket</a> (void)</td></tr>
+<tr class="separator:a106ae4f576ef35e9c4f017859906288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97b1fe10b59888b19e94771881fcd763" id="r_a97b1fe10b59888b19e94771881fcd763"><td class="memItemLeft" align="right" valign="top">struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97b1fe10b59888b19e94771881fcd763">connectInit</a> (const char *<a class="el" href="ipscan_8h.html#afdf3b1ca80400cc6bd5bfe2bb1cb7e65">addr</a>)</td></tr>
+<tr class="separator:a97b1fe10b59888b19e94771881fcd763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9836371aab24276148e7be170c6adcdc" id="r_a9836371aab24276148e7be170c6adcdc"><td class="memItemLeft" align="right" valign="top">fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9836371aab24276148e7be170c6adcdc">selinit</a> (int sock)</td></tr>
+<tr class="separator:a9836371aab24276148e7be170c6adcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8b77f2a328910cf9789beaae8ce5e46" id="r_ad8b77f2a328910cf9789beaae8ce5e46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8b77f2a328910cf9789beaae8ce5e46">connect_</a> (int sock, struct sockaddr_in addres)</td></tr>
+<tr class="separator:ad8b77f2a328910cf9789beaae8ce5e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b636e5376908cbc068036ce959feb9" id="r_ab2b636e5376908cbc068036ce959feb9"><td class="memItemLeft" align="right" valign="top">fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2b636e5376908cbc068036ce959feb9">sel</a> (fd_set read_fd)</td></tr>
+<tr class="separator:ab2b636e5376908cbc068036ce959feb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ef3634df0e23e0c8dc82939a23ea19" id="r_a76ef3634df0e23e0c8dc82939a23ea19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76ef3634df0e23e0c8dc82939a23ea19">conn</a> (int sock)</td></tr>
+<tr class="separator:a76ef3634df0e23e0c8dc82939a23ea19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583032090f674976b6bfbe8b8e652ebb" id="r_a583032090f674976b6bfbe8b8e652ebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a583032090f674976b6bfbe8b8e652ebb">sendmes</a> (fd_set read_fd, int sock)</td></tr>
+<tr class="separator:a583032090f674976b6bfbe8b8e652ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><p>Файл содержит описание конкретного клиента </p>
+<div class="textblock"><p>Файл содержит описание класса клиента </p>
 <dl class="section author"><dt>Автор</dt><dd>Денис Вергун </dd></dl>
 <dl class="section version"><dt>Версия</dt><dd></dd></dl>
 <dl class="section date"><dt>Дата</dt><dd>20-07-2023 </dd></dl>
 </div><h2 class="groupheader">Макросы</h2>
+<a id="ad72dbcf6d0153db1b8d8a58001feed83" name="ad72dbcf6d0153db1b8d8a58001feed83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72dbcf6d0153db1b8d8a58001feed83">&#9670;&#160;</a></span>DEBUG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3e937c42922f7601edb17b747602c471" name="a3e937c42922f7601edb17b747602c471"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e937c42922f7601edb17b747602c471">&#9670;&#160;</a></span>MAXLINE</h2>
 
@@ -176,10 +186,143 @@ $(function() {
 
 </div>
 </div>
+<h2 class="groupheader">Функции</h2>
+<a id="a76ef3634df0e23e0c8dc82939a23ea19" name="a76ef3634df0e23e0c8dc82939a23ea19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ef3634df0e23e0c8dc82939a23ea19">&#9670;&#160;</a></span>conn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void conn </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sock</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8b77f2a328910cf9789beaae8ce5e46" name="ad8b77f2a328910cf9789beaae8ce5e46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8b77f2a328910cf9789beaae8ce5e46">&#9670;&#160;</a></span>connect_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int connect_ </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sock</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct sockaddr_in</td>          <td class="paramname"><span class="paramname"><em>addres</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97b1fe10b59888b19e94771881fcd763" name="a97b1fe10b59888b19e94771881fcd763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97b1fe10b59888b19e94771881fcd763">&#9670;&#160;</a></span>connectInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_in connectInit </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>addr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a106ae4f576ef35e9c4f017859906288e" name="a106ae4f576ef35e9c4f017859906288e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a106ae4f576ef35e9c4f017859906288e">&#9670;&#160;</a></span>createSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int createSocket </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="client_8h_a106ae4f576ef35e9c4f017859906288e_icgraph.png" border="0" usemap="#aclient_8h_a106ae4f576ef35e9c4f017859906288e_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ab2b636e5376908cbc068036ce959feb9" name="ab2b636e5376908cbc068036ce959feb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b636e5376908cbc068036ce959feb9">&#9670;&#160;</a></span>sel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">fd_set sel </td>
+          <td>(</td>
+          <td class="paramtype">fd_set</td>          <td class="paramname"><span class="paramname"><em>read_fd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9836371aab24276148e7be170c6adcdc" name="a9836371aab24276148e7be170c6adcdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9836371aab24276148e7be170c6adcdc">&#9670;&#160;</a></span>selinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">fd_set selinit </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sock</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a583032090f674976b6bfbe8b8e652ebb" name="a583032090f674976b6bfbe8b8e652ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a583032090f674976b6bfbe8b8e652ebb">&#9670;&#160;</a></span>sendmes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sendmes </td>
+          <td>(</td>
+          <td class="paramtype">fd_set</td>          <td class="paramname"><span class="paramname"><em>read_fd</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sock</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

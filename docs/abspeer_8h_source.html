@@ -3,12 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Chat: Исходный файл include/abspeer.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.7 -->
+<!-- Создано системой Doxygen 1.10.0 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -41,11 +43,16 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
   initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,45 +90,69 @@ $(function() {
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//#include &lt;stdio.h&gt;  //printf()</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//#include &lt;unistd.h&gt;  //close(), fread()</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="abspeer_8h.html#a3e937c42922f7601edb17b747602c471">    7</a></span><span class="preprocessor">#define MAXLINE 1024</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classPeer.html">   30</a></span><span class="keyword">class </span><a class="code hl_class" href="classPeer.html">Peer</a>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classPeer.html#abe3d48f8f3af74e1827b023d10371756">   32</a></span>        <a class="code hl_function" href="classPeer.html#abe3d48f8f3af74e1827b023d10371756">Peer</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classPeer.html#a40d0a6cc84e9253a0484cebec717aecd">   33</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPeer.html#a40d0a6cc84e9253a0484cebec717aecd">createSocket</a>()=0;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classPeer.html#a1f64a870355f2421572756ce3580554b">   34</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPeer.html#a1f64a870355f2421572756ce3580554b">connectInit</a>()=0;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classPeer.html#aebb9db83f1bb7c65278c6fe3c72fa627">   35</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPeer.html#aebb9db83f1bb7c65278c6fe3c72fa627">selinit</a>()=0;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classPeer.html#a40ab35135ecb957e59f7417bc14f111a">   36</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPeer.html#a40ab35135ecb957e59f7417bc14f111a">sel</a>()=0;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classPeer.html#aadc8a92cdfa976b01ce0bed0ef418e5f">   37</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPeer.html#aadc8a92cdfa976b01ce0bed0ef418e5f">conn</a>()=0;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classPeer.html#a70b9a8fd599999c29afc51d6d5283422">   38</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPeer.html#a70b9a8fd599999c29afc51d6d5283422">sendmes</a>()=0;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classPeer.html#a7333fa19ffcc2324750a6f0134a597d5">   47</a></span>    <a class="code hl_function" href="classPeer.html#a7333fa19ffcc2324750a6f0134a597d5">Peer</a>(<span class="keywordtype">int</span> _sock, <span class="keyword">struct</span> sockaddr_in _addres):<a class="code hl_variable" href="classPeer.html#a925963413d249aec471b34561070610c">sock</a>(_sock), <a class="code hl_variable" href="classPeer.html#a6095fc5a3aa90625e70276cd3790060e">addres</a>(_addres){}</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classPeer.html#a925963413d249aec471b34561070610c">   48</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classPeer.html#a925963413d249aec471b34561070610c">sock</a>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classPeer.html#a6095fc5a3aa90625e70276cd3790060e">   49</a></span>    <span class="keyword">struct </span>sockaddr_in <a class="code hl_variable" href="classPeer.html#a6095fc5a3aa90625e70276cd3790060e">addres</a>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classPeer.html#aeff6367e659ac6c6a649603198e56021">   50</a></span>        <span class="keywordtype">char</span> <a class="code hl_variable" href="classPeer.html#aeff6367e659ac6c6a649603198e56021">buffer</a>[<a class="code hl_define" href="abspeer_8h.html#a3e937c42922f7601edb17b747602c471">MAXLINE</a>]={0};</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classPeer.html#a456be0991e60ae9d77c52ef647410cc6">   51</a></span>        fd_set <a class="code hl_variable" href="classPeer.html#a456be0991e60ae9d77c52ef647410cc6">read_fd</a>={0};</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifdef DEBUG</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#  define Trace(x)  {fprintf x ; fflush(stderr); fflush(stdout);}</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="abspeer_8h.html#a93bbe97269cf8304b452a4d472dba191">   21</a></span><span class="preprocessor">#  define Trace(x);</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classAbsPar.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classAbsPar.html">AbsPar</a>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classAbsPar.html#adc60488ce862108d3a258c1e35ac67d7">   34</a></span>        <a class="code hl_function" href="classAbsPar.html#adc60488ce862108d3a258c1e35ac67d7">AbsPar</a>(){};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classAbsPar.html#a4bdb79a4225aa65e807ec9770d61fe00">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classAbsPar.html#a4bdb79a4225aa65e807ec9770d61fe00">sock</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classAbsPar.html#a6380ea8984300360340a4ccb89fb77de">   36</a></span>        <span class="keyword">struct </span>sockaddr_in <a class="code hl_variable" href="classAbsPar.html#a6380ea8984300360340a4ccb89fb77de">addres</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classAbsPar.html#a0dd2855430cf84b0ce78dd60f7e7ae4c">   37</a></span>        <span class="keywordtype">char</span> <a class="code hl_variable" href="classAbsPar.html#a0dd2855430cf84b0ce78dd60f7e7ae4c">buffer</a>[<a class="code hl_define" href="abspeer_8h.html#a3e937c42922f7601edb17b747602c471">MAXLINE</a>]={0};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classAbsPar.html#af2934955137740fd1979a72a3f0d53ec">   38</a></span>        fd_set <a class="code hl_variable" href="classAbsPar.html#af2934955137740fd1979a72a3f0d53ec">read_fd</a>={0};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classAbsPar.html#a71cf855176d1593ffc2382a917c95283">   39</a></span>        <span class="keyword">auto</span> <a class="code hl_function" href="classAbsPar.html#a71cf855176d1593ffc2382a917c95283">_valread</a>() -&gt; <span class="keywordtype">int</span>&amp; {<span class="keywordflow">return</span> valread;}; </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">int</span> valread;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">int</span> new_socket, client_socket[30], max_clients=30, activity, i, max_sd, sd;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        std::vector&lt;std::pair&lt;int, char*&gt;&gt; nicknames;       </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classChat.html">   46</a></span><span class="keyword">class </span><a class="code hl_class" href="classChat.html">Chat</a>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classChat.html#abc76e84df765204a6da13c909105484b">   48</a></span>        <a class="code hl_function" href="classChat.html#abc76e84df765204a6da13c909105484b">Chat</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classChat.html#a5d0ba35014f7468149fea81e034e496e">   49</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classChat.html#a5d0ba35014f7468149fea81e034e496e">createSocket</a>()=0;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">//virtual void connectInit(const char* addr)=0;///&lt;Запись в переменную addres и подготовка соединения \param void  \return void</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classChat.html#a78b2669c291ea47ede7b6f08320e0783">   51</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classChat.html#a78b2669c291ea47ede7b6f08320e0783">connectInit</a>()=0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classChat.html#a816f1c23fd61e6e9eb5a76dacdc2091b">   52</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classChat.html#a816f1c23fd61e6e9eb5a76dacdc2091b">selinit</a>()=0;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classChat.html#ac646c16ac251aa1100b5dd29efa15962">   53</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classChat.html#ac646c16ac251aa1100b5dd29efa15962">sel</a>()=0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classChat.html#a4e9a322303cd7324b3f50924e6fb56d9">   54</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classChat.html#a4e9a322303cd7324b3f50924e6fb56d9">conn</a>()=0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classChat.html#a13342c244a8c1ecf994ae3cf24137d0a">   55</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classChat.html#a13342c244a8c1ecf994ae3cf24137d0a">sendmes</a>()=0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment">//Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aabspeer_8h_html_a3e937c42922f7601edb17b747602c471"><div class="ttname"><a href="abspeer_8h.html#a3e937c42922f7601edb17b747602c471">MAXLINE</a></div><div class="ttdeci">#define MAXLINE</div><div class="ttdef"><b>Definition</b> abspeer.h:7</div></div>
-<div class="ttc" id="aclassPeer_html"><div class="ttname"><a href="classPeer.html">Peer</a></div><div class="ttdoc">Абстрактный узел связи.</div><div class="ttdef"><b>Definition</b> abspeer.h:30</div></div>
-<div class="ttc" id="aclassPeer_html_a1f64a870355f2421572756ce3580554b"><div class="ttname"><a href="classPeer.html#a1f64a870355f2421572756ce3580554b">Peer::connectInit</a></div><div class="ttdeci">virtual void connectInit()=0</div><div class="ttdoc">Запись в переменную addres и подготовка соединения</div></div>
-<div class="ttc" id="aclassPeer_html_a40ab35135ecb957e59f7417bc14f111a"><div class="ttname"><a href="classPeer.html#a40ab35135ecb957e59f7417bc14f111a">Peer::sel</a></div><div class="ttdeci">virtual void sel()=0</div></div>
-<div class="ttc" id="aclassPeer_html_a40d0a6cc84e9253a0484cebec717aecd"><div class="ttname"><a href="classPeer.html#a40d0a6cc84e9253a0484cebec717aecd">Peer::createSocket</a></div><div class="ttdeci">virtual void createSocket()=0</div><div class="ttdoc">Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock.</div></div>
-<div class="ttc" id="aclassPeer_html_a456be0991e60ae9d77c52ef647410cc6"><div class="ttname"><a href="classPeer.html#a456be0991e60ae9d77c52ef647410cc6">Peer::read_fd</a></div><div class="ttdeci">fd_set read_fd</div><div class="ttdoc">Массив дескрапторов для храненния сокета</div><div class="ttdef"><b>Definition</b> abspeer.h:51</div></div>
-<div class="ttc" id="aclassPeer_html_a6095fc5a3aa90625e70276cd3790060e"><div class="ttname"><a href="classPeer.html#a6095fc5a3aa90625e70276cd3790060e">Peer::addres</a></div><div class="ttdeci">struct sockaddr_in addres</div><div class="ttdoc">Структура для хранения адреса и типа узла</div><div class="ttdef"><b>Definition</b> abspeer.h:49</div></div>
-<div class="ttc" id="aclassPeer_html_a70b9a8fd599999c29afc51d6d5283422"><div class="ttname"><a href="classPeer.html#a70b9a8fd599999c29afc51d6d5283422">Peer::sendmes</a></div><div class="ttdeci">virtual void sendmes()=0</div></div>
-<div class="ttc" id="aclassPeer_html_a7333fa19ffcc2324750a6f0134a597d5"><div class="ttname"><a href="classPeer.html#a7333fa19ffcc2324750a6f0134a597d5">Peer::Peer</a></div><div class="ttdeci">Peer(int _sock, struct sockaddr_in _addres)</div><div class="ttdoc">Конструктор с параметрами</div><div class="ttdef"><b>Definition</b> abspeer.h:47</div></div>
-<div class="ttc" id="aclassPeer_html_a925963413d249aec471b34561070610c"><div class="ttname"><a href="classPeer.html#a925963413d249aec471b34561070610c">Peer::sock</a></div><div class="ttdeci">int sock</div><div class="ttdoc">Переменная для хранения сокета</div><div class="ttdef"><b>Definition</b> abspeer.h:48</div></div>
-<div class="ttc" id="aclassPeer_html_aadc8a92cdfa976b01ce0bed0ef418e5f"><div class="ttname"><a href="classPeer.html#aadc8a92cdfa976b01ce0bed0ef418e5f">Peer::conn</a></div><div class="ttdeci">virtual void conn()=0</div></div>
-<div class="ttc" id="aclassPeer_html_abe3d48f8f3af74e1827b023d10371756"><div class="ttname"><a href="classPeer.html#abe3d48f8f3af74e1827b023d10371756">Peer::Peer</a></div><div class="ttdeci">Peer()=default</div><div class="ttdoc">Конструктор без параметров</div></div>
-<div class="ttc" id="aclassPeer_html_aebb9db83f1bb7c65278c6fe3c72fa627"><div class="ttname"><a href="classPeer.html#aebb9db83f1bb7c65278c6fe3c72fa627">Peer::selinit</a></div><div class="ttdeci">virtual void selinit()=0</div></div>
-<div class="ttc" id="aclassPeer_html_aeff6367e659ac6c6a649603198e56021"><div class="ttname"><a href="classPeer.html#aeff6367e659ac6c6a649603198e56021">Peer::buffer</a></div><div class="ttdeci">char buffer[MAXLINE]</div><div class="ttdoc">Хранит сообщение</div><div class="ttdef"><b>Definition</b> abspeer.h:50</div></div>
+<div class="ttc" id="aclassAbsPar_html"><div class="ttname"><a href="classAbsPar.html">AbsPar</a></div><div class="ttdoc">Абстрактный узел связи.</div><div class="ttdef"><b>Definition</b> abspeer.h:32</div></div>
+<div class="ttc" id="aclassAbsPar_html_a0dd2855430cf84b0ce78dd60f7e7ae4c"><div class="ttname"><a href="classAbsPar.html#a0dd2855430cf84b0ce78dd60f7e7ae4c">AbsPar::buffer</a></div><div class="ttdeci">char buffer[MAXLINE]</div><div class="ttdoc">Хранит сообщение</div><div class="ttdef"><b>Definition</b> abspeer.h:37</div></div>
+<div class="ttc" id="aclassAbsPar_html_a4bdb79a4225aa65e807ec9770d61fe00"><div class="ttname"><a href="classAbsPar.html#a4bdb79a4225aa65e807ec9770d61fe00">AbsPar::sock</a></div><div class="ttdeci">int sock</div><div class="ttdef"><b>Definition</b> abspeer.h:35</div></div>
+<div class="ttc" id="aclassAbsPar_html_a6380ea8984300360340a4ccb89fb77de"><div class="ttname"><a href="classAbsPar.html#a6380ea8984300360340a4ccb89fb77de">AbsPar::addres</a></div><div class="ttdeci">struct sockaddr_in addres</div><div class="ttdoc">Структура для хранения адреса и типа узла</div><div class="ttdef"><b>Definition</b> abspeer.h:36</div></div>
+<div class="ttc" id="aclassAbsPar_html_a71cf855176d1593ffc2382a917c95283"><div class="ttname"><a href="classAbsPar.html#a71cf855176d1593ffc2382a917c95283">AbsPar::_valread</a></div><div class="ttdeci">auto _valread() -&gt; int &amp;</div><div class="ttdef"><b>Definition</b> abspeer.h:39</div></div>
+<div class="ttc" id="aclassAbsPar_html_adc60488ce862108d3a258c1e35ac67d7"><div class="ttname"><a href="classAbsPar.html#adc60488ce862108d3a258c1e35ac67d7">AbsPar::AbsPar</a></div><div class="ttdeci">AbsPar()</div><div class="ttdef"><b>Definition</b> abspeer.h:34</div></div>
+<div class="ttc" id="aclassAbsPar_html_af2934955137740fd1979a72a3f0d53ec"><div class="ttname"><a href="classAbsPar.html#af2934955137740fd1979a72a3f0d53ec">AbsPar::read_fd</a></div><div class="ttdeci">fd_set read_fd</div><div class="ttdoc">Массив дескрапторов для храненния сокета</div><div class="ttdef"><b>Definition</b> abspeer.h:38</div></div>
+<div class="ttc" id="aclassChat_html"><div class="ttname"><a href="classChat.html">Chat</a></div><div class="ttdef"><b>Definition</b> abspeer.h:46</div></div>
+<div class="ttc" id="aclassChat_html_a13342c244a8c1ecf994ae3cf24137d0a"><div class="ttname"><a href="classChat.html#a13342c244a8c1ecf994ae3cf24137d0a">Chat::sendmes</a></div><div class="ttdeci">virtual void sendmes()=0</div></div>
+<div class="ttc" id="aclassChat_html_a4e9a322303cd7324b3f50924e6fb56d9"><div class="ttname"><a href="classChat.html#a4e9a322303cd7324b3f50924e6fb56d9">Chat::conn</a></div><div class="ttdeci">virtual void conn()=0</div></div>
+<div class="ttc" id="aclassChat_html_a5d0ba35014f7468149fea81e034e496e"><div class="ttname"><a href="classChat.html#a5d0ba35014f7468149fea81e034e496e">Chat::createSocket</a></div><div class="ttdeci">virtual void createSocket()=0</div><div class="ttdoc">Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock.</div></div>
+<div class="ttc" id="aclassChat_html_a78b2669c291ea47ede7b6f08320e0783"><div class="ttname"><a href="classChat.html#a78b2669c291ea47ede7b6f08320e0783">Chat::connectInit</a></div><div class="ttdeci">virtual void connectInit()=0</div></div>
+<div class="ttc" id="aclassChat_html_a816f1c23fd61e6e9eb5a76dacdc2091b"><div class="ttname"><a href="classChat.html#a816f1c23fd61e6e9eb5a76dacdc2091b">Chat::selinit</a></div><div class="ttdeci">virtual void selinit()=0</div></div>
+<div class="ttc" id="aclassChat_html_abc76e84df765204a6da13c909105484b"><div class="ttname"><a href="classChat.html#abc76e84df765204a6da13c909105484b">Chat::Chat</a></div><div class="ttdeci">Chat()=default</div><div class="ttdoc">Конструктор без параметров</div></div>
+<div class="ttc" id="aclassChat_html_ac646c16ac251aa1100b5dd29efa15962"><div class="ttname"><a href="classChat.html#ac646c16ac251aa1100b5dd29efa15962">Chat::sel</a></div><div class="ttdeci">virtual void sel()=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

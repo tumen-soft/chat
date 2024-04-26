@@ -3,12 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Chat: Файл include/ipscan.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.7 -->
+<!-- Создано системой Doxygen 1.10.0 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -41,7 +43,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
   initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
@@ -97,113 +99,83 @@ $(function() {
 Граф включаемых заголовочных файлов для ipscan.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ipscan_8h__incl.png" border="0" usemap="#ainclude_2ipscan_8h" alt=""/></div>
-<map name="ainclude_2ipscan_8h" id="ainclude_2ipscan_8h">
-<area shape="rect" title=" " alt="" coords="373,5,489,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,88,104"/>
-<area shape="poly" title=" " alt="" coords="373,32,102,81,101,76,372,27"/>
-<area shape="rect" title=" " alt="" coords="112,79,173,104"/>
-<area shape="poly" title=" " alt="" coords="383,33,187,81,186,76,382,28"/>
-<area shape="rect" title=" " alt="" coords="198,79,266,104"/>
-<area shape="poly" title=" " alt="" coords="400,33,278,76,277,71,398,28"/>
-<area shape="rect" title=" " alt="" coords="290,79,345,104"/>
-<area shape="poly" title=" " alt="" coords="414,33,349,74,346,69,411,28"/>
-<area shape="rect" title=" " alt="" coords="369,79,415,104"/>
-<area shape="poly" title=" " alt="" coords="427,32,407,68,402,65,422,30"/>
-<area shape="rect" title=" " alt="" coords="440,79,501,104"/>
-<area shape="poly" title=" " alt="" coords="440,30,460,65,455,68,435,32"/>
-<area shape="rect" title=" " alt="" coords="525,79,597,104"/>
-<area shape="poly" title=" " alt="" coords="453,28,529,70,527,74,450,33"/>
-<area shape="rect" title=" " alt="" coords="622,79,698,104"/>
-<area shape="poly" title=" " alt="" coords="468,28,610,72,609,77,467,33"/>
-<area shape="rect" title=" " alt="" coords="723,79,789,104"/>
-<area shape="poly" title=" " alt="" coords="488,28,710,76,709,81,487,33"/>
-<area shape="rect" title=" " alt="" coords="814,79,853,104"/>
-<area shape="poly" title=" " alt="" coords="489,23,628,42,713,57,801,77,800,82,712,62,627,47,489,28"/>
-</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Граф файлов, в которые включается этот файл:</div>
 <div class="dyncontent">
 <div class="center"><img src="ipscan_8h__dep__incl.png" border="0" usemap="#ainclude_2ipscan_8hdep" alt=""/></div>
-<map name="ainclude_2ipscan_8hdep" id="ainclude_2ipscan_8hdep">
-<area shape="rect" title=" " alt="" coords="13,5,129,31"/>
-<area shape="rect" href="message_8h.html" title=" " alt="" coords="5,79,136,104"/>
-<area shape="poly" title=" " alt="" coords="73,44,73,79,68,79,68,44"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="22,152,119,177"/>
-<area shape="poly" title=" " alt="" coords="73,118,73,152,68,152,68,118"/>
-</map>
 </div>
 </div>
 <p><a href="ipscan_8h_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Классы</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarg.html">arg</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThreadPool.html">ThreadPool</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html">node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Макросы</h2></td></tr>
-<tr class="memitem:a3e937c42922f7601edb17b747602c471"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a3e937c42922f7601edb17b747602c471">MAXLINE</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memitem:a3e937c42922f7601edb17b747602c471" id="r_a3e937c42922f7601edb17b747602c471"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e937c42922f7601edb17b747602c471">MAXLINE</a>&#160;&#160;&#160;1024</td></tr>
 <tr class="separator:a3e937c42922f7601edb17b747602c471"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a614217d263be1fb1a5f76e2ff7be19a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a614217d263be1fb1a5f76e2ff7be19a2">PORT</a>&#160;&#160;&#160;8080</td></tr>
+<tr class="memitem:a614217d263be1fb1a5f76e2ff7be19a2" id="r_a614217d263be1fb1a5f76e2ff7be19a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a614217d263be1fb1a5f76e2ff7be19a2">PORT</a>&#160;&#160;&#160;8080</td></tr>
 <tr class="separator:a614217d263be1fb1a5f76e2ff7be19a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae139b823aa6048353fa6261aaec4514b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#ae139b823aa6048353fa6261aaec4514b">MAXCLI</a>&#160;&#160;&#160;256</td></tr>
+<tr class="memitem:ae139b823aa6048353fa6261aaec4514b" id="r_ae139b823aa6048353fa6261aaec4514b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae139b823aa6048353fa6261aaec4514b">MAXCLI</a>&#160;&#160;&#160;256</td></tr>
 <tr class="separator:ae139b823aa6048353fa6261aaec4514b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Определения типов</h2></td></tr>
-<tr class="memitem:a6750c1ede109a5404cc493813569ab22"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structarg.html">arg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a></td></tr>
-<tr class="separator:a6750c1ede109a5404cc493813569ab22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c02633e18d6aa5f58539b75f08753d9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structnode.html">node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a></td></tr>
+<tr class="memitem:ac647ed4e0c2ff4824680b421ebd12578" id="r_ac647ed4e0c2ff4824680b421ebd12578"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structThreadPool.html">ThreadPool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a></td></tr>
+<tr class="separator:ac647ed4e0c2ff4824680b421ebd12578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c02633e18d6aa5f58539b75f08753d9" id="r_a7c02633e18d6aa5f58539b75f08753d9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structnode.html">node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c02633e18d6aa5f58539b75f08753d9">node_t</a></td></tr>
 <tr class="separator:a7c02633e18d6aa5f58539b75f08753d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Перечисления</h2></td></tr>
-<tr class="memitem:a0fc68ed97adff8eb7d1d96c0a06a6687"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a> { <a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a">_Server</a>
-, <a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9">_Client</a>
+<tr class="memitem:a0fc68ed97adff8eb7d1d96c0a06a6687" id="r_a0fc68ed97adff8eb7d1d96c0a06a6687"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a> { <a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a">_Server</a>
+, <a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687af3e73a153997ace371068c4931b5e1d9">_Client</a>
  }</td></tr>
 <tr class="separator:a0fc68ed97adff8eb7d1d96c0a06a6687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
-<tr class="memitem:a24faa53684ca537338343bd24be3b704"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a24faa53684ca537338343bd24be3b704">out</a> (&quot;/dev/stdout&quot;)</td></tr>
+<tr class="memitem:a24faa53684ca537338343bd24be3b704" id="r_a24faa53684ca537338343bd24be3b704"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24faa53684ca537338343bd24be3b704">out</a> (&quot;/dev/stdout&quot;)</td></tr>
 <tr class="separator:a24faa53684ca537338343bd24be3b704"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5626cd53d9fc44653f0cbbf1c751a726"><td class="memItemLeft" align="right" valign="top">std::ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a5626cd53d9fc44653f0cbbf1c751a726">in</a> (&quot;/dev/stdin&quot;)</td></tr>
+<tr class="memitem:a5626cd53d9fc44653f0cbbf1c751a726" id="r_a5626cd53d9fc44653f0cbbf1c751a726"><td class="memItemLeft" align="right" valign="top">std::ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5626cd53d9fc44653f0cbbf1c751a726">in</a> (&quot;/dev/stdin&quot;)</td></tr>
 <tr class="separator:a5626cd53d9fc44653f0cbbf1c751a726"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a3ec7db7659e2ab075973ac327e134f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a5a3ec7db7659e2ab075973ac327e134f">enqueue</a> (<a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a> *<a class="el" href="ipscan_8h.html#a9d442d3807ccd9acd2271e3d3d4d8e4d">ar</a>)</td></tr>
+<tr class="memitem:a5a3ec7db7659e2ab075973ac327e134f" id="r_a5a3ec7db7659e2ab075973ac327e134f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a3ec7db7659e2ab075973ac327e134f">enqueue</a> (<a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a> *<a class="el" href="#a9d442d3807ccd9acd2271e3d3d4d8e4d">ar</a>)</td></tr>
 <tr class="separator:a5a3ec7db7659e2ab075973ac327e134f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8635fd75d9ec89144634578ff256fc65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a8635fd75d9ec89144634578ff256fc65">dequeue</a> ()</td></tr>
+<tr class="memitem:a8635fd75d9ec89144634578ff256fc65" id="r_a8635fd75d9ec89144634578ff256fc65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8635fd75d9ec89144634578ff256fc65">dequeue</a> ()</td></tr>
 <tr class="separator:a8635fd75d9ec89144634578ff256fc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30cf397be31be31a7c4202ecf4e149a2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a30cf397be31be31a7c4202ecf4e149a2">doSomeThing</a> (void *<a class="el" href="structarg.html">arg</a>)</td></tr>
+<tr class="memitem:a30cf397be31be31a7c4202ecf4e149a2" id="r_a30cf397be31be31a7c4202ecf4e149a2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30cf397be31be31a7c4202ecf4e149a2">doSomeThing</a> (void *arg)</td></tr>
 <tr class="separator:a30cf397be31be31a7c4202ecf4e149a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fb17dbb3a93180d04626c3cfcb550fc"><td class="memItemLeft" align="right" valign="top">export void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a3fb17dbb3a93180d04626c3cfcb550fc">spawnThreads</a> ()</td></tr>
-<tr class="separator:a3fb17dbb3a93180d04626c3cfcb550fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bcb7955d02231d690684148724e61b9"><td class="memItemLeft" align="right" valign="top">export void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a5bcb7955d02231d690684148724e61b9">check</a> ()</td></tr>
-<tr class="separator:a5bcb7955d02231d690684148724e61b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83f7e4cf1bb3cc2a03995a458d805370"><td class="memItemLeft" align="right" valign="top">export int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a83f7e4cf1bb3cc2a03995a458d805370">check1</a> ()</td></tr>
-<tr class="separator:a83f7e4cf1bb3cc2a03995a458d805370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd4d00ce1f074f5a80f78b7c055b63a" id="r_a6bd4d00ce1f074f5a80f78b7c055b63a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bd4d00ce1f074f5a80f78b7c055b63a">spawnThreads</a> ()</td></tr>
+<tr class="separator:a6bd4d00ce1f074f5a80f78b7c055b63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83f8adca24e250bfb5c9a90a35503ae9" id="r_a83f8adca24e250bfb5c9a90a35503ae9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83f8adca24e250bfb5c9a90a35503ae9">check</a> ()</td></tr>
+<tr class="separator:a83f8adca24e250bfb5c9a90a35503ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fdc8d10654fe2e1130cae14de344b95" id="r_a5fdc8d10654fe2e1130cae14de344b95"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fdc8d10654fe2e1130cae14de344b95">check1</a> ()</td></tr>
+<tr class="separator:a5fdc8d10654fe2e1130cae14de344b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Переменные</h2></td></tr>
-<tr class="memitem:a111863bdcffcaacb4ee67e5147df8632"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a111863bdcffcaacb4ee67e5147df8632">tid</a> [256]</td></tr>
+<tr class="memitem:a111863bdcffcaacb4ee67e5147df8632" id="r_a111863bdcffcaacb4ee67e5147df8632"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a111863bdcffcaacb4ee67e5147df8632">tid</a> [256]</td></tr>
 <tr class="separator:a111863bdcffcaacb4ee67e5147df8632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4552517be507d79e286a47269c216fa"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#aa4552517be507d79e286a47269c216fa">s</a> [80]</td></tr>
+<tr class="memitem:aa4552517be507d79e286a47269c216fa" id="r_aa4552517be507d79e286a47269c216fa"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4552517be507d79e286a47269c216fa">s</a> [80]</td></tr>
 <tr class="separator:aa4552517be507d79e286a47269c216fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d442d3807ccd9acd2271e3d3d4d8e4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a9d442d3807ccd9acd2271e3d3d4d8e4d">ar</a> [256] ={}</td></tr>
+<tr class="memitem:a9d442d3807ccd9acd2271e3d3d4d8e4d" id="r_a9d442d3807ccd9acd2271e3d3d4d8e4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d442d3807ccd9acd2271e3d3d4d8e4d">ar</a> [256] ={}</td></tr>
 <tr class="separator:a9d442d3807ccd9acd2271e3d3d4d8e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579a752147b6ee659613c5a9fcc1a704"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a579a752147b6ee659613c5a9fcc1a704">pclient</a></td></tr>
+<tr class="memitem:a579a752147b6ee659613c5a9fcc1a704" id="r_a579a752147b6ee659613c5a9fcc1a704"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a579a752147b6ee659613c5a9fcc1a704">pclient</a></td></tr>
 <tr class="separator:a579a752147b6ee659613c5a9fcc1a704"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdf3b1ca80400cc6bd5bfe2bb1cb7e65"><td class="memItemLeft" align="right" valign="top">struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#afdf3b1ca80400cc6bd5bfe2bb1cb7e65">addr</a></td></tr>
+<tr class="memitem:afdf3b1ca80400cc6bd5bfe2bb1cb7e65" id="r_afdf3b1ca80400cc6bd5bfe2bb1cb7e65"><td class="memItemLeft" align="right" valign="top">struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdf3b1ca80400cc6bd5bfe2bb1cb7e65">addr</a></td></tr>
 <tr class="separator:afdf3b1ca80400cc6bd5bfe2bb1cb7e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a029ca55987256d78b46339c9b04d6384"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a029ca55987256d78b46339c9b04d6384">isserver</a> =<a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a">_Server</a></td></tr>
+<tr class="memitem:a029ca55987256d78b46339c9b04d6384" id="r_a029ca55987256d78b46339c9b04d6384"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a029ca55987256d78b46339c9b04d6384">isserver</a> =<a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a">_Server</a></td></tr>
 <tr class="separator:a029ca55987256d78b46339c9b04d6384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdb2dee9a6c42f59c5ba558b502b8066"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#afdb2dee9a6c42f59c5ba558b502b8066">listofargs</a></td></tr>
+<tr class="memitem:afdb2dee9a6c42f59c5ba558b502b8066" id="r_afdb2dee9a6c42f59c5ba558b502b8066"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdb2dee9a6c42f59c5ba558b502b8066">listofargs</a></td></tr>
 <tr class="separator:afdb2dee9a6c42f59c5ba558b502b8066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9513cdd45a8c7a0435f6fb6cb8a3fd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#ad9513cdd45a8c7a0435f6fb6cb8a3fd6">head</a> = NULL</td></tr>
+<tr class="memitem:ad9513cdd45a8c7a0435f6fb6cb8a3fd6" id="r_ad9513cdd45a8c7a0435f6fb6cb8a3fd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a7c02633e18d6aa5f58539b75f08753d9">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9513cdd45a8c7a0435f6fb6cb8a3fd6">head</a> = NULL</td></tr>
 <tr class="separator:ad9513cdd45a8c7a0435f6fb6cb8a3fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2957fcd791ee37435c6ccb727b957584"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipscan_8h.html#a2957fcd791ee37435c6ccb727b957584">tail</a> = NULL</td></tr>
+<tr class="memitem:a2957fcd791ee37435c6ccb727b957584" id="r_a2957fcd791ee37435c6ccb727b957584"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a7c02633e18d6aa5f58539b75f08753d9">node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2957fcd791ee37435c6ccb727b957584">tail</a> = NULL</td></tr>
 <tr class="separator:a2957fcd791ee37435c6ccb727b957584"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Макросы</h2>
@@ -250,14 +222,14 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">Типы</h2>
-<a id="a6750c1ede109a5404cc493813569ab22" name="a6750c1ede109a5404cc493813569ab22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6750c1ede109a5404cc493813569ab22">&#9670;&#160;</a></span>args</h2>
+<a id="ac647ed4e0c2ff4824680b421ebd12578" name="ac647ed4e0c2ff4824680b421ebd12578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac647ed4e0c2ff4824680b421ebd12578">&#9670;&#160;</a></span>args</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structarg.html">arg</a> <a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a></td>
+          <td class="memname">typedef struct <a class="el" href="structThreadPool.html">ThreadPool</a> <a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -271,7 +243,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structnode.html">node</a> <a class="el" href="ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a></td>
+          <td class="memname">typedef struct <a class="el" href="structnode.html">node</a> <a class="el" href="#a7c02633e18d6aa5f58539b75f08753d9">node_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -286,7 +258,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a></td>
+          <td class="memname">enum <a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -298,16 +270,16 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">Функции</h2>
-<a id="a5bcb7955d02231d690684148724e61b9" name="a5bcb7955d02231d690684148724e61b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bcb7955d02231d690684148724e61b9">&#9670;&#160;</a></span>check()</h2>
+<a id="a83f8adca24e250bfb5c9a90a35503ae9" name="a83f8adca24e250bfb5c9a90a35503ae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83f8adca24e250bfb5c9a90a35503ae9">&#9670;&#160;</a></span>check()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">export void check </td>
+          <td class="memname">void check </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -315,38 +287,26 @@ $(function() {
 <div class="dynheader">
 Граф вызовов:</div>
 <div class="dyncontent">
-<div class="center"><img src="ipscan_8h_a5bcb7955d02231d690684148724e61b9_cgraph.png" border="0" usemap="#aipscan_8h_a5bcb7955d02231d690684148724e61b9_cgraph" alt=""/></div>
-<map name="aipscan_8h_a5bcb7955d02231d690684148724e61b9_cgraph" id="aipscan_8h_a5bcb7955d02231d690684148724e61b9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,63,31"/>
-<area shape="rect" href="ipscan_8h.html#a8635fd75d9ec89144634578ff256fc65" title=" " alt="" coords="111,5,181,31"/>
-<area shape="poly" title=" " alt="" coords="63,15,97,15,97,21,63,21"/>
-</map>
+<div class="center"><img src="ipscan_8h_a83f8adca24e250bfb5c9a90a35503ae9_cgraph.png" border="0" usemap="#aipscan_8h_a83f8adca24e250bfb5c9a90a35503ae9_cgraph" alt=""/></div>
 </div>
 <div class="dynheader">
 Граф вызова функции:</div>
 <div class="dyncontent">
-<div class="center"><img src="ipscan_8h_a5bcb7955d02231d690684148724e61b9_icgraph.png" border="0" usemap="#aipscan_8h_a5bcb7955d02231d690684148724e61b9_icgraph" alt=""/></div>
-<map name="aipscan_8h_a5bcb7955d02231d690684148724e61b9_icgraph" id="aipscan_8h_a5bcb7955d02231d690684148724e61b9_icgraph">
-<area shape="rect" title=" " alt="" coords="209,5,267,31"/>
-<area shape="rect" href="message_8h.html#abc3844a1cb97548706d301412793292e" title=" " alt="" coords="104,5,161,31"/>
-<area shape="poly" title=" " alt="" coords="196,21,162,21,162,15,196,15"/>
-<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="import message;" alt="" coords="5,5,56,31"/>
-<area shape="poly" title=" " alt="" coords="90,21,56,21,56,15,90,15"/>
-</map>
+<div class="center"><img src="ipscan_8h_a83f8adca24e250bfb5c9a90a35503ae9_icgraph.png" border="0" usemap="#aipscan_8h_a83f8adca24e250bfb5c9a90a35503ae9_icgraph" alt=""/></div>
 </div>
 
 </div>
 </div>
-<a id="a83f7e4cf1bb3cc2a03995a458d805370" name="a83f7e4cf1bb3cc2a03995a458d805370"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83f7e4cf1bb3cc2a03995a458d805370">&#9670;&#160;</a></span>check1()</h2>
+<a id="a5fdc8d10654fe2e1130cae14de344b95" name="a5fdc8d10654fe2e1130cae14de344b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fdc8d10654fe2e1130cae14de344b95">&#9670;&#160;</a></span>check1()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">export int check1 </td>
+          <td class="memname">int check1 </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -354,14 +314,7 @@ $(function() {
 <div class="dynheader">
 Граф вызова функции:</div>
 <div class="dyncontent">
-<div class="center"><img src="ipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370_icgraph.png" border="0" usemap="#aipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370_icgraph" alt=""/></div>
-<map name="aipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370_icgraph" id="aipscan_8h_a83f7e4cf1bb3cc2a03995a458d805370_icgraph">
-<area shape="rect" title=" " alt="" coords="209,5,273,31"/>
-<area shape="rect" href="message_8h.html#abc3844a1cb97548706d301412793292e" title=" " alt="" coords="104,5,161,31"/>
-<area shape="poly" title=" " alt="" coords="195,21,161,21,161,15,195,15"/>
-<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="import message;" alt="" coords="5,5,56,31"/>
-<area shape="poly" title=" " alt="" coords="90,21,56,21,56,15,90,15"/>
-</map>
+<div class="center"><img src="ipscan_8h_a5fdc8d10654fe2e1130cae14de344b95_icgraph.png" border="0" usemap="#aipscan_8h_a5fdc8d10654fe2e1130cae14de344b95_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -373,9 +326,9 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a> * dequeue </td>
+          <td class="memname"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a> * dequeue </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -384,15 +337,6 @@ $(function() {
 Граф вызова функции:</div>
 <div class="dyncontent">
 <div class="center"><img src="ipscan_8h_a8635fd75d9ec89144634578ff256fc65_icgraph.png" border="0" usemap="#aipscan_8h_a8635fd75d9ec89144634578ff256fc65_icgraph" alt=""/></div>
-<map name="aipscan_8h_a8635fd75d9ec89144634578ff256fc65_icgraph" id="aipscan_8h_a8635fd75d9ec89144634578ff256fc65_icgraph">
-<area shape="rect" title=" " alt="" coords="315,5,385,31"/>
-<area shape="rect" href="ipscan_8h.html#a5bcb7955d02231d690684148724e61b9" title=" " alt="" coords="209,5,267,31"/>
-<area shape="poly" title=" " alt="" coords="300,21,267,21,267,15,300,15"/>
-<area shape="rect" href="message_8h.html#abc3844a1cb97548706d301412793292e" title=" " alt="" coords="104,5,161,31"/>
-<area shape="poly" title=" " alt="" coords="196,21,162,21,162,15,196,15"/>
-<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="import message;" alt="" coords="5,5,56,31"/>
-<area shape="poly" title=" " alt="" coords="90,21,56,21,56,15,90,15"/>
-</map>
 </div>
 
 </div>
@@ -406,8 +350,7 @@ $(function() {
         <tr>
           <td class="memname">void * doSomeThing </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>arg</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -416,15 +359,6 @@ $(function() {
 Граф вызова функции:</div>
 <div class="dyncontent">
 <div class="center"><img src="ipscan_8h_a30cf397be31be31a7c4202ecf4e149a2_icgraph.png" border="0" usemap="#aipscan_8h_a30cf397be31be31a7c4202ecf4e149a2_icgraph" alt=""/></div>
-<map name="aipscan_8h_a30cf397be31be31a7c4202ecf4e149a2_icgraph" id="aipscan_8h_a30cf397be31be31a7c4202ecf4e149a2_icgraph">
-<area shape="rect" title=" " alt="" coords="364,5,467,31"/>
-<area shape="rect" href="ipscan_8h.html#a3fb17dbb3a93180d04626c3cfcb550fc" title=" " alt="" coords="209,5,316,31"/>
-<area shape="poly" title=" " alt="" coords="350,21,316,21,316,15,350,15"/>
-<area shape="rect" href="message_8h.html#abc3844a1cb97548706d301412793292e" title=" " alt="" coords="104,5,161,31"/>
-<area shape="poly" title=" " alt="" coords="196,21,162,21,162,15,196,15"/>
-<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="import message;" alt="" coords="5,5,56,31"/>
-<area shape="poly" title=" " alt="" coords="90,21,56,21,56,15,90,15"/>
-</map>
 </div>
 
 </div>
@@ -438,8 +372,7 @@ $(function() {
         <tr>
           <td class="memname">void enqueue </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a> *&#160;</td>
-          <td class="paramname"><em>ar</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a> *</td>          <td class="paramname"><span class="paramname"><em>ar</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -448,15 +381,6 @@ $(function() {
 Граф вызова функции:</div>
 <div class="dyncontent">
 <div class="center"><img src="ipscan_8h_a5a3ec7db7659e2ab075973ac327e134f_icgraph.png" border="0" usemap="#aipscan_8h_a5a3ec7db7659e2ab075973ac327e134f_icgraph" alt=""/></div>
-<map name="aipscan_8h_a5a3ec7db7659e2ab075973ac327e134f_icgraph" id="aipscan_8h_a5a3ec7db7659e2ab075973ac327e134f_icgraph">
-<area shape="rect" title=" " alt="" coords="364,5,435,31"/>
-<area shape="rect" href="ipscan_8h.html#a3fb17dbb3a93180d04626c3cfcb550fc" title=" " alt="" coords="209,5,316,31"/>
-<area shape="poly" title=" " alt="" coords="350,21,316,21,316,15,350,15"/>
-<area shape="rect" href="message_8h.html#abc3844a1cb97548706d301412793292e" title=" " alt="" coords="104,5,161,31"/>
-<area shape="poly" title=" " alt="" coords="196,21,162,21,162,15,196,15"/>
-<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="import message;" alt="" coords="5,5,56,31"/>
-<area shape="poly" title=" " alt="" coords="90,21,56,21,56,15,90,15"/>
-</map>
 </div>
 
 </div>
@@ -470,8 +394,7 @@ $(function() {
         <tr>
           <td class="memname">std::ifstream in </td>
           <td>(</td>
-          <td class="paramtype">&quot;/dev/stdin&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&quot;/dev/stdin&quot;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -488,8 +411,7 @@ $(function() {
         <tr>
           <td class="memname">std::ofstream out </td>
           <td>(</td>
-          <td class="paramtype">&quot;/dev/stdout&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&quot;/dev/stdout&quot;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -497,16 +419,16 @@ $(function() {
 
 </div>
 </div>
-<a id="a3fb17dbb3a93180d04626c3cfcb550fc" name="a3fb17dbb3a93180d04626c3cfcb550fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fb17dbb3a93180d04626c3cfcb550fc">&#9670;&#160;</a></span>spawnThreads()</h2>
+<a id="a6bd4d00ce1f074f5a80f78b7c055b63a" name="a6bd4d00ce1f074f5a80f78b7c055b63a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd4d00ce1f074f5a80f78b7c055b63a">&#9670;&#160;</a></span>spawnThreads()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">export void spawnThreads </td>
+          <td class="memname">void spawnThreads </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -515,26 +437,12 @@ $(function() {
 <div class="dynheader">
 Граф вызовов:</div>
 <div class="dyncontent">
-<div class="center"><img src="ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_cgraph.png" border="0" usemap="#aipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_cgraph" alt=""/></div>
-<map name="aipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_cgraph" id="aipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,112,56"/>
-<area shape="rect" href="ipscan_8h.html#a30cf397be31be31a7c4202ecf4e149a2" title=" " alt="" coords="160,5,263,31"/>
-<area shape="poly" title=" " alt="" coords="112,32,146,26,147,31,112,37"/>
-<area shape="rect" href="ipscan_8h.html#a5a3ec7db7659e2ab075973ac327e134f" title=" " alt="" coords="176,55,247,80"/>
-<area shape="poly" title=" " alt="" coords="112,49,163,57,162,62,112,54"/>
-</map>
+<div class="center"><img src="ipscan_8h_a6bd4d00ce1f074f5a80f78b7c055b63a_cgraph.png" border="0" usemap="#aipscan_8h_a6bd4d00ce1f074f5a80f78b7c055b63a_cgraph" alt=""/></div>
 </div>
 <div class="dynheader">
 Граф вызова функции:</div>
 <div class="dyncontent">
-<div class="center"><img src="ipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_icgraph.png" border="0" usemap="#aipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_icgraph" alt=""/></div>
-<map name="aipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_icgraph" id="aipscan_8h_a3fb17dbb3a93180d04626c3cfcb550fc_icgraph">
-<area shape="rect" title=" " alt="" coords="209,5,316,31"/>
-<area shape="rect" href="message_8h.html#abc3844a1cb97548706d301412793292e" title=" " alt="" coords="104,5,161,31"/>
-<area shape="poly" title=" " alt="" coords="196,21,162,21,162,15,196,15"/>
-<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="import message;" alt="" coords="5,5,56,31"/>
-<area shape="poly" title=" " alt="" coords="90,21,56,21,56,15,90,15"/>
-</map>
+<div class="center"><img src="ipscan_8h_a6bd4d00ce1f074f5a80f78b7c055b63a_icgraph.png" border="0" usemap="#aipscan_8h_a6bd4d00ce1f074f5a80f78b7c055b63a_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -561,7 +469,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a> ar[256] ={}</td>
+          <td class="memname"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a> ar[256] ={}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -575,7 +483,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a>* head = NULL</td>
+          <td class="memname"><a class="el" href="#a7c02633e18d6aa5f58539b75f08753d9">node_t</a>* head = NULL</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -589,7 +497,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a> isserver =<a class="el" href="ipscan_8h.html#a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a">_Server</a></td>
+          <td class="memname">enum <a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687">PeerType</a> isserver =<a class="el" href="#a0fc68ed97adff8eb7d1d96c0a06a6687ab9596523b6947b5d2a449e15249ea31a">_Server</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -603,7 +511,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a>&gt; listofargs</td>
+          <td class="memname">std::list&lt;<a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a>&gt; listofargs</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -617,7 +525,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ipscan_8h.html#a6750c1ede109a5404cc493813569ab22">args</a>* pclient</td>
+          <td class="memname"><a class="el" href="#ac647ed4e0c2ff4824680b421ebd12578">args</a>* pclient</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -645,7 +553,7 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a>* tail = NULL</td>
+          <td class="memname"><a class="el" href="#a7c02633e18d6aa5f58539b75f08753d9">node_t</a>* tail = NULL</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -669,7 +577,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['new_5fsocket_0',['new_socket',['../classServer.html#a6504e40ca4dd0fa36c6daf5e941477ca',1,'Server']]],
-  ['next_1',['next',['../structnode.html#aa3e8aa83f864292b5a01210f4453fcc0',1,'node']]],
-  ['nicknames_2',['nicknames',['../classServer.html#a2f35cbd487ea1572f851821364bb54ad',1,'Server']]],
-  ['node_3',['node',['../structnode.html',1,'']]],
-  ['node_5ft_4',['node_t',['../ipscan_8h.html#a7c02633e18d6aa5f58539b75f08753d9',1,'ipscan.h']]]
+  ['main_0',['main',['../main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.cpp']]],
+  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['main_5f_2',['main_',['../chat_8cpp.html#abc3844a1cb97548706d301412793292e',1,'main_():&#160;chat.cpp'],['../main_8cpp.html#a1f0d28ef2db22b86f50b7b159b8a24e7',1,'main_(void):&#160;chat.cpp']]],
+  ['maxcli_3',['MAXCLI',['../ipscan_8h.html#ae139b823aa6048353fa6261aaec4514b',1,'ipscan.h']]],
+  ['maxline_4',['MAXLINE',['../chat_8cpp.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;chat.cpp'],['../abspeer_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;abspeer.h'],['../client_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;client.h'],['../ipscan_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;ipscan.h'],['../server_8h.html#a3e937c42922f7601edb17b747602c471',1,'MAXLINE:&#160;server.h']]]
 ];

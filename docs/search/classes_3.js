@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['peer_0',['Peer',['../classPeer.html',1,'']]]
+  ['server_0',['Server',['../classServer.html',1,'']]],
+  ['serverpolicy_1',['ServerPolicy',['../classServerPolicy.html',1,'']]],
+  ['switch_2',['Switch',['../classSwitch.html',1,'']]]
 ];

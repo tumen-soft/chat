@@ -17,6 +17,7 @@
 
 //import peer;
 
+//@deprecated ofstream
 std::ofstream out("/dev/stdout");
 std::ifstream in("/dev/stdin");
 
