@@ -1,1 +1,1 @@
-include_HEADERS =  abspeer.h client.h server.h ipscan.h 
+include_HEADERS =  chat.h client.h server.h ipscan.h 

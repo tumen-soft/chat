@@ -13,7 +13,7 @@
 #include <unistd.h>  //close(), fread()
 #include <cstring>
 #include <ext/stdio_filebuf.h>
-#include "abspeer.h"
+#include "chat.h"
 #include <iostream>
 #include <typeinfo>
 #include <vector>

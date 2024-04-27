@@ -22,7 +22,7 @@
 //#include "policy.h"
 #include "client.h"
 #include "server.h"
-#include "abspeer.h";
+#include "chat.h";
 #include <iostream>;
 //#define DEBUG
 #define MAXLINE 1024
