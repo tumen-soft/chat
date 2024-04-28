@@ -55,7 +55,7 @@ return (new Client(new TCPClientPolicy()));
 
 }
 
-void run(Chat *chat){
+void run(){
 chat->createSocket();
 chat->connectInit();
 for(;;)
@@ -73,6 +73,9 @@ for(;;)
 //for(;;)
 }
 }
+
+
+Chat *chat;
 };
 
 
@@ -118,7 +121,8 @@ switch(ch){
                 spawnThreads();
                 check();
 		//--------------
-		sw->run((check1()<1)?sw->getPolicy(new Server):sw->getPolicy(new Client));
+		if(check1()<1)sw->chat=sw->getPolicy(new Server);else sw->chat=sw->getPolicy(new Client);
+		sw->run();
 
         //default:
          //       goto st;
