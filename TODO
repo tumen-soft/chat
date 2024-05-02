@@ -1,3 +1,30 @@
+client:
+V createSocket();
+V connectInit();
+V selinit();
+V sel();
+V conn();
+V sendmes();
+
+server:
+V createSocket();
+V connectInit();
+V selinit();
+V sel();
+V conn();
+V sendmes();
+
+-----------------EOF
+
+
+
+
+
+
+
+
+
+
 закрывать сокеты
 TCP/UDP   Cli/Ser   интелектуальная система
 
