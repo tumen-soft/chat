@@ -22,13 +22,6 @@
 #endif
 
 
-///\brief Абстрактный узел связи. 
-/**
-Вводим определение узла связи Peer.
-Создает интерфейс для наследующих классов клиета и сервера.
-Содержит виртуальные функции создания сокета, соединения, основного цикла.
-*/
-
 class AbsPar{
 	public:
         AbsPar(){};
@@ -43,7 +36,7 @@ class AbsPar{
         std::vector<std::pair<int, char*>> nicknames;       
 };
 
-class Chat{
+class Chat{///<Абстракция для избавления от повторений
         public:
         Chat()=default;///<Конструктор без параметров  \param void
         virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
@@ -53,15 +46,6 @@ class Chat{
         virtual void sel()=0;///<\param void  \return void
         virtual void conn()=0;///<\param void  \return void
         virtual void sendmes()=0;///<\param void  \return void
-        /**
-         \brief Конструктор с параметрами
-         
-         \param _sock
-         \param _addres
-         \return конструкторы ничего не возвращают
-         */
-
-        //Peer(int _sock, struct sockaddr_in _addres):sock(_sock), addres(_addres){}
 
 };
 
