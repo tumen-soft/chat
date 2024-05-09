@@ -23,7 +23,8 @@ V sendmes();
 
 
 
-
+Chat(client/server) ест ip
+cryptor(decryptor/encryptor)
 
 закрывать сокеты
 TCP/UDP   Cli/Ser   интелектуальная система

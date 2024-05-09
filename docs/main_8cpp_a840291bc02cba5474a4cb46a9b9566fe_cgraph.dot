@@ -1,0 +1,37 @@
+digraph "main"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="main",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="main_",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$chat_8cpp.html#abc3844a1cb97548706d301412793292e",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="check",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ipscan_8h.html#a83f8adca24e250bfb5c9a90a35503ae9",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="dequeue",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ipscan_8h.html#a8635fd75d9ec89144634578ff256fc65",tooltip=" "];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="check1",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ipscan_8h.html#a5fdc8d10654fe2e1130cae14de344b95",tooltip=" "];
+  Node2 -> Node6 [id="edge5_Node000002_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="Switch::getPolicy",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classSwitch.html#a22e291156c031bde2e1e6b03eafc8b70",tooltip=" "];
+  Node2 -> Node7 [id="edge6_Node000002_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="Switch::run",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classSwitch.html#a11e4dbaca2baae6ff00b99c31ce9a4e2",tooltip=" "];
+  Node7 -> Node8 [id="edge7_Node000007_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="Chat::connectInit",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classChat.html#a78b2669c291ea47ede7b6f08320e0783",tooltip=" "];
+  Node7 -> Node9 [id="edge8_Node000007_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="Chat::createSocket",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classChat.html#a5d0ba35014f7468149fea81e034e496e",tooltip="Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock."];
+  Node7 -> Node10 [id="edge9_Node000007_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="Chat::sel",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classChat.html#ac646c16ac251aa1100b5dd29efa15962",tooltip=" "];
+  Node7 -> Node11 [id="edge10_Node000007_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="Chat::selinit",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classChat.html#a816f1c23fd61e6e9eb5a76dacdc2091b",tooltip=" "];
+  Node7 -> Node12 [id="edge11_Node000007_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="Chat::sendmes",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classChat.html#a13342c244a8c1ecf994ae3cf24137d0a",tooltip=" "];
+  Node2 -> Node13 [id="edge12_Node000002_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="spawnThreads",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ipscan_8h.html#a6bd4d00ce1f074f5a80f78b7c055b63a",tooltip=" "];
+  Node13 -> Node14 [id="edge13_Node000013_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="doSomeThing",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ipscan_8h.html#a30cf397be31be31a7c4202ecf4e149a2",tooltip=" "];
+  Node13 -> Node15 [id="edge14_Node000013_Node000015",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="enqueue",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ipscan_8h.html#a5a3ec7db7659e2ab075973ac327e134f",tooltip=" "];
+}
