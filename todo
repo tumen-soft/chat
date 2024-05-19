@@ -1,1 +1,1 @@
-echo 'digraph { ipscan chat -> {client -> {strategy} server -> {strategy}}}' | dot -Tx11
+echo 'digraph { ipscan chat -> {client server} client -> {strategy}server -> {strategy}}' | dot -Tx11
