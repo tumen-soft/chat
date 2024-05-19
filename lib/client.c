@@ -35,6 +35,7 @@ struct sockaddr_in connectInit(const char* addr){
 }
 
 int connect_(int sock, struct sockaddr_in addres){
+printf("test");
 return connect(sock, (struct sockaddr*)&addres, sizeof(addres));	
 //std::cout << "no ip addres specified" << std::endl;
 }

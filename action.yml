@@ -1,6 +1,0 @@
-name: TCP/UDP Chat
-description: Simple net chat example with threaded ipscanner and socket policy.
-author: Denis Vergun
-branding:
-  icon: 'check-circle'
-  color: 'blue'
