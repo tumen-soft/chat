@@ -22,7 +22,7 @@
 #endif
 
 
-class AbsPar{
+class AbsPeer{
 	public:
         AbsPar(){};
 	int sock;
