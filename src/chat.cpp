@@ -109,7 +109,7 @@ int c,p;
 std::cin>>c;
 //c=1;
 ch=(choice)c;
-Chat *peer;
+Chat *chat;
 Switch *sw= new Switch();
 switch(ch){
 
