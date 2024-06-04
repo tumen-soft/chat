@@ -32,8 +32,8 @@ void sendmes_();
 
 class TCPServerPolicy;
 class ServerPolicy;
-class Server;
-class ServerPolicy:public AbsPar{
+class NetServer;
+class ServerPolicy:public NetNode{
         public:  
         ServerPolicy(){};
         virtual void _createSocket() = 0;
@@ -49,7 +49,7 @@ class ServerPolicy:public AbsPar{
 
 
 //typedef void (ServerPolicy::*func)(Server*);
-class Server: public Chat{
+class NetServer: public Chat{
 	public:
 	Server(){};
 	//void foo(func);

@@ -41,17 +41,17 @@ int check1();
 
 class Switch{
 public:
-Chat *getPolicy(Server *s){
+Chat *getPolicy(NetServer *s){
 
-return new Server(new TCPServerPolicy());
+return new NetServer(new TCPServerPolicy());
 
 }
 
 
 
-Chat *getPolicy(Client *c){
+Chat *getPolicy(NetClient *c){
 
-return (new Client(new TCPClientPolicy()));
+return (new NetClient(new TCPClientPolicy()));
 
 }
 
@@ -87,7 +87,7 @@ enum choice {
 
 Chat *getPolicy(){
 
-return new Server(new TCPServerPolicy());
+return new NetServer(new TCPServerPolicy());
 
 }
 
@@ -121,7 +121,7 @@ switch(ch){
                 spawnThreads();
                 check();
 		//--------------
-		if(check1()<1)sw->chat=sw->getPolicy(new Server);else sw->chat=sw->getPolicy(new Client);
+		if(check1()<1)sw->chat=sw->getPolicy(new NetServer);else sw->chat=sw->getPolicy(new NetClient);
 		sw->run();
 
         //default:

@@ -42,8 +42,8 @@ void sendmes(fd_set read_fd, int sock);
 
 class TCPClientPolicy;
 class ClientPolicy;
-class Client;
-class ClientPolicy: protected AbsPar{
+class NetClient;
+class ClientPolicy: protected NetNode{
         public:  
         ClientPolicy(){};
         virtual void _createSocket() = 0;
@@ -57,7 +57,7 @@ class ClientPolicy: protected AbsPar{
 	auto _valread()->int&{};
 };
 
-class Client: public Chat{
+class NetClient: public Chat{
         public:
         Client(){}
         //Client(const char* addr);

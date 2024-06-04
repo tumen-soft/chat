@@ -25,7 +25,7 @@
 //сокет
 //адрес
 // идр.
-class AbsPeer{
+class NetNode{
 	public:
         AbsPar(){};
 	int sock;
