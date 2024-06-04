@@ -59,9 +59,9 @@ class ClientPolicy: protected NetNode{
 
 class NetClient: public Chat{
         public:
-        Client(){}
+        NetClient(){}
         //Client(const char* addr);
-        Client(ClientPolicy *policy):clie((policy)){}
+        NetClient(ClientPolicy *policy):clie((policy)){}
 	void createSocket() override{
 	clie->_createSocket();
         }; 

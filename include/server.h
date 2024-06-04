@@ -38,11 +38,11 @@ class ServerPolicy:public NetNode{
         ServerPolicy(){};
         virtual void _createSocket() = 0;
         //virtual void connectInit(const char* addr) = 0;
-        virtual void connectInit(Server *server) = 0;
-        virtual void selinit(Server *server) = 0;///<\param void  \return void
-        virtual void sel(Server *server)=0;///<\param void  \return void
-        virtual void conn(Server *server)=0;///<\param void  \return void
-        virtual void sendmes(Server *server)=0;///<\param void  \return void
+        virtual void connectInit(NetServer *server) = 0;
+        virtual void selinit(NetServer *server) = 0;///<\param void  \return void
+        virtual void sel(NetServer *server)=0;///<\param void  \return void
+        virtual void conn(NetServer *server)=0;///<\param void  \return void
+        virtual void sendmes(NetServer *server)=0;///<\param void  \return void
 
 };
 
@@ -51,9 +51,9 @@ class ServerPolicy:public NetNode{
 //typedef void (ServerPolicy::*func)(Server*);
 class NetServer: public Chat{
 	public:
-	Server(){};
+	NetServer(){};
 	//void foo(func);
-	Server(ServerPolicy *policy):serv(policy){}
+	NetServer(ServerPolicy *policy):serv(policy){}
         void createSocket()override{
         //foo(&ServerPolicy::createSocket);
         serv->_createSocket();
@@ -94,7 +94,7 @@ void _createSocket() override{
 	sock=createSocket();
 
 }
-void connectInit(Server *server) override{
+void connectInit(NetServer *server) override{
 //        std::cout << "no ip addres specified" << std::endl;
 //std::cout<<__FUNCTION__<<std::endl;
 
@@ -129,7 +129,7 @@ void connectInit(Server *server) override{
 */
 //}
 
-void selinit(Server *server) override{
+void selinit(NetServer *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
 	/////memset(server->buffer, 0, sizeof(server->buffer));
         /////FD_ZERO(&server->read_fd);
@@ -139,7 +139,7 @@ void selinit(Server *server) override{
 	 Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
 }
-        void sel(Server *server) override{
+        void sel(NetServer *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
 ////server->nicknames.push_back({0,"me"});
 
@@ -148,7 +148,7 @@ void selinit(Server *server) override{
                // select(300, &server->read_fd, NULL, NULL, NULL);
 
 };///<\param void  \return void
-        void conn(Server *server) override{
+        void conn(NetServer *server) override{
 //std::cout<<__FUNCTION__<<std::endl;
 			///server->new_socket = accept(server->sock,NULL,NULL);
                         //accepting connection
@@ -165,7 +165,7 @@ void selinit(Server *server) override{
 
 
 
-void sendmes(Server *server) override{
+void sendmes(NetServer *server) override{
 std::cout<<_valread()<<std::endl;
 
 /*
