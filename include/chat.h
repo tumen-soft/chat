@@ -25,7 +25,7 @@
 //сокет
 //адрес
 // идр.
-class NetNode{
+class NetNode{//Этот класс абстракция сетевых даннных
 	public:
         AbsPar(){};
 	int sock;
