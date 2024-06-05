@@ -4,7 +4,7 @@
 int main(void){
 
 	ServerPolicy *pol= new TCPServerPolicy();
-	Server *ser_=new Server(pol);
+	NetServer *ser_=new NetServer(pol);
 	ser_->createSocket();
 	//ser_->connectInit();
 	//ser_->connectInit("123");
