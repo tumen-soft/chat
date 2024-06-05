@@ -14,10 +14,6 @@ V sel();
 V conn();
 V sendmes();
 
-Chat class абстракция
-
-
-
 
 -----------------EOF
 
