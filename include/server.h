@@ -49,7 +49,7 @@ class ServerPolicy:public NetNode{
 
 
 //typedef void (ServerPolicy::*func)(Server*);
-class NetServer: public Chat{
+class NetServer: public Chat{//Сетевой сервер
 	public:
 	NetServer(){};
 	//void foo(func);

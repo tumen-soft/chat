@@ -57,7 +57,7 @@ class ClientPolicy: protected NetNode{
 	auto _valread()->int&{};
 };
 
-class NetClient: public Chat{
+class NetClient: public Chat{//Сетевой клиент
         public:
         NetClient(){}
         //Client(const char* addr);
