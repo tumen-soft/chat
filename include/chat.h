@@ -1,5 +1,5 @@
-#ifndef absp
-#define absp
+#ifndef Node
+#define Node
 #include <arpa/inet.h>  //inet_addr define
 //#include <ext/stdio_filebuf.h>
 //#include <stdio.h>  //printf()
@@ -51,5 +51,6 @@ class Chat{///<Абстракция для избавления от повто�
         virtual void sendmes()=0;///<\param void  \return void
 
 };
+
 
 #endif

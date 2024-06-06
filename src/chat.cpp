@@ -1,21 +1,3 @@
-/**
- *\file chat.cpp 
- *\author Денис Вергун 
- *\brief  
- *\version
- *\date 27-06-2023
- *
- *
- */
-
-//#include <arpa/inet.h>  //inet_addr define
-//#include <ext/stdio_filebuf.h>
-//#include <stdio.h>  //printf()
-//#include <unistd.h>  //close(), fread()
-//#include <memory>
-//#include <cstring>;
-//#include "client.h"
-//#include "server.h"
 #define DEBUG
 #include "ipscan.h";
 #include <memory>
@@ -27,6 +9,14 @@
 //#define DEBUG
 #define MAXLINE 1024
 #define PORT 8080 
+
+    /** 0.8
+    chat ‐ a sample messanger
+    This line is now the first of the description section.
+    Note that function parameters parm1 and parm2 are highlighted
+    in the generated man page.
+    */
+
 
 void spawnThreads();
 void check();

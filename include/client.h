@@ -8,8 +8,6 @@
  *
  */
 
-#ifndef cli
-#define cli
 #include <memory>
 #define MAXLINE 1024
 #define PORT 8080 
@@ -168,4 +166,3 @@ void createSocket(Client *client) override{
 
 
 
-#endif
