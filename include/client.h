@@ -41,9 +41,11 @@ void sendmes(fd_set read_fd, int sock);
 class TCPClientPolicy;
 class ClientPolicy;
 class NetClient;
-class ClientPolicy: protected NetNode{
+class ClientPolicy: protected  NetNode{
         public:  
-        ClientPolicy(){};
+        //void setSock(int sock_){sock=sock_;}	
+	//int getSock(){return valread;}
+	ClientPolicy(){};
         virtual void _createSocket() = 0;
         //virtual void connectInit(const char* addr) = 0;
         virtual void connectInit() = 0;
@@ -90,7 +92,8 @@ TCPClientPolicy(){};
 void _createSocket() override{
 	Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
-	sock=createSocket();
+	sock=(createSocket());
+	//std::cout<<valread<<std::endl;
 }
 
 ///void connectInit(const char* addr) override{
@@ -101,21 +104,21 @@ void _createSocket() override{
 //}
 void connectInit() override{
         Trace((stderr, __FUNCTION__));
-        std::cout<<std::endl;
-	addres.sin_family = AF_INET;
-        addres.sin_port = htons(PORT);
-        addres.sin_addr.s_addr = inet_addr("127.0.0.1");
-	///connect(sock, (struct sockaddr*)&addres, sizeof(addres));
+        ///std::cout<<std::endl;
+	///addres.sin_family = AF_INET;
+        ///addres.sin_port = htons(PORT);
+        ///addres.sin_addr.s_addr = inet_addr("127.0.0.1");
+	//connect(sock, (struct sockaddr*)&addres, sizeof(addres));
 	//dprintf(0, "test");
 }
 
 void selinit() override{
         Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
-        memset(buffer, 0, sizeof(buffer));
-        FD_ZERO(&read_fd);
-        FD_SET(0, &read_fd);
-        FD_SET(sock, &read_fd);
+        //memset(buffer, 0, sizeof(buffer));
+        ///FD_ZERO(&read_fd);
+        ///FD_SET(0, &read_fd);
+        ///FD_SET(sock, &read_fd);
 }
 
 void sel() override{
