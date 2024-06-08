@@ -1,1 +1,1 @@
-echo 'digraph { ipscan chat -> {netclient netserver} netclient -> {clientpolicy}netserver -> {serverpolicy} netnode ->{ clientpolicy  serverpolicy }}' | dot -Tx11
+echo 'digraph { ipscan  low_lib chat -> {netclient netserver} netclient -> {clientpolicy}netserver -> {serverpolicy} netnode ->{ clientpolicy  serverpolicy }}' | dot -Tx11
