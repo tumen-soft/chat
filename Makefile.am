@@ -1,5 +1,5 @@
 AM_CXXFLAGS = -g -Wall -Wextra -fpermissive 
 
-SUBDIRS = include lib src tests
+SUBDIRS = include libchat src tests
 CPPFLAGS="-Iinclude"
 

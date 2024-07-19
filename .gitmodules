@@ -1,0 +1,3 @@
+[submodule "libchat"]
+	path = libchat
+	url = https://github.com/inc-rement/libchat.git
