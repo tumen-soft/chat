@@ -28,7 +28,7 @@ AC_FUNC_MALLOC
 AC_CHECK_FUNCS([bzero gethostbyname memset select socket])
 AC_CONFIG_FILES([Makefile
                 include/Makefile
-                lib/Makefile 
+                libchat/Makefile 
 		src/Makefile
 		tests/Makefile
 		])

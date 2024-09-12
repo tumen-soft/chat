@@ -300,8 +300,8 @@ top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = subdir-objects
 AM_CPPFLAGS = -I$(top_srcdir)/include  -fpermissive -g
 chat_SOURCES = chat.cpp main.cpp
-chat_CXXFLAGS = -I$(top_srcdir)/lib
-chat_LDADD = -lchat -L../lib
+chat_CXXFLAGS = -I$(top_srcdir)/libchat
+chat_LDADD = -lchat -L../libchat
 all: all-am
 
 .SUFFIXES:
