@@ -1,11 +1,11 @@
-#define DEBUG
-#include "ipscan.h";
+//#define DEBUG
+#include "ipscan.h"
 #include <memory>
 //#include "policy.h"
 #include "client.h"
 #include "server.h"
-#include "chat.h";
-#include <iostream>;
+#include "chat.h"
+#include <iostream>
 //#define DEBUG
 #define MAXLINE 1024
 #define PORT 8080 

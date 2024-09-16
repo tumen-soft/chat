@@ -22,5 +22,9 @@
 int main_(void);
 #include "client.h"
 int main(void){
+#ifdef DEBUG
+std::cout<<"test"<<std::endl;
+#endif
+	
 main_();
 }

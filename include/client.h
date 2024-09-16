@@ -15,7 +15,7 @@
 #include <iostream>
 #include <cstring>
 #include <unistd.h>  //close(), fread()
-#define DEBUG
+//#define DEBUG
 
 
 

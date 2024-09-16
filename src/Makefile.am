@@ -1,5 +1,11 @@
 AUTOMAKE_OPTIONS=subdir-objects
-AM_CPPFLAGS = -I$(top_srcdir)/include  -fpermissive -g
+AM_CPPFLAGS = -I$(top_srcdir)/include -fpermissive 
+if DEBUG
+AM_CPPFLAGS += -DDEBUG
+else
+AM_CPPFLAGS +=
+endif
+
 #bin_PROGRAMS=chat
 #chat_SOURCES=main.cpp #client.cpp
 
