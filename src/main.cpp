@@ -23,7 +23,7 @@ int main_(void);
 #include "client.h"
 int main(void){
 #ifdef DEBUG
-std::cout<<"test"<<std::endl;
+std::cout<<"\033[1;34mtest\033[0m"<<std::endl;
 #endif
 	
 main_();
