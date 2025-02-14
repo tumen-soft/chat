@@ -303,7 +303,7 @@ AUTOMAKE_OPTIONS = subdir-objects
 AM_CPPFLAGS = -I$(top_srcdir)/include -fpermissive $(am__append_1) \
 	$(am__append_2)
 chat_SOURCES = chat.cpp main.cpp
-chat_CXXFLAGS = -I$(top_srcdir)/libchat
+chat_CXXFLAGS = -I$(top_srcdir)/libchat  -std=c++20
 chat_LDADD = -lchat -L../libchat
 all: all-am
 

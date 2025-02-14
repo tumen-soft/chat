@@ -1,4 +1,4 @@
-AM_CXXFLAGS = -g -Wall -Wextra -fpermissive 
+AM_CXXFLAGS = -g -Wall -Wextra -fpermissive -std=c++20 
 SUBDIRS = include libchat src tests
 CPPFLAGS="-Iinclude"
 #if DEBUG

@@ -18,5 +18,5 @@ endif
 
 bin_PROGRAMS=chat
 chat_SOURCES=chat.cpp main.cpp
-chat_CXXFLAGS= -I$(top_srcdir)/libchat
+chat_CXXFLAGS= -I$(top_srcdir)/libchat  -std=c++20
 chat_LDADD= -lchat -L../libchat

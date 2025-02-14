@@ -18,6 +18,39 @@ in the generated man page.
 */
 
 
+#include <string_view>
+#include <source_location>
+
+void check(bool condition, std::string_view additional_message, std::source_location sl =
+std::source_location::current()){
+  if(not(condition)){
+    std::cerr << "condition failed " << additional_message << " " << sl.file_name() << ":" << sl.line() << std::endl;
+  }
+}
+
+
+void test(){
+  check(true!=true, "true!=true==false");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void spawnThreads();
 void check();
 int check1();
@@ -93,6 +126,7 @@ int main_() {
     choice ch;
 st:
     ;
+    test();
     std::cout<<"0.end"<<std::endl;
     std::cout<<"1.run"<<std::endl;
     int c,p;
