@@ -386,6 +386,10 @@ m4trace:configure.ac:22: -1- AC_SUBST_TRACE([DEBUG_FALSE])
 m4trace:configure.ac:22: -1- m4_pattern_allow([^DEBUG_FALSE$])
 m4trace:configure.ac:22: -1- _AM_SUBST_NOTMAKE([DEBUG_TRUE])
 m4trace:configure.ac:22: -1- _AM_SUBST_NOTMAKE([DEBUG_FALSE])
+m4trace:configure.ac:24: -1- AC_CONFIG_SUBDIRS([libchat])
+m4trace:configure.ac:24: -1- AC_SUBST([subdirs], ["$subdirs libchat"])
+m4trace:configure.ac:24: -1- AC_SUBST_TRACE([subdirs])
+m4trace:configure.ac:24: -1- m4_pattern_allow([^subdirs$])
 m4trace:configure.ac:29: -1- AC_PROG_LIBTOOL([libtool])
 m4trace:configure.ac:29: -1- _m4_warn([obsolete], [The macro `AC_PROG_LIBTOOL' is obsolete.
 You should run autoupdate.], [aclocal.m4:122: AC_PROG_LIBTOOL is expanded from...
