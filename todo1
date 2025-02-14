@@ -1,0 +1,1 @@
+echo 'digraph { user -> {room} client server}' | dot -Tx11

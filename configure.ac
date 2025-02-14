@@ -21,7 +21,7 @@ AC_ARG_ENABLE([debug],
 esac],[debug=false])
 AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
 
-AC_CONFIG_SUBDIRS(libchat)
+#AC_CONFIG_SUBDIRS(libchat)
 
 # Checks for libraries.
 AC_ENABLE_SHARED

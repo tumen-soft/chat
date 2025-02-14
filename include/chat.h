@@ -1,3 +1,13 @@
+/**
+ *\file chat.h
+ *\author ИП Вергун Д.Н.
+ *\brief Файл содержит описание наследуемого абстрактного класса 
+ *\version
+ *\date 27-06-2023
+ *
+ *
+ */
+
 #ifndef Node
 #define Node
 #include <arpa/inet.h>  //inet_addr define
@@ -6,15 +16,8 @@
 //#include <unistd.h>  //close(), fread()
 #define MAXLINE 1024
 #include <vector>
-/**
- *\file chat.h
- *\author Денис Вергун
- *\brief Файл содержит описание наследуемого абстрактного класса 
- *\version
- *\date 27-06-2023
- *
- *
- */
+
+
 #ifdef DEBUG
 #  define Trace(x)  {fprintf x ; fflush(stderr); fflush(stdout);}
 #else
@@ -39,7 +42,7 @@ class Abs{
 
 class NetNode{//Этот класс абстракция сетевых даннных
 	public:
-        AbsPar(){};
+        NetNode(){};
 	int sock;
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение
@@ -51,7 +54,7 @@ class NetNode{//Этот класс абстракция сетевых данн
         std::vector<std::pair<int, char*>> nicknames;       
 };
 
-class Chat{///<Абстракция для избавления от повторений
+class Chat{///<Интерфейсный класс
         public:
         Chat()=default;///<Конструктор без параметров  \param void
         virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void

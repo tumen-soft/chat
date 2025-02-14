@@ -8,14 +8,14 @@
 #include <iostream>
 //#define DEBUG
 #define MAXLINE 1024
-#define PORT 8080 
+#define PORT 8080
 
-    /** 0.8
-    chat ‐ a sample messanger
-    This line is now the first of the description section.
-    Note that function parameters parm1 and parm2 are highlighted
-    in the generated man page.
-    */
+/** 0.8
+chat ‐ a sample messanger
+This line is now the first of the description section.
+Note that function parameters parm1 and parm2 are highlighted
+in the generated man page.
+*/
 
 
 void spawnThreads();
@@ -29,43 +29,43 @@ int check1();
 //extern int main_(void);
 //#define DEBUG_BUILD 1
 
-class Switch{
+class Switch {
 public:
-Chat *getPolicy(NetServer *s){
+    Chat *getPolicy(NetServer *s) {
 
-return new NetServer(new TCPServerPolicy());
+        return new NetServer(new TCPServerPolicy());
 
-}
+    }
 
 
 
-Chat *getPolicy(NetClient *c){
+    Chat *getPolicy(NetClient *c) {
 
-return (new NetClient(new TCPClientPolicy()));
+        return (new NetClient(new TCPClientPolicy()));
 
-}
+    }
 
-void run(){
-chat->createSocket();
-chat->connectInit();
-for(;;)
-{
-		chat->selinit();
+    void run() {
+        chat->createSocket();
+        chat->connectInit();
+        for(;;)
+        {
+            chat->selinit();
 
-		chat->sel();
+            chat->sel();
 
-		///select(300, &singleton->read_fd, NULL, NULL, NULL);
+            ///select(300, &singleton->read_fd, NULL, NULL, NULL);
 
-		///if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
+            ///if(FD_ISSET(singleton->sock, &singleton->read_fd))singleton->conn();
 
-		chat->sendmes();
+            chat->sendmes();
 
 //for(;;)
-}
-}
+        }
+    }
 
 
-Chat *chat;
+    Chat *chat;
 };
 
 
@@ -75,49 +75,51 @@ enum choice {
 };
 //std::ostream& os = std::cout;
 
-Chat *getPolicy(){
+Chat *getPolicy() {
 
-return new NetServer(new TCPServerPolicy());
+    return new NetServer(new TCPServerPolicy());
 
 }
 
 
 
-Chat *getPolicy1(){
+Chat *getPolicy1() {
 
 //return new Client(new TCPClientPolicy());
 
 }
 
-int main_(){
-choice ch;
-st:;
-std::cout<<"0.end"<<std::endl;
-std::cout<<"1.run"<<std::endl;
-int c,p;
+int main_() {
+    choice ch;
+st:
+    ;
+    std::cout<<"0.end"<<std::endl;
+    std::cout<<"1.run"<<std::endl;
+    int c,p;
 //peer = new Server;
-std::cin>>c;
+    std::cin>>c;
 //c=1;
-ch=(choice)c;
-Chat *chat;
-Switch *sw= new Switch();
-switch(ch){
+    ch=(choice)c;
+    Chat *chat;
+    Switch *sw= new Switch();
+    switch(ch) {
 
-        case END:
-                return 0;
-                break;
+    case END:
+        return 0;
+        break;
 
-        case RUN:
-                spawnThreads();
-                check();
-		//--------------
-		if(check1()<1)sw->chat=sw->getPolicy(new NetServer);else sw->chat=sw->getPolicy(new NetClient);
-		sw->run();
+    case RUN:
+        spawnThreads();
+        check();
+        //--------------
+        if(check1()<1)sw->chat=sw->getPolicy(new NetServer);
+        else sw->chat=sw->getPolicy(new NetClient);
+        sw->run();
 
         //default:
-         //       goto st;
-	//	break;
-	}
+        //       goto st;
+        //	break;
+    }
 
 //run(peer);
 //std::cout<<f;

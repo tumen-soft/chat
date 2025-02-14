@@ -1,6 +1,6 @@
 /**
  *\file client.h
- *\author Денис Вергун
+ *\author ИП Вергун Д.Н. 
  *\brief  Файл содержит описание класса клиента
  *\version
  *\date 20-07-2023
@@ -40,7 +40,7 @@ void sendmes(fd_set read_fd, int sock);
 
 class TCPClientPolicy;
 class ClientPolicy;
-class NetClient;
+class ImplementationClient;
 class ClientPolicy: protected  NetNode{
         public:  
         //void setSock(int sock_){sock=sock_;}	
