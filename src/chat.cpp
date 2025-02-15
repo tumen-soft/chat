@@ -64,7 +64,7 @@ int check1();
 
 class Switch {
 public:
-    Chat *getPolicy(NetServer *s) {
+    Чат *getPolicy(NetServer *s) {
 
         return new NetServer(new TCPServerPolicy());
 
@@ -72,7 +72,7 @@ public:
 
 
 
-    Chat *getPolicy(NetClient *c) {
+    Чат *getPolicy(NetClient *c) {
 
         return (new NetClient(new TCPClientPolicy()));
 
@@ -98,7 +98,7 @@ public:
     }
 
 
-    Chat *chat;
+    Чат *chat;
 };
 
 
@@ -108,7 +108,7 @@ enum choice {
 };
 //std::ostream& os = std::cout;
 
-Chat *getPolicy() {
+Чат *getPolicy() {
 
     return new NetServer(new TCPServerPolicy());
 
@@ -116,7 +116,7 @@ Chat *getPolicy() {
 
 
 
-Chat *getPolicy1() {
+Чат *getPolicy1() {
 
 //return new Client(new TCPClientPolicy());
 
@@ -134,7 +134,7 @@ st:
     std::cin>>c;
 //c=1;
     ch=(choice)c;
-    Chat *chat;
+    Чат *chat;
     Switch *sw= new Switch();
     switch(ch) {
 

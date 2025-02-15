@@ -49,12 +49,14 @@ class ServerPolicy:public NetNode{
 
 
 //typedef void (ServerPolicy::*func)(Server*);
-class NetServer: public Chat{//Сетевой сервер
+class NetServer: public Чат{//Сетевой сервер
 	public:
 	NetServer(){};
 	//void foo(func);
 	NetServer(ServerPolicy *policy):serv(policy){}
-        void createSocket()override{
+        void соединение() override{}
+
+	void createSocket()override{
         //foo(&ServerPolicy::createSocket);
         serv->_createSocket();
 	}; 

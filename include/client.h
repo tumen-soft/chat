@@ -57,11 +57,13 @@ class ClientPolicy: protected  NetNode{
 	auto _valread()->int&{};
 };
 
-class NetClient: public Chat{//Сетевой клиент
+class NetClient: public Чат{//Сетевой клиент
         public:
         NetClient(){}
         //Client(const char* addr);
         NetClient(ClientPolicy *policy):clie((policy)){}
+	void соединение() override{}
+
 	void createSocket() override{
 	clie->_createSocket();
         }; 
