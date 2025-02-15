@@ -60,7 +60,7 @@ class Чат{///<Интерфейсный класс
         virtual void соединение()=0;
 	//virtual void отправка()=0;
 	//virtual void прием()=0;
-	virtual void createSocket()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
+	virtual void создатьСокет()=0;///<Прообраз функции создания сокета для инициализации клиента/сервера. Запись в переменную sock \param void  \return void
         //virtual void connectInit(const char* addr)=0;///<Запись в переменную addres и подготовка соединения \param void  \return void
         virtual void connectInit()=0;///\param void  \return void
         virtual void selinit()=0;///<\param void  \return void

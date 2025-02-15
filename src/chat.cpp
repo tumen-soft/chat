@@ -79,7 +79,7 @@ public:
     }
 
     void run() {
-        chat->createSocket();
+        chat->создатьСокет();
         chat->connectInit();
         for(;;)
         {

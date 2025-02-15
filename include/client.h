@@ -64,7 +64,7 @@ class NetClient: public Чат{//Сетевой клиент
         NetClient(ClientPolicy *policy):clie((policy)){}
 	void соединение() override{}
 
-	void createSocket() override{
+	void создатьСокет() override{
 	clie->_createSocket();
         }; 
         //void connectInit(const char* addr) override{};
@@ -154,7 +154,7 @@ class UDPClientPolicy:public ClientPolicy{
 
 public:        
 UDPClientPolicy();
-void createSocket(Client *client) override{ 
+void создатьСокет(Client *client) override{ 
 	client->_sock()=(socket(AF_INET, SOCK_DGRAM, 0));
         if(client->_sock())
         std::cout <<"UDP " <<typeid(client).name() << " fd " << client->_sock() << std::endl;

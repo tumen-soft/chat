@@ -56,8 +56,8 @@ class NetServer: public Чат{//Сетевой сервер
 	NetServer(ServerPolicy *policy):serv(policy){}
         void соединение() override{}
 
-	void createSocket()override{
-        //foo(&ServerPolicy::createSocket);
+	void создатьСокет()override{
+        //foo(&ServerPolicy::создатьСокет);
         serv->_createSocket();
 	}; 
         //void connectInit(const char* addr) override{

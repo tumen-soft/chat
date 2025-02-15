@@ -46,7 +46,7 @@ return (new NetClient(new TCPClientPolicy()));
 }
 
 void run(){
-chat->createSocket();
+chat->создатьСокет();
 chat->connectInit();
 for(;;)
 {
