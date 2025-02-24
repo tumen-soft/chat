@@ -28,17 +28,7 @@
 //сокет
 //адрес
 // идр.
-class Abs{
-
-
-
-
-
-
-
-};
-
-
+namespace абстракция{
 
 class NetNode{//Этот класс абстракция сетевых даннных
 	public:
@@ -69,6 +59,22 @@ class Чат{///<Интерфейсный класс
         virtual void sendmes()=0;///<\param void  \return void
 
 };
+
+class Тест:Чат{
+
+
+
+
+};
+
+}
+
+
+
+
+
+
+
 
 
 #endif
