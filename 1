@@ -1,0 +1,142 @@
+In file included from chat.cpp:2:
+../include/ipscan.h: In function «void enqueue(args*)»:
+../include/ipscan.h:75:26: предупреждение: invalid conversion from «void*» to «node_t*» {aka «node*»} [-fpermissive]
+   75 | node_t * newnode = malloc(sizeof(node_t));
+      |                    ~~~~~~^~~~~~~~~~~~~~~~
+      |                          |
+      |                          void*
+../include/ipscan.h: На глобальном уровне:
+../include/ipscan.h:142:1: предупреждение: keyword «export» is enabled with «-fmodules-ts»
+  142 | export void spawnThreads()
+      | ^~~~~~
+../include/ipscan.h: In function «void spawnThreads()»:
+../include/ipscan.h:146:41: предупреждение: преобразование в неуказательный тип «pthread_t» {aka «long unsigned int»} из NULL [-Wconversion-null]
+  146 | args ar[256]={NULL,0,"127.0.0.1",_Server};
+      |                                         ^
+../include/ipscan.h: На глобальном уровне:
+../include/ipscan.h:166:1: предупреждение: keyword «export» is enabled with «-fmodules-ts»
+  166 | export void check(){
+      | ^~~~~~
+../include/ipscan.h: In function «void check()»:
+../include/ipscan.h:173:36: предупреждение: NULL в арифметическом выражении [-Wpointer-arith]
+  173 | if((pclient!=NULL)&&(pclient->tid!=NULL)){
+      |                                    ^~~~
+../include/ipscan.h: На глобальном уровне:
+../include/ipscan.h:192:1: предупреждение: keyword «export» is enabled with «-fmodules-ts»
+  192 | export int check1(){
+      | ^~~~~~
+In file included from chat.cpp:5:
+../include/client.h: In function «int test()»:
+../include/client.h:20:12: предупреждение: в функции, которая должна возвращать значение, отсутствует оператор return [-Wreturn-type]
+   20 | int test(){};
+      |            ^
+../include/client.h: На глобальном уровне:
+../include/client.h:52:39: ошибка: expected class-name before «{» token
+   52 | class ClientPolicy: protected  NetNode{
+      |                                       ^
+../include/client.h: In member function «int& ClientPolicy::_valread()»:
+../include/client.h:65:31: предупреждение: в функции, которая должна возвращать значение, отсутствует оператор return [-Wreturn-type]
+   65 |         auto _valread()->int&{};
+      |                               ^
+../include/client.h: На глобальном уровне:
+../include/client.h:68:28: ошибка: expected class-name before «{» token
+   68 | class NetClient: public Чат{//Сетевой клиент
+      |                            ^
+../include/client.h:73:14: ошибка: «void NetClient::соединение()» помечен «override», но не делается override
+   73 |         void соединение() override{}
+      |              ^~~~~~~~~~
+../include/client.h:75:14: ошибка: «void NetClient::создатьСокет()» помечен «override», но не делается override
+   75 |         void создатьСокет() override{
+      |              ^~~~~~~~~~~~
+../include/client.h:79:14: ошибка: «void NetClient::connectInit()» помечен «override», но не делается override
+   79 |         void connectInit() override{
+      |              ^~~~~~~~~~~
+../include/client.h:82:14: ошибка: «void NetClient::selinit()» помечен «override», но не делается override
+   82 |         void selinit() override{
+      |              ^~~~~~~
+../include/client.h:85:14: ошибка: «void NetClient::sel()» помечен «override», но не делается override
+   85 |         void sel() override{
+      |              ^~~
+../include/client.h:88:14: ошибка: «void NetClient::conn()» помечен «override», но не делается override
+   88 |         void conn() override{
+      |              ^~~~
+../include/client.h:91:14: ошибка: «void NetClient::sendmes()» помечен «override», но не делается override
+   91 |         void sendmes() override{
+      |              ^~~~~~~
+../include/client.h: In member function «virtual void TCPClientPolicy::_createSocket()»:
+../include/client.h:105:9: ошибка: «sock» was not declared in this scope; did you mean «socket»?
+  105 |         sock=(createSocket());
+      |         ^~~~
+      |         socket
+In file included from chat.cpp:6:
+../include/server.h: На глобальном уровне:
+../include/server.h:36:34: ошибка: expected class-name before «{» token
+   36 | class ServerPolicy:public NetNode{
+      |                                  ^
+../include/server.h:52:28: ошибка: expected class-name before «{» token
+   52 | class NetServer: public Чат{//Сетевой сервер
+      |                            ^
+../include/server.h:57:14: ошибка: «void NetServer::соединение()» помечен «override», но не делается override
+   57 |         void соединение() override{}
+      |              ^~~~~~~~~~
+../include/server.h:59:14: ошибка: «void NetServer::создатьСокет()» помечен «override», но не делается override
+   59 |         void создатьСокет()override{
+      |              ^~~~~~~~~~~~
+../include/server.h:66:14: ошибка: «void NetServer::connectInit()» помечен «override», но не делается override
+   66 |         void connectInit() override{
+      |              ^~~~~~~~~~~
+../include/server.h:69:14: ошибка: «void NetServer::selinit()» помечен «override», но не делается override
+   69 |         void selinit() override{
+      |              ^~~~~~~
+../include/server.h:72:14: ошибка: «void NetServer::sel()» помечен «override», но не делается override
+   72 |         void sel() override{
+      |              ^~~
+../include/server.h:75:14: ошибка: «void NetServer::conn()» помечен «override», но не делается override
+   75 |         void conn() override{
+      |              ^~~~
+../include/server.h:78:14: ошибка: «void NetServer::sendmes()» помечен «override», но не делается override
+   78 |         void sendmes() override{
+      |              ^~~~~~~
+../include/server.h: In member function «virtual void TCPServerPolicy::_createSocket()»:
+../include/server.h:96:9: ошибка: «sock» was not declared in this scope; did you mean «socket»?
+   96 |         sock=createSocket();
+      |         ^~~~
+      |         socket
+../include/server.h: In member function «virtual void TCPServerPolicy::sendmes(NetServer*)»:
+../include/server.h:171:12: ошибка: нет декларации «_valread» в этой области видимости
+  171 | std::cout<<_valread()<<std::endl;
+      |            ^~~~~~~~
+chat.cpp: На глобальном уровне:
+chat.cpp:32:6: ошибка: ambiguating new declaration of «void test()»
+   32 | void test(){
+      |      ^~~~
+../include/client.h:20:5: замечание: старая декларация «int test()»
+   20 | int test(){};
+      |     ^~~~
+chat.cpp: In member function «Чат* Switch::getPolicy(NetServer*)»:
+chat.cpp:69:51: ошибка: cannot convert «NetServer*» to «Чат*» {aka «абстракция::Чат*»} in return
+   69 |         return new NetServer(new TCPServerPolicy());
+      |                                                   ^
+chat.cpp: In member function «Чат* Switch::getPolicy(NetClient*)»:
+chat.cpp:77:53: ошибка: cannot convert «NetClient*» to «Чат*» {aka «абстракция::Чат*»} in return
+   77 |         return (new NetClient(new TCPClientPolicy()));
+      |                                                     ^
+chat.cpp: In function «Чат* getPolicy()»:
+chat.cpp:113:47: ошибка: cannot convert «NetServer*» to «Чат*» {aka «абстракция::Чат*»} in return
+  113 |     return new NetServer(new TCPServerPolicy());
+      |                                               ^
+chat.cpp: In function «Чат* getPolicy1()»:
+chat.cpp:123:1: предупреждение: в функции, которая должна возвращать значение, отсутствует оператор return [-Wreturn-type]
+  123 | }
+      | ^
+chat.cpp: In function «int main_()»:
+chat.cpp:151:18: ошибка: «chat» was not declared in this scope; did you mean «char»?
+  151 |         sw->chat=chat;
+      |                  ^~~~
+      |                  char
+chat.cpp:161:1: предупреждение: управление достигает конца не-void функции [-Wreturn-type]
+  161 | }
+      | ^
+make[2]: *** [Makefile:436: chat-chat.o] Ошибка 1
+make[1]: *** [Makefile:400: all-recursive] Ошибка 1
+make: *** [Makefile:332: all] Ошибка 2

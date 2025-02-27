@@ -33,7 +33,7 @@ void test(){
   check(true!=true, "true!=true==false");
 }
 
-
+using Чат = абстракция::Чат;
 
 
 
@@ -134,7 +134,7 @@ st:
     std::cin>>c;
 //c=1;
     ch=(choice)c;
-    Чат *chat;
+    //Чат *chat;
     Switch *sw= new Switch();
     switch(ch) {
 
@@ -146,9 +146,10 @@ st:
         spawnThreads();
         check();
         //--------------
-        if(check1()<1)sw->chat=sw->getPolicy(new NetServer);
-        else sw->chat=sw->getPolicy(new NetClient);
-        sw->run();
+        if(check1()<1)Чат *chat=sw->getPolicy(new NetServer);
+        else Чат *chat=sw->getPolicy(new NetClient);
+        sw->chat=chat;
+	sw->run();
 
         //default:
         //       goto st;

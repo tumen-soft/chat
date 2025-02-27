@@ -16,8 +16,16 @@
 #include <cstring>
 #include <unistd.h>  //close(), fread()
 //#define DEBUG
+#include <functional>
+int test(){};
+
+struct ClientTest{
+//int test(){};
+
+std::function<int()> test_=test;
 
 
+};
 
 extern "C"{
 int createSocket(void);
@@ -32,6 +40,7 @@ void sendmes(fd_set read_fd, int sock);
 }
 
 
+using Чат = абстракция::Чат;
 
 
 

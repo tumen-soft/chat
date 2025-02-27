@@ -1,8 +1,10 @@
+#include <source_location>
 #include <arpa/inet.h>  
 #include "server.h" 
 #include <vector>
-int main(void){
 
+int main(void){
+	std::source_location srcl = std::source_location::current();
 	ServerPolicy *pol= new TCPServerPolicy();
 	NetServer *ser_=new NetServer(pol);
 	ser_->createSocket();
