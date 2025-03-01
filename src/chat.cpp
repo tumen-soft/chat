@@ -66,7 +66,7 @@ class Switch {
 public:
     А *getPolicy(С *s) {
 
-        return new С(new TCPServerPolicy());
+        return new С(new TCPE());
 
     }
 
@@ -74,7 +74,7 @@ public:
 
     А *getPolicy(В *c) {
 
-        return (new В(new TCPClientPolicy()));
+        return (new В(new TCPD()));
 
     }
 
@@ -110,7 +110,7 @@ enum choice {
 
 А *getPolicy() {
 
-    return new С(new TCPServerPolicy());
+    return new С(new TCPE());
 
 }
 
@@ -118,7 +118,7 @@ enum choice {
 
 А *getPolicy1() {
 
-//return new Client(new TCPClientPolicy());
+//return new Client(new TCPD());
 
 }
 

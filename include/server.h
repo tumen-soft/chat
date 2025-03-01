@@ -30,12 +30,12 @@ void sendmes_();
 }
 
 
-class TCPServerPolicy;
-class ServerPolicy;
+class TCPE;
+class E;
 class С;
-class ServerPolicy:public NetNode{
+class E:public F{
         public:  
-        ServerPolicy(){};
+        E(){};
         virtual void _createSocket() = 0;
         //virtual void connectInit(const char* addr) = 0;
         virtual void connectInit(С *server) = 0;
@@ -48,42 +48,42 @@ class ServerPolicy:public NetNode{
 
 
 
-//typedef void (ServerPolicy::*func)(Server*);
+//typedef void (E::*func)(Server*);
 class С: public А{//Сетевой сервер
 	public:
 	С(){};
 	//void foo(func);
-	С(ServerPolicy *policy):serv(policy){}
+	С(E *policy):serv(policy){}
         void соединение() override{}
 
 	void создатьСокет()override{
-        //foo(&ServerPolicy::создатьСокет);
+        //foo(&E::создатьСокет);
         serv->_createSocket();
 	}; 
         //void connectInit(const char* addr) override{
 	//foo(&Server::connectInit);
 	//};
         void connectInit() override{
-        //foo(&ServerPolicy::connectInit);
+        //foo(&E::connectInit);
         };
         void selinit() override{
-        //foo(&ServerPolicy::selinit);
+        //foo(&E::selinit);
         }; 
         void sel() override{
-	//foo(&ServerPolicy::sel);
+	//foo(&E::sel);
 	};
         void conn() override{
-	//foo(&ServerPolicy::conn);
+	//foo(&E::conn);
 	}; 
         void sendmes() override{
-	//foo(&ServerPolicy::sendmes);
+	//foo(&E::sendmes);
 	};
-	ServerPolicy *serv;
+	E *serv;
 };
-class TCPServerPolicy:public ServerPolicy{
+class TCPE:public E{
 
 public:        
-TCPServerPolicy(){};
+TCPE(){};
 void _createSocket() override{
         //sock=(socket(AF_INET, SOCK_STREAM, 0));
         //if(sock)

@@ -30,9 +30,9 @@
 // идр.
 //namespace абстракция{
 
-class NetNode{//Этот класс абстракция сетевых даннных
+class F{//Этот класс абстракция сетевых даннных
 	public:
-        NetNode(){};
+        F(){};
 	int sock;
         struct sockaddr_in addres;///<Структура для хранения адреса и типа узла
         char buffer[MAXLINE]={0};///<Хранит сообщение

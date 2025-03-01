@@ -47,14 +47,14 @@ void sendmes(fd_set read_fd, int sock);
 
 
 
-class TCPClientPolicy;
-class ClientPolicy;
+class TCPD;
+class D;
 class ImplementationClient;
-class ClientPolicy: protected  NetNode{
+class D: protected  F{
         public:  
         //void setSock(int sock_){sock=sock_;}	
 	//int getSock(){return valread;}
-	ClientPolicy(){};
+	D(){};
         virtual void _createSocket() = 0;
         //virtual void connectInit(const char* addr) = 0;
         virtual void connectInit() = 0;
@@ -70,7 +70,7 @@ class В: public А{//Сетевой клиент
         public:
         В(){}
         //Client(const char* addr);
-        В(ClientPolicy *policy):clie((policy)){}
+        В(D *policy):clie((policy)){}
 	void соединение() override{}
 
 	void создатьСокет() override{
@@ -78,28 +78,28 @@ class В: public А{//Сетевой клиент
         }; 
         //void connectInit(const char* addr) override{};
         void connectInit() override{
-        //foo(&ClientPolicy::connectInit);
+        //foo(&D::connectInit);
 	};
         void selinit() override{
-	//foo(&ClientPolicy::selinit);
+	//foo(&D::selinit);
 	}; 
         void sel() override{
-        //foo(&ClientPolicy::sel);
+        //foo(&D::sel);
 	};
         void conn() override{
-        //foo(&ClientPolicy::conn);
+        //foo(&D::conn);
 	};
         void sendmes() override{
-        //foo(&ClientPolicy::sendmes);
+        //foo(&D::sendmes);
 	};
-        ClientPolicy *clie;
+        D *clie;
 };
 
 
-class TCPClientPolicy:public ClientPolicy{
+class TCPD:public D{
 
 public:        
-TCPClientPolicy(){};
+TCPD(){};
 void _createSocket() override{
 	Trace((stderr, __FUNCTION__));
         std::cout<<std::endl;
@@ -159,10 +159,10 @@ void sendmes() override{
 };
 
 /*
-class UDPClientPolicy:public ClientPolicy{
+class UDPD:public D{
 
 public:        
-UDPClientPolicy();
+UDPD();
 void создатьСокет(Client *client) override{ 
 	client->_sock()=(socket(AF_INET, SOCK_DGRAM, 0));
         if(client->_sock())
