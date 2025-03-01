@@ -28,7 +28,7 @@
 //сокет
 //адрес
 // идр.
-namespace абстракция{
+//namespace абстракция{
 
 class NetNode{//Этот класс абстракция сетевых даннных
 	public:
@@ -44,9 +44,9 @@ class NetNode{//Этот класс абстракция сетевых данн
         std::vector<std::pair<int, char*>> nicknames;       
 };
 
-class Чат{///<Интерфейсный класс
+class А{///<Интерфейсный класс
         public:
-        Чат()=default;///<Конструктор без параметров  \param void
+        А()=default;///<Конструктор без параметров  \param void
         virtual void соединение()=0;
 	//virtual void отправка()=0;
 	//virtual void прием()=0;
@@ -60,14 +60,14 @@ class Чат{///<Интерфейсный класс
 
 };
 
-class Тест:Чат{
+class Тест:А{
 
 
 
 
 };
 
-}
+//}
 
 
 

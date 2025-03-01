@@ -40,7 +40,7 @@ void sendmes(fd_set read_fd, int sock);
 }
 
 
-using Чат = абстракция::Чат;
+//using А = абстракция::А;
 
 
 
@@ -66,11 +66,11 @@ class ClientPolicy: protected  NetNode{
 	auto _valread()->int&{};
 };
 
-class NetClient: public Чат{//Сетевой клиент
+class В: public А{//Сетевой клиент
         public:
-        NetClient(){}
+        В(){}
         //Client(const char* addr);
-        NetClient(ClientPolicy *policy):clie((policy)){}
+        В(ClientPolicy *policy):clie((policy)){}
 	void соединение() override{}
 
 	void создатьСокет() override{

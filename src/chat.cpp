@@ -29,11 +29,11 @@ std::source_location::current()){
 }
 
 
-void test(){
-  check(true!=true, "true!=true==false");
-}
+//void test(){
+//  check(true!=true, "true!=true==false");
+//}
 
-using Чат = абстракция::Чат;
+//using А = абстракция::А;
 
 
 
@@ -64,17 +64,17 @@ int check1();
 
 class Switch {
 public:
-    Чат *getPolicy(NetServer *s) {
+    А *getPolicy(С *s) {
 
-        return new NetServer(new TCPServerPolicy());
+        return new С(new TCPServerPolicy());
 
     }
 
 
 
-    Чат *getPolicy(NetClient *c) {
+    А *getPolicy(В *c) {
 
-        return (new NetClient(new TCPClientPolicy()));
+        return (new В(new TCPClientPolicy()));
 
     }
 
@@ -98,7 +98,7 @@ public:
     }
 
 
-    Чат *chat;
+    А *chat;
 };
 
 
@@ -108,15 +108,15 @@ enum choice {
 };
 //std::ostream& os = std::cout;
 
-Чат *getPolicy() {
+А *getPolicy() {
 
-    return new NetServer(new TCPServerPolicy());
+    return new С(new TCPServerPolicy());
 
 }
 
 
 
-Чат *getPolicy1() {
+А *getPolicy1() {
 
 //return new Client(new TCPClientPolicy());
 
@@ -134,7 +134,7 @@ st:
     std::cin>>c;
 //c=1;
     ch=(choice)c;
-    //Чат *chat;
+    //А *chat;
     Switch *sw= new Switch();
     switch(ch) {
 
@@ -146,8 +146,8 @@ st:
         spawnThreads();
         check();
         //--------------
-        if(check1()<1)Чат *chat=sw->getPolicy(new NetServer);
-        else Чат *chat=sw->getPolicy(new NetClient);
+        if(check1()<1)А *chat=sw->getPolicy(new С);
+        else А *chat=sw->getPolicy(new В);
         sw->chat=chat;
 	sw->run();
 
